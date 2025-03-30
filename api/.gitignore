@@ -79,6 +79,11 @@ node_modules
 /packages/Microsoft.Net.Compilers.2.9.0/tools/Microsoft.Build.Tasks.CodeAnalysis.dll
 packages/*/src/*
 
+# Ignore appsettings
+appsettings*.json
+/appsettings*.json
+!/appsettings.template.json
+
 .idea
 
 #.http files
