@@ -26,8 +26,7 @@ public class DalUser
     public string LastName { get; set; }
 
     [Required]
-    [MaxLength(150)]
-    public string Role { get; set; }
+    public int RoleId { get; set; }
 
     [Required]
     public DateTime Created { get; set; }
