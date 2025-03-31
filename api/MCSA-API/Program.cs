@@ -69,6 +69,9 @@ public class Program
         builder.Services.AddScoped<IRepository<MissingPersonModerationQueue>, MissingPersonModerationQueueRepository>();
 
         builder.Services.AddControllers();
+
+        //TODO: Enable api versioning
+        //builder.Services.AddApiVersioning();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
