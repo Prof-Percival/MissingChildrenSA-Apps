@@ -1,4 +1,6 @@
-﻿namespace MCSA_API.Domain.Users;
+﻿using MCSA_API.Data.Entities;
+
+namespace MCSA_API.Domain.Users;
 
 public class User
 {
@@ -12,4 +14,18 @@ public class User
     public DateTime Updated { get; set; }
 
     public bool IsNew => !Id.HasValue;
+
+    public User() { }
+
+    public User(DalUser dalUser)
+    {
+        Id = dalUser.Id;
+        Username = dalUser.Username;
+        PasswordHash = dalUser.PasswordHash;
+        FirstName = dalUser.FirstName;
+        LastName = dalUser.LastName;
+        Role = (UserRole)dalUser.RoleId;
+        Created = dalUser.Created;
+        Updated = dalUser.Updated;
+    }
 }
