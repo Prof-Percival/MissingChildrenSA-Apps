@@ -1,4 +1,5 @@
 ﻿using MCSA_API.Domain.Security;
+using MCSA_API.Helpers;
 using MCSA_API.Models.Users;
 using Microsoft.AspNetCore.Identity;
 
@@ -78,5 +79,30 @@ public class UserService(
         await userRepository.UpsertAsync(user);
 
         return new Tuple<string, User>(null, user);
+    }
+
+    public async Task<PagedUsersResult> GetUsersAsync(int pageNumber, int pageSize)
+    {
+        var allUsers = await userRepository.GetAllAsync();
+
+        var totalCount = allUsers.Count();
+
+        var users = allUsers
+            .Skip(PageHelper.CalculateSkip(pageSize, pageNumber))
+            .Take(pageSize)
+            .ToList();
+
+        return new PagedUsersResult
+        {
+            TotalCount = totalCount,
+            PageNumber = pageNumber,
+            PageSize = pageSize,
+            Users = users
+        };
+    }
+
+    public async Task<User> GetUserByUsernameAsync(string username)
+    {
+        return await userRepository.GetByUsernameAsync(username);
     }
 }
