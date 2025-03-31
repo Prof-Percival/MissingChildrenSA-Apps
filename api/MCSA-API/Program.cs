@@ -50,6 +50,23 @@ public class Program
                     ValidIssuer = jwtSettings.Issuer,
                     ValidAudience = jwtSettings.Audience
                 };
+
+                //Uncomment to debug JWT Validations
+                options.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = context =>
+                    {
+                        // Log authentication errors
+                        Console.WriteLine($"Authentication failed: {context.Exception.Message}");
+                        return Task.CompletedTask;
+                    },
+                    OnTokenValidated = context =>
+                    {
+                        // Log token validated
+                        Console.WriteLine($"Token validated for: {context.Principal.Identity.Name}");
+                        return Task.CompletedTask;
+                    }
+                };
             });
 
         // Register IHttpContextAccessor for accessing the HTTP context
