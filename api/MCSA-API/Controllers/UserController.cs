@@ -73,7 +73,7 @@ public class UserController(
 
     [HttpGet("list")]
     [Produces(typeof(PagedUsersResponse))]
-    public async Task<IActionResult> GetUsers([FromBody] GetUsersRequest request)
+    public async Task<IActionResult> GetUsers([FromQuery] GetUsersRequest request)
     {
         if (request.PageNumber < 1 || request.PageSize < 1)
         {
