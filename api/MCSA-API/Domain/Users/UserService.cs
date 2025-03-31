@@ -1,4 +1,5 @@
 ﻿using MCSA_API.Domain.Security;
+using MCSA_API.Models.Users;
 using Microsoft.AspNetCore.Identity;
 
 namespace MCSA_API.Domain.Users;
@@ -29,13 +30,53 @@ public class UserService(
         return jwtHelper.GenerateJwtToken(user.Id.Value, user.Role);
     }
 
-    public async Task<User> CreateUserAsync(User user, string password)
+    public async Task<Tuple<string, User>> CreateUserAsync(CreateUserRequest request)
     {
+        // Check if the user already exists
+        var existingUser = await userRepository.GetByUsernameAsync(request.Username);
+
+        if (existingUser != null)
+        {
+            return new Tuple<string, User>("User with this username already exists.", null);
+        }
+
+        var user = new User
+        {
+            Username = request.Username,
+            FirstName = request.FirstName,
+            LastName = request.LastName,
+            Role = request.UserRole.Value
+        };
+
         // Hash and Salt the password before saving
-        user.PasswordHash = _passwordHasher.HashPassword(user, password);
+        user.PasswordHash = _passwordHasher.HashPassword(user, request.Password);
 
         await userRepository.UpsertAsync(user);
 
-        return user;
+        return new Tuple<string, User>(null, user);
+    }
+
+    public async Task<Tuple<string, User>> UpdateUserAsync(int userId, UpdateUserRequest request)
+    {
+        var user = await userRepository.GetByIdAsync(userId);
+
+        if (user == null)
+        {
+            return new Tuple<string, User>("User not found.", null);
+        }
+
+        user.FirstName = request.FirstName;
+        user.LastName = request.LastName;
+        user.Role = request.UserRole.Value;
+
+        // If password is provided, update it
+        if (!string.IsNullOrWhiteSpace(request.Password))
+        {
+            user.PasswordHash = _passwordHasher.HashPassword(user, request.Password);
+        }
+
+        await userRepository.UpsertAsync(user);
+
+        return new Tuple<string, User>(null, user);
     }
 }
