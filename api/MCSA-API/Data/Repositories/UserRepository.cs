@@ -7,8 +7,20 @@ namespace MCSA_API.Data.Repositories;
 
 public class UserRepository(
     MCSAContext context,
-    IDateProvider dateProvider) : IRepository<User>
+    IDateProvider dateProvider) : IUserRepository
 {
+    public async Task<User> GetByUsernameAsync(string username)
+    {
+        var dalUser = await context.User.SingleOrDefaultAsync(u => u.Username == username);
+
+        if (dalUser == null)
+        {
+            return null;
+        }
+
+        return new User(dalUser);
+    }
+
     public async Task<User> GetByIdAsync(int id)
     {
         var dalUser = await context.User.FindAsync(id);
