@@ -1,4 +1,6 @@
-﻿namespace MCSA_API.Domain.Moderation;
+﻿using MCSA_API.Data.Entities;
+
+namespace MCSA_API.Domain.Moderation;
 
 public sealed class MissingPersonModerationQueue
 {
@@ -10,4 +12,17 @@ public sealed class MissingPersonModerationQueue
     public string ModerationStatusReason { get; set; }
     public int MissingPersonId { get; set; }
     public bool IsNew => !Id.HasValue;
+
+    public MissingPersonModerationQueue() { }
+
+    public MissingPersonModerationQueue(DalMissingPersonModerationQueue queue)
+    {
+        Id = queue.Id;
+        Created = queue.Created;
+        Updated = queue.Updated;
+        ModeratedByUserId = queue.ModeratedByUserId;
+        ModerationStatus = (ModerationStatus)queue.ModerationStatusId;
+        ModerationStatusReason = queue.ModerationStatusReason;
+        MissingPersonId = queue.MissingPersonId;
+    }
 }
