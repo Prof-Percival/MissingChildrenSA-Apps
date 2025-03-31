@@ -23,16 +23,13 @@ public class DalMissingPerson
     public DateTime DateOfBirth { get; set; }
 
     [Required]
-    [MaxLength(50)]
-    public string Gender { get; set; }
+    public int GenderId { get; set; }
 
     [Required]
-    [MaxLength(20)]
-    public string Race { get; set; }
+    public int RaceId { get; set; }
 
     [Required]
-    [MaxLength(20)]
-    public string Province { get; set; }
+    public int ProvinceId { get; set; }
 
     [Required]
     public DateTime DateWentMissing { get; set; }

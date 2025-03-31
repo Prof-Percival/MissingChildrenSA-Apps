@@ -49,9 +49,9 @@ public class MissingPersonRepository(
         dalMissingPerson.FirstName = entity.FirstName;
         dalMissingPerson.LastName = entity.LastName;
         dalMissingPerson.DateOfBirth = entity.DateOfBirth;
-        dalMissingPerson.Gender = entity.Gender;
-        dalMissingPerson.Race = entity.Race;
-        dalMissingPerson.Province = entity.Province;
+        dalMissingPerson.GenderId = (int)entity.Gender;
+        dalMissingPerson.RaceId = (int)entity.Race;
+        dalMissingPerson.ProvinceId = (int)entity.Province;
         dalMissingPerson.DateWentMissing = entity.DateWentMissing;
         dalMissingPerson.HairColour = entity.HairColour;
         dalMissingPerson.HairLengthOrStyle = entity.HairLengthOrStyle;

@@ -9,9 +9,9 @@ public class MissingPerson
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public DateTime DateOfBirth { get; set; }
-    public string Gender { get; set; }
-    public string Race { get; set; }
-    public string Province { get; set; }
+    public Gender Gender { get; set; }
+    public Race Race { get; set; }
+    public Province Province { get; set; }
     public DateTime DateWentMissing { get; set; }
     public string HairColour { get; set; }
     public string HairLengthOrStyle { get; set; }
@@ -45,9 +45,9 @@ public class MissingPerson
         FirstName = dalMissingPerson.FirstName;
         LastName = dalMissingPerson.LastName;
         DateOfBirth = dalMissingPerson.DateOfBirth;
-        Gender = dalMissingPerson.Gender;
-        Race = dalMissingPerson.Race;
-        Province = dalMissingPerson.Province;
+        Gender = (Gender)dalMissingPerson.GenderId;
+        Race = (Race)dalMissingPerson.RaceId;
+        Province = (Province)dalMissingPerson.ProvinceId;
         DateWentMissing = dalMissingPerson.DateWentMissing;
         HairColour = dalMissingPerson.HairColour;
         HairLengthOrStyle = dalMissingPerson.HairLengthOrStyle;
