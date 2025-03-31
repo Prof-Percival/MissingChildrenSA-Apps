@@ -1,4 +1,5 @@
-﻿using MCSA_API.Domain.Moderation;
+﻿using MCSA_API.Data.Entities;
+using MCSA_API.Domain.Moderation;
 
 namespace MCSA_API.Domain.MissingPersons;
 
@@ -35,4 +36,39 @@ public class MissingPerson
     public int? LastEditedByUserId { get; set; }
 
     public bool IsNew => !Id.HasValue;
+
+    public MissingPerson() { }
+
+    public MissingPerson(DalMissingPerson dalMissingPerson)
+    {
+        Id = dalMissingPerson.Id;
+        FirstName = dalMissingPerson.FirstName;
+        LastName = dalMissingPerson.LastName;
+        DateOfBirth = dalMissingPerson.DateOfBirth;
+        Gender = dalMissingPerson.Gender;
+        Race = dalMissingPerson.Race;
+        Province = dalMissingPerson.Province;
+        DateWentMissing = dalMissingPerson.DateWentMissing;
+        HairColour = dalMissingPerson.HairColour;
+        HairLengthOrStyle = dalMissingPerson.HairLengthOrStyle;
+        EyeColour = dalMissingPerson.EyeColour;
+        Height = dalMissingPerson.Height;
+        Weight = dalMissingPerson.Weight;
+        MarksTattoos = dalMissingPerson.MarksTattoos;
+        LastSeenWearing = dalMissingPerson.LastSeenWearing;
+        LocationLastSeen = dalMissingPerson.LocationLastSeen;
+        DetailsOfDisappearance = dalMissingPerson.DetailsOfDisappearance;
+        ImageUrl = dalMissingPerson.ImageUrl;
+        PoliceStation = dalMissingPerson.PoliceStation;
+        CaseNumber = dalMissingPerson.CaseNumber;
+        InvestigatingOfficer = dalMissingPerson.InvestigatingOfficer;
+        InvestigatingOfficerContactNumber = dalMissingPerson.InvestigatingOfficerContactNumber;
+        FamilyContactName = dalMissingPerson.FamilyContactName;
+        FamilyContactNumber = dalMissingPerson.FamilyContactNumber;
+        Status = (MissingPersonStatus)dalMissingPerson.StatusId;
+        Created = dalMissingPerson.Created;
+        Updated = dalMissingPerson.Updated;
+        ModerationStatus = (ModerationStatus)dalMissingPerson.ModerationStatusId;
+        LastEditedByUserId = dalMissingPerson.LastEditedByUserId;
+    }
 }
