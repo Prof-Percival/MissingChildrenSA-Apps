@@ -96,11 +96,14 @@ public class Program
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
+
+        app.UseSwagger();
+        // Enabling Swagger UI in both Development and Production environments
+        app.UseSwaggerUI(c =>
         {
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MCSA API v1"));
-        }
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "MCSA API v1");
+            //c.RoutePrefix = string.Empty; // Optional: If you want to access Swagger at root (/), not /swagger
+        });
 
         app.UseHttpsRedirection();
 
