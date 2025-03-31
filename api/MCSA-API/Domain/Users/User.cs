@@ -1,4 +1,5 @@
 ﻿using MCSA_API.Data.Entities;
+using MCSA_API.Helpers;
 
 namespace MCSA_API.Domain.Users;
 
@@ -9,6 +10,7 @@ public class User
     public string PasswordHash { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
+    public string FullName => FormattingHelper.AsFullName(FirstName, LastName);
     public UserRole Role { get; set; }
     public DateTime Created { get; set; }
     public DateTime Updated { get; set; }
