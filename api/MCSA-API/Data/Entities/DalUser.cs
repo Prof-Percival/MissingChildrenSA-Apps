@@ -15,6 +15,7 @@ public class DalUser
     public string Username { get; set; }
 
     [Required]
+    [MaxLength(256)]
     public string PasswordHash { get; set; }
 
     [Required]
