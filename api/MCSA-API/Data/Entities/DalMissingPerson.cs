@@ -1,5 +1,4 @@
-﻿using MCSA_API.Domain.MissingPersons;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MCSA_API.Data.Entities;
@@ -102,7 +101,7 @@ public class DalMissingPerson
 
     [Required]
     [MaxLength(100)]
-    public MissingPersonStatus StatusId { get; set; }
+    public int StatusId { get; set; }
 
     [Required]
     public DateTime Created { get; set; }
