@@ -21,15 +21,14 @@ public class UserController(
             return BadRequest("One or more fields have validation errors.");
         }
 
-        var user = new User
-        {
-            Username = request.Username,
-            FirstName = request.FirstName,
-            LastName = request.LastName,
-            Role = request.UserRole.Value
-        };
+        var result = await userService.CreateUserAsync(request);
 
-        var newUser = await userService.CreateUserAsync(user, request.Password);
+        if (result.Item1 != null)
+        {
+            return BadRequest(result.Item1);
+        }
+
+        var newUser = result.Item2;
 
         return Ok(new CreateUserResponse
         {
