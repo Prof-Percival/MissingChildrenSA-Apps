@@ -75,6 +75,8 @@ public class MissingPersonRepository(
         context.MissingPerson.Update(dalMissingPerson);
 
         await context.SaveChangesAsync();
+
+        entity.Id = dalMissingPerson.Id;
     }
 
     public async Task DeleteAsync(int id)

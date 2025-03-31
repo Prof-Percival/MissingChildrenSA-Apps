@@ -68,6 +68,8 @@ public class UserRepository(
         context.User.Update(dalUser);
 
         await context.SaveChangesAsync();
+
+        entity.Id = dalUser.Id;
     }
 
     public async Task DeleteAsync(int id)

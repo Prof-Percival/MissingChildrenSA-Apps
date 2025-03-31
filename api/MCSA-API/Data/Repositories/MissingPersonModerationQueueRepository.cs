@@ -55,6 +55,8 @@ public class MissingPersonModerationQueueRepository(
         context.MissingPersonModerationQueue.Update(dalMissingPersonModerationQueue);
 
         await context.SaveChangesAsync();
+
+        entity.Id = dalMissingPersonModerationQueue.Id;
     }
 
     public async Task DeleteAsync(int id)
