@@ -95,4 +95,18 @@ public class UserController(
             Users = result.Users.ConvertAll(user => new GetUserResponse(user))
         });
     }
+
+    [HttpGet("{username}")]
+    [Produces(typeof(GetUserResponse))]
+    public async Task<IActionResult> GetUser(string username)
+    {
+        var result = await userService.GetUserByUsernameAsync(username);
+
+        if (result == null)
+        {
+            return NotFound("User not found.");
+        }
+
+        return Ok(new GetUserResponse(result));
+    }
 }
