@@ -52,7 +52,7 @@ public class Program
                 };
 
                 //Uncomment to debug JWT Validations
-                options.Events = new JwtBearerEvents
+                /*options.Events = new JwtBearerEvents
                 {
                     OnAuthenticationFailed = context =>
                     {
@@ -66,7 +66,7 @@ public class Program
                         Console.WriteLine($"Token validated for: {context.Principal.Identity.Name}");
                         return Task.CompletedTask;
                     }
-                };
+                };*/
             });
 
         // Register IHttpContextAccessor for accessing the HTTP context
