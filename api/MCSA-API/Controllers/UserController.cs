@@ -70,4 +70,29 @@ public class UserController(
             Updated = FormattingHelper.FormatDateTime(updatedUser.Updated)
         });
     }
+
+    [HttpGet("list")]
+    [Produces(typeof(PagedUsersResponse))]
+    public async Task<IActionResult> GetUsers([FromBody] GetUsersRequest request)
+    {
+        if (request.PageNumber < 1 || request.PageSize < 1)
+        {
+            return BadRequest("Page number and page size must be greater than 0.");
+        }
+
+        var result = await userService.GetUsersAsync(request.PageNumber, request.PageSize);
+
+        if (result == null || result.Users.Count == 0)
+        {
+            return NotFound("No users found.");
+        }
+
+        return Ok(new PagedUsersResponse
+        {
+            TotalCount = result.TotalCount,
+            PageNumber = result.PageNumber,
+            PageSize = result.PageSize,
+            Users = result.Users.ConvertAll(user => new GetUserResponse(user))
+        });
+    }
 }
