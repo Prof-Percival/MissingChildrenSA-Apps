@@ -88,3 +88,8 @@ appsettings*.json
 
 #.http files
 *.http
+
+
+# Publish Profile
+/MCSA-API/Properties/PublishProfiles
+/MCSA-API/Properties/ServiceDependencies
