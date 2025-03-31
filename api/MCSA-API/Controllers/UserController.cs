@@ -82,11 +82,6 @@ public class UserController(
 
         var result = await userService.GetUsersAsync(request.PageNumber, request.PageSize);
 
-        if (result == null || result.Users.Count == 0)
-        {
-            return NotFound("No users found.");
-        }
-
         return Ok(new PagedUsersResponse
         {
             TotalCount = result.TotalCount,
