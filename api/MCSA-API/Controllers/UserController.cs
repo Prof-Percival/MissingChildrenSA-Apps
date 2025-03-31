@@ -40,4 +40,34 @@ public class UserController(
             Created = FormattingHelper.FormatDateTime(newUser.Created)
         });
     }
+
+    [HttpPut("update/{userId}")]
+    [Produces(typeof(UpdateUserResponse))]
+    public async Task<IActionResult> UpdateUser(int userId, [FromBody] UpdateUserRequest request)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest("One or more fields have validation errors.");
+        }
+
+        var result = await userService.UpdateUserAsync(userId, request);
+
+        if (result.Item1 != null)
+        {
+            return NotFound(result.Item1);
+        }
+
+        var updatedUser = result.Item2;
+
+        return Ok(new UpdateUserResponse
+        {
+            Id = updatedUser.Id.Value,
+            Username = updatedUser.Username,
+            FirstName = updatedUser.FirstName,
+            LastName = updatedUser.LastName,
+            UserRole = updatedUser.Role.GetBestDescription(),
+            Created = FormattingHelper.FormatDateTime(updatedUser.Created),
+            Updated = FormattingHelper.FormatDateTime(updatedUser.Updated)
+        });
+    }
 }
