@@ -72,6 +72,7 @@ public class UserRepository(
         entity.Id = dalUser.Id;
         entity.Created = dalUser.Created;
         entity.Updated = dalUser.Updated;
+        entity.Role = (UserRole)dalUser.RoleId;
     }
 
     public async Task DeleteAsync(int id)
