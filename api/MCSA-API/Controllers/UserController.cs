@@ -104,4 +104,18 @@ public class UserController(
 
         return Ok(new GetUserResponse(result));
     }
+
+    [HttpGet("id/{userId}")]
+    [Produces(typeof(GetUserResponse))]
+    public async Task<IActionResult> GetUserById(int userId)
+    {
+        var result = await userService.GetUserByIdAsync(userId);
+
+        if (result == null)
+        {
+            return NotFound("User not found.");
+        }
+
+        return Ok(new GetUserResponse(result));
+    }
 }
