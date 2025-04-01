@@ -91,9 +91,9 @@ public class UserController(
         });
     }
 
-    [HttpGet("{username}")]
+    [HttpGet("username/{username}")]
     [Produces(typeof(GetUserResponse))]
-    public async Task<IActionResult> GetUser(string username)
+    public async Task<IActionResult> GetUserByUsername(string username)
     {
         var result = await userService.GetUserByUsernameAsync(username);
 
