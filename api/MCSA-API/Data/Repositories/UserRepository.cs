@@ -51,8 +51,6 @@ public class UserRepository(
             dalUser = new DalUser
             {
                 Username = entity.Username,
-                PasswordHash = entity.PasswordHash,
-                RoleId = (int)entity.Role,
                 Created = now
             };
         }
@@ -63,6 +61,8 @@ public class UserRepository(
 
         dalUser.FirstName = entity.FirstName;
         dalUser.LastName = entity.LastName;
+        dalUser.PasswordHash = entity.PasswordHash;
+        dalUser.RoleId = (int)entity.Role;
         dalUser.Updated = now;
 
         context.User.Update(dalUser);
