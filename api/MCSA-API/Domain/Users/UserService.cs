@@ -21,7 +21,7 @@ public class UserService(
         }
 
         // Verify password
-        var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(new User(), user.PasswordHash, password);
+        var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, password);
 
         if (passwordVerificationResult == PasswordVerificationResult.Failed)
         {
