@@ -9,4 +9,5 @@ public interface IUserService
     Task<Tuple<string, User>> UpdateUserAsync(int userId, UpdateUserRequest request);
     Task<PagedUsersResult> GetUsersAsync(int pageNumber, int pageSize);
     Task<User> GetUserByUsernameAsync(string username);
+    Task<User> GetUserByIdAsync(int userId);
 }
