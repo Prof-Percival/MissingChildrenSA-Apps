@@ -6,7 +6,7 @@ namespace MCSA_API.Models.MissingPersons;
 
 public sealed class GetMissingPersonResponse
 {
-    public int? Id { get; init; }
+    public int Id { get; init; }
     public string FirstName { get; init; }
     public string LastName { get; init; }
     public DateTime DateOfBirth { get; init; }
@@ -38,7 +38,7 @@ public sealed class GetMissingPersonResponse
 
     public GetMissingPersonResponse(MissingPerson missingPerson)
     {
-        Id = missingPerson.Id;
+        Id = missingPerson.Id.Value;
         FirstName = missingPerson.FirstName;
         LastName = missingPerson.LastName;
         DateOfBirth = missingPerson.DateOfBirth;
