@@ -1,6 +1,7 @@
 ﻿using MCSA_API.Domain.MissingPersons;
 using MCSA_API.Domain.Moderation;
 using MCSA_API.Models.MissingPersons;
+using MCSA_API.Models.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -48,6 +49,6 @@ public class MissingPersonController(
 
         if (result == null) return NotFound("Missing person not found.");
 
-        return Ok(new GetMissingPersonResponse(result));
+        return Ok(new MissingPersonModel(result));
     }
 }

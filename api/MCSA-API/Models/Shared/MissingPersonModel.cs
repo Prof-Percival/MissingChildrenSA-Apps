@@ -2,9 +2,9 @@
 using MCSA_API.Domain.MissingPersons;
 using MCSA_API.Domain.Moderation;
 
-namespace MCSA_API.Models.MissingPersons;
+namespace MCSA_API.Models.Shared;
 
-public sealed class GetMissingPersonResponse
+public sealed class MissingPersonModel
 {
     public int Id { get; init; }
     public string FirstName { get; init; }
@@ -36,7 +36,7 @@ public sealed class GetMissingPersonResponse
     public ModerationStatus ModerationStatus { get; init; }
     public int? LastEditedByUserId { get; init; }
 
-    public GetMissingPersonResponse(MissingPerson missingPerson)
+    public MissingPersonModel(MissingPerson missingPerson)
     {
         Id = missingPerson.Id.Value;
         FirstName = missingPerson.FirstName;
