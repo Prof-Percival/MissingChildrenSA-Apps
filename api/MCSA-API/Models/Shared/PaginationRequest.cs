@@ -1,6 +1,6 @@
-﻿namespace MCSA_API.Models.Users;
+﻿namespace MCSA_API.Models.Shared;
 
-public sealed class GetUsersRequest
+public sealed class PaginationRequest
 {
     public int PageNumber { get; init; } = 1;
     public int PageSize { get; init; } = 10;

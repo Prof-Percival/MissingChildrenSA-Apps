@@ -1,5 +1,6 @@
 using MCSA_API.Domain.Users;
 using MCSA_API.Helpers;
+using MCSA_API.Models.Shared;
 using MCSA_API.Models.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -73,7 +74,7 @@ public class UserController(
 
     [HttpGet("list")]
     [Produces(typeof(PagedUsersResponse))]
-    public async Task<IActionResult> GetUsers([FromQuery] GetUsersRequest request)
+    public async Task<IActionResult> GetUsers([FromQuery] PaginationRequest request)
     {
         if (request.PageNumber < 1 || request.PageSize < 1)
         {
