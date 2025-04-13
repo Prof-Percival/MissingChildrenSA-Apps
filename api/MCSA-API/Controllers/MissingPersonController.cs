@@ -12,7 +12,7 @@ namespace MCSA_API.Controllers;
 [Route("api/[controller]")]
 [Authorize(Roles = "SuperUser,OperationalSupport")]
 public class MissingPersonController(
-    IMissingPersonService missingPersonService) : ControllerBase
+    IMissingPersonService missingPersonService) : BaseApiController
 {
     [HttpPost("create")]
     [AllowAnonymous]

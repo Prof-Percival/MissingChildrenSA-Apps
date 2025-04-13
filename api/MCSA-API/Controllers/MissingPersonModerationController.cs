@@ -11,7 +11,7 @@ namespace MCSA_API.Controllers;
 [Route("api/[controller]")]
 [Authorize(Roles = "SuperUser,OperationalSupport")]
 public class MissingPersonModerationController(
-    IModerationService service) : ControllerBase
+    IModerationService service) : BaseApiController
 {
     [HttpGet("queue")]
     [Produces(typeof(ModerationQueuePagedResponse))]
