@@ -1,13 +1,15 @@
 ﻿using MCSA_API.Data.Entities;
 using MCSA_API.Domain.Dates;
 using MCSA_API.Domain.MissingPersons;
+using MCSA_API.Domain.Security;
 using Microsoft.EntityFrameworkCore;
 
 namespace MCSA_API.Data.Repositories;
 
 public class MissingPersonRepository(
     MCSAContext context,
-    IDateProvider dateProvider) : IRepository<MissingPerson>
+    IDateProvider dateProvider,
+    ICurrentUserService currentUserService) : IRepository<MissingPerson>
 {
     public async Task<MissingPerson> GetByIdAsync(int id)
     {
@@ -71,6 +73,7 @@ public class MissingPersonRepository(
         dalMissingPerson.StatusId = (int)entity.Status;
         dalMissingPerson.Updated = now;
         dalMissingPerson.ModerationStatusId = (int)entity.ModerationStatus;
+        dalMissingPerson.LastEditedByUserId = currentUserService.GetUserId();
 
         context.MissingPerson.Update(dalMissingPerson);
 
