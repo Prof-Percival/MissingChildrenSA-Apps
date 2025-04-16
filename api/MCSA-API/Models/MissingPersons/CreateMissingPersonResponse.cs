@@ -5,9 +5,9 @@ namespace MCSA_API.Models.MissingPersons;
 
 public sealed class CreateMissingPersonResponse
 {
-    public int Id { get; init; }
-    public string Status { get; init; }
-    public string ModerationStatus { get; init; }
+    public int Id { get; }
+    public string Status { get; }
+    public string ModerationStatus { get; }
 
     public CreateMissingPersonResponse(MissingPerson missingPerson)
     {
