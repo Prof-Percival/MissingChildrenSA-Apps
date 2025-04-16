@@ -1,18 +1,18 @@
 ﻿using MCSA_API.Domain.MissingPersons;
-using MCSA_API.Domain.Moderation;
+using MCSA_API.Helpers;
 
 namespace MCSA_API.Models.MissingPersons;
 
 public sealed class CreateMissingPersonResponse
 {
     public int Id { get; init; }
-    public MissingPersonStatus Status { get; init; }
-    public ModerationStatus ModerationStatus { get; init; }
+    public string Status { get; init; }
+    public string ModerationStatus { get; init; }
 
     public CreateMissingPersonResponse(MissingPerson missingPerson)
     {
         Id = missingPerson.Id.Value;
-        Status = missingPerson.Status;
-        ModerationStatus = missingPerson.ModerationStatus;
+        Status = missingPerson.Status.GetBestDescription();
+        ModerationStatus = missingPerson.ModerationStatus.GetBestDescription();
     }
 }
