@@ -36,10 +36,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(861, 468);
             Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FrmMain";
-            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Missing Children SA";
             ResumeLayout(false);
