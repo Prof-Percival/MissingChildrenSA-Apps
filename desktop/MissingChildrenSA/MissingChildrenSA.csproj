@@ -6,6 +6,11 @@
     <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Images\32x32-Favicon-Missing-Children-SA.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Images\32x32-Favicon-Missing-Children-SA.ico" />
+  </ItemGroup>
 
 </Project>
