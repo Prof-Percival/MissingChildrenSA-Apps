@@ -35,6 +35,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(247, 247, 247);
             ClientSize = new Size(861, 468);
             Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
