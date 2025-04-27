@@ -1,8 +1,8 @@
 namespace MissingChildrenSA
 {
-    public partial class FrmMain : Form
+    public partial class MainForm : Form
     {
-        public FrmMain()
+        public MainForm()
         {
             InitializeComponent();
         }
