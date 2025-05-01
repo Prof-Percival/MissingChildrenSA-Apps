@@ -1,0 +1,31 @@
+{
+  "runtime": "Net80",
+  "codeGenerators": {
+    "openApiToCSharpClient": {
+      "className": "ApiClient",
+      "namespace": "MissingChildrenSA",
+      "output": "ApiClient.cs",
+      "clientBaseClass": "",
+      "generateClientClasses": true,
+      "generateClientInterfaces": false,
+      "injectHttpClient": true,
+      "disposeHttpClient": false,
+      "useHttpClientCreationMethod": false,
+      "httpClientType": "System.Net.Http.HttpClient",
+      "useHttpRequestMessageCreationMethod": false,
+      "useBaseUrl": true,
+      "generateBaseUrlProperty": true,
+      "generateSyncMethods": false,
+      "exposeJsonSerializerSettings": false,
+      "clientClassAccessModifier": "public",
+      "typeAccessModifier": "public",
+      "generateContractsOutput": false,
+      "generateOptionalParameters": true,
+      "generateDefaultValues": true,
+      "wrapDtoExceptions": true,
+      "exceptionClass": "ApiException",
+      "operationGenerationMode": "SingleClientFromOperationId",
+      "input": "https://mcsa-backend.azurewebsites.net/swagger/v1/swagger.json"
+    }
+  }
+}
