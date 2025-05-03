@@ -12,7 +12,7 @@ public sealed class TokenProvider : ITokenProvider
 
     public bool SetPrincipal(Principal principal)
     {
-        if (principal == null)
+        if (_principal == null)
         {
             _principal = principal;
 
