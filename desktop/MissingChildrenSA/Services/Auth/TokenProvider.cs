@@ -1,6 +1,6 @@
 ﻿namespace MissingChildrenSA.Services.Auth;
 
-public static class AuthService
+public static class TokenProvider
 {
     private static string _token;
     private static DateTime _tokenExpiry;
