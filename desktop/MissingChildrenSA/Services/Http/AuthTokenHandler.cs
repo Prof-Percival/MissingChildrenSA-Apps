@@ -2,13 +2,13 @@
 
 namespace MissingChildrenSA.Services.Http;
 
-public class AuthTokenHandler : DelegatingHandler
+public class AuthTokenHandler(ITokenProvider tokenProvider) : DelegatingHandler
 {
     protected override async Task<HttpResponseMessage> SendAsync(
         HttpRequestMessage request,
         CancellationToken cancellationToken)
     {
-        var token = AuthService.Token;
+        var token = tokenProvider.Token;
 
         if (!string.IsNullOrEmpty(token))
         {
