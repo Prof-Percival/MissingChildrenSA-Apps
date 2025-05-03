@@ -1,16 +1,16 @@
 ﻿namespace MissingChildrenSA.Services.Auth;
 
-public static class TokenProvider
+public sealed class TokenProvider : ITokenProvider
 {
-    private static string _token;
-    private static DateTime _tokenExpiry;
-    private static Principal _principal;
+    private Principal _principal;
 
-    public static bool IsAuthenticated => _principal != null && !string.IsNullOrWhiteSpace(_principal.Token);
-    public static string Token => GetToken();
-    public static string Role => GetRole();
+    public bool IsAuthenticated =>
+        _principal != null && !string.IsNullOrWhiteSpace(_principal.Token) && !IsTokenExpired();
 
-    public static bool SetPrincipal(Principal principal)
+    public string Token => GetToken();
+    public string Role => GetRole();
+
+    public bool SetPrincipal(Principal principal)
     {
         if (principal == null)
         {
@@ -22,68 +22,46 @@ public static class TokenProvider
         return false;
     }
 
-    public static Principal GetPrincipal()
+    public Principal GetPrincipal()
     {
         return _principal;
     }
 
-    // Get the token if it's still valid, else return null
-    private static string GetToken()
-    {
-        var principal = GetPrincipal();
-
-        if (principal == null ||
-            string.IsNullOrWhiteSpace(principal.Token) ||
-            IsTokenExpired())
-        {
-            // Token is either not set or expired, log out the user
-            Logout();
-
-            return null;
-        }
-
-        return principal.Token;
-    }
-
-    // Get the current user's role if token it's still valid, else return null
-    private static string GetRole()
-    {
-        var principal = GetPrincipal();
-
-        if (principal == null ||
-            string.IsNullOrWhiteSpace(principal.Token) ||
-            string.IsNullOrWhiteSpace(principal.Role) ||
-            IsTokenExpired())
-        {
-            // Token is either not set or expired, log out the user
-            Logout();
-
-            return null;
-        }
-
-        return principal.Role;
-    }
-
-    // Check if the token is expired
-    private static bool IsTokenExpired()
-    {
-        return DateTime.Now >= GetPrincipal()?.TokenExpiry;
-    }
-
-    /*
-    // Log out the user by clearing the token and forcing them to log in again
-    public static void Logout()
-    {
-        _token = null;
-        _tokenExpiry = DateTime.MinValue;
-        // Redirect to login screen
-        Application.OpenForms["LoginForm"]?.Show();
-        Application.OpenForms["MainForm"]?.Close(); // Close the main form if it's open
-    }*/
-
-    public static void Logout()
+    public void Logout()
     {
         _principal = null;
+    }
+
+    private string GetToken()
+    {
+        if (_principal == null ||
+            string.IsNullOrWhiteSpace(_principal.Token) ||
+            IsTokenExpired())
+        {
+            Logout();
+
+            return null;
+        }
+
+        return _principal.Token;
+    }
+
+    private string GetRole()
+    {
+        if (_principal == null ||
+            string.IsNullOrWhiteSpace(_principal.Role) ||
+            IsTokenExpired())
+        {
+            Logout();
+            return null;
+        }
+
+        return _principal.Role;
+    }
+
+    private bool IsTokenExpired()
+    {
+        return _principal != null && DateTime.Now >= _principal.TokenExpiry;
     }
 }
 
