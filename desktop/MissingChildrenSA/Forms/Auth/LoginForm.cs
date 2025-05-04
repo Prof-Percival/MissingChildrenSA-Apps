@@ -1,5 +1,4 @@
-﻿using MissingChildrenSA.Models.Auth;
-using MissingChildrenSA.Services.Auth;
+﻿using MissingChildrenSA.Services.Auth;
 
 namespace MissingChildrenSA.Forms.Auth;
 
@@ -44,16 +43,8 @@ public partial class LoginForm : Form
                 TokenExpiry = authResponse.TokenExpiry.DateTime
             });
 
-            // Store username and role (for checking user permissions)
-            //Properties.Settings.Default.Username = username;
-            //Properties.Settings.Default.UserRole = loginResponse.Role;
-            //Properties.Settings.Default.Save();
-
             // Hide MainForm, LoginForm and Navigate to the Dashboard
             Close();
-
-            //var dashboardForm = new DashboardForm();
-            //dashboardForm.Show();
         }
         else
         {
