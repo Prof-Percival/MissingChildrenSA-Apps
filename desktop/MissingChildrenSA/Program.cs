@@ -5,6 +5,7 @@ using MissingChildrenSA.Forms.Auth;
 using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Services.Auth;
 using MissingChildrenSA.Services.Http;
+using MissingChildrenSA.Services.Users;
 
 namespace MissingChildrenSA;
 
@@ -35,6 +36,7 @@ internal static class Program
                 services.AddSingleton<ITokenProvider, TokenProvider>();
                 services.AddTransient<AuthTokenHandler>();
                 services.AddSingleton<EnumLoader>();
+                services.AddSingleton<CurrentUserService>();
 
                 // Register HttpClient + NSwag-generated client
                 services.AddHttpClient<ApiClient>()
