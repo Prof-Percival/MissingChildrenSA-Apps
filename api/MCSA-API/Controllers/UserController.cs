@@ -1,3 +1,4 @@
+using MCSA_API.Domain.Security;
 using MCSA_API.Domain.Users;
 using MCSA_API.Helpers;
 using MCSA_API.Models.Shared;
@@ -11,7 +12,8 @@ namespace MCSA_API.Controllers;
 [Route("api/[controller]")]
 [Authorize(Roles = "SuperUser")]
 public class UserController(
-    IUserService userService) : BaseApiController
+    IUserService userService,
+    ICurrentUserService currentUserService) : BaseApiController
 {
     [HttpPost("create")]
     [Produces(typeof(CreateUserResponse))]
@@ -118,5 +120,15 @@ public class UserController(
         }
 
         return Ok(new GetUserResponse(result));
+    }
+
+    [Authorize] // Just requires login - override role-based auth
+    [HttpGet("me")]
+    [Produces(typeof(CurrentUserModel))]
+    public async Task<ActionResult<CurrentUserModel>> GetCurrentUserAsync()
+    {
+        var user = await currentUserService.GetUserAsync();
+
+        return Ok(new CurrentUserModel(user));
     }
 }
