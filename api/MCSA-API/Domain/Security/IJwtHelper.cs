@@ -4,5 +4,5 @@ namespace MCSA_API.Domain.Security;
 
 public interface IJwtHelper
 {
-    string GenerateJwtToken(int userId, UserRole userRole);
+    Tuple<string, DateTime> GenerateJwtToken(int userId, UserRole userRole);
 }

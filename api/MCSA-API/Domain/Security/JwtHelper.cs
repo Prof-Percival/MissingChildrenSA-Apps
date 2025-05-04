@@ -21,7 +21,7 @@ public class JwtHelper : IJwtHelper
         _dateProvider = dateProvider;
     }
 
-    public string GenerateJwtToken(int userId, UserRole userRole)
+    public Tuple<string, DateTime> GenerateJwtToken(int userId, UserRole userRole)
     {
         var claims = new Claim[]
         {
@@ -34,14 +34,18 @@ public class JwtHelper : IJwtHelper
 
         var tokenHandler = new JwtSecurityTokenHandler();
 
+        var expires = _dateProvider.GetDate().AddMinutes(_jwtSettings.ExpirationMinutes);
+
         var token = new JwtSecurityToken(
             _jwtSettings.Issuer,
             _jwtSettings.Audience,
             claims,
-            expires: _dateProvider.GetDate().AddMinutes(_jwtSettings.ExpirationMinutes),
+            expires: expires,
             signingCredentials: creds
         );
 
-        return tokenHandler.WriteToken(token);
+        var jwt = tokenHandler.WriteToken(token);
+
+        return Tuple.Create(jwt, expires);
     }
 }
