@@ -21,7 +21,7 @@ public class JwtHelper : IJwtHelper
         _dateProvider = dateProvider;
     }
 
-    public Tuple<string, DateTime> GenerateJwtToken(int userId, UserRole userRole)
+    public Tuple<string, string, DateTime> GenerateJwtToken(int userId, UserRole userRole)
     {
         var claims = new Claim[]
         {
@@ -46,6 +46,6 @@ public class JwtHelper : IJwtHelper
 
         var jwt = tokenHandler.WriteToken(token);
 
-        return Tuple.Create(jwt, expires);
+        return Tuple.Create(jwt, userRole.ToString(), expires);
     }
 }
