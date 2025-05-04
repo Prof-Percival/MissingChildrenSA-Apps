@@ -32,16 +32,16 @@ public partial class LoginForm : Form
         }
 
         // Send login request to the API
-        var loginResponse = await AuthenticateUserAsync(username, password);
+        var authResponse = await AuthenticateUserAsync(username, password);
 
-        if (loginResponse != null)
+        if (authResponse != null)
         {
             // Save JWT token for subsequent requests
             _tokenProvider.SetPrincipal(new Principal
             {
-                Token = loginResponse.Token,
-                Role = loginResponse.Role,
-                TokenExpiry = DateTime.Now.AddHours(3)
+                Token = authResponse.Token,
+                Role = authResponse.Role,
+                TokenExpiry = authResponse.TokenExpiry.DateTime
             });
 
             // Store username and role (for checking user permissions)
@@ -61,7 +61,7 @@ public partial class LoginForm : Form
         }
     }
 
-    private async Task<LoginResponse> AuthenticateUserAsync(string username, string password)
+    private async Task<AuthenticateResponse> AuthenticateUserAsync(string username, string password)
     {
         var authRequest = new AuthenticateRequest
         {
@@ -70,12 +70,7 @@ public partial class LoginForm : Form
         };
         try
         {
-            var response = await _apiClient.AuthenticateAsync(authRequest);
-
-            return new LoginResponse
-            {
-                Token = response.Token
-            };
+            return await _apiClient.AuthenticateAsync(authRequest);
         }
         catch (ApiException)
         {
