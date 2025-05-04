@@ -2,6 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MissingChildrenSA.Forms;
 using MissingChildrenSA.Forms.Auth;
+using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Services.Auth;
 using MissingChildrenSA.Services.Http;
 
@@ -33,6 +34,7 @@ internal static class Program
             {
                 services.AddSingleton<ITokenProvider, TokenProvider>();
                 services.AddTransient<AuthTokenHandler>();
+                services.AddSingleton<EnumLoader>();
 
                 // Register HttpClient + NSwag-generated client
                 services.AddHttpClient<ApiClient>()
