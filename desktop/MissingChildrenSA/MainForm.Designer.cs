@@ -34,12 +34,18 @@
             // 
             // BtnLogin
             // 
-            BtnLogin.Location = new Point(761, 3);
+            BtnLogin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnLogin.BackColor = Color.FromArgb(237, 31, 39);
+            BtnLogin.Cursor = Cursors.Hand;
+            BtnLogin.FlatStyle = FlatStyle.Popup;
+            BtnLogin.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnLogin.ForeColor = Color.White;
+            BtnLogin.Location = new Point(763, -1);
             BtnLogin.Name = "BtnLogin";
             BtnLogin.Size = new Size(99, 28);
             BtnLogin.TabIndex = 0;
             BtnLogin.Text = "Login";
-            BtnLogin.UseVisualStyleBackColor = true;
+            BtnLogin.UseVisualStyleBackColor = false;
             BtnLogin.Click += BtnLogin_Click;
             // 
             // MainForm
