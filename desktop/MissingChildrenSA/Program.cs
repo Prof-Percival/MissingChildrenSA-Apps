@@ -46,7 +46,7 @@ internal static class Program
                 {
                     var factory = sp.GetRequiredService<IHttpClientFactory>();
                     var httpClient = factory.CreateClient(nameof(ApiClient));
-                    return new ApiClient(Constants.BaseUrl, httpClient);
+                    return new ApiClient(Constants.ApiBaseUrl, httpClient);
                 });
 
                 // Forms

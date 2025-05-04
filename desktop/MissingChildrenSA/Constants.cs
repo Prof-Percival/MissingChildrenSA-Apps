@@ -2,5 +2,5 @@
 
 public static class Constants
 {
-    public static string BaseUrl = "https://mcsa-backend.azurewebsites.net";
+    public static string ApiBaseUrl = "https://mcsa-backend.azurewebsites.net";
 }
