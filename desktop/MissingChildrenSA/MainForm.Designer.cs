@@ -29,9 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            BtnLogin = new Button();
             SuspendLayout();
             // 
-            // FrmMain
+            // BtnLogin
+            // 
+            BtnLogin.Location = new Point(761, 3);
+            BtnLogin.Name = "BtnLogin";
+            BtnLogin.Size = new Size(99, 28);
+            BtnLogin.TabIndex = 0;
+            BtnLogin.Text = "Login";
+            BtnLogin.UseVisualStyleBackColor = true;
+            BtnLogin.Click += BtnLogin_Click;
+            // 
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -39,16 +50,19 @@
             BackgroundImage = Properties.Resources._1220x650_Lost_Boy_MCSA;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(861, 468);
+            Controls.Add(BtnLogin);
             Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            Name = "FrmMain";
+            Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Missing Children SA";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button BtnLogin;
     }
 }
