@@ -18,14 +18,16 @@ public class AuthController(
             return BadRequest("Username or password is required.");
         }
 
-        var token = await userService.AuthenticateUserAsync(model.Username, model.Password);
+        var (token, role, expiryDate) = await userService.AuthenticateUserAsync(model.Username, model.Password);
 
         if (token == null)
             return Unauthorized("Invalid username or password.");
 
         return Ok(new AuthenticateResponse
         {
-            Token = token
+            Token = token,
+            Role = role,
+            TokenExpiry = expiryDate
         });
     }
 }
