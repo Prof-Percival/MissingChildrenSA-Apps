@@ -32,6 +32,8 @@ public sealed class TokenProvider : ITokenProvider
         _principal = null;
     }
 
+    public bool IsSuperUser() => IsAuthenticated && Role == Constants.SuperUser;
+
     private string GetToken()
     {
         if (_principal == null ||

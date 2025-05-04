@@ -8,4 +8,5 @@ public interface ITokenProvider
     Principal GetPrincipal();
     bool SetPrincipal(Principal principal);
     void Logout();
+    bool IsSuperUser();
 }
