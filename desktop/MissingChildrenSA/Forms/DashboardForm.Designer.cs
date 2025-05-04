@@ -34,7 +34,11 @@ partial class DashboardForm
         PanProfile = new Panel();
         PanHeader = new Panel();
         PanMain = new Panel();
+        PicUser = new PictureBox();
+        LblUserName = new Label();
         TabPanMain.SuspendLayout();
+        PanProfile.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)PicUser).BeginInit();
         SuspendLayout();
         // 
         // TabPanMain
@@ -59,37 +63,66 @@ partial class DashboardForm
         // 
         PanNavigationMenu.BorderStyle = BorderStyle.FixedSingle;
         PanNavigationMenu.Dock = DockStyle.Fill;
-        PanNavigationMenu.Location = new Point(3, 85);
+        PanNavigationMenu.Location = new Point(0, 82);
+        PanNavigationMenu.Margin = new Padding(0);
         PanNavigationMenu.Name = "PanNavigationMenu";
-        PanNavigationMenu.Size = new Size(152, 422);
+        PanNavigationMenu.Size = new Size(158, 428);
         PanNavigationMenu.TabIndex = 0;
         // 
         // PanProfile
         // 
         PanProfile.BorderStyle = BorderStyle.FixedSingle;
+        PanProfile.Controls.Add(LblUserName);
+        PanProfile.Controls.Add(PicUser);
         PanProfile.Dock = DockStyle.Fill;
-        PanProfile.Location = new Point(3, 3);
+        PanProfile.Location = new Point(0, 0);
+        PanProfile.Margin = new Padding(0);
         PanProfile.Name = "PanProfile";
-        PanProfile.Size = new Size(152, 76);
+        PanProfile.Size = new Size(158, 82);
         PanProfile.TabIndex = 1;
         // 
         // PanHeader
         // 
         PanHeader.BorderStyle = BorderStyle.FixedSingle;
         PanHeader.Dock = DockStyle.Fill;
-        PanHeader.Location = new Point(161, 3);
+        PanHeader.Location = new Point(158, 0);
+        PanHeader.Margin = new Padding(0);
         PanHeader.Name = "PanHeader";
-        PanHeader.Size = new Size(750, 76);
+        PanHeader.Size = new Size(756, 82);
         PanHeader.TabIndex = 2;
         // 
         // PanMain
         // 
         PanMain.BorderStyle = BorderStyle.FixedSingle;
         PanMain.Dock = DockStyle.Fill;
-        PanMain.Location = new Point(161, 85);
+        PanMain.Location = new Point(158, 82);
+        PanMain.Margin = new Padding(0);
         PanMain.Name = "PanMain";
-        PanMain.Size = new Size(750, 422);
+        PanMain.Size = new Size(756, 428);
         PanMain.TabIndex = 3;
+        // 
+        // PicUser
+        // 
+        PicUser.Image = Properties.Resources.user;
+        PicUser.Location = new Point(52, 0);
+        PicUser.Name = "PicUser";
+        PicUser.Size = new Size(42, 42);
+        PicUser.SizeMode = PictureBoxSizeMode.StretchImage;
+        PicUser.TabIndex = 0;
+        PicUser.TabStop = false;
+        // 
+        // LblUserName
+        // 
+        LblUserName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        LblUserName.AutoEllipsis = true;
+        LblUserName.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblUserName.Location = new Point(3, 45);
+        LblUserName.Name = "LblUserName";
+        LblUserName.RightToLeft = RightToLeft.No;
+        LblUserName.Size = new Size(151, 14);
+        LblUserName.TabIndex = 0;
+        LblUserName.Text = "Phadima Percival Maredi";
+        LblUserName.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // DashboardForm
         // 
@@ -106,6 +139,8 @@ partial class DashboardForm
         FormClosed += DashboardForm_FormClosed;
         Load += DashboardForm_Load;
         TabPanMain.ResumeLayout(false);
+        PanProfile.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)PicUser).EndInit();
         ResumeLayout(false);
     }
 
@@ -116,4 +151,6 @@ partial class DashboardForm
     private Panel PanProfile;
     private Panel PanHeader;
     private Panel PanMain;
+    private PictureBox PicUser;
+    private Label LblUserName;
 }
