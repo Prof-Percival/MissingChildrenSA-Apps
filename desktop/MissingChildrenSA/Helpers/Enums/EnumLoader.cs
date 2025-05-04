@@ -12,12 +12,26 @@ public sealed class EnumLoader(
 
     public async Task LoadEnumsAsync()
     {
-        Genders = (await apiClient.GendersAsync()).Select(Map).ToList();
-        MissingPersonStatuses = (await apiClient.MissingPersonStatusesAsync()).Select(Map).ToList();
-        ModerationStatuses = (await apiClient.ModerationStatusesAsync()).Select(Map).ToList();
-        Provinces = (await apiClient.ProvincesAsync()).Select(Map).ToList();
-        Races = (await apiClient.RacesAsync()).Select(Map).ToList();
-        UserRoles = (await apiClient.RolesAsync()).Select(Map).ToList();
+        await LoadSafeAsync(apiClient.GendersAsync, values => Genders = values);
+        await LoadSafeAsync(apiClient.MissingPersonStatusesAsync, values => MissingPersonStatuses = values);
+        await LoadSafeAsync(apiClient.ModerationStatusesAsync, values => ModerationStatuses = values);
+        await LoadSafeAsync(apiClient.ProvincesAsync, values => Provinces = values);
+        await LoadSafeAsync(apiClient.RacesAsync, values => Races = values);
+        await LoadSafeAsync(apiClient.RolesAsync, values => UserRoles = values);
+    }
+
+    private async Task LoadSafeAsync(Func<Task<ICollection<EnumValueResponse>>> apiCall, Action<List<EnumValue>> assign)
+    {
+        try
+        {
+            var result = await apiCall();
+
+            assign(result.Select(Map).ToList());
+        }
+        catch (ApiException ex)
+        {
+            MessageBox.Show($"Error loading enums: {ex.Message}", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 
     private EnumValue Map(EnumValueResponse enumValueResponse)
