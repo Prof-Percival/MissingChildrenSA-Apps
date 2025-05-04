@@ -11,7 +11,7 @@ public class UserService(
 {
     private readonly PasswordHasher<User> _passwordHasher = new PasswordHasher<User>();
 
-    public async Task<string> AuthenticateUserAsync(string username, string password)
+    public async Task<Tuple<string, string, DateTime>> AuthenticateUserAsync(string username, string password)
     {
         var user = await userRepository.GetByUsernameAsync(username);
 
