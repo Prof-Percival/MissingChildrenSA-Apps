@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MissingChildrenSA.Forms;
 using MissingChildrenSA.Forms.Auth;
 using MissingChildrenSA.Services.Auth;
 using MissingChildrenSA.Services.Http;
@@ -47,6 +48,7 @@ internal static class Program
                 // Forms
                 services.AddTransient<MainForm>();
                 services.AddTransient<LoginForm>();
+                services.AddTransient<DashboardForm>();
             });
     }
 }
