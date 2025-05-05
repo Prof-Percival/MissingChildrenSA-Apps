@@ -80,4 +80,9 @@ public partial class ViewUsersForm : Form
             MessageBox.Show($"Delete clicked for user: {selectedUser.Username}", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
+
+    private async void PicRefresh_Click(object sender, EventArgs e)
+    {
+        await LoadUsersAsync();
+    }
 }

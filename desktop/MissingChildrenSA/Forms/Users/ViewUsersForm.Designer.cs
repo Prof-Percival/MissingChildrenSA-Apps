@@ -36,7 +36,6 @@ partial class ViewUsersForm
         PicRefresh = new PictureBox();
         PicAddUser = new PictureBox();
         DgvUsers = new DataGridView();
-        MainTooltip = new ToolTip(components);
         DgvColId = new DataGridViewTextBoxColumn();
         DgvColUsername = new DataGridViewTextBoxColumn();
         DgvColFirstName = new DataGridViewTextBoxColumn();
@@ -46,6 +45,7 @@ partial class ViewUsersForm
         DgvColUpdated = new DataGridViewTextBoxColumn();
         DgvColEditButton = new DataGridViewButtonColumn();
         DgvColDeleteButton = new DataGridViewButtonColumn();
+        MainTooltip = new ToolTip(components);
         PanMain.SuspendLayout();
         TabPanMainContainer.SuspendLayout();
         TabPanHeader.SuspendLayout();
@@ -106,6 +106,7 @@ partial class ViewUsersForm
         PicRefresh.TabIndex = 1;
         PicRefresh.TabStop = false;
         MainTooltip.SetToolTip(PicRefresh, "Refresh");
+        PicRefresh.Click += PicRefresh_Click;
         // 
         // PicAddUser
         // 
