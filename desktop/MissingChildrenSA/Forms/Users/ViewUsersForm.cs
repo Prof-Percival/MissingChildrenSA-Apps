@@ -6,7 +6,7 @@ namespace MissingChildrenSA.Forms.Users;
 public partial class ViewUsersForm : Form
 {
     private List<UserModel> _users = [];
-    private UserModel _selectedUser;
+    internal UserModel _selectedUser;
 
     private readonly ApiClient _apiClient;
     private readonly IServiceProvider _serviceProvider;
@@ -74,15 +74,15 @@ public partial class ViewUsersForm : Form
         // Extract the username or any other info you want
         var id = int.Parse(row.Cells["DgvColId"].Value.ToString());
 
-        var selectedUser = _users.Single(x => x.Id == id);
+        _selectedUser = _users.Single(x => x.Id == id);
 
         if (DgvUsers.Columns[e.ColumnIndex].Name == "DgvColEditButton")
         {
-            MessageBox.Show($"Edit clicked for user: {selectedUser.Username}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Edit clicked for user: {_selectedUser.Username}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         else if (DgvUsers.Columns[e.ColumnIndex].Name == "DgvColDeleteButton")
         {
-            MessageBox.Show($"Delete clicked for user: {selectedUser.Username}", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show($"Delete clicked for user: {_selectedUser.Username}", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 
