@@ -101,6 +101,7 @@ partial class CreateUserForm
         BtnAddUser.TabIndex = 6;
         BtnAddUser.Text = "Add";
         BtnAddUser.UseVisualStyleBackColor = false;
+        BtnAddUser.Click += BtnAddUser_Click;
         // 
         // CreateUserForm
         // 
