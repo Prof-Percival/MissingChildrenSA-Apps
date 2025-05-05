@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MissingChildrenSA.Forms.Users;
 using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Models.Users;
 using MissingChildrenSA.Services.Auth;
@@ -109,6 +110,13 @@ public partial class DashboardForm : Form
         {
             Application.Exit();
         }
+    }
+
+    private void LblViewUsers_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        var viewUsersForm = _serviceProvider.GetRequiredService<ViewUsersForm>();
+
+        viewUsersForm.ShowDialog();
     }
 
     private static void OpenLink(string pathOrUrl, bool fullUrl = false)

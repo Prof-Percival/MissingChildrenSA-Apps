@@ -215,6 +215,7 @@ partial class DashboardForm
         LblViewUsers.TabStop = true;
         LblViewUsers.Text = "View Users";
         LblViewUsers.TextAlign = ContentAlignment.MiddleLeft;
+        LblViewUsers.LinkClicked += LblViewUsers_LinkClicked;
         // 
         // LblCreateUser
         // 
