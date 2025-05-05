@@ -95,6 +95,8 @@ public partial class ViewUsersForm : Form
     {
         using var createUserForm = _serviceProvider.GetRequiredService<CreateUserForm>();
 
+        createUserForm.UserAddedEventHandler += async (s, e) => await LoadUsersAsync(); // Refresh users when added
+
         createUserForm.ShowDialog();
     }
 }
