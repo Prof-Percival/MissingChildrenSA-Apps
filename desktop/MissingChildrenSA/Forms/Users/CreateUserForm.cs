@@ -6,6 +6,8 @@ public partial class CreateUserForm : Form
     private readonly EnumLoader _enumLoader;
     private readonly ApiClient _apiClient;
 
+    public event EventHandler UserAddedEventHandler;
+
     public CreateUserForm(
         EnumLoader enumLoader,
         ApiClient apiClient)
@@ -70,6 +72,8 @@ public partial class CreateUserForm : Form
             };
 
             var response = _apiClient.Create2Async(request);
+
+            UserAddedEventHandler?.Invoke(this, EventArgs.Empty);
         }
         catch (ApiException ex)
         {
