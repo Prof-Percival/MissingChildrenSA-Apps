@@ -70,7 +70,7 @@ public partial class ViewUsersForm : Form
         var row = DgvUsers.Rows[e.RowIndex];
 
         // Extract the username or any other info you want
-        var id = int.Parse(row.Cells["Id"].Value.ToString());
+        var id = int.Parse(row.Cells["DgvColId"].Value.ToString());
 
         var selectedUser = _users.Single(x => x.Id == id);
 
