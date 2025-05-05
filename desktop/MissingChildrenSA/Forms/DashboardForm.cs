@@ -93,6 +93,8 @@ public partial class DashboardForm : Form
         {
             var mainForm = _serviceProvider.GetRequiredService<MainForm>();
 
+            _tokenProvider.Logout();
+
             Hide();
 
             mainForm.Show();
