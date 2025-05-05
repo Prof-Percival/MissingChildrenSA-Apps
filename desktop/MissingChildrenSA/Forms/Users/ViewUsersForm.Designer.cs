@@ -60,7 +60,7 @@ partial class ViewUsersForm
         PanMain.Dock = DockStyle.Fill;
         PanMain.Location = new Point(0, 0);
         PanMain.Name = "PanMain";
-        PanMain.Size = new Size(914, 510);
+        PanMain.Size = new Size(954, 501);
         PanMain.TabIndex = 0;
         // 
         // TabPanMainContainer
@@ -76,7 +76,7 @@ partial class ViewUsersForm
         TabPanMainContainer.RowCount = 2;
         TabPanMainContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 9F));
         TabPanMainContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 91F));
-        TabPanMainContainer.Size = new Size(914, 510);
+        TabPanMainContainer.Size = new Size(954, 501);
         TabPanMainContainer.TabIndex = 0;
         // 
         // TabPanHeader
@@ -130,7 +130,7 @@ partial class ViewUsersForm
         DgvUsers.Location = new Point(3, 48);
         DgvUsers.Name = "DgvUsers";
         DgvUsers.ReadOnly = true;
-        DgvUsers.Size = new Size(908, 459);
+        DgvUsers.Size = new Size(948, 450);
         DgvUsers.TabIndex = 2;
         DgvUsers.CellContentClick += DgvUsers_CellContentClick;
         // 
@@ -139,24 +139,28 @@ partial class ViewUsersForm
         DgvColId.HeaderText = "Id";
         DgvColId.Name = "DgvColId";
         DgvColId.ReadOnly = true;
+        DgvColId.Width = 60;
         // 
         // DgvColUsername
         // 
         DgvColUsername.HeaderText = "Username";
         DgvColUsername.Name = "DgvColUsername";
         DgvColUsername.ReadOnly = true;
+        DgvColUsername.Width = 200;
         // 
         // DgvColFirstName
         // 
         DgvColFirstName.HeaderText = "First Name";
         DgvColFirstName.Name = "DgvColFirstName";
         DgvColFirstName.ReadOnly = true;
+        DgvColFirstName.Width = 150;
         // 
         // DgvColLastName
         // 
         DgvColLastName.HeaderText = "Last Name";
         DgvColLastName.Name = "DgvColLastName";
         DgvColLastName.ReadOnly = true;
+        DgvColLastName.Width = 150;
         // 
         // DgvColRole
         // 
@@ -169,12 +173,14 @@ partial class ViewUsersForm
         DgvColCreated.HeaderText = "Created";
         DgvColCreated.Name = "DgvColCreated";
         DgvColCreated.ReadOnly = true;
+        DgvColCreated.Width = 120;
         // 
         // DgvColUpdated
         // 
         DgvColUpdated.HeaderText = "Updated";
         DgvColUpdated.Name = "DgvColUpdated";
         DgvColUpdated.ReadOnly = true;
+        DgvColUpdated.Width = 120;
         // 
         // DgvColEditButton
         // 
@@ -197,7 +203,7 @@ partial class ViewUsersForm
         AutoScaleDimensions = new SizeF(8F, 17F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(914, 510);
+        ClientSize = new Size(954, 501);
         Controls.Add(PanMain);
         Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         FormBorderStyle = FormBorderStyle.FixedDialog;
