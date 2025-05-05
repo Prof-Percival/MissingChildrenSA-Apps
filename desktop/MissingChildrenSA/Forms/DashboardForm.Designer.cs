@@ -28,9 +28,24 @@ partial class DashboardForm
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
         TabPanMain = new TableLayoutPanel();
         PanNavigationMenu = new Panel();
+        TabPanNavigation = new TableLayoutPanel();
+        TabPanLogoutExit = new TableLayoutPanel();
+        PicExit = new PictureBox();
+        PicLogout = new PictureBox();
+        LblViewUsers = new LinkLabel();
+        LblCreateUser = new LinkLabel();
+        LblManageUsersMenu = new Label();
+        linkLabel1 = new LinkLabel();
+        LblModerationQueue = new LinkLabel();
+        LblModerationMenu = new Label();
+        LblViewGrid = new LinkLabel();
+        LblViewDetails = new LinkLabel();
+        LblReportPerson = new LinkLabel();
+        LblMissingPersonsMenu = new Label();
         PanProfile = new Panel();
         TabPanUserProfile = new TableLayoutPanel();
         LblUserRole = new Label();
@@ -38,6 +53,7 @@ partial class DashboardForm
         LblUserName = new Label();
         PanHeader = new Panel();
         TabPanHeader = new TableLayoutPanel();
+        BtnReportNow = new Button();
         BtnDonate = new Button();
         LblContact = new LinkLabel();
         LblChildSafety = new LinkLabel();
@@ -46,7 +62,13 @@ partial class DashboardForm
         PicLogo = new PictureBox();
         LblHome = new LinkLabel();
         PanMain = new Panel();
+        MainTooltip = new ToolTip(components);
         TabPanMain.SuspendLayout();
+        PanNavigationMenu.SuspendLayout();
+        TabPanNavigation.SuspendLayout();
+        TabPanLogoutExit.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)PicExit).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)PicLogout).BeginInit();
         PanProfile.SuspendLayout();
         TabPanUserProfile.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)PicUser).BeginInit();
@@ -76,12 +98,282 @@ partial class DashboardForm
         // PanNavigationMenu
         // 
         PanNavigationMenu.BorderStyle = BorderStyle.FixedSingle;
+        PanNavigationMenu.Controls.Add(TabPanNavigation);
         PanNavigationMenu.Dock = DockStyle.Fill;
         PanNavigationMenu.Location = new Point(0, 76);
         PanNavigationMenu.Margin = new Padding(0);
         PanNavigationMenu.Name = "PanNavigationMenu";
         PanNavigationMenu.Size = new Size(158, 434);
         PanNavigationMenu.TabIndex = 0;
+        // 
+        // TabPanNavigation
+        // 
+        TabPanNavigation.ColumnCount = 1;
+        TabPanNavigation.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+        TabPanNavigation.Controls.Add(TabPanLogoutExit, 0, 17);
+        TabPanNavigation.Controls.Add(LblViewUsers, 0, 9);
+        TabPanNavigation.Controls.Add(LblCreateUser, 0, 8);
+        TabPanNavigation.Controls.Add(LblManageUsersMenu, 0, 7);
+        TabPanNavigation.Controls.Add(linkLabel1, 0, 6);
+        TabPanNavigation.Controls.Add(LblModerationQueue, 0, 5);
+        TabPanNavigation.Controls.Add(LblModerationMenu, 0, 4);
+        TabPanNavigation.Controls.Add(LblViewGrid, 0, 3);
+        TabPanNavigation.Controls.Add(LblViewDetails, 0, 2);
+        TabPanNavigation.Controls.Add(LblReportPerson, 0, 1);
+        TabPanNavigation.Controls.Add(LblMissingPersonsMenu, 0, 0);
+        TabPanNavigation.Dock = DockStyle.Fill;
+        TabPanNavigation.Location = new Point(0, 0);
+        TabPanNavigation.Name = "TabPanNavigation";
+        TabPanNavigation.RowCount = 18;
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Percent, 5.555555F));
+        TabPanNavigation.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+        TabPanNavigation.Size = new Size(156, 432);
+        TabPanNavigation.TabIndex = 0;
+        // 
+        // TabPanLogoutExit
+        // 
+        TabPanLogoutExit.ColumnCount = 2;
+        TabPanLogoutExit.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        TabPanLogoutExit.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        TabPanLogoutExit.Controls.Add(PicExit, 1, 0);
+        TabPanLogoutExit.Controls.Add(PicLogout, 0, 0);
+        TabPanLogoutExit.Dock = DockStyle.Fill;
+        TabPanLogoutExit.Location = new Point(3, 377);
+        TabPanLogoutExit.Name = "TabPanLogoutExit";
+        TabPanLogoutExit.RowCount = 1;
+        TabPanNavigation.SetRowSpan(TabPanLogoutExit, 2);
+        TabPanLogoutExit.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        TabPanLogoutExit.Size = new Size(150, 52);
+        TabPanLogoutExit.TabIndex = 0;
+        // 
+        // PicExit
+        // 
+        PicExit.Anchor = AnchorStyles.None;
+        PicExit.Cursor = Cursors.Hand;
+        PicExit.Image = Properties.Resources.exit;
+        PicExit.Location = new Point(92, 6);
+        PicExit.Margin = new Padding(0);
+        PicExit.MaximumSize = new Size(40, 40);
+        PicExit.MinimumSize = new Size(40, 40);
+        PicExit.Name = "PicExit";
+        PicExit.Size = new Size(40, 40);
+        PicExit.SizeMode = PictureBoxSizeMode.StretchImage;
+        PicExit.TabIndex = 2;
+        PicExit.TabStop = false;
+        MainTooltip.SetToolTip(PicExit, "Exit");
+        PicExit.Click += PicExit_Click;
+        // 
+        // PicLogout
+        // 
+        PicLogout.Anchor = AnchorStyles.None;
+        PicLogout.Cursor = Cursors.Hand;
+        PicLogout.Image = Properties.Resources.logout;
+        PicLogout.Location = new Point(17, 6);
+        PicLogout.Margin = new Padding(0);
+        PicLogout.MaximumSize = new Size(40, 40);
+        PicLogout.MinimumSize = new Size(40, 40);
+        PicLogout.Name = "PicLogout";
+        PicLogout.Size = new Size(40, 40);
+        PicLogout.SizeMode = PictureBoxSizeMode.StretchImage;
+        PicLogout.TabIndex = 1;
+        PicLogout.TabStop = false;
+        MainTooltip.SetToolTip(PicLogout, "Logout");
+        PicLogout.Click += PicLogout_Click;
+        // 
+        // LblViewUsers
+        // 
+        LblViewUsers.AutoEllipsis = true;
+        LblViewUsers.AutoSize = true;
+        LblViewUsers.BackColor = Color.Gainsboro;
+        LblViewUsers.Dock = DockStyle.Fill;
+        LblViewUsers.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblViewUsers.LinkBehavior = LinkBehavior.HoverUnderline;
+        LblViewUsers.LinkColor = Color.Black;
+        LblViewUsers.Location = new Point(0, 198);
+        LblViewUsers.Margin = new Padding(0);
+        LblViewUsers.Name = "LblViewUsers";
+        LblViewUsers.Padding = new Padding(12, 0, 0, 0);
+        LblViewUsers.Size = new Size(156, 22);
+        LblViewUsers.TabIndex = 10;
+        LblViewUsers.TabStop = true;
+        LblViewUsers.Text = "View Users";
+        LblViewUsers.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblCreateUser
+        // 
+        LblCreateUser.AutoEllipsis = true;
+        LblCreateUser.AutoSize = true;
+        LblCreateUser.BackColor = Color.Gainsboro;
+        LblCreateUser.Dock = DockStyle.Fill;
+        LblCreateUser.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblCreateUser.LinkBehavior = LinkBehavior.HoverUnderline;
+        LblCreateUser.LinkColor = Color.Black;
+        LblCreateUser.Location = new Point(0, 176);
+        LblCreateUser.Margin = new Padding(0, 0, 0, 3);
+        LblCreateUser.Name = "LblCreateUser";
+        LblCreateUser.Padding = new Padding(12, 0, 0, 0);
+        LblCreateUser.Size = new Size(156, 19);
+        LblCreateUser.TabIndex = 9;
+        LblCreateUser.TabStop = true;
+        LblCreateUser.Text = "Create User";
+        LblCreateUser.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblManageUsersMenu
+        // 
+        LblManageUsersMenu.AutoSize = true;
+        LblManageUsersMenu.BackColor = Color.Black;
+        LblManageUsersMenu.Dock = DockStyle.Fill;
+        LblManageUsersMenu.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblManageUsersMenu.ForeColor = Color.White;
+        LblManageUsersMenu.Location = new Point(0, 154);
+        LblManageUsersMenu.Margin = new Padding(0);
+        LblManageUsersMenu.Name = "LblManageUsersMenu";
+        LblManageUsersMenu.Size = new Size(156, 22);
+        LblManageUsersMenu.TabIndex = 8;
+        LblManageUsersMenu.Text = "Manage Users";
+        LblManageUsersMenu.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // linkLabel1
+        // 
+        linkLabel1.AutoEllipsis = true;
+        linkLabel1.AutoSize = true;
+        linkLabel1.BackColor = Color.Gainsboro;
+        linkLabel1.Dock = DockStyle.Fill;
+        linkLabel1.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        linkLabel1.LinkBehavior = LinkBehavior.HoverUnderline;
+        linkLabel1.LinkColor = Color.Black;
+        linkLabel1.Location = new Point(0, 132);
+        linkLabel1.Margin = new Padding(0);
+        linkLabel1.Name = "linkLabel1";
+        linkLabel1.Padding = new Padding(12, 0, 0, 0);
+        linkLabel1.Size = new Size(156, 22);
+        linkLabel1.TabIndex = 7;
+        linkLabel1.TabStop = true;
+        linkLabel1.Text = "Queue Stats";
+        linkLabel1.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblModerationQueue
+        // 
+        LblModerationQueue.AutoEllipsis = true;
+        LblModerationQueue.AutoSize = true;
+        LblModerationQueue.BackColor = Color.Gainsboro;
+        LblModerationQueue.Dock = DockStyle.Fill;
+        LblModerationQueue.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblModerationQueue.LinkBehavior = LinkBehavior.HoverUnderline;
+        LblModerationQueue.LinkColor = Color.Black;
+        LblModerationQueue.Location = new Point(0, 110);
+        LblModerationQueue.Margin = new Padding(0, 0, 0, 3);
+        LblModerationQueue.Name = "LblModerationQueue";
+        LblModerationQueue.Padding = new Padding(12, 0, 0, 0);
+        LblModerationQueue.Size = new Size(156, 19);
+        LblModerationQueue.TabIndex = 6;
+        LblModerationQueue.TabStop = true;
+        LblModerationQueue.Text = "Queue";
+        LblModerationQueue.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblModerationMenu
+        // 
+        LblModerationMenu.AutoSize = true;
+        LblModerationMenu.BackColor = Color.Black;
+        LblModerationMenu.Dock = DockStyle.Fill;
+        LblModerationMenu.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblModerationMenu.ForeColor = Color.White;
+        LblModerationMenu.Location = new Point(0, 88);
+        LblModerationMenu.Margin = new Padding(0);
+        LblModerationMenu.Name = "LblModerationMenu";
+        LblModerationMenu.Size = new Size(156, 22);
+        LblModerationMenu.TabIndex = 5;
+        LblModerationMenu.Text = "Moderation";
+        LblModerationMenu.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblViewGrid
+        // 
+        LblViewGrid.AutoEllipsis = true;
+        LblViewGrid.AutoSize = true;
+        LblViewGrid.BackColor = Color.Gainsboro;
+        LblViewGrid.Dock = DockStyle.Fill;
+        LblViewGrid.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblViewGrid.LinkBehavior = LinkBehavior.HoverUnderline;
+        LblViewGrid.LinkColor = Color.Black;
+        LblViewGrid.Location = new Point(0, 66);
+        LblViewGrid.Margin = new Padding(0);
+        LblViewGrid.Name = "LblViewGrid";
+        LblViewGrid.Padding = new Padding(12, 0, 0, 0);
+        LblViewGrid.Size = new Size(156, 22);
+        LblViewGrid.TabIndex = 4;
+        LblViewGrid.TabStop = true;
+        LblViewGrid.Text = "View Grid";
+        LblViewGrid.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblViewDetails
+        // 
+        LblViewDetails.AutoEllipsis = true;
+        LblViewDetails.AutoSize = true;
+        LblViewDetails.BackColor = Color.Gainsboro;
+        LblViewDetails.Dock = DockStyle.Fill;
+        LblViewDetails.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblViewDetails.LinkBehavior = LinkBehavior.HoverUnderline;
+        LblViewDetails.LinkColor = Color.Black;
+        LblViewDetails.Location = new Point(0, 44);
+        LblViewDetails.Margin = new Padding(0, 0, 0, 3);
+        LblViewDetails.Name = "LblViewDetails";
+        LblViewDetails.Padding = new Padding(12, 0, 0, 0);
+        LblViewDetails.Size = new Size(156, 19);
+        LblViewDetails.TabIndex = 3;
+        LblViewDetails.TabStop = true;
+        LblViewDetails.Text = "View Details";
+        LblViewDetails.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblReportPerson
+        // 
+        LblReportPerson.AutoEllipsis = true;
+        LblReportPerson.AutoSize = true;
+        LblReportPerson.BackColor = Color.Gainsboro;
+        LblReportPerson.Dock = DockStyle.Fill;
+        LblReportPerson.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblReportPerson.LinkBehavior = LinkBehavior.HoverUnderline;
+        LblReportPerson.LinkColor = Color.Black;
+        LblReportPerson.Location = new Point(0, 22);
+        LblReportPerson.Margin = new Padding(0, 0, 0, 3);
+        LblReportPerson.Name = "LblReportPerson";
+        LblReportPerson.Padding = new Padding(12, 0, 0, 0);
+        LblReportPerson.Size = new Size(156, 19);
+        LblReportPerson.TabIndex = 2;
+        LblReportPerson.TabStop = true;
+        LblReportPerson.Text = "Report";
+        LblReportPerson.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblMissingPersonsMenu
+        // 
+        LblMissingPersonsMenu.AutoSize = true;
+        LblMissingPersonsMenu.BackColor = Color.Black;
+        LblMissingPersonsMenu.Dock = DockStyle.Fill;
+        LblMissingPersonsMenu.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblMissingPersonsMenu.ForeColor = Color.White;
+        LblMissingPersonsMenu.Location = new Point(0, 0);
+        LblMissingPersonsMenu.Margin = new Padding(0);
+        LblMissingPersonsMenu.Name = "LblMissingPersonsMenu";
+        LblMissingPersonsMenu.Size = new Size(156, 22);
+        LblMissingPersonsMenu.TabIndex = 0;
+        LblMissingPersonsMenu.Text = "Missing Persons";
+        LblMissingPersonsMenu.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // PanProfile
         // 
@@ -109,6 +401,7 @@ partial class DashboardForm
         TabPanUserProfile.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
         TabPanUserProfile.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
         TabPanUserProfile.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+        TabPanUserProfile.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
         TabPanUserProfile.Size = new Size(156, 74);
         TabPanUserProfile.TabIndex = 0;
         // 
@@ -174,6 +467,7 @@ partial class DashboardForm
         TabPanHeader.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 11F));
         TabPanHeader.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 11F));
         TabPanHeader.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 11F));
+        TabPanHeader.Controls.Add(BtnReportNow, 7, 0);
         TabPanHeader.Controls.Add(BtnDonate, 6, 0);
         TabPanHeader.Controls.Add(LblContact, 5, 0);
         TabPanHeader.Controls.Add(LblChildSafety, 4, 0);
@@ -188,6 +482,24 @@ partial class DashboardForm
         TabPanHeader.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
         TabPanHeader.Size = new Size(754, 74);
         TabPanHeader.TabIndex = 0;
+        // 
+        // BtnReportNow
+        // 
+        BtnReportNow.Anchor = AnchorStyles.None;
+        BtnReportNow.AutoSize = true;
+        BtnReportNow.BackColor = Color.FromArgb(237, 31, 39);
+        BtnReportNow.Cursor = Cursors.Hand;
+        BtnReportNow.FlatAppearance.BorderSize = 0;
+        BtnReportNow.FlatStyle = FlatStyle.Flat;
+        BtnReportNow.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        BtnReportNow.ForeColor = Color.White;
+        BtnReportNow.Location = new Point(670, 21);
+        BtnReportNow.Margin = new Padding(5, 3, 5, 3);
+        BtnReportNow.Name = "BtnReportNow";
+        BtnReportNow.Size = new Size(79, 31);
+        BtnReportNow.TabIndex = 7;
+        BtnReportNow.Text = "Report Now";
+        BtnReportNow.UseVisualStyleBackColor = false;
         // 
         // BtnDonate
         // 
@@ -319,6 +631,12 @@ partial class DashboardForm
         FormClosed += DashboardForm_FormClosed;
         Load += DashboardForm_Load;
         TabPanMain.ResumeLayout(false);
+        PanNavigationMenu.ResumeLayout(false);
+        TabPanNavigation.ResumeLayout(false);
+        TabPanNavigation.PerformLayout();
+        TabPanLogoutExit.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)PicExit).EndInit();
+        ((System.ComponentModel.ISupportInitialize)PicLogout).EndInit();
         PanProfile.ResumeLayout(false);
         TabPanUserProfile.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)PicUser).EndInit();
@@ -348,4 +666,20 @@ partial class DashboardForm
     private LinkLabel LblChildSafety;
     private LinkLabel LblContact;
     private Button BtnDonate;
+    private Button BtnReportNow;
+    private TableLayoutPanel TabPanNavigation;
+    private Label LblMissingPersonsMenu;
+    private LinkLabel LblReportPerson;
+    private LinkLabel LblViewDetails;
+    private Label LblModerationMenu;
+    private LinkLabel LblViewGrid;
+    private LinkLabel LblModerationQueue;
+    private LinkLabel linkLabel1;
+    private LinkLabel LblViewUsers;
+    private LinkLabel LblCreateUser;
+    private Label LblManageUsersMenu;
+    private TableLayoutPanel TabPanLogoutExit;
+    private PictureBox PicExit;
+    private PictureBox PicLogout;
+    private ToolTip MainTooltip;
 }

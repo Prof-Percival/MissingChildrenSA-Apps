@@ -1,5 +1,7 @@
-﻿using MissingChildrenSA.Helpers.Enums;
+﻿using Microsoft.Extensions.DependencyInjection;
+using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Models.Users;
+using MissingChildrenSA.Services.Auth;
 using MissingChildrenSA.Services.Users;
 
 namespace MissingChildrenSA.Forms;
@@ -8,20 +10,29 @@ public partial class DashboardForm : Form
 {
     private readonly EnumLoader _enumLoader;
     private readonly CurrentUserService _currentUserService;
+    private readonly ITokenProvider _tokenProvider;
+    private readonly IServiceProvider _serviceProvider;
 
     private CurrentUser _currentUser;
 
     public DashboardForm(
         EnumLoader enumLoader,
-        CurrentUserService currentUserService)
+        CurrentUserService currentUserService,
+        ITokenProvider tokenProvider,
+        IServiceProvider serviceProvider)
     {
         InitializeComponent();
+
         _enumLoader = enumLoader;
         _currentUserService = currentUserService;
+        _tokenProvider = tokenProvider;
+        _serviceProvider = serviceProvider;
     }
 
     private async void DashboardForm_Load(object sender, EventArgs e)
     {
+        HideMenusBasedOnPermissions();
+
         MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         WindowState = FormWindowState.Maximized;
 
@@ -74,6 +85,30 @@ public partial class DashboardForm : Form
         OpenLink("donate/");
     }
 
+    private void PicLogout_Click(object sender, EventArgs e)
+    {
+        var dialogResult = MessageBox.Show("Are You Sure You Want To Logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        if (dialogResult == DialogResult.Yes)
+        {
+            var mainForm = _serviceProvider.GetRequiredService<MainForm>();
+
+            Hide();
+
+            mainForm.Show();
+        }
+    }
+
+    private void PicExit_Click(object sender, EventArgs e)
+    {
+        var dialogResult = MessageBox.Show("Are You Sure You Want To Exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        if (dialogResult == DialogResult.Yes)
+        {
+            Application.Exit();
+        }
+    }
+
     private static void OpenLink(string pathOrUrl, bool fullUrl = false)
     {
         try
@@ -89,6 +124,17 @@ public partial class DashboardForm : Form
         catch (Exception ex)
         {
             MessageBox.Show($"Unable to open link: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    private void HideMenusBasedOnPermissions()
+    {
+        if (_tokenProvider.IsSuperUser())
+        {
+            //Hide Users Management Menus
+            LblManageUsersMenu.Visible = false;
+            LblCreateUser.Visible = false;
+            LblViewUsers.Visible = false;
         }
     }
 }
