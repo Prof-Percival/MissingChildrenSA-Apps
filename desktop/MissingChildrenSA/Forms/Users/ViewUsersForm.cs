@@ -80,6 +80,8 @@ public partial class ViewUsersForm : Form
         {
             using var editUserForm = _serviceProvider.GetRequiredService<EditUserForm>();
 
+            editUserForm.UserUpdatedEventHandler += async (s, e) => await LoadUsersAsync(); // Refresh users when updated
+
             editUserForm.ShowDialog();
         }
         else if (DgvUsers.Columns[e.ColumnIndex].Name == "DgvColDeleteButton")
