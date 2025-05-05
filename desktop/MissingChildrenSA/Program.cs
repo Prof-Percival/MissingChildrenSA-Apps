@@ -55,6 +55,7 @@ internal static class Program
                 services.AddTransient<LoginForm>();
                 services.AddTransient<DashboardForm>();
                 services.AddTransient<ViewUsersForm>();
+                services.AddTransient<CreateUserForm>();
             });
     }
 }
