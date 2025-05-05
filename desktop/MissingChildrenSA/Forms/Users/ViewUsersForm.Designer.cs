@@ -36,6 +36,7 @@ partial class ViewUsersForm
         PicRefresh = new PictureBox();
         PicAddUser = new PictureBox();
         DgvUsers = new DataGridView();
+        MainTooltip = new ToolTip(components);
         DgvColId = new DataGridViewTextBoxColumn();
         DgvColUsername = new DataGridViewTextBoxColumn();
         DgvColFirstName = new DataGridViewTextBoxColumn();
@@ -45,7 +46,6 @@ partial class ViewUsersForm
         DgvColUpdated = new DataGridViewTextBoxColumn();
         DgvColEditButton = new DataGridViewButtonColumn();
         DgvColDeleteButton = new DataGridViewButtonColumn();
-        MainTooltip = new ToolTip(components);
         PanMain.SuspendLayout();
         TabPanMainContainer.SuspendLayout();
         TabPanHeader.SuspendLayout();
@@ -176,14 +176,14 @@ partial class ViewUsersForm
         DgvColCreated.HeaderText = "Created";
         DgvColCreated.Name = "DgvColCreated";
         DgvColCreated.ReadOnly = true;
-        DgvColCreated.Width = 120;
+        DgvColCreated.Width = 130;
         // 
         // DgvColUpdated
         // 
         DgvColUpdated.HeaderText = "Updated";
         DgvColUpdated.Name = "DgvColUpdated";
         DgvColUpdated.ReadOnly = true;
-        DgvColUpdated.Width = 120;
+        DgvColUpdated.Width = 130;
         // 
         // DgvColEditButton
         // 
