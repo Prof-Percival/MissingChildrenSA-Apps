@@ -235,6 +235,7 @@ partial class DashboardForm
         LblCreateUser.TabStop = true;
         LblCreateUser.Text = "Create User";
         LblCreateUser.TextAlign = ContentAlignment.MiddleLeft;
+        LblCreateUser.LinkClicked += LblCreateUser_LinkClicked;
         // 
         // LblManageUsersMenu
         // 

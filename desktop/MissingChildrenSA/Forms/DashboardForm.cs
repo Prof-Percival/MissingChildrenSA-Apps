@@ -147,4 +147,11 @@ public partial class DashboardForm : Form
             LblViewUsers.Visible = false;
         }
     }
+
+    private void LblCreateUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        using var createUserForm = _serviceProvider.GetRequiredService<CreateUserForm>();
+
+        createUserForm.ShowDialog();
+    }
 }

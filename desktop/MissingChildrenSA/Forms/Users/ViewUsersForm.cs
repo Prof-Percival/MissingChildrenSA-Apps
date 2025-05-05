@@ -1,4 +1,5 @@
-﻿using MissingChildrenSA.Models.Users;
+﻿using Microsoft.Extensions.DependencyInjection;
+using MissingChildrenSA.Models.Users;
 
 namespace MissingChildrenSA.Forms.Users;
 
@@ -8,12 +9,16 @@ public partial class ViewUsersForm : Form
     private UserModel _selectedUser;
 
     private readonly ApiClient _apiClient;
+    private readonly IServiceProvider _serviceProvider;
 
-    public ViewUsersForm(ApiClient apiClient)
+    public ViewUsersForm(
+        ApiClient apiClient,
+        IServiceProvider serviceProvider)
     {
         InitializeComponent();
 
         _apiClient = apiClient;
+        _serviceProvider = serviceProvider;
     }
 
     private async void ViewUsersForm_Load(object sender, EventArgs e)
@@ -84,5 +89,12 @@ public partial class ViewUsersForm : Form
     private async void PicRefresh_Click(object sender, EventArgs e)
     {
         await LoadUsersAsync();
+    }
+
+    private void PicAddUser_Click(object sender, EventArgs e)
+    {
+        using var createUserForm = _serviceProvider.GetRequiredService<CreateUserForm>();
+
+        createUserForm.ShowDialog();
     }
 }

@@ -119,6 +119,7 @@ partial class ViewUsersForm
         PicAddUser.TabIndex = 0;
         PicAddUser.TabStop = false;
         MainTooltip.SetToolTip(PicAddUser, "Add User");
+        PicAddUser.Click += PicAddUser_Click;
         // 
         // DgvUsers
         // 
