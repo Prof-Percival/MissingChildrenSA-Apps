@@ -52,7 +52,7 @@ public partial class DashboardForm : Form
     private void PopulateUserProfile()
     {
         LblUserName.Text = _currentUser.FullName;
-        LblUserRole.Text = _currentUser.UserRole;
+        LblUserRole.Text = $"[ {_currentUser.UserRole} ]";
     }
 
     private void LblHome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -415,7 +415,7 @@ partial class DashboardForm
         LblUserRole.RightToLeft = RightToLeft.No;
         LblUserRole.Size = new Size(150, 16);
         LblUserRole.TabIndex = 1;
-        LblUserRole.Text = "User Role";
+        LblUserRole.Text = "[ User Role ]";
         LblUserRole.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // PicUser
