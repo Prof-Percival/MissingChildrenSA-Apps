@@ -78,7 +78,9 @@ public partial class ViewUsersForm : Form
 
         if (DgvUsers.Columns[e.ColumnIndex].Name == "DgvColEditButton")
         {
-            MessageBox.Show($"Edit clicked for user: {_selectedUser.Username}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            using var editUserForm = _serviceProvider.GetRequiredService<EditUserForm>();
+
+            editUserForm.ShowDialog();
         }
         else if (DgvUsers.Columns[e.ColumnIndex].Name == "DgvColDeleteButton")
         {
