@@ -132,6 +132,7 @@ partial class ViewUsersForm
         DgvUsers.ReadOnly = true;
         DgvUsers.Size = new Size(908, 459);
         DgvUsers.TabIndex = 2;
+        DgvUsers.CellContentClick += DgvUsers_CellContentClick;
         // 
         // DgvColId
         // 

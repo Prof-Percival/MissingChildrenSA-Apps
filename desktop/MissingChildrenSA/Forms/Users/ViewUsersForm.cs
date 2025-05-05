@@ -60,4 +60,27 @@ public partial class ViewUsersForm : Form
             );
         }
     }
+
+    private void DgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+        // Make sure the row index is valid
+        if (e.RowIndex < 0)
+            return;
+
+        var row = DgvUsers.Rows[e.RowIndex];
+
+        // Extract the username or any other info you want
+        var id = int.Parse(row.Cells["Id"].Value.ToString());
+
+        var selectedUser = _users.Single(x => x.Id == id);
+
+        if (DgvUsers.Columns[e.ColumnIndex].Name == "Edit")
+        {
+            MessageBox.Show($"Edit clicked for user: {selectedUser.Username}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        else if (DgvUsers.Columns[e.ColumnIndex].Name == "Delete")
+        {
+            MessageBox.Show($"Delete clicked for user: {selectedUser.Username}", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+    }
 }
