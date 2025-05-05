@@ -3,6 +3,7 @@ using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Models.Users;
 
 namespace MissingChildrenSA.Forms.Users;
+
 public partial class EditUserForm : Form
 {
     private readonly EnumLoader _enumLoader;
