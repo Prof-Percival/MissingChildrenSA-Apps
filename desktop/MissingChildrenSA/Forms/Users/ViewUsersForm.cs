@@ -39,7 +39,25 @@ public partial class ViewUsersForm : Form
         }
         finally
         {
-            DgvUsers.DataSource = _users;
+            PopulateGrid();
+        }
+    }
+
+    private void PopulateGrid()
+    {
+        DgvUsers.Rows.Clear();
+
+        foreach (var user in _users)
+        {
+            DgvUsers.Rows.Add(
+                user.Id,
+                user.Username,
+                user.FirstName,
+                user.LastName,
+                user.UserRole,
+                user.Created,
+                user.Updated
+            );
         }
     }
 }

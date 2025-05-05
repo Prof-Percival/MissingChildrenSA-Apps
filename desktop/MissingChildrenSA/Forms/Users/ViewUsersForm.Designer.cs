@@ -36,6 +36,7 @@ partial class ViewUsersForm
         PicRefresh = new PictureBox();
         PicAddUser = new PictureBox();
         DgvUsers = new DataGridView();
+        MainTooltip = new ToolTip(components);
         DgvColId = new DataGridViewTextBoxColumn();
         DgvColUsername = new DataGridViewTextBoxColumn();
         DgvColFirstName = new DataGridViewTextBoxColumn();
@@ -43,7 +44,8 @@ partial class ViewUsersForm
         DgvColRole = new DataGridViewTextBoxColumn();
         DgvColCreated = new DataGridViewTextBoxColumn();
         DgvColUpdated = new DataGridViewTextBoxColumn();
-        MainTooltip = new ToolTip(components);
+        DgvColEditButton = new DataGridViewButtonColumn();
+        DgvColDeleteButton = new DataGridViewButtonColumn();
         PanMain.SuspendLayout();
         TabPanMainContainer.SuspendLayout();
         TabPanHeader.SuspendLayout();
@@ -122,7 +124,7 @@ partial class ViewUsersForm
         DgvUsers.AllowUserToAddRows = false;
         DgvUsers.AllowUserToDeleteRows = false;
         DgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        DgvUsers.Columns.AddRange(new DataGridViewColumn[] { DgvColId, DgvColUsername, DgvColFirstName, DgvColLastName, DgvColRole, DgvColCreated, DgvColUpdated });
+        DgvUsers.Columns.AddRange(new DataGridViewColumn[] { DgvColId, DgvColUsername, DgvColFirstName, DgvColLastName, DgvColRole, DgvColCreated, DgvColUpdated, DgvColEditButton, DgvColDeleteButton });
         DgvUsers.Dock = DockStyle.Fill;
         DgvUsers.GridColor = SystemColors.ControlDark;
         DgvUsers.Location = new Point(3, 48);
@@ -173,6 +175,22 @@ partial class ViewUsersForm
         DgvColUpdated.Name = "DgvColUpdated";
         DgvColUpdated.ReadOnly = true;
         // 
+        // DgvColEditButton
+        // 
+        DgvColEditButton.HeaderText = "";
+        DgvColEditButton.Name = "DgvColEditButton";
+        DgvColEditButton.ReadOnly = true;
+        DgvColEditButton.Text = "Edit";
+        DgvColEditButton.UseColumnTextForButtonValue = true;
+        // 
+        // DgvColDeleteButton
+        // 
+        DgvColDeleteButton.HeaderText = "";
+        DgvColDeleteButton.Name = "DgvColDeleteButton";
+        DgvColDeleteButton.ReadOnly = true;
+        DgvColDeleteButton.Text = "Delete";
+        DgvColDeleteButton.UseColumnTextForButtonValue = true;
+        // 
         // ViewUsersForm
         // 
         AutoScaleDimensions = new SizeF(8F, 17F);
@@ -217,4 +235,6 @@ partial class ViewUsersForm
     private DataGridViewTextBoxColumn DgvColRole;
     private DataGridViewTextBoxColumn DgvColCreated;
     private DataGridViewTextBoxColumn DgvColUpdated;
+    private DataGridViewButtonColumn DgvColEditButton;
+    private DataGridViewButtonColumn DgvColDeleteButton;
 }
