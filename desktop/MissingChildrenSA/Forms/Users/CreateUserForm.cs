@@ -103,6 +103,9 @@ public partial class CreateUserForm : Form
         TxtLastName.Clear();
         TxtUsername.Clear();
         TxtPassword.Clear();
+        CmbUserRole.SelectedItem = null;
+
+        TxtFirstName.Focus();
 
         LoadUserRolesDropdown();
     }
