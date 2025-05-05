@@ -123,6 +123,7 @@ partial class CreateUserForm
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Add User";
+        Load += CreateUserForm_Load;
         ResumeLayout(false);
         PerformLayout();
     }
