@@ -130,6 +130,7 @@ partial class ViewUsersForm
         DgvUsers.Location = new Point(3, 48);
         DgvUsers.Name = "DgvUsers";
         DgvUsers.ReadOnly = true;
+        DgvUsers.RowHeadersVisible = false;
         DgvUsers.Size = new Size(948, 450);
         DgvUsers.TabIndex = 2;
         DgvUsers.CellContentClick += DgvUsers_CellContentClick;
