@@ -74,11 +74,11 @@ public partial class ViewUsersForm : Form
 
         var selectedUser = _users.Single(x => x.Id == id);
 
-        if (DgvUsers.Columns[e.ColumnIndex].Name == "Edit")
+        if (DgvUsers.Columns[e.ColumnIndex].Name == "DgvColEditButton")
         {
             MessageBox.Show($"Edit clicked for user: {selectedUser.Username}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        else if (DgvUsers.Columns[e.ColumnIndex].Name == "Delete")
+        else if (DgvUsers.Columns[e.ColumnIndex].Name == "DgvColDeleteButton")
         {
             MessageBox.Show($"Delete clicked for user: {selectedUser.Username}", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
