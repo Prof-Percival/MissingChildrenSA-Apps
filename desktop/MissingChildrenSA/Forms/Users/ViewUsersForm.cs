@@ -1,0 +1,46 @@
+﻿using MissingChildrenSA.Models.Users;
+using System.Net.Http;
+
+namespace MissingChildrenSA.Forms.Users;
+
+public partial class ViewUsersForm : Form
+{
+    private List<UserModel> _users = [];
+    private UserModel _selectedUser;
+
+    private readonly ApiClient _apiClient;
+
+    public ViewUsersForm(ApiClient apiClient)
+    {
+        InitializeComponent();
+
+        _apiClient = apiClient;
+    }
+
+    private async void ViewUsersForm_Load(object sender, EventArgs e)
+    {
+        MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        WindowState = FormWindowState.Maximized;
+
+        await LoadUsersAsync();
+    }
+
+    private async Task LoadUsersAsync()
+    {
+        try
+        {
+            var response = await _apiClient.ListAsync(1, int.MaxValue); //Change page size for pagination and not load everything
+
+            _users = response.Users.Select(u => new UserModel(u)).ToList();
+
+        }
+        catch (ApiException ex)
+        {
+            MessageBox.Show($"{ex.Message}", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            DgvUsers.DataSource = _users;
+        }
+    }
+}
