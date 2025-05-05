@@ -18,9 +18,6 @@ public partial class ViewUsersForm : Form
 
     private async void ViewUsersForm_Load(object sender, EventArgs e)
     {
-        MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-        WindowState = FormWindowState.Maximized;
-
         await LoadUsersAsync();
     }
 
