@@ -129,7 +129,7 @@ public partial class DashboardForm : Form
 
     private void HideMenusBasedOnPermissions()
     {
-        if (_tokenProvider.IsSuperUser())
+        if (!_tokenProvider.IsSuperUser())
         {
             //Hide Users Management Menus
             LblManageUsersMenu.Visible = false;
