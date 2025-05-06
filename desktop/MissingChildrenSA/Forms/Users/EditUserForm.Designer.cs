@@ -69,10 +69,11 @@ partial class EditUserForm
         // CmbUserRole
         // 
         CmbUserRole.Cursor = Cursors.Hand;
+        CmbUserRole.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
         CmbUserRole.FormattingEnabled = true;
         CmbUserRole.Location = new Point(201, 51);
         CmbUserRole.Name = "CmbUserRole";
-        CmbUserRole.Size = new Size(161, 25);
+        CmbUserRole.Size = new Size(161, 24);
         CmbUserRole.TabIndex = 4;
         // 
         // BtnUpdateUser
