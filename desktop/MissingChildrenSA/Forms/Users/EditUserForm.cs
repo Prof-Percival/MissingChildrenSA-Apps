@@ -64,7 +64,7 @@ public partial class EditUserForm : Form
             {
                 FirstName = TxtFirstName.Text,
                 LastName = TxtLastName.Text,
-                Password = TxtPassword.Text,
+                Password = string.IsNullOrWhiteSpace(TxtPassword.Text) ? null : TxtPassword.Text,
                 UserRole = (UserRole)CmbUserRole.SelectedIndex
             };
 
