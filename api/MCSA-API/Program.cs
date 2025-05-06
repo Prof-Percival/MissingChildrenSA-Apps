@@ -7,6 +7,7 @@ using MCSA_API.Domain.MissingPersons;
 using MCSA_API.Domain.Moderation;
 using MCSA_API.Domain.Security;
 using MCSA_API.Domain.Users;
+using MCSA_API.Helpers.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -93,7 +94,17 @@ public class Program
         //builder.Services.AddApiVersioning();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+        builder.Services.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+            {
+                Title = "MCSA API",
+                Version = "v1"
+            });
+
+            // Enable support for uploading files with IFormFile
+            c.OperationFilter<FileUploadOperationFilter>();
+        });
 
         var app = builder.Build();
 
