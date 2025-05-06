@@ -51,13 +51,6 @@ public partial class EditUserForm : Form
             return;
         }
 
-        if (string.IsNullOrWhiteSpace(TxtPassword.Text))
-        {
-            MessageBox.Show("Password is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            TxtPassword.Focus();
-            return;
-        }
-
         if (CmbUserRole.SelectedIndex <= 0)
         {
             MessageBox.Show("User Role must be selected.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
