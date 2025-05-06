@@ -1,4 +1,5 @@
 ﻿using MissingChildrenSA.Helpers.Enums;
+using MissingChildrenSA.Helpers.Validations;
 
 namespace MissingChildrenSA.Forms.Users;
 public partial class CreateUserForm : Form
@@ -25,40 +26,15 @@ public partial class CreateUserForm : Form
 
     private async void BtnAddUser_Click(object sender, EventArgs e)
     {
-        if (string.IsNullOrWhiteSpace(TxtFirstName.Text))
-        {
-            MessageBox.Show("First Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            TxtFirstName.Focus();
-            return;
-        }
+        bool isValid = FormValidator.ValidateMultiple(
+            (TxtFirstName, "First Name", c => !string.IsNullOrWhiteSpace(c.Text), "First Name is required."),
+            (TxtLastName, "Last Name", c => !string.IsNullOrWhiteSpace(c.Text), "Last Name is required."),
+            (TxtUsername, "Username", c => !string.IsNullOrWhiteSpace(c.Text), "Username is required."),
+            (TxtPassword, "Password", c => !string.IsNullOrWhiteSpace(c.Text), "Password is required."),
+            (TxtPassword, "Password", c => c.Text.Length >= 6, "Password must be at least 6 characters."),
+            (CmbUserRole, "User Role", c => CmbUserRole.SelectedIndex > 0, "Please select a user role."));
 
-        if (string.IsNullOrWhiteSpace(TxtLastName.Text))
-        {
-            MessageBox.Show("Last Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            TxtLastName.Focus();
-            return;
-        }
-
-        if (string.IsNullOrWhiteSpace(TxtUsername.Text))
-        {
-            MessageBox.Show("Username is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            TxtUsername.Focus();
-            return;
-        }
-
-        if (string.IsNullOrWhiteSpace(TxtPassword.Text))
-        {
-            MessageBox.Show("Password is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            TxtPassword.Focus();
-            return;
-        }
-
-        if (CmbUserRole.SelectedIndex <= 0)
-        {
-            MessageBox.Show("User Role must be selected.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            CmbUserRole.Focus();
-            return;
-        }
+        if (!isValid) return;
 
         try
         {
