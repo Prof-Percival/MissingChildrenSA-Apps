@@ -10,11 +10,12 @@ namespace MCSA_API.Controllers;
 
 [ApiVersion("1.0-mcsa")]
 [Route("api/[controller]")]
-[Authorize(Roles = "SuperUser")]
+[Authorize]
 public class UserController(
     IUserService userService,
     ICurrentUserService currentUserService) : BaseApiController
 {
+    [Authorize(Roles = "SuperUser")]
     [HttpPost("create")]
     [Produces(typeof(CreateUserResponse))]
     public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
@@ -44,6 +45,7 @@ public class UserController(
         });
     }
 
+    [Authorize(Roles = "SuperUser")]
     [HttpPut("update/{userId}")]
     [Produces(typeof(UpdateUserResponse))]
     public async Task<IActionResult> UpdateUser(int userId, [FromBody] UpdateUserRequest request)
@@ -74,6 +76,7 @@ public class UserController(
         });
     }
 
+    [Authorize(Roles = "SuperUser")]
     [HttpGet("list")]
     [Produces(typeof(PagedUsersResponse))]
     public async Task<IActionResult> GetUsers([FromQuery] PaginationRequest request)
@@ -94,6 +97,7 @@ public class UserController(
         });
     }
 
+    [Authorize(Roles = "SuperUser")]
     [HttpGet("username/{username}")]
     [Produces(typeof(GetUserResponse))]
     public async Task<IActionResult> GetUserByUsername(string username)
@@ -108,6 +112,7 @@ public class UserController(
         return Ok(new GetUserResponse(result));
     }
 
+    [Authorize(Roles = "SuperUser")]
     [HttpGet("id/{userId}")]
     [Produces(typeof(GetUserResponse))]
     public async Task<IActionResult> GetUserById(int userId)
@@ -122,7 +127,6 @@ public class UserController(
         return Ok(new GetUserResponse(result));
     }
 
-    [Authorize] // Just requires login - override role-based auth
     [HttpGet("me")]
     [Produces(typeof(CurrentUserModel))]
     public async Task<ActionResult<CurrentUserModel>> GetCurrentUserAsync()
