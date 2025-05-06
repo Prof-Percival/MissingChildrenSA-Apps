@@ -12,14 +12,16 @@ public sealed class ImageUploadController(
 {
     [HttpPost("upload-image")]
     [Produces(typeof(ImageMetadataModel))]
-    public async Task<IActionResult> UploadImageAsync([FromForm] IFormFile file)
+    public async Task<IActionResult> UploadImageAsync([FromForm] UploadImageRequest request)
     {
-        if (file == null || file.Length == 0)
+        if (request == null ||
+            request.File == null ||
+            request.File.Length == 0)
         {
             return BadRequest("No file uploaded.");
         }
 
-        var metadata = await blobService.UploadImageAsync(file);
+        var metadata = await blobService.UploadImageAsync(request.File);
 
         return Ok(new ImageMetadataModel(metadata));
     }
