@@ -2,6 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MissingChildrenSA.Forms;
 using MissingChildrenSA.Forms.Auth;
+using MissingChildrenSA.Forms.MissingPersons;
 using MissingChildrenSA.Forms.Users;
 using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Services.Auth;
@@ -57,6 +58,7 @@ internal static class Program
                 services.AddSingleton<ViewUsersForm>();
                 services.AddTransient<CreateUserForm>();
                 services.AddTransient<EditUserForm>();
+                services.AddTransient<ReportMissingPersonForm>();
             });
     }
 }
