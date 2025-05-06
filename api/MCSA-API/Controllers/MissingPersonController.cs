@@ -13,7 +13,7 @@ namespace MCSA_API.Controllers;
 public class MissingPersonController(
     IMissingPersonService missingPersonService) : BaseApiController
 {
-    [HttpPost("create")]
+    [HttpPost("report-missing-person")]
     [AllowAnonymous]
     [Produces(typeof(CreateMissingPersonResponse))]
     public async Task<IActionResult> Create([FromBody] CreateMissingPersonRequest request)
@@ -29,7 +29,7 @@ public class MissingPersonController(
         return Ok(new CreateMissingPersonResponse(missingPerson));
     }
 
-    [HttpPut("update")]
+    [HttpPut("update-missing-person")]
     public async Task<IActionResult> Update([FromBody] UpdateMissingPersonRequest request)
     {
         if (!ModelState.IsValid) return BadRequest("Invalid request");
