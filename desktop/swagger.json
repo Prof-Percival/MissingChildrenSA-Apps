@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "MCSA-API",
-    "version": "1.0"
+    "title": "MCSA API",
+    "version": "v1"
   },
   "paths": {
     "/api/Auth/authenticate": {
@@ -281,7 +281,54 @@
         }
       }
     },
-    "/api/MissingPerson/create": {
+    "/api/ImageUpload/upload-image": {
+      "post": {
+        "tags": [
+          "ImageUpload"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "File"
+                ],
+                "type": "object",
+                "properties": {
+                  "File": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageMetadataModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageMetadataModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageMetadataModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MissingPerson/report-missing-person": {
       "post": {
         "tags": [
           "MissingPerson"
@@ -329,7 +376,7 @@
         }
       }
     },
-    "/api/MissingPerson/update": {
+    "/api/MissingPerson/update-missing-person": {
       "put": {
         "tags": [
           "MissingPerson"
@@ -1121,6 +1168,32 @@
           "updated": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImageMetadataModel": {
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "fileUrl": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "contentType": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
           }
         },
         "additionalProperties": false
