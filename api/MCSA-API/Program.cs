@@ -78,8 +78,8 @@ public class Program
         builder.Services.AddSingleton<IDateProvider, DateProvider>();
         builder.Services.AddSingleton<IJwtHelper, JwtHelper>();
         builder.Services.AddSingleton<IBlobService, BlobService>();
-        builder.Services.AddSingleton<IMissingPersonService, MissingPersonService>();
-        builder.Services.AddSingleton<IModerationService, ModerationService>();
+        builder.Services.AddScoped<IMissingPersonService, MissingPersonService>();
+        builder.Services.AddScoped<IModerationService, ModerationService>();
         builder.Services.AddScoped<IUserService, UserService>();
 
         //Register Repositories
