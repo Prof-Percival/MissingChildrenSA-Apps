@@ -120,7 +120,7 @@ partial class ReportMissingPersonForm
         LblRequired6.AutoSize = true;
         LblRequired6.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblRequired6.ForeColor = Color.Red;
-        LblRequired6.Location = new Point(263, 117);
+        LblRequired6.Location = new Point(259, 117);
         LblRequired6.Margin = new Padding(0);
         LblRequired6.Name = "LblRequired6";
         LblRequired6.Size = new Size(14, 18);
@@ -131,12 +131,13 @@ partial class ReportMissingPersonForm
         // 
         LblProvince.AutoSize = true;
         LblProvince.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblProvince.Location = new Point(202, 116);
-        LblProvince.Margin = new Padding(3, 0, 0, 0);
+        LblProvince.Location = new Point(198, 116);
+        LblProvince.Margin = new Padding(0);
         LblProvince.Name = "LblProvince";
         LblProvince.Size = new Size(63, 20);
         LblProvince.TabIndex = 16;
         LblProvince.Text = "Province";
+        LblProvince.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // CmbRace
         // 
@@ -151,7 +152,7 @@ partial class ReportMissingPersonForm
         LblRequired5.AutoSize = true;
         LblRequired5.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblRequired5.ForeColor = Color.Red;
-        LblRequired5.Location = new Point(47, 117);
+        LblRequired5.Location = new Point(40, 117);
         LblRequired5.Margin = new Padding(0);
         LblRequired5.Name = "LblRequired5";
         LblRequired5.Size = new Size(14, 18);
@@ -162,12 +163,13 @@ partial class ReportMissingPersonForm
         // 
         LblRace.AutoSize = true;
         LblRace.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblRace.Location = new Point(9, 116);
-        LblRace.Margin = new Padding(3, 0, 0, 0);
+        LblRace.Location = new Point(4, 116);
+        LblRace.Margin = new Padding(0);
         LblRace.Name = "LblRace";
         LblRace.Size = new Size(39, 20);
         LblRace.TabIndex = 13;
         LblRace.Text = "Race";
+        LblRace.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // CmbGender
         // 
@@ -181,7 +183,7 @@ partial class ReportMissingPersonForm
         // 
         DtpDateOfBirth.CustomFormat = "dd MMMM yyyy";
         DtpDateOfBirth.Format = DateTimePickerFormat.Short;
-        DtpDateOfBirth.Location = new Point(9, 84);
+        DtpDateOfBirth.Location = new Point(7, 83);
         DtpDateOfBirth.MaxDate = new DateTime(2025, 5, 7, 0, 0, 0, 0);
         DtpDateOfBirth.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
         DtpDateOfBirth.Name = "DtpDateOfBirth";
@@ -193,19 +195,20 @@ partial class ReportMissingPersonForm
         // 
         LblDateOfBirth.AutoSize = true;
         LblDateOfBirth.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblDateOfBirth.Location = new Point(9, 60);
-        LblDateOfBirth.Margin = new Padding(3, 0, 0, 0);
+        LblDateOfBirth.Location = new Point(3, 60);
+        LblDateOfBirth.Margin = new Padding(0);
         LblDateOfBirth.Name = "LblDateOfBirth";
         LblDateOfBirth.Size = new Size(84, 20);
         LblDateOfBirth.TabIndex = 6;
         LblDateOfBirth.Text = "Date of Birth";
+        LblDateOfBirth.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // LblRequired3
         // 
         LblRequired3.AutoSize = true;
         LblRequired3.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblRequired3.ForeColor = Color.Red;
-        LblRequired3.Location = new Point(92, 61);
+        LblRequired3.Location = new Point(86, 61);
         LblRequired3.Margin = new Padding(0);
         LblRequired3.Name = "LblRequired3";
         LblRequired3.Size = new Size(14, 18);
@@ -217,7 +220,7 @@ partial class ReportMissingPersonForm
         LblRequired4.AutoSize = true;
         LblRequired4.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblRequired4.ForeColor = Color.Red;
-        LblRequired4.Location = new Point(255, 62);
+        LblRequired4.Location = new Point(251, 62);
         LblRequired4.Margin = new Padding(0);
         LblRequired4.Name = "LblRequired4";
         LblRequired4.Size = new Size(14, 18);
@@ -228,23 +231,25 @@ partial class ReportMissingPersonForm
         // 
         LblGender.AutoSize = true;
         LblGender.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblGender.Location = new Point(202, 61);
-        LblGender.Margin = new Padding(3, 0, 0, 0);
+        LblGender.Location = new Point(198, 61);
+        LblGender.Margin = new Padding(0);
         LblGender.Name = "LblGender";
         LblGender.Size = new Size(54, 20);
         LblGender.TabIndex = 9;
         LblGender.Text = "Gender";
+        LblGender.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // LblName
         // 
         LblName.AutoSize = true;
         LblName.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblName.Location = new Point(7, 4);
-        LblName.Margin = new Padding(3, 0, 0, 0);
+        LblName.Location = new Point(3, 4);
+        LblName.Margin = new Padding(0);
         LblName.Name = "LblName";
         LblName.Size = new Size(43, 20);
         LblName.TabIndex = 0;
         LblName.Text = "Name";
+        LblName.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // TxtSurname
         // 
@@ -258,7 +263,7 @@ partial class ReportMissingPersonForm
         LblRequired.AutoSize = true;
         LblRequired.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblRequired.ForeColor = Color.Red;
-        LblRequired.Location = new Point(48, 5);
+        LblRequired.Location = new Point(44, 5);
         LblRequired.Margin = new Padding(0);
         LblRequired.Name = "LblRequired";
         LblRequired.Size = new Size(14, 18);
@@ -270,7 +275,7 @@ partial class ReportMissingPersonForm
         LblRequired2.AutoSize = true;
         LblRequired2.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblRequired2.ForeColor = Color.Red;
-        LblRequired2.Location = new Point(258, 6);
+        LblRequired2.Location = new Point(254, 6);
         LblRequired2.Margin = new Padding(0);
         LblRequired2.Name = "LblRequired2";
         LblRequired2.Size = new Size(14, 18);
@@ -288,12 +293,13 @@ partial class ReportMissingPersonForm
         // 
         LblSurname.AutoSize = true;
         LblSurname.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblSurname.Location = new Point(200, 5);
-        LblSurname.Margin = new Padding(3, 0, 0, 0);
+        LblSurname.Location = new Point(196, 5);
+        LblSurname.Margin = new Padding(0);
         LblSurname.Name = "LblSurname";
         LblSurname.Size = new Size(63, 20);
         LblSurname.TabIndex = 3;
         LblSurname.Text = "Surname";
+        LblSurname.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // ReportMissingPersonForm
         // 
