@@ -181,7 +181,7 @@ partial class ReportMissingPersonForm
         // 
         // DtpDateOfBirth
         // 
-        DtpDateOfBirth.CustomFormat = "dd MMMM yyyy";
+        DtpDateOfBirth.CustomFormat = "dd/MM/yyyy";
         DtpDateOfBirth.Format = DateTimePickerFormat.Short;
         DtpDateOfBirth.Location = new Point(7, 83);
         DtpDateOfBirth.MaxDate = new DateTime(2025, 5, 7, 0, 0, 0, 0);
