@@ -16,7 +16,7 @@ public class UserController(
     ICurrentUserService currentUserService) : BaseApiController
 {
     [Authorize(Roles = "SuperUser")]
-    [HttpPost("create")]
+    [HttpPost("create-user")]
     [Produces(typeof(CreateUserResponse))]
     public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
     {
@@ -46,7 +46,7 @@ public class UserController(
     }
 
     [Authorize(Roles = "SuperUser")]
-    [HttpPut("update/{userId}")]
+    [HttpPut("update-user/{userId}")]
     [Produces(typeof(UpdateUserResponse))]
     public async Task<IActionResult> UpdateUser(int userId, [FromBody] UpdateUserRequest request)
     {
@@ -77,7 +77,7 @@ public class UserController(
     }
 
     [Authorize(Roles = "SuperUser")]
-    [HttpGet("list")]
+    [HttpGet("list-users")]
     [Produces(typeof(PagedUsersResponse))]
     public async Task<IActionResult> GetUsers([FromQuery] PaginationRequest request)
     {
@@ -98,7 +98,7 @@ public class UserController(
     }
 
     [Authorize(Roles = "SuperUser")]
-    [HttpGet("username/{username}")]
+    [HttpGet("get-user-by-username/{username}")]
     [Produces(typeof(GetUserResponse))]
     public async Task<IActionResult> GetUserByUsername(string username)
     {
@@ -113,7 +113,7 @@ public class UserController(
     }
 
     [Authorize(Roles = "SuperUser")]
-    [HttpGet("id/{userId}")]
+    [HttpGet("get-user-by-id/{userId}")]
     [Produces(typeof(GetUserResponse))]
     public async Task<IActionResult> GetUserById(int userId)
     {
