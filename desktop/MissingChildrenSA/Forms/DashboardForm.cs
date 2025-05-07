@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MissingChildrenSA.Forms.MissingPersons;
 using MissingChildrenSA.Forms.Users;
 using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Models.Users;
@@ -153,5 +154,19 @@ public partial class DashboardForm : Form
         using var createUserForm = _serviceProvider.GetRequiredService<CreateUserForm>();
 
         createUserForm.ShowDialog();
+    }
+
+    private void BtnReportNow_Click(object sender, EventArgs e)
+    {
+        using var reportMissingPersonForm = _serviceProvider.GetRequiredService<ReportMissingPersonForm>();
+
+        reportMissingPersonForm.ShowDialog();
+    }
+
+    private void LblReportPerson_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        using var reportMissingPersonForm = _serviceProvider.GetRequiredService<ReportMissingPersonForm>();
+
+        reportMissingPersonForm.ShowDialog();
     }
 }

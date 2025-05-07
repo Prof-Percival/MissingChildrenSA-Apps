@@ -361,6 +361,7 @@ partial class DashboardForm
         LblReportPerson.TabStop = true;
         LblReportPerson.Text = "Report";
         LblReportPerson.TextAlign = ContentAlignment.MiddleLeft;
+        LblReportPerson.LinkClicked += LblReportPerson_LinkClicked;
         // 
         // LblMissingPersonsMenu
         // 
@@ -502,6 +503,7 @@ partial class DashboardForm
         BtnReportNow.TabIndex = 7;
         BtnReportNow.Text = "Report Now";
         BtnReportNow.UseVisualStyleBackColor = false;
+        BtnReportNow.Click += BtnReportNow_Click;
         // 
         // BtnDonate
         // 
