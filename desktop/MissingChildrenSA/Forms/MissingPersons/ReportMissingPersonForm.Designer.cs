@@ -31,6 +31,13 @@ partial class ReportMissingPersonForm
         components = new System.ComponentModel.Container();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportMissingPersonForm));
         PanMain = new Panel();
+        GrpDisappearanceDetails = new GroupBox();
+        PanDisappearanceDetails = new Panel();
+        DtpDateWentMissing = new DateTimePicker();
+        LblLastSeenWearing = new Label();
+        LblRequired12 = new Label();
+        TxtLastSeenWearing = new TextBox();
+        LblLocationLastSeen = new Label();
         GrpPhysicalDescription = new GroupBox();
         PanPhysicalDescription = new Panel();
         NupWeight = new NumericUpDown();
@@ -71,7 +78,11 @@ partial class ReportMissingPersonForm
         TxtName = new TextBox();
         LblSurname = new Label();
         MainTooltip = new ToolTip(components);
+        TxtLocationLastSeen = new TextBox();
+        LblDateWentMissing = new Label();
         PanMain.SuspendLayout();
+        GrpDisappearanceDetails.SuspendLayout();
+        PanDisappearanceDetails.SuspendLayout();
         GrpPhysicalDescription.SuspendLayout();
         PanPhysicalDescription.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)NupWeight).BeginInit();
@@ -84,6 +95,7 @@ partial class ReportMissingPersonForm
         // 
         PanMain.AutoScroll = true;
         PanMain.AutoSize = true;
+        PanMain.Controls.Add(GrpDisappearanceDetails);
         PanMain.Controls.Add(GrpPhysicalDescription);
         PanMain.Controls.Add(GrpPersonalDetails);
         PanMain.Dock = DockStyle.Fill;
@@ -91,6 +103,89 @@ partial class ReportMissingPersonForm
         PanMain.Name = "PanMain";
         PanMain.Size = new Size(954, 501);
         PanMain.TabIndex = 0;
+        // 
+        // GrpDisappearanceDetails
+        // 
+        GrpDisappearanceDetails.AutoSize = true;
+        GrpDisappearanceDetails.Controls.Add(PanDisappearanceDetails);
+        GrpDisappearanceDetails.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        GrpDisappearanceDetails.Location = new Point(269, 218);
+        GrpDisappearanceDetails.Name = "GrpDisappearanceDetails";
+        GrpDisappearanceDetails.Size = new Size(240, 200);
+        GrpDisappearanceDetails.TabIndex = 8;
+        GrpDisappearanceDetails.TabStop = false;
+        GrpDisappearanceDetails.Text = "Disappearance Details";
+        // 
+        // PanDisappearanceDetails
+        // 
+        PanDisappearanceDetails.Controls.Add(LblDateWentMissing);
+        PanDisappearanceDetails.Controls.Add(TxtLocationLastSeen);
+        PanDisappearanceDetails.Controls.Add(DtpDateWentMissing);
+        PanDisappearanceDetails.Controls.Add(LblLastSeenWearing);
+        PanDisappearanceDetails.Controls.Add(LblRequired12);
+        PanDisappearanceDetails.Controls.Add(TxtLastSeenWearing);
+        PanDisappearanceDetails.Controls.Add(LblLocationLastSeen);
+        PanDisappearanceDetails.Dock = DockStyle.Fill;
+        PanDisappearanceDetails.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        PanDisappearanceDetails.Location = new Point(3, 25);
+        PanDisappearanceDetails.Name = "PanDisappearanceDetails";
+        PanDisappearanceDetails.Size = new Size(234, 172);
+        PanDisappearanceDetails.TabIndex = 7;
+        // 
+        // DtpDateWentMissing
+        // 
+        DtpDateWentMissing.CustomFormat = "dd/MM/yyyy HH:mm";
+        DtpDateWentMissing.Format = DateTimePickerFormat.Custom;
+        DtpDateWentMissing.Location = new Point(8, 137);
+        DtpDateWentMissing.MaxDate = new DateTime(2025, 5, 7, 0, 0, 0, 0);
+        DtpDateWentMissing.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+        DtpDateWentMissing.Name = "DtpDateWentMissing";
+        DtpDateWentMissing.Size = new Size(174, 25);
+        DtpDateWentMissing.TabIndex = 6;
+        DtpDateWentMissing.Value = new DateTime(2025, 5, 7, 0, 0, 0, 0);
+        // 
+        // LblLastSeenWearing
+        // 
+        LblLastSeenWearing.AutoSize = true;
+        LblLastSeenWearing.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblLastSeenWearing.Location = new Point(5, 4);
+        LblLastSeenWearing.Margin = new Padding(0);
+        LblLastSeenWearing.Name = "LblLastSeenWearing";
+        LblLastSeenWearing.Size = new Size(121, 20);
+        LblLastSeenWearing.TabIndex = 0;
+        LblLastSeenWearing.Text = "Last Seen Wearing";
+        LblLastSeenWearing.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblRequired12
+        // 
+        LblRequired12.AutoSize = true;
+        LblRequired12.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired12.ForeColor = Color.Red;
+        LblRequired12.Location = new Point(125, 117);
+        LblRequired12.Margin = new Padding(0);
+        LblRequired12.Name = "LblRequired12";
+        LblRequired12.Size = new Size(14, 18);
+        LblRequired12.TabIndex = 5;
+        LblRequired12.Text = "*";
+        // 
+        // TxtLastSeenWearing
+        // 
+        TxtLastSeenWearing.Location = new Point(7, 26);
+        TxtLastSeenWearing.Name = "TxtLastSeenWearing";
+        TxtLastSeenWearing.Size = new Size(176, 25);
+        TxtLastSeenWearing.TabIndex = 1;
+        // 
+        // LblLocationLastSeen
+        // 
+        LblLocationLastSeen.AutoSize = true;
+        LblLocationLastSeen.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblLocationLastSeen.Location = new Point(5, 60);
+        LblLocationLastSeen.Margin = new Padding(0);
+        LblLocationLastSeen.Name = "LblLocationLastSeen";
+        LblLocationLastSeen.Size = new Size(125, 20);
+        LblLocationLastSeen.TabIndex = 2;
+        LblLocationLastSeen.Text = "Location Last Seen";
+        LblLocationLastSeen.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // GrpPhysicalDescription
         // 
@@ -544,6 +639,25 @@ partial class ReportMissingPersonForm
         LblSurname.Text = "Surname";
         LblSurname.TextAlign = ContentAlignment.MiddleLeft;
         // 
+        // TxtLocationLastSeen
+        // 
+        TxtLocationLastSeen.Location = new Point(9, 81);
+        TxtLocationLastSeen.Name = "TxtLocationLastSeen";
+        TxtLocationLastSeen.Size = new Size(176, 25);
+        TxtLocationLastSeen.TabIndex = 3;
+        // 
+        // LblDateWentMissing
+        // 
+        LblDateWentMissing.AutoSize = true;
+        LblDateWentMissing.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblDateWentMissing.Location = new Point(5, 114);
+        LblDateWentMissing.Margin = new Padding(0);
+        LblDateWentMissing.Name = "LblDateWentMissing";
+        LblDateWentMissing.Size = new Size(121, 20);
+        LblDateWentMissing.TabIndex = 4;
+        LblDateWentMissing.Text = "Date Went Missing";
+        LblDateWentMissing.TextAlign = ContentAlignment.MiddleLeft;
+        // 
         // ReportMissingPersonForm
         // 
         AutoScaleDimensions = new SizeF(8F, 17F);
@@ -563,6 +677,9 @@ partial class ReportMissingPersonForm
         Load += ReportMissingPersonForm_Load;
         PanMain.ResumeLayout(false);
         PanMain.PerformLayout();
+        GrpDisappearanceDetails.ResumeLayout(false);
+        PanDisappearanceDetails.ResumeLayout(false);
+        PanDisappearanceDetails.PerformLayout();
         GrpPhysicalDescription.ResumeLayout(false);
         PanPhysicalDescription.ResumeLayout(false);
         PanPhysicalDescription.PerformLayout();
@@ -618,4 +735,16 @@ partial class ReportMissingPersonForm
     private TextBox TxtEyeColour;
     private NumericUpDown NupHeight;
     private NumericUpDown NupWeight;
+    private GroupBox GrpDisappearanceDetails;
+    private Panel PanDisappearanceDetails;
+    private DateTimePicker DtpDateWentMissing;
+    private Label LblDateWentMissing;
+    private Label label6;
+    private Label LblLastSeenWearing;
+    private TextBox textBox1;
+    private Label LblRequired12;
+    private Label label11;
+    private TextBox TxtLastSeenWearing;
+    private Label LblLocationLastSeen;
+    private TextBox TxtLocationLastSeen;
 }
