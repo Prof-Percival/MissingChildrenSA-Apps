@@ -75,7 +75,7 @@ partial class ReportMissingPersonForm
         GrpPersonalDetails.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         GrpPersonalDetails.Location = new Point(12, 12);
         GrpPersonalDetails.Name = "GrpPersonalDetails";
-        GrpPersonalDetails.Size = new Size(392, 246);
+        GrpPersonalDetails.Size = new Size(392, 200);
         GrpPersonalDetails.TabIndex = 6;
         GrpPersonalDetails.TabStop = false;
         GrpPersonalDetails.Text = "Personal Details";
@@ -104,7 +104,7 @@ partial class ReportMissingPersonForm
         PanPersonalDetails.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         PanPersonalDetails.Location = new Point(3, 25);
         PanPersonalDetails.Name = "PanPersonalDetails";
-        PanPersonalDetails.Size = new Size(386, 218);
+        PanPersonalDetails.Size = new Size(386, 173);
         PanPersonalDetails.TabIndex = 7;
         // 
         // CmbProvince
