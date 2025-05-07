@@ -29,6 +29,19 @@ public partial class ReportMissingPersonForm : Form
 
     private void PopulateDropdowns()
     {
+        //Genders
+        CmbGender.Items.Clear();
+        CmbGender.Items.Add("");
+        CmbGender.Items.AddRange(_enumLoader.Genders.Select(ur => ur.Description).ToArray());
 
+        //Races
+        CmbRace.Items.Clear();
+        CmbRace.Items.Add("");
+        CmbRace.Items.AddRange(_enumLoader.Races.Select(ur => ur.Description).ToArray());
+
+        //Provinces
+        CmbProvince.Items.Clear();
+        CmbProvince.Items.Add("");
+        CmbProvince.Items.AddRange(_enumLoader.Provinces.Select(ur => ur.Description).ToArray());
     }
 }
