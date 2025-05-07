@@ -571,7 +571,7 @@
         }
       }
     },
-    "/api/User/create": {
+    "/api/User/create-user": {
       "post": {
         "tags": [
           "User"
@@ -619,7 +619,7 @@
         }
       }
     },
-    "/api/User/update/{userId}": {
+    "/api/User/update-user/{userId}": {
       "put": {
         "tags": [
           "User"
@@ -678,7 +678,7 @@
         }
       }
     },
-    "/api/User/list": {
+    "/api/User/list-users": {
       "get": {
         "tags": [
           "User"
@@ -725,7 +725,7 @@
         }
       }
     },
-    "/api/User/username/{username}": {
+    "/api/User/get-user-by-username/{username}": {
       "get": {
         "tags": [
           "User"
@@ -764,7 +764,7 @@
         }
       }
     },
-    "/api/User/id/{userId}": {
+    "/api/User/get-user-by-id/{userId}": {
       "get": {
         "tags": [
           "User"
