@@ -20,7 +20,7 @@ public partial class ReportMissingPersonForm : Form
         _enumLoader = enumLoader;
     }
 
-    private void ViewUsersForm_Load(object sender, EventArgs e)
+    private void ReportMissingPersonForm_Load(object sender, EventArgs e)
     {
         PopulateDropdowns();
     }

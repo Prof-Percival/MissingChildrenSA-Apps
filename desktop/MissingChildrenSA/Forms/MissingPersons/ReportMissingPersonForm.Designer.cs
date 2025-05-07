@@ -309,7 +309,7 @@ partial class ReportMissingPersonForm
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Report Missing Person";
-        Load += ViewUsersForm_Load;
+        Load += ReportMissingPersonForm_Load;
         PanMain.ResumeLayout(false);
         PanMain.PerformLayout();
         GrpPersonalDetails.ResumeLayout(false);
