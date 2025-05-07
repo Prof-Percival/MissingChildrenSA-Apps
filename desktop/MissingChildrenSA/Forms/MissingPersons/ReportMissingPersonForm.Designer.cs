@@ -31,27 +31,27 @@ partial class ReportMissingPersonForm
         components = new System.ComponentModel.Container();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportMissingPersonForm));
         PanMain = new Panel();
-        MainTooltip = new ToolTip(components);
-        LblName = new Label();
-        LblRequired = new Label();
-        TxtName = new TextBox();
-        TxtSurname = new TextBox();
-        LblRequired2 = new Label();
-        LblSurname = new Label();
         GrpPersonalDetails = new GroupBox();
         PanPersonalDetails = new Panel();
+        CmbProvince = new ComboBox();
+        LblRequired6 = new Label();
+        LblProvince = new Label();
+        CmbRace = new ComboBox();
+        LblRequired5 = new Label();
+        LblRace = new Label();
+        CmbGender = new ComboBox();
+        DtpDateOfBirth = new DateTimePicker();
         LblDateOfBirth = new Label();
         LblRequired3 = new Label();
         LblRequired4 = new Label();
         LblGender = new Label();
-        DtpDateOfBirth = new DateTimePicker();
-        CmbGender = new ComboBox();
-        CmbRace = new ComboBox();
-        LblRequired5 = new Label();
-        LblRace = new Label();
-        CmbProvince = new ComboBox();
-        LblRequired6 = new Label();
-        LblProvince = new Label();
+        LblName = new Label();
+        TxtSurname = new TextBox();
+        LblRequired = new Label();
+        LblRequired2 = new Label();
+        TxtName = new TextBox();
+        LblSurname = new Label();
+        MainTooltip = new ToolTip(components);
         PanMain.SuspendLayout();
         GrpPersonalDetails.SuspendLayout();
         PanPersonalDetails.SuspendLayout();
@@ -67,66 +67,6 @@ partial class ReportMissingPersonForm
         PanMain.Name = "PanMain";
         PanMain.Size = new Size(954, 501);
         PanMain.TabIndex = 0;
-        // 
-        // LblName
-        // 
-        LblName.AutoSize = true;
-        LblName.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblName.Location = new Point(7, 4);
-        LblName.Margin = new Padding(3, 0, 0, 0);
-        LblName.Name = "LblName";
-        LblName.Size = new Size(43, 20);
-        LblName.TabIndex = 0;
-        LblName.Text = "Name";
-        // 
-        // LblRequired
-        // 
-        LblRequired.AutoSize = true;
-        LblRequired.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblRequired.ForeColor = Color.Red;
-        LblRequired.Location = new Point(48, 5);
-        LblRequired.Margin = new Padding(0);
-        LblRequired.Name = "LblRequired";
-        LblRequired.Size = new Size(14, 18);
-        LblRequired.TabIndex = 1;
-        LblRequired.Text = "*";
-        // 
-        // TxtName
-        // 
-        TxtName.Location = new Point(7, 26);
-        TxtName.Name = "TxtName";
-        TxtName.Size = new Size(176, 25);
-        TxtName.TabIndex = 2;
-        // 
-        // TxtSurname
-        // 
-        TxtSurname.Location = new Point(200, 26);
-        TxtSurname.Name = "TxtSurname";
-        TxtSurname.Size = new Size(176, 25);
-        TxtSurname.TabIndex = 5;
-        // 
-        // LblRequired2
-        // 
-        LblRequired2.AutoSize = true;
-        LblRequired2.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblRequired2.ForeColor = Color.Red;
-        LblRequired2.Location = new Point(258, 6);
-        LblRequired2.Margin = new Padding(0);
-        LblRequired2.Name = "LblRequired2";
-        LblRequired2.Size = new Size(14, 18);
-        LblRequired2.TabIndex = 4;
-        LblRequired2.Text = "*";
-        // 
-        // LblSurname
-        // 
-        LblSurname.AutoSize = true;
-        LblSurname.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblSurname.Location = new Point(200, 5);
-        LblSurname.Margin = new Padding(3, 0, 0, 0);
-        LblSurname.Name = "LblSurname";
-        LblSurname.Size = new Size(63, 20);
-        LblSurname.TabIndex = 3;
-        LblSurname.Text = "Surname";
         // 
         // GrpPersonalDetails
         // 
@@ -166,6 +106,88 @@ partial class ReportMissingPersonForm
         PanPersonalDetails.Name = "PanPersonalDetails";
         PanPersonalDetails.Size = new Size(386, 218);
         PanPersonalDetails.TabIndex = 7;
+        // 
+        // CmbProvince
+        // 
+        CmbProvince.FormattingEnabled = true;
+        CmbProvince.Location = new Point(200, 139);
+        CmbProvince.Name = "CmbProvince";
+        CmbProvince.Size = new Size(176, 25);
+        CmbProvince.TabIndex = 18;
+        // 
+        // LblRequired6
+        // 
+        LblRequired6.AutoSize = true;
+        LblRequired6.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired6.ForeColor = Color.Red;
+        LblRequired6.Location = new Point(263, 117);
+        LblRequired6.Margin = new Padding(0);
+        LblRequired6.Name = "LblRequired6";
+        LblRequired6.Size = new Size(14, 18);
+        LblRequired6.TabIndex = 17;
+        LblRequired6.Text = "*";
+        // 
+        // LblProvince
+        // 
+        LblProvince.AutoSize = true;
+        LblProvince.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblProvince.Location = new Point(202, 116);
+        LblProvince.Margin = new Padding(3, 0, 0, 0);
+        LblProvince.Name = "LblProvince";
+        LblProvince.Size = new Size(63, 20);
+        LblProvince.TabIndex = 16;
+        LblProvince.Text = "Province";
+        // 
+        // CmbRace
+        // 
+        CmbRace.FormattingEnabled = true;
+        CmbRace.Location = new Point(7, 139);
+        CmbRace.Name = "CmbRace";
+        CmbRace.Size = new Size(176, 25);
+        CmbRace.TabIndex = 15;
+        // 
+        // LblRequired5
+        // 
+        LblRequired5.AutoSize = true;
+        LblRequired5.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired5.ForeColor = Color.Red;
+        LblRequired5.Location = new Point(47, 117);
+        LblRequired5.Margin = new Padding(0);
+        LblRequired5.Name = "LblRequired5";
+        LblRequired5.Size = new Size(14, 18);
+        LblRequired5.TabIndex = 14;
+        LblRequired5.Text = "*";
+        // 
+        // LblRace
+        // 
+        LblRace.AutoSize = true;
+        LblRace.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRace.Location = new Point(9, 116);
+        LblRace.Margin = new Padding(3, 0, 0, 0);
+        LblRace.Name = "LblRace";
+        LblRace.Size = new Size(39, 20);
+        LblRace.TabIndex = 13;
+        LblRace.Text = "Race";
+        // 
+        // CmbGender
+        // 
+        CmbGender.FormattingEnabled = true;
+        CmbGender.Location = new Point(200, 84);
+        CmbGender.Name = "CmbGender";
+        CmbGender.Size = new Size(176, 25);
+        CmbGender.TabIndex = 12;
+        // 
+        // DtpDateOfBirth
+        // 
+        DtpDateOfBirth.CustomFormat = "dd MMMM yyyy";
+        DtpDateOfBirth.Format = DateTimePickerFormat.Short;
+        DtpDateOfBirth.Location = new Point(9, 84);
+        DtpDateOfBirth.MaxDate = new DateTime(2025, 5, 7, 0, 0, 0, 0);
+        DtpDateOfBirth.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+        DtpDateOfBirth.Name = "DtpDateOfBirth";
+        DtpDateOfBirth.Size = new Size(174, 25);
+        DtpDateOfBirth.TabIndex = 11;
+        DtpDateOfBirth.Value = new DateTime(2025, 5, 7, 0, 0, 0, 0);
         // 
         // LblDateOfBirth
         // 
@@ -213,85 +235,65 @@ partial class ReportMissingPersonForm
         LblGender.TabIndex = 9;
         LblGender.Text = "Gender";
         // 
-        // DtpDateOfBirth
+        // LblName
         // 
-        DtpDateOfBirth.Location = new Point(9, 84);
-        DtpDateOfBirth.MaxDate = new DateTime(2025, 5, 7, 0, 0, 0, 0);
-        DtpDateOfBirth.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
-        DtpDateOfBirth.Name = "DtpDateOfBirth";
-        DtpDateOfBirth.Size = new Size(174, 25);
-        DtpDateOfBirth.TabIndex = 11;
-        DtpDateOfBirth.Value = new DateTime(2025, 5, 7, 0, 0, 0, 0);
+        LblName.AutoSize = true;
+        LblName.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblName.Location = new Point(7, 4);
+        LblName.Margin = new Padding(3, 0, 0, 0);
+        LblName.Name = "LblName";
+        LblName.Size = new Size(43, 20);
+        LblName.TabIndex = 0;
+        LblName.Text = "Name";
         // 
-        // CmbGender
+        // TxtSurname
         // 
-        CmbGender.FormattingEnabled = true;
-        CmbGender.Location = new Point(200, 84);
-        CmbGender.Name = "CmbGender";
-        CmbGender.Size = new Size(176, 25);
-        CmbGender.TabIndex = 12;
+        TxtSurname.Location = new Point(200, 26);
+        TxtSurname.Name = "TxtSurname";
+        TxtSurname.Size = new Size(176, 25);
+        TxtSurname.TabIndex = 5;
         // 
-        // CmbRace
+        // LblRequired
         // 
-        CmbRace.FormattingEnabled = true;
-        CmbRace.Location = new Point(7, 139);
-        CmbRace.Name = "CmbRace";
-        CmbRace.Size = new Size(176, 25);
-        CmbRace.TabIndex = 15;
+        LblRequired.AutoSize = true;
+        LblRequired.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired.ForeColor = Color.Red;
+        LblRequired.Location = new Point(48, 5);
+        LblRequired.Margin = new Padding(0);
+        LblRequired.Name = "LblRequired";
+        LblRequired.Size = new Size(14, 18);
+        LblRequired.TabIndex = 1;
+        LblRequired.Text = "*";
         // 
-        // LblRequired5
+        // LblRequired2
         // 
-        LblRequired5.AutoSize = true;
-        LblRequired5.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblRequired5.ForeColor = Color.Red;
-        LblRequired5.Location = new Point(47, 117);
-        LblRequired5.Margin = new Padding(0);
-        LblRequired5.Name = "LblRequired5";
-        LblRequired5.Size = new Size(14, 18);
-        LblRequired5.TabIndex = 14;
-        LblRequired5.Text = "*";
+        LblRequired2.AutoSize = true;
+        LblRequired2.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired2.ForeColor = Color.Red;
+        LblRequired2.Location = new Point(258, 6);
+        LblRequired2.Margin = new Padding(0);
+        LblRequired2.Name = "LblRequired2";
+        LblRequired2.Size = new Size(14, 18);
+        LblRequired2.TabIndex = 4;
+        LblRequired2.Text = "*";
         // 
-        // LblRace
+        // TxtName
         // 
-        LblRace.AutoSize = true;
-        LblRace.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblRace.Location = new Point(9, 116);
-        LblRace.Margin = new Padding(3, 0, 0, 0);
-        LblRace.Name = "LblRace";
-        LblRace.Size = new Size(39, 20);
-        LblRace.TabIndex = 13;
-        LblRace.Text = "Race";
+        TxtName.Location = new Point(7, 26);
+        TxtName.Name = "TxtName";
+        TxtName.Size = new Size(176, 25);
+        TxtName.TabIndex = 2;
         // 
-        // CmbProvince
+        // LblSurname
         // 
-        CmbProvince.FormattingEnabled = true;
-        CmbProvince.Location = new Point(200, 139);
-        CmbProvince.Name = "CmbProvince";
-        CmbProvince.Size = new Size(176, 25);
-        CmbProvince.TabIndex = 18;
-        // 
-        // LblRequired6
-        // 
-        LblRequired6.AutoSize = true;
-        LblRequired6.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblRequired6.ForeColor = Color.Red;
-        LblRequired6.Location = new Point(263, 117);
-        LblRequired6.Margin = new Padding(0);
-        LblRequired6.Name = "LblRequired6";
-        LblRequired6.Size = new Size(14, 18);
-        LblRequired6.TabIndex = 17;
-        LblRequired6.Text = "*";
-        // 
-        // LblProvince
-        // 
-        LblProvince.AutoSize = true;
-        LblProvince.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblProvince.Location = new Point(202, 116);
-        LblProvince.Margin = new Padding(3, 0, 0, 0);
-        LblProvince.Name = "LblProvince";
-        LblProvince.Size = new Size(63, 20);
-        LblProvince.TabIndex = 16;
-        LblProvince.Text = "Province";
+        LblSurname.AutoSize = true;
+        LblSurname.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblSurname.Location = new Point(200, 5);
+        LblSurname.Margin = new Padding(3, 0, 0, 0);
+        LblSurname.Name = "LblSurname";
+        LblSurname.Size = new Size(63, 20);
+        LblSurname.TabIndex = 3;
+        LblSurname.Text = "Surname";
         // 
         // ReportMissingPersonForm
         // 
