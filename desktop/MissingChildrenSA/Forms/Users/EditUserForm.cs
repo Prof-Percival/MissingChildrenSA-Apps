@@ -68,7 +68,7 @@ public partial class EditUserForm : Form
                 UserRole = (UserRole)CmbUserRole.SelectedIndex
             };
 
-            var response = await _apiClient.Update2Async(_user.Id, request);
+            var response = await _apiClient.UpdateUserAsync(_user.Id, request);
 
             UserUpdatedEventHandler?.Invoke(this, EventArgs.Empty);
 

@@ -47,7 +47,7 @@ public partial class CreateUserForm : Form
                 UserRole = (UserRole)CmbUserRole.SelectedIndex
             };
 
-            var response = await _apiClient.Create2Async(request);
+            var response = await _apiClient.CreateUserAsync(request);
 
             UserAddedEventHandler?.Invoke(this, EventArgs.Empty);
 

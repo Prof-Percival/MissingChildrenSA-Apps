@@ -30,7 +30,7 @@ public partial class ViewUsersForm : Form
     {
         try
         {
-            var response = await _apiClient.ListAsync(1, int.MaxValue); //Change page size for pagination and not load everything
+            var response = await _apiClient.ListUsersAsync(1, int.MaxValue); //Change page size for pagination and not load everything
 
             _users = response.Users.Select(u => new UserModel(u)).ToList();
 
