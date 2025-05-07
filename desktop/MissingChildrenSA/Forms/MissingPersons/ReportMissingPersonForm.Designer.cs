@@ -101,7 +101,7 @@ partial class ReportMissingPersonForm
         PanMain.Dock = DockStyle.Fill;
         PanMain.Location = new Point(0, 0);
         PanMain.Name = "PanMain";
-        PanMain.Size = new Size(954, 501);
+        PanMain.Size = new Size(1060, 501);
         PanMain.TabIndex = 0;
         // 
         // GrpDisappearanceDetails
@@ -109,7 +109,7 @@ partial class ReportMissingPersonForm
         GrpDisappearanceDetails.AutoSize = true;
         GrpDisappearanceDetails.Controls.Add(PanDisappearanceDetails);
         GrpDisappearanceDetails.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        GrpDisappearanceDetails.Location = new Point(269, 218);
+        GrpDisappearanceDetails.Location = new Point(808, 12);
         GrpDisappearanceDetails.Name = "GrpDisappearanceDetails";
         GrpDisappearanceDetails.Size = new Size(240, 200);
         GrpDisappearanceDetails.TabIndex = 8;
@@ -192,7 +192,7 @@ partial class ReportMissingPersonForm
         GrpPhysicalDescription.AutoSize = true;
         GrpPhysicalDescription.Controls.Add(PanPhysicalDescription);
         GrpPhysicalDescription.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        GrpPhysicalDescription.Location = new Point(427, 12);
+        GrpPhysicalDescription.Location = new Point(410, 12);
         GrpPhysicalDescription.Name = "GrpPhysicalDescription";
         GrpPhysicalDescription.Size = new Size(392, 200);
         GrpPhysicalDescription.TabIndex = 7;
@@ -663,7 +663,7 @@ partial class ReportMissingPersonForm
         AutoScaleDimensions = new SizeF(8F, 17F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(954, 501);
+        ClientSize = new Size(1060, 501);
         Controls.Add(PanMain);
         Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         FormBorderStyle = FormBorderStyle.FixedDialog;
