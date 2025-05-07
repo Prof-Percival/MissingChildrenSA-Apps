@@ -31,6 +31,25 @@ partial class ReportMissingPersonForm
         components = new System.ComponentModel.Container();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportMissingPersonForm));
         PanMain = new Panel();
+        GrpPhysicalDescription = new GroupBox();
+        PanPhysicalDescription = new Panel();
+        NupWeight = new NumericUpDown();
+        NupHeight = new NumericUpDown();
+        TxtMarksTattoos = new TextBox();
+        TxtEyeColour = new TextBox();
+        LblMarksTattoos = new Label();
+        LblRequired11 = new Label();
+        LblWeight = new Label();
+        LblEyeColour = new Label();
+        LblRequired9 = new Label();
+        LblRequired10 = new Label();
+        LblHeight = new Label();
+        LblHairColour = new Label();
+        TxtHairLengthOrStyle = new TextBox();
+        LblRequired7 = new Label();
+        LblRequired8 = new Label();
+        TxtHairColour = new TextBox();
+        LblHairLengthOrStyle = new Label();
         GrpPersonalDetails = new GroupBox();
         PanPersonalDetails = new Panel();
         CmbProvince = new ComboBox();
@@ -53,6 +72,10 @@ partial class ReportMissingPersonForm
         LblSurname = new Label();
         MainTooltip = new ToolTip(components);
         PanMain.SuspendLayout();
+        GrpPhysicalDescription.SuspendLayout();
+        PanPhysicalDescription.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)NupWeight).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NupHeight).BeginInit();
         GrpPersonalDetails.SuspendLayout();
         PanPersonalDetails.SuspendLayout();
         SuspendLayout();
@@ -61,12 +84,232 @@ partial class ReportMissingPersonForm
         // 
         PanMain.AutoScroll = true;
         PanMain.AutoSize = true;
+        PanMain.Controls.Add(GrpPhysicalDescription);
         PanMain.Controls.Add(GrpPersonalDetails);
         PanMain.Dock = DockStyle.Fill;
         PanMain.Location = new Point(0, 0);
         PanMain.Name = "PanMain";
         PanMain.Size = new Size(954, 501);
         PanMain.TabIndex = 0;
+        // 
+        // GrpPhysicalDescription
+        // 
+        GrpPhysicalDescription.AutoSize = true;
+        GrpPhysicalDescription.Controls.Add(PanPhysicalDescription);
+        GrpPhysicalDescription.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        GrpPhysicalDescription.Location = new Point(427, 12);
+        GrpPhysicalDescription.Name = "GrpPhysicalDescription";
+        GrpPhysicalDescription.Size = new Size(392, 200);
+        GrpPhysicalDescription.TabIndex = 7;
+        GrpPhysicalDescription.TabStop = false;
+        GrpPhysicalDescription.Text = "Physical Description";
+        // 
+        // PanPhysicalDescription
+        // 
+        PanPhysicalDescription.Controls.Add(NupWeight);
+        PanPhysicalDescription.Controls.Add(NupHeight);
+        PanPhysicalDescription.Controls.Add(TxtMarksTattoos);
+        PanPhysicalDescription.Controls.Add(TxtEyeColour);
+        PanPhysicalDescription.Controls.Add(LblMarksTattoos);
+        PanPhysicalDescription.Controls.Add(LblRequired11);
+        PanPhysicalDescription.Controls.Add(LblWeight);
+        PanPhysicalDescription.Controls.Add(LblEyeColour);
+        PanPhysicalDescription.Controls.Add(LblRequired9);
+        PanPhysicalDescription.Controls.Add(LblRequired10);
+        PanPhysicalDescription.Controls.Add(LblHeight);
+        PanPhysicalDescription.Controls.Add(LblHairColour);
+        PanPhysicalDescription.Controls.Add(TxtHairLengthOrStyle);
+        PanPhysicalDescription.Controls.Add(LblRequired7);
+        PanPhysicalDescription.Controls.Add(LblRequired8);
+        PanPhysicalDescription.Controls.Add(TxtHairColour);
+        PanPhysicalDescription.Controls.Add(LblHairLengthOrStyle);
+        PanPhysicalDescription.Dock = DockStyle.Fill;
+        PanPhysicalDescription.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        PanPhysicalDescription.Location = new Point(3, 25);
+        PanPhysicalDescription.Name = "PanPhysicalDescription";
+        PanPhysicalDescription.Size = new Size(386, 172);
+        PanPhysicalDescription.TabIndex = 7;
+        // 
+        // NupWeight
+        // 
+        NupWeight.DecimalPlaces = 2;
+        NupWeight.Location = new Point(7, 139);
+        NupWeight.Maximum = new decimal(new int[] { 700, 0, 0, 0 });
+        NupWeight.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
+        NupWeight.Name = "NupWeight";
+        NupWeight.Size = new Size(176, 25);
+        NupWeight.TabIndex = 15;
+        NupWeight.Value = new decimal(new int[] { 1, 0, 0, 65536 });
+        // 
+        // NupHeight
+        // 
+        NupHeight.Location = new Point(200, 82);
+        NupHeight.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
+        NupHeight.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+        NupHeight.Name = "NupHeight";
+        NupHeight.Size = new Size(176, 25);
+        NupHeight.TabIndex = 11;
+        NupHeight.Value = new decimal(new int[] { 1, 0, 0, 0 });
+        // 
+        // TxtMarksTattoos
+        // 
+        TxtMarksTattoos.Location = new Point(200, 139);
+        TxtMarksTattoos.Name = "TxtMarksTattoos";
+        TxtMarksTattoos.Size = new Size(176, 25);
+        TxtMarksTattoos.TabIndex = 17;
+        // 
+        // TxtEyeColour
+        // 
+        TxtEyeColour.Location = new Point(7, 82);
+        TxtEyeColour.Name = "TxtEyeColour";
+        TxtEyeColour.Size = new Size(176, 25);
+        TxtEyeColour.TabIndex = 8;
+        // 
+        // LblMarksTattoos
+        // 
+        LblMarksTattoos.AutoSize = true;
+        LblMarksTattoos.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblMarksTattoos.Location = new Point(198, 116);
+        LblMarksTattoos.Margin = new Padding(0);
+        LblMarksTattoos.Name = "LblMarksTattoos";
+        LblMarksTattoos.Size = new Size(169, 20);
+        LblMarksTattoos.TabIndex = 16;
+        LblMarksTattoos.Text = "Distinctive Marks / Tattoos";
+        LblMarksTattoos.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblRequired11
+        // 
+        LblRequired11.AutoSize = true;
+        LblRequired11.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired11.ForeColor = Color.Red;
+        LblRequired11.Location = new Point(80, 117);
+        LblRequired11.Margin = new Padding(0);
+        LblRequired11.Name = "LblRequired11";
+        LblRequired11.Size = new Size(14, 18);
+        LblRequired11.TabIndex = 14;
+        LblRequired11.Text = "*";
+        // 
+        // LblWeight
+        // 
+        LblWeight.AutoSize = true;
+        LblWeight.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblWeight.Location = new Point(4, 116);
+        LblWeight.Margin = new Padding(0);
+        LblWeight.Name = "LblWeight";
+        LblWeight.Size = new Size(77, 20);
+        LblWeight.TabIndex = 13;
+        LblWeight.Text = "Weight (kg)";
+        LblWeight.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblEyeColour
+        // 
+        LblEyeColour.AutoSize = true;
+        LblEyeColour.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblEyeColour.Location = new Point(3, 60);
+        LblEyeColour.Margin = new Padding(0);
+        LblEyeColour.Name = "LblEyeColour";
+        LblEyeColour.Size = new Size(76, 20);
+        LblEyeColour.TabIndex = 6;
+        LblEyeColour.Text = "Eye Colour";
+        LblEyeColour.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblRequired9
+        // 
+        LblRequired9.AutoSize = true;
+        LblRequired9.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired9.ForeColor = Color.Red;
+        LblRequired9.Location = new Point(78, 61);
+        LblRequired9.Margin = new Padding(0);
+        LblRequired9.Name = "LblRequired9";
+        LblRequired9.Size = new Size(14, 18);
+        LblRequired9.TabIndex = 7;
+        LblRequired9.Text = "*";
+        // 
+        // LblRequired10
+        // 
+        LblRequired10.AutoSize = true;
+        LblRequired10.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired10.ForeColor = Color.Red;
+        LblRequired10.Location = new Point(274, 62);
+        LblRequired10.Margin = new Padding(0);
+        LblRequired10.Name = "LblRequired10";
+        LblRequired10.Size = new Size(14, 18);
+        LblRequired10.TabIndex = 10;
+        LblRequired10.Text = "*";
+        // 
+        // LblHeight
+        // 
+        LblHeight.AutoSize = true;
+        LblHeight.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblHeight.Location = new Point(198, 61);
+        LblHeight.Margin = new Padding(0);
+        LblHeight.Name = "LblHeight";
+        LblHeight.Size = new Size(78, 20);
+        LblHeight.TabIndex = 9;
+        LblHeight.Text = "Height (cm)";
+        LblHeight.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblHairColour
+        // 
+        LblHairColour.AutoSize = true;
+        LblHairColour.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblHairColour.Location = new Point(3, 4);
+        LblHairColour.Margin = new Padding(0);
+        LblHairColour.Name = "LblHairColour";
+        LblHairColour.Size = new Size(79, 20);
+        LblHairColour.TabIndex = 0;
+        LblHairColour.Text = "Hair Colour";
+        LblHairColour.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // TxtHairLengthOrStyle
+        // 
+        TxtHairLengthOrStyle.Location = new Point(200, 26);
+        TxtHairLengthOrStyle.Name = "TxtHairLengthOrStyle";
+        TxtHairLengthOrStyle.Size = new Size(176, 25);
+        TxtHairLengthOrStyle.TabIndex = 5;
+        // 
+        // LblRequired7
+        // 
+        LblRequired7.AutoSize = true;
+        LblRequired7.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired7.ForeColor = Color.Red;
+        LblRequired7.Location = new Point(80, 5);
+        LblRequired7.Margin = new Padding(0);
+        LblRequired7.Name = "LblRequired7";
+        LblRequired7.Size = new Size(14, 18);
+        LblRequired7.TabIndex = 1;
+        LblRequired7.Text = "*";
+        // 
+        // LblRequired8
+        // 
+        LblRequired8.AutoSize = true;
+        LblRequired8.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired8.ForeColor = Color.Red;
+        LblRequired8.Location = new Point(324, 6);
+        LblRequired8.Margin = new Padding(0);
+        LblRequired8.Name = "LblRequired8";
+        LblRequired8.Size = new Size(14, 18);
+        LblRequired8.TabIndex = 4;
+        LblRequired8.Text = "*";
+        // 
+        // TxtHairColour
+        // 
+        TxtHairColour.Location = new Point(7, 26);
+        TxtHairColour.Name = "TxtHairColour";
+        TxtHairColour.Size = new Size(176, 25);
+        TxtHairColour.TabIndex = 2;
+        // 
+        // LblHairLengthOrStyle
+        // 
+        LblHairLengthOrStyle.AutoSize = true;
+        LblHairLengthOrStyle.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblHairLengthOrStyle.Location = new Point(196, 5);
+        LblHairLengthOrStyle.Margin = new Padding(0);
+        LblHairLengthOrStyle.Name = "LblHairLengthOrStyle";
+        LblHairLengthOrStyle.Size = new Size(131, 20);
+        LblHairLengthOrStyle.TabIndex = 3;
+        LblHairLengthOrStyle.Text = "Hair Length Or Style";
+        LblHairLengthOrStyle.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // GrpPersonalDetails
         // 
@@ -104,7 +347,7 @@ partial class ReportMissingPersonForm
         PanPersonalDetails.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         PanPersonalDetails.Location = new Point(3, 25);
         PanPersonalDetails.Name = "PanPersonalDetails";
-        PanPersonalDetails.Size = new Size(386, 173);
+        PanPersonalDetails.Size = new Size(386, 172);
         PanPersonalDetails.TabIndex = 7;
         // 
         // CmbProvince
@@ -320,6 +563,11 @@ partial class ReportMissingPersonForm
         Load += ReportMissingPersonForm_Load;
         PanMain.ResumeLayout(false);
         PanMain.PerformLayout();
+        GrpPhysicalDescription.ResumeLayout(false);
+        PanPhysicalDescription.ResumeLayout(false);
+        PanPhysicalDescription.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)NupWeight).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NupHeight).EndInit();
         GrpPersonalDetails.ResumeLayout(false);
         PanPersonalDetails.ResumeLayout(false);
         PanPersonalDetails.PerformLayout();
@@ -351,4 +599,23 @@ partial class ReportMissingPersonForm
     private ComboBox CmbProvince;
     private Label LblRequired6;
     private Label LblProvince;
+    private GroupBox GrpPhysicalDescription;
+    private Panel PanPhysicalDescription;
+    private Label LblMarksTattoos;
+    private Label LblRequired11;
+    private Label LblWeight;
+    private Label LblEyeColour;
+    private Label LblRequired9;
+    private Label LblRequired10;
+    private Label LblHeight;
+    private Label LblHairColour;
+    private TextBox TxtHairLengthOrStyle;
+    private Label LblRequired7;
+    private Label LblRequired8;
+    private TextBox TxtHairColour;
+    private Label LblHairLengthOrStyle;
+    private TextBox TxtMarksTattoos;
+    private TextBox TxtEyeColour;
+    private NumericUpDown NupHeight;
+    private NumericUpDown NupWeight;
 }
