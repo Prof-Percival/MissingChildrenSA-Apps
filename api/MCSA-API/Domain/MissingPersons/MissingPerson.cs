@@ -21,7 +21,7 @@ public class MissingPerson
     public string MarksTattoos { get; set; }
     public string LastSeenWearing { get; set; }
     public string LocationLastSeen { get; set; }
-    public string DetailsOfDisappearance { get; set; }
+    public string DetailsOfDisappearance { get; set; } = string.Empty;
     public string ImageUrl { get; set; }
     public string PoliceStation { get; set; }
     public string CaseNumber { get; set; }
