@@ -159,6 +159,7 @@ partial class ReportMissingPersonForm
         BtnSubmit.TabIndex = 12;
         BtnSubmit.Text = "Submit";
         BtnSubmit.UseVisualStyleBackColor = false;
+        BtnSubmit.Click += BtnSubmit_Click;
         // 
         // GrpPhoto
         // 
