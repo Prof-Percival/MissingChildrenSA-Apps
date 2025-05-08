@@ -63,6 +63,7 @@ public class MissingPersonRepository(
         dalMissingPerson.MarksTattoos = entity.MarksTattoos;
         dalMissingPerson.LastSeenWearing = entity.LastSeenWearing;
         dalMissingPerson.LocationLastSeen = entity.LocationLastSeen;
+        dalMissingPerson.DetailsOfDisappearance = entity.DetailsOfDisappearance;
         dalMissingPerson.ImageUrl = entity.ImageUrl;
         dalMissingPerson.PoliceStation = entity.PoliceStation;
         dalMissingPerson.CaseNumber = entity.CaseNumber;
