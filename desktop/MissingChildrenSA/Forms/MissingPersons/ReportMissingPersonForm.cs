@@ -27,7 +27,9 @@ public partial class ReportMissingPersonForm : Form
     private void ReportMissingPersonForm_Load(object sender, EventArgs e)
     {
         DtpDateOfBirth.MaxDate = DateTime.Now;
+        DtpDateOfBirth.Value = DateTime.Now;
         DtpDateWentMissing.MaxDate = DateTime.Now;
+        DtpDateWentMissing.Value = DateTime.Now;
 
         PopulateDropdowns();
     }
