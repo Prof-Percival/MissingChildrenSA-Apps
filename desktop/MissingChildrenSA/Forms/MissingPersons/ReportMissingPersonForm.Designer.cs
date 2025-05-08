@@ -31,6 +31,20 @@ partial class ReportMissingPersonForm
         components = new System.ComponentModel.Container();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportMissingPersonForm));
         PanMain = new Panel();
+        GrpPoliceReport = new GroupBox();
+        PanPoliceReport = new Panel();
+        TxtInvestigatingOfficerContactNumber = new TextBox();
+        TxtInvestigatingOfficer = new TextBox();
+        LblInvestigatingOfficer = new Label();
+        LblRequired15 = new Label();
+        LblRequired16 = new Label();
+        LblInvestigatingOfficerContactNumber = new Label();
+        LblPoliceStation = new Label();
+        TxtCaseNumber = new TextBox();
+        LblRequired13 = new Label();
+        LblRequired14 = new Label();
+        TxtPoliceStation = new TextBox();
+        LblCaseNumber = new Label();
         GrpDisappearanceDetails = new GroupBox();
         PanDisappearanceDetails = new Panel();
         LblDateWentMissing = new Label();
@@ -80,21 +94,15 @@ partial class ReportMissingPersonForm
         TxtName = new TextBox();
         LblSurname = new Label();
         MainTooltip = new ToolTip(components);
-        GrpPoliceReport = new GroupBox();
-        PanPoliceReport = new Panel();
-        LblInvestigatingOfficer = new Label();
-        LblRequired15 = new Label();
-        LblRequired16 = new Label();
-        LblInvestigatingOfficerContactNumber = new Label();
-        LblPoliceStation = new Label();
-        TxtCaseNumber = new TextBox();
-        LblRequired13 = new Label();
-        LblRequired14 = new Label();
-        TxtPoliceStation = new TextBox();
-        LblCaseNumber = new Label();
-        TxtInvestigatingOfficer = new TextBox();
-        TxtInvestigatingOfficerContactNumber = new TextBox();
+        GrpFamilyContact = new GroupBox();
+        PanFamilyContact = new Panel();
+        LblFamilyContactName = new Label();
+        TxtFamilyContactNumber = new TextBox();
+        TxtFamilyContactName = new TextBox();
+        LblContactNumber = new Label();
         PanMain.SuspendLayout();
+        GrpPoliceReport.SuspendLayout();
+        PanPoliceReport.SuspendLayout();
         GrpDisappearanceDetails.SuspendLayout();
         PanDisappearanceDetails.SuspendLayout();
         GrpPhysicalDescription.SuspendLayout();
@@ -103,14 +111,15 @@ partial class ReportMissingPersonForm
         ((System.ComponentModel.ISupportInitialize)NupHeight).BeginInit();
         GrpPersonalDetails.SuspendLayout();
         PanPersonalDetails.SuspendLayout();
-        GrpPoliceReport.SuspendLayout();
-        PanPoliceReport.SuspendLayout();
+        GrpFamilyContact.SuspendLayout();
+        PanFamilyContact.SuspendLayout();
         SuspendLayout();
         // 
         // PanMain
         // 
         PanMain.AutoScroll = true;
         PanMain.AutoSize = true;
+        PanMain.Controls.Add(GrpFamilyContact);
         PanMain.Controls.Add(GrpPoliceReport);
         PanMain.Controls.Add(GrpDisappearanceDetails);
         PanMain.Controls.Add(GrpPhysicalDescription);
@@ -120,6 +129,163 @@ partial class ReportMissingPersonForm
         PanMain.Name = "PanMain";
         PanMain.Size = new Size(1060, 501);
         PanMain.TabIndex = 0;
+        // 
+        // GrpPoliceReport
+        // 
+        GrpPoliceReport.AutoSize = true;
+        GrpPoliceReport.Controls.Add(PanPoliceReport);
+        GrpPoliceReport.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        GrpPoliceReport.Location = new Point(12, 240);
+        GrpPoliceReport.Name = "GrpPoliceReport";
+        GrpPoliceReport.Size = new Size(392, 149);
+        GrpPoliceReport.TabIndex = 9;
+        GrpPoliceReport.TabStop = false;
+        GrpPoliceReport.Text = "Police Report";
+        // 
+        // PanPoliceReport
+        // 
+        PanPoliceReport.Controls.Add(TxtInvestigatingOfficerContactNumber);
+        PanPoliceReport.Controls.Add(TxtInvestigatingOfficer);
+        PanPoliceReport.Controls.Add(LblInvestigatingOfficer);
+        PanPoliceReport.Controls.Add(LblRequired15);
+        PanPoliceReport.Controls.Add(LblRequired16);
+        PanPoliceReport.Controls.Add(LblInvestigatingOfficerContactNumber);
+        PanPoliceReport.Controls.Add(LblPoliceStation);
+        PanPoliceReport.Controls.Add(TxtCaseNumber);
+        PanPoliceReport.Controls.Add(LblRequired13);
+        PanPoliceReport.Controls.Add(LblRequired14);
+        PanPoliceReport.Controls.Add(TxtPoliceStation);
+        PanPoliceReport.Controls.Add(LblCaseNumber);
+        PanPoliceReport.Dock = DockStyle.Fill;
+        PanPoliceReport.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        PanPoliceReport.Location = new Point(3, 25);
+        PanPoliceReport.Name = "PanPoliceReport";
+        PanPoliceReport.Size = new Size(386, 121);
+        PanPoliceReport.TabIndex = 7;
+        // 
+        // TxtInvestigatingOfficerContactNumber
+        // 
+        TxtInvestigatingOfficerContactNumber.Location = new Point(200, 84);
+        TxtInvestigatingOfficerContactNumber.Name = "TxtInvestigatingOfficerContactNumber";
+        TxtInvestigatingOfficerContactNumber.Size = new Size(176, 25);
+        TxtInvestigatingOfficerContactNumber.TabIndex = 12;
+        // 
+        // TxtInvestigatingOfficer
+        // 
+        TxtInvestigatingOfficer.Location = new Point(7, 84);
+        TxtInvestigatingOfficer.Name = "TxtInvestigatingOfficer";
+        TxtInvestigatingOfficer.Size = new Size(176, 25);
+        TxtInvestigatingOfficer.TabIndex = 11;
+        // 
+        // LblInvestigatingOfficer
+        // 
+        LblInvestigatingOfficer.AutoSize = true;
+        LblInvestigatingOfficer.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblInvestigatingOfficer.Location = new Point(3, 60);
+        LblInvestigatingOfficer.Margin = new Padding(0);
+        LblInvestigatingOfficer.Name = "LblInvestigatingOfficer";
+        LblInvestigatingOfficer.Size = new Size(133, 20);
+        LblInvestigatingOfficer.TabIndex = 6;
+        LblInvestigatingOfficer.Text = "Investigating Officer";
+        LblInvestigatingOfficer.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblRequired15
+        // 
+        LblRequired15.AutoSize = true;
+        LblRequired15.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired15.ForeColor = Color.Red;
+        LblRequired15.Location = new Point(136, 62);
+        LblRequired15.Margin = new Padding(0);
+        LblRequired15.Name = "LblRequired15";
+        LblRequired15.Size = new Size(14, 18);
+        LblRequired15.TabIndex = 7;
+        LblRequired15.Text = "*";
+        // 
+        // LblRequired16
+        // 
+        LblRequired16.AutoSize = true;
+        LblRequired16.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired16.ForeColor = Color.Red;
+        LblRequired16.Location = new Point(348, 62);
+        LblRequired16.Margin = new Padding(0);
+        LblRequired16.Name = "LblRequired16";
+        LblRequired16.Size = new Size(14, 18);
+        LblRequired16.TabIndex = 10;
+        LblRequired16.Text = "*";
+        // 
+        // LblInvestigatingOfficerContactNumber
+        // 
+        LblInvestigatingOfficerContactNumber.AutoSize = true;
+        LblInvestigatingOfficerContactNumber.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblInvestigatingOfficerContactNumber.Location = new Point(198, 61);
+        LblInvestigatingOfficerContactNumber.Margin = new Padding(0);
+        LblInvestigatingOfficerContactNumber.Name = "LblInvestigatingOfficerContactNumber";
+        LblInvestigatingOfficerContactNumber.Size = new Size(151, 20);
+        LblInvestigatingOfficerContactNumber.TabIndex = 9;
+        LblInvestigatingOfficerContactNumber.Text = "Officer Contact Number";
+        LblInvestigatingOfficerContactNumber.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // LblPoliceStation
+        // 
+        LblPoliceStation.AutoSize = true;
+        LblPoliceStation.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblPoliceStation.Location = new Point(3, 4);
+        LblPoliceStation.Margin = new Padding(0);
+        LblPoliceStation.Name = "LblPoliceStation";
+        LblPoliceStation.Size = new Size(93, 20);
+        LblPoliceStation.TabIndex = 0;
+        LblPoliceStation.Text = "Police Station";
+        LblPoliceStation.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // TxtCaseNumber
+        // 
+        TxtCaseNumber.Location = new Point(200, 26);
+        TxtCaseNumber.Name = "TxtCaseNumber";
+        TxtCaseNumber.Size = new Size(176, 25);
+        TxtCaseNumber.TabIndex = 5;
+        // 
+        // LblRequired13
+        // 
+        LblRequired13.AutoSize = true;
+        LblRequired13.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired13.ForeColor = Color.Red;
+        LblRequired13.Location = new Point(96, 6);
+        LblRequired13.Margin = new Padding(0);
+        LblRequired13.Name = "LblRequired13";
+        LblRequired13.Size = new Size(14, 18);
+        LblRequired13.TabIndex = 1;
+        LblRequired13.Text = "*";
+        // 
+        // LblRequired14
+        // 
+        LblRequired14.AutoSize = true;
+        LblRequired14.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired14.ForeColor = Color.Red;
+        LblRequired14.Location = new Point(285, 6);
+        LblRequired14.Margin = new Padding(0);
+        LblRequired14.Name = "LblRequired14";
+        LblRequired14.Size = new Size(14, 18);
+        LblRequired14.TabIndex = 4;
+        LblRequired14.Text = "*";
+        // 
+        // TxtPoliceStation
+        // 
+        TxtPoliceStation.Location = new Point(7, 26);
+        TxtPoliceStation.Name = "TxtPoliceStation";
+        TxtPoliceStation.Size = new Size(176, 25);
+        TxtPoliceStation.TabIndex = 2;
+        // 
+        // LblCaseNumber
+        // 
+        LblCaseNumber.AutoSize = true;
+        LblCaseNumber.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblCaseNumber.Location = new Point(196, 5);
+        LblCaseNumber.Margin = new Padding(0);
+        LblCaseNumber.Name = "LblCaseNumber";
+        LblCaseNumber.Size = new Size(90, 20);
+        LblCaseNumber.TabIndex = 3;
+        LblCaseNumber.Text = "Case Number";
+        LblCaseNumber.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // GrpDisappearanceDetails
         // 
@@ -675,162 +841,68 @@ partial class ReportMissingPersonForm
         LblSurname.Text = "Surname";
         LblSurname.TextAlign = ContentAlignment.MiddleLeft;
         // 
-        // GrpPoliceReport
+        // GrpFamilyContact
         // 
-        GrpPoliceReport.AutoSize = true;
-        GrpPoliceReport.Controls.Add(PanPoliceReport);
-        GrpPoliceReport.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        GrpPoliceReport.Location = new Point(12, 240);
-        GrpPoliceReport.Name = "GrpPoliceReport";
-        GrpPoliceReport.Size = new Size(392, 149);
-        GrpPoliceReport.TabIndex = 9;
-        GrpPoliceReport.TabStop = false;
-        GrpPoliceReport.Text = "Police Report";
+        GrpFamilyContact.AutoSize = true;
+        GrpFamilyContact.Controls.Add(PanFamilyContact);
+        GrpFamilyContact.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        GrpFamilyContact.Location = new Point(410, 240);
+        GrpFamilyContact.Name = "GrpFamilyContact";
+        GrpFamilyContact.Size = new Size(392, 149);
+        GrpFamilyContact.TabIndex = 10;
+        GrpFamilyContact.TabStop = false;
+        GrpFamilyContact.Text = "Family Contact";
         // 
-        // PanPoliceReport
+        // PanFamilyContact
         // 
-        PanPoliceReport.Controls.Add(TxtInvestigatingOfficerContactNumber);
-        PanPoliceReport.Controls.Add(TxtInvestigatingOfficer);
-        PanPoliceReport.Controls.Add(LblInvestigatingOfficer);
-        PanPoliceReport.Controls.Add(LblRequired15);
-        PanPoliceReport.Controls.Add(LblRequired16);
-        PanPoliceReport.Controls.Add(LblInvestigatingOfficerContactNumber);
-        PanPoliceReport.Controls.Add(LblPoliceStation);
-        PanPoliceReport.Controls.Add(TxtCaseNumber);
-        PanPoliceReport.Controls.Add(LblRequired13);
-        PanPoliceReport.Controls.Add(LblRequired14);
-        PanPoliceReport.Controls.Add(TxtPoliceStation);
-        PanPoliceReport.Controls.Add(LblCaseNumber);
-        PanPoliceReport.Dock = DockStyle.Fill;
-        PanPoliceReport.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        PanPoliceReport.Location = new Point(3, 25);
-        PanPoliceReport.Name = "PanPoliceReport";
-        PanPoliceReport.Size = new Size(386, 121);
-        PanPoliceReport.TabIndex = 7;
+        PanFamilyContact.Controls.Add(LblFamilyContactName);
+        PanFamilyContact.Controls.Add(TxtFamilyContactNumber);
+        PanFamilyContact.Controls.Add(TxtFamilyContactName);
+        PanFamilyContact.Controls.Add(LblContactNumber);
+        PanFamilyContact.Dock = DockStyle.Fill;
+        PanFamilyContact.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        PanFamilyContact.Location = new Point(3, 25);
+        PanFamilyContact.Name = "PanFamilyContact";
+        PanFamilyContact.Size = new Size(386, 121);
+        PanFamilyContact.TabIndex = 7;
         // 
-        // LblInvestigatingOfficer
+        // LblFamilyContactName
         // 
-        LblInvestigatingOfficer.AutoSize = true;
-        LblInvestigatingOfficer.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblInvestigatingOfficer.Location = new Point(3, 60);
-        LblInvestigatingOfficer.Margin = new Padding(0);
-        LblInvestigatingOfficer.Name = "LblInvestigatingOfficer";
-        LblInvestigatingOfficer.Size = new Size(133, 20);
-        LblInvestigatingOfficer.TabIndex = 6;
-        LblInvestigatingOfficer.Text = "Investigating Officer";
-        LblInvestigatingOfficer.TextAlign = ContentAlignment.MiddleLeft;
+        LblFamilyContactName.AutoSize = true;
+        LblFamilyContactName.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblFamilyContactName.Location = new Point(3, 4);
+        LblFamilyContactName.Margin = new Padding(0);
+        LblFamilyContactName.Name = "LblFamilyContactName";
+        LblFamilyContactName.Size = new Size(93, 20);
+        LblFamilyContactName.TabIndex = 0;
+        LblFamilyContactName.Text = "Contact Name";
+        LblFamilyContactName.TextAlign = ContentAlignment.MiddleLeft;
         // 
-        // LblRequired15
+        // TxtFamilyContactNumber
         // 
-        LblRequired15.AutoSize = true;
-        LblRequired15.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblRequired15.ForeColor = Color.Red;
-        LblRequired15.Location = new Point(136, 62);
-        LblRequired15.Margin = new Padding(0);
-        LblRequired15.Name = "LblRequired15";
-        LblRequired15.Size = new Size(14, 18);
-        LblRequired15.TabIndex = 7;
-        LblRequired15.Text = "*";
+        TxtFamilyContactNumber.Location = new Point(200, 26);
+        TxtFamilyContactNumber.Name = "TxtFamilyContactNumber";
+        TxtFamilyContactNumber.Size = new Size(176, 25);
+        TxtFamilyContactNumber.TabIndex = 3;
         // 
-        // LblRequired16
+        // TxtFamilyContactName
         // 
-        LblRequired16.AutoSize = true;
-        LblRequired16.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblRequired16.ForeColor = Color.Red;
-        LblRequired16.Location = new Point(348, 62);
-        LblRequired16.Margin = new Padding(0);
-        LblRequired16.Name = "LblRequired16";
-        LblRequired16.Size = new Size(14, 18);
-        LblRequired16.TabIndex = 10;
-        LblRequired16.Text = "*";
+        TxtFamilyContactName.Location = new Point(7, 26);
+        TxtFamilyContactName.Name = "TxtFamilyContactName";
+        TxtFamilyContactName.Size = new Size(176, 25);
+        TxtFamilyContactName.TabIndex = 1;
         // 
-        // LblInvestigatingOfficerContactNumber
+        // LblContactNumber
         // 
-        LblInvestigatingOfficerContactNumber.AutoSize = true;
-        LblInvestigatingOfficerContactNumber.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblInvestigatingOfficerContactNumber.Location = new Point(198, 61);
-        LblInvestigatingOfficerContactNumber.Margin = new Padding(0);
-        LblInvestigatingOfficerContactNumber.Name = "LblInvestigatingOfficerContactNumber";
-        LblInvestigatingOfficerContactNumber.Size = new Size(151, 20);
-        LblInvestigatingOfficerContactNumber.TabIndex = 9;
-        LblInvestigatingOfficerContactNumber.Text = "Officer Contact Number";
-        LblInvestigatingOfficerContactNumber.TextAlign = ContentAlignment.MiddleLeft;
-        // 
-        // LblPoliceStation
-        // 
-        LblPoliceStation.AutoSize = true;
-        LblPoliceStation.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblPoliceStation.Location = new Point(3, 4);
-        LblPoliceStation.Margin = new Padding(0);
-        LblPoliceStation.Name = "LblPoliceStation";
-        LblPoliceStation.Size = new Size(93, 20);
-        LblPoliceStation.TabIndex = 0;
-        LblPoliceStation.Text = "Police Station";
-        LblPoliceStation.TextAlign = ContentAlignment.MiddleLeft;
-        // 
-        // TxtCaseNumber
-        // 
-        TxtCaseNumber.Location = new Point(200, 26);
-        TxtCaseNumber.Name = "TxtCaseNumber";
-        TxtCaseNumber.Size = new Size(176, 25);
-        TxtCaseNumber.TabIndex = 5;
-        // 
-        // LblRequired13
-        // 
-        LblRequired13.AutoSize = true;
-        LblRequired13.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblRequired13.ForeColor = Color.Red;
-        LblRequired13.Location = new Point(96, 6);
-        LblRequired13.Margin = new Padding(0);
-        LblRequired13.Name = "LblRequired13";
-        LblRequired13.Size = new Size(14, 18);
-        LblRequired13.TabIndex = 1;
-        LblRequired13.Text = "*";
-        // 
-        // LblRequired14
-        // 
-        LblRequired14.AutoSize = true;
-        LblRequired14.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblRequired14.ForeColor = Color.Red;
-        LblRequired14.Location = new Point(285, 6);
-        LblRequired14.Margin = new Padding(0);
-        LblRequired14.Name = "LblRequired14";
-        LblRequired14.Size = new Size(14, 18);
-        LblRequired14.TabIndex = 4;
-        LblRequired14.Text = "*";
-        // 
-        // TxtPoliceStation
-        // 
-        TxtPoliceStation.Location = new Point(7, 26);
-        TxtPoliceStation.Name = "TxtPoliceStation";
-        TxtPoliceStation.Size = new Size(176, 25);
-        TxtPoliceStation.TabIndex = 2;
-        // 
-        // LblCaseNumber
-        // 
-        LblCaseNumber.AutoSize = true;
-        LblCaseNumber.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblCaseNumber.Location = new Point(196, 5);
-        LblCaseNumber.Margin = new Padding(0);
-        LblCaseNumber.Name = "LblCaseNumber";
-        LblCaseNumber.Size = new Size(90, 20);
-        LblCaseNumber.TabIndex = 3;
-        LblCaseNumber.Text = "Case Number";
-        LblCaseNumber.TextAlign = ContentAlignment.MiddleLeft;
-        // 
-        // TxtInvestigatingOfficer
-        // 
-        TxtInvestigatingOfficer.Location = new Point(7, 84);
-        TxtInvestigatingOfficer.Name = "TxtInvestigatingOfficer";
-        TxtInvestigatingOfficer.Size = new Size(176, 25);
-        TxtInvestigatingOfficer.TabIndex = 11;
-        // 
-        // TxtInvestigatingOfficerContactNumber
-        // 
-        TxtInvestigatingOfficerContactNumber.Location = new Point(200, 84);
-        TxtInvestigatingOfficerContactNumber.Name = "TxtInvestigatingOfficerContactNumber";
-        TxtInvestigatingOfficerContactNumber.Size = new Size(176, 25);
-        TxtInvestigatingOfficerContactNumber.TabIndex = 12;
+        LblContactNumber.AutoSize = true;
+        LblContactNumber.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblContactNumber.Location = new Point(196, 5);
+        LblContactNumber.Margin = new Padding(0);
+        LblContactNumber.Name = "LblContactNumber";
+        LblContactNumber.Size = new Size(107, 20);
+        LblContactNumber.TabIndex = 2;
+        LblContactNumber.Text = "Contact Number";
+        LblContactNumber.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // ReportMissingPersonForm
         // 
@@ -851,6 +923,9 @@ partial class ReportMissingPersonForm
         Load += ReportMissingPersonForm_Load;
         PanMain.ResumeLayout(false);
         PanMain.PerformLayout();
+        GrpPoliceReport.ResumeLayout(false);
+        PanPoliceReport.ResumeLayout(false);
+        PanPoliceReport.PerformLayout();
         GrpDisappearanceDetails.ResumeLayout(false);
         PanDisappearanceDetails.ResumeLayout(false);
         PanDisappearanceDetails.PerformLayout();
@@ -862,9 +937,9 @@ partial class ReportMissingPersonForm
         GrpPersonalDetails.ResumeLayout(false);
         PanPersonalDetails.ResumeLayout(false);
         PanPersonalDetails.PerformLayout();
-        GrpPoliceReport.ResumeLayout(false);
-        PanPoliceReport.ResumeLayout(false);
-        PanPoliceReport.PerformLayout();
+        GrpFamilyContact.ResumeLayout(false);
+        PanFamilyContact.ResumeLayout(false);
+        PanFamilyContact.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -935,4 +1010,10 @@ partial class ReportMissingPersonForm
     private Label LblCaseNumber;
     private TextBox TxtInvestigatingOfficer;
     private TextBox TxtInvestigatingOfficerContactNumber;
+    private GroupBox GrpFamilyContact;
+    private Panel PanFamilyContact;
+    private Label LblFamilyContactName;
+    private TextBox TxtFamilyContactNumber;
+    private TextBox TxtFamilyContactName;
+    private Label LblContactNumber;
 }
