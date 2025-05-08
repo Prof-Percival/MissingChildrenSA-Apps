@@ -67,7 +67,7 @@ public partial class ReportMissingPersonForm : Form
            (TxtInvestigatingOfficer, "Investigating Officer", c => !string.IsNullOrWhiteSpace(c.Text), "Investigating Officer is required."),
            (TxtInvestigatingOfficerContactNumber, "Investigating Officer Contact", c => !string.IsNullOrWhiteSpace(c.Text), "Contact Number is required."),
            (PicPreview, "Image", c => PicPreview.Image != null, "Please select an image.")
-       );
+        );
 
         if (!isValid) return;
 
@@ -121,6 +121,8 @@ public partial class ReportMissingPersonForm : Form
             var response = await _apiClient.ReportMissingPersonAsync(request);
 
             MessageBox.Show("Missing person reported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            ClearForm();
         }
         catch (ApiException ex)
         {
@@ -148,5 +150,38 @@ public partial class ReportMissingPersonForm : Form
         CmbProvince.Items.Clear();
         CmbProvince.Items.Add("");
         CmbProvince.Items.AddRange(_enumLoader.Provinces.Select(ur => ur.Description).ToArray());
+    }
+
+    private void ClearForm()
+    {
+        TxtName.Clear();
+        TxtSurname.Clear();
+        DtpDateOfBirth.Value = DateTime.Now.Date;
+        CmbGender.SelectedIndex = 0;
+        CmbRace.SelectedIndex = 0;
+        CmbProvince.SelectedIndex = 0;
+        DtpDateWentMissing.Value = DateTime.Now;
+
+        TxtHairColour.Clear();
+        TxtHairLengthOrStyle.Clear();
+        TxtEyeColour.Clear();
+        NupHeight.Value = NupHeight.Minimum;
+        NupWeight.Value = NupWeight.Minimum;
+        TxtMarksTattoos.Clear();
+        TxtLastSeenWearing.Clear();
+        TxtLocationLastSeen.Clear();
+
+        TxtPoliceStation.Clear();
+        TxtCaseNumber.Clear();
+        TxtInvestigatingOfficer.Clear();
+        TxtInvestigatingOfficerContactNumber.Clear();
+
+        TxtFamilyContactName.Clear();
+        TxtFamilyContactNumber.Clear();
+
+        PicPreview.Image = null;
+        _selectedImagePath = null;
+
+        TxtName.Focus();
     }
 }
