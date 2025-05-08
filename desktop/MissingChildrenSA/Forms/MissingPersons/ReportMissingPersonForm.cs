@@ -163,7 +163,7 @@ public partial class ReportMissingPersonForm : Form
         CmbGender.SelectedIndex = 0;
         CmbRace.SelectedIndex = 0;
         CmbProvince.SelectedIndex = 0;
-        DtpDateWentMissing.Value = DateTime.Now;
+        DtpDateWentMissing.Value = DateTime.Now.Date;
 
         TxtHairColour.Clear();
         TxtHairLengthOrStyle.Clear();
