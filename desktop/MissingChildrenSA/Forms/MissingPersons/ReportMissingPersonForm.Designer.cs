@@ -739,11 +739,8 @@ partial class ReportMissingPersonForm
     private Panel PanDisappearanceDetails;
     private DateTimePicker DtpDateWentMissing;
     private Label LblDateWentMissing;
-    private Label label6;
     private Label LblLastSeenWearing;
-    private TextBox textBox1;
     private Label LblRequired12;
-    private Label label11;
     private TextBox TxtLastSeenWearing;
     private Label LblLocationLastSeen;
     private TextBox TxtLocationLastSeen;
