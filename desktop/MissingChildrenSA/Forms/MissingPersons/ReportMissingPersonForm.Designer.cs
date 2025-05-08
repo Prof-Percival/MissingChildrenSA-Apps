@@ -31,6 +31,18 @@ partial class ReportMissingPersonForm
         components = new System.ComponentModel.Container();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportMissingPersonForm));
         PanMain = new Panel();
+        BtnSubmit = new Button();
+        GrpPhoto = new GroupBox();
+        PanPhoto = new Panel();
+        TabPanPhoto = new TableLayoutPanel();
+        PicPreview = new PictureBox();
+        BtnUploadImage = new Button();
+        GrpFamilyContact = new GroupBox();
+        PanFamilyContact = new Panel();
+        LblFamilyContactName = new Label();
+        TxtFamilyContactNumber = new TextBox();
+        TxtFamilyContactName = new TextBox();
+        LblContactNumber = new Label();
         GrpPoliceReport = new GroupBox();
         PanPoliceReport = new Panel();
         TxtInvestigatingOfficerContactNumber = new TextBox();
@@ -94,13 +106,13 @@ partial class ReportMissingPersonForm
         TxtName = new TextBox();
         LblSurname = new Label();
         MainTooltip = new ToolTip(components);
-        GrpFamilyContact = new GroupBox();
-        PanFamilyContact = new Panel();
-        LblFamilyContactName = new Label();
-        TxtFamilyContactNumber = new TextBox();
-        TxtFamilyContactName = new TextBox();
-        LblContactNumber = new Label();
         PanMain.SuspendLayout();
+        GrpPhoto.SuspendLayout();
+        PanPhoto.SuspendLayout();
+        TabPanPhoto.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)PicPreview).BeginInit();
+        GrpFamilyContact.SuspendLayout();
+        PanFamilyContact.SuspendLayout();
         GrpPoliceReport.SuspendLayout();
         PanPoliceReport.SuspendLayout();
         GrpDisappearanceDetails.SuspendLayout();
@@ -111,14 +123,14 @@ partial class ReportMissingPersonForm
         ((System.ComponentModel.ISupportInitialize)NupHeight).BeginInit();
         GrpPersonalDetails.SuspendLayout();
         PanPersonalDetails.SuspendLayout();
-        GrpFamilyContact.SuspendLayout();
-        PanFamilyContact.SuspendLayout();
         SuspendLayout();
         // 
         // PanMain
         // 
         PanMain.AutoScroll = true;
         PanMain.AutoSize = true;
+        PanMain.Controls.Add(BtnSubmit);
+        PanMain.Controls.Add(GrpPhoto);
         PanMain.Controls.Add(GrpFamilyContact);
         PanMain.Controls.Add(GrpPoliceReport);
         PanMain.Controls.Add(GrpDisappearanceDetails);
@@ -129,6 +141,146 @@ partial class ReportMissingPersonForm
         PanMain.Name = "PanMain";
         PanMain.Size = new Size(1060, 501);
         PanMain.TabIndex = 0;
+        // 
+        // BtnSubmit
+        // 
+        BtnSubmit.Anchor = AnchorStyles.None;
+        BtnSubmit.AutoSize = true;
+        BtnSubmit.BackColor = Color.FromArgb(237, 31, 39);
+        BtnSubmit.Cursor = Cursors.Hand;
+        BtnSubmit.FlatAppearance.BorderSize = 0;
+        BtnSubmit.FlatStyle = FlatStyle.Popup;
+        BtnSubmit.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        BtnSubmit.ForeColor = Color.White;
+        BtnSubmit.Location = new Point(361, 434);
+        BtnSubmit.Margin = new Padding(5, 3, 5, 3);
+        BtnSubmit.Name = "BtnSubmit";
+        BtnSubmit.Size = new Size(110, 31);
+        BtnSubmit.TabIndex = 12;
+        BtnSubmit.Text = "Submit";
+        BtnSubmit.UseVisualStyleBackColor = false;
+        // 
+        // GrpPhoto
+        // 
+        GrpPhoto.AutoSize = true;
+        GrpPhoto.Controls.Add(PanPhoto);
+        GrpPhoto.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        GrpPhoto.Location = new Point(808, 240);
+        GrpPhoto.Name = "GrpPhoto";
+        GrpPhoto.Size = new Size(240, 249);
+        GrpPhoto.TabIndex = 11;
+        GrpPhoto.TabStop = false;
+        GrpPhoto.Text = "Missing Person Photo";
+        // 
+        // PanPhoto
+        // 
+        PanPhoto.Controls.Add(TabPanPhoto);
+        PanPhoto.Dock = DockStyle.Fill;
+        PanPhoto.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        PanPhoto.Location = new Point(3, 25);
+        PanPhoto.Name = "PanPhoto";
+        PanPhoto.Size = new Size(234, 221);
+        PanPhoto.TabIndex = 7;
+        // 
+        // TabPanPhoto
+        // 
+        TabPanPhoto.ColumnCount = 1;
+        TabPanPhoto.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+        TabPanPhoto.Controls.Add(PicPreview, 0, 1);
+        TabPanPhoto.Controls.Add(BtnUploadImage, 0, 0);
+        TabPanPhoto.Dock = DockStyle.Fill;
+        TabPanPhoto.Location = new Point(0, 0);
+        TabPanPhoto.Name = "TabPanPhoto";
+        TabPanPhoto.RowCount = 2;
+        TabPanPhoto.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+        TabPanPhoto.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+        TabPanPhoto.Size = new Size(234, 221);
+        TabPanPhoto.TabIndex = 0;
+        // 
+        // PicPreview
+        // 
+        PicPreview.Dock = DockStyle.Fill;
+        PicPreview.Location = new Point(3, 47);
+        PicPreview.Name = "PicPreview";
+        PicPreview.Size = new Size(228, 171);
+        PicPreview.SizeMode = PictureBoxSizeMode.Zoom;
+        PicPreview.TabIndex = 0;
+        PicPreview.TabStop = false;
+        // 
+        // BtnUploadImage
+        // 
+        BtnUploadImage.Anchor = AnchorStyles.None;
+        BtnUploadImage.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        BtnUploadImage.Location = new Point(54, 3);
+        BtnUploadImage.Name = "BtnUploadImage";
+        BtnUploadImage.Size = new Size(125, 38);
+        BtnUploadImage.TabIndex = 1;
+        BtnUploadImage.Text = "Upload Image";
+        BtnUploadImage.UseVisualStyleBackColor = true;
+        BtnUploadImage.Click += BtnUploadImage_Click;
+        // 
+        // GrpFamilyContact
+        // 
+        GrpFamilyContact.AutoSize = true;
+        GrpFamilyContact.Controls.Add(PanFamilyContact);
+        GrpFamilyContact.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        GrpFamilyContact.Location = new Point(410, 240);
+        GrpFamilyContact.Name = "GrpFamilyContact";
+        GrpFamilyContact.Size = new Size(392, 149);
+        GrpFamilyContact.TabIndex = 10;
+        GrpFamilyContact.TabStop = false;
+        GrpFamilyContact.Text = "Family Contact";
+        // 
+        // PanFamilyContact
+        // 
+        PanFamilyContact.Controls.Add(LblFamilyContactName);
+        PanFamilyContact.Controls.Add(TxtFamilyContactNumber);
+        PanFamilyContact.Controls.Add(TxtFamilyContactName);
+        PanFamilyContact.Controls.Add(LblContactNumber);
+        PanFamilyContact.Dock = DockStyle.Fill;
+        PanFamilyContact.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        PanFamilyContact.Location = new Point(3, 25);
+        PanFamilyContact.Name = "PanFamilyContact";
+        PanFamilyContact.Size = new Size(386, 121);
+        PanFamilyContact.TabIndex = 7;
+        // 
+        // LblFamilyContactName
+        // 
+        LblFamilyContactName.AutoSize = true;
+        LblFamilyContactName.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblFamilyContactName.Location = new Point(3, 4);
+        LblFamilyContactName.Margin = new Padding(0);
+        LblFamilyContactName.Name = "LblFamilyContactName";
+        LblFamilyContactName.Size = new Size(93, 20);
+        LblFamilyContactName.TabIndex = 0;
+        LblFamilyContactName.Text = "Contact Name";
+        LblFamilyContactName.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // TxtFamilyContactNumber
+        // 
+        TxtFamilyContactNumber.Location = new Point(200, 26);
+        TxtFamilyContactNumber.Name = "TxtFamilyContactNumber";
+        TxtFamilyContactNumber.Size = new Size(176, 25);
+        TxtFamilyContactNumber.TabIndex = 3;
+        // 
+        // TxtFamilyContactName
+        // 
+        TxtFamilyContactName.Location = new Point(7, 26);
+        TxtFamilyContactName.Name = "TxtFamilyContactName";
+        TxtFamilyContactName.Size = new Size(176, 25);
+        TxtFamilyContactName.TabIndex = 1;
+        // 
+        // LblContactNumber
+        // 
+        LblContactNumber.AutoSize = true;
+        LblContactNumber.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblContactNumber.Location = new Point(196, 5);
+        LblContactNumber.Margin = new Padding(0);
+        LblContactNumber.Name = "LblContactNumber";
+        LblContactNumber.Size = new Size(107, 20);
+        LblContactNumber.TabIndex = 2;
+        LblContactNumber.Text = "Contact Number";
+        LblContactNumber.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // GrpPoliceReport
         // 
@@ -841,69 +993,6 @@ partial class ReportMissingPersonForm
         LblSurname.Text = "Surname";
         LblSurname.TextAlign = ContentAlignment.MiddleLeft;
         // 
-        // GrpFamilyContact
-        // 
-        GrpFamilyContact.AutoSize = true;
-        GrpFamilyContact.Controls.Add(PanFamilyContact);
-        GrpFamilyContact.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        GrpFamilyContact.Location = new Point(410, 240);
-        GrpFamilyContact.Name = "GrpFamilyContact";
-        GrpFamilyContact.Size = new Size(392, 149);
-        GrpFamilyContact.TabIndex = 10;
-        GrpFamilyContact.TabStop = false;
-        GrpFamilyContact.Text = "Family Contact";
-        // 
-        // PanFamilyContact
-        // 
-        PanFamilyContact.Controls.Add(LblFamilyContactName);
-        PanFamilyContact.Controls.Add(TxtFamilyContactNumber);
-        PanFamilyContact.Controls.Add(TxtFamilyContactName);
-        PanFamilyContact.Controls.Add(LblContactNumber);
-        PanFamilyContact.Dock = DockStyle.Fill;
-        PanFamilyContact.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        PanFamilyContact.Location = new Point(3, 25);
-        PanFamilyContact.Name = "PanFamilyContact";
-        PanFamilyContact.Size = new Size(386, 121);
-        PanFamilyContact.TabIndex = 7;
-        // 
-        // LblFamilyContactName
-        // 
-        LblFamilyContactName.AutoSize = true;
-        LblFamilyContactName.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblFamilyContactName.Location = new Point(3, 4);
-        LblFamilyContactName.Margin = new Padding(0);
-        LblFamilyContactName.Name = "LblFamilyContactName";
-        LblFamilyContactName.Size = new Size(93, 20);
-        LblFamilyContactName.TabIndex = 0;
-        LblFamilyContactName.Text = "Contact Name";
-        LblFamilyContactName.TextAlign = ContentAlignment.MiddleLeft;
-        // 
-        // TxtFamilyContactNumber
-        // 
-        TxtFamilyContactNumber.Location = new Point(200, 26);
-        TxtFamilyContactNumber.Name = "TxtFamilyContactNumber";
-        TxtFamilyContactNumber.Size = new Size(176, 25);
-        TxtFamilyContactNumber.TabIndex = 3;
-        // 
-        // TxtFamilyContactName
-        // 
-        TxtFamilyContactName.Location = new Point(7, 26);
-        TxtFamilyContactName.Name = "TxtFamilyContactName";
-        TxtFamilyContactName.Size = new Size(176, 25);
-        TxtFamilyContactName.TabIndex = 1;
-        // 
-        // LblContactNumber
-        // 
-        LblContactNumber.AutoSize = true;
-        LblContactNumber.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblContactNumber.Location = new Point(196, 5);
-        LblContactNumber.Margin = new Padding(0);
-        LblContactNumber.Name = "LblContactNumber";
-        LblContactNumber.Size = new Size(107, 20);
-        LblContactNumber.TabIndex = 2;
-        LblContactNumber.Text = "Contact Number";
-        LblContactNumber.TextAlign = ContentAlignment.MiddleLeft;
-        // 
         // ReportMissingPersonForm
         // 
         AutoScaleDimensions = new SizeF(8F, 17F);
@@ -923,6 +1012,13 @@ partial class ReportMissingPersonForm
         Load += ReportMissingPersonForm_Load;
         PanMain.ResumeLayout(false);
         PanMain.PerformLayout();
+        GrpPhoto.ResumeLayout(false);
+        PanPhoto.ResumeLayout(false);
+        TabPanPhoto.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)PicPreview).EndInit();
+        GrpFamilyContact.ResumeLayout(false);
+        PanFamilyContact.ResumeLayout(false);
+        PanFamilyContact.PerformLayout();
         GrpPoliceReport.ResumeLayout(false);
         PanPoliceReport.ResumeLayout(false);
         PanPoliceReport.PerformLayout();
@@ -937,9 +1033,6 @@ partial class ReportMissingPersonForm
         GrpPersonalDetails.ResumeLayout(false);
         PanPersonalDetails.ResumeLayout(false);
         PanPersonalDetails.PerformLayout();
-        GrpFamilyContact.ResumeLayout(false);
-        PanFamilyContact.ResumeLayout(false);
-        PanFamilyContact.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1016,4 +1109,10 @@ partial class ReportMissingPersonForm
     private TextBox TxtFamilyContactNumber;
     private TextBox TxtFamilyContactName;
     private Label LblContactNumber;
+    private GroupBox GrpPhoto;
+    private Panel PanPhoto;
+    private TableLayoutPanel TabPanPhoto;
+    private PictureBox PicPreview;
+    private Button BtnUploadImage;
+    private Button BtnSubmit;
 }
