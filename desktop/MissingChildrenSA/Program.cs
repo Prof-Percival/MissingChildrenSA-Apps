@@ -60,6 +60,7 @@ internal static class Program
                 services.AddTransient<EditUserForm>();
                 services.AddTransient<ReportMissingPersonForm>();
                 services.AddSingleton<MissingPersonsGridForm>();
+                services.AddTransient<EditMissingPersonForm>();
             });
     }
 }
