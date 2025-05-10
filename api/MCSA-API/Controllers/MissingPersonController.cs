@@ -62,12 +62,13 @@ public class MissingPersonController(
     }
 
     [HttpGet("get-missing-person-by-id/{id}")]
+    [Produces(typeof(MissingPersonViewModel))]
     public async Task<IActionResult> GetMissingPersonById(int id)
     {
         var result = await missingPersonService.GetMissingPersonByIdAsync(id);
 
         if (result == null) return NotFound("Missing person not found.");
 
-        return Ok(new MissingPersonModel(result));
+        return Ok(new MissingPersonViewModel(result));
     }
 }
