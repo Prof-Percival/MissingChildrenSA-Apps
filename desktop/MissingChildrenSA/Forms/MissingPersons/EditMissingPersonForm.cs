@@ -31,9 +31,7 @@ public partial class EditMissingPersonForm : Form
     private void EditMissingPersonForm_Load(object sender, EventArgs e)
     {
         DtpDateOfBirth.MaxDate = DateTime.Now.Date;
-        DtpDateOfBirth.Value = DateTime.Now.Date;
         DtpDateWentMissing.MaxDate = DateTime.Now.Date;
-        DtpDateWentMissing.Value = DateTime.Now.Date;
 
         PopulateDropdowns();
 
