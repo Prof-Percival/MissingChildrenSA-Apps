@@ -169,4 +169,11 @@ public partial class DashboardForm : Form
 
         reportMissingPersonForm.ShowDialog();
     }
+
+    private void LblViewGrid_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        var missingPersonsGridForm = _serviceProvider.GetRequiredService<MissingPersonsGridForm>();
+
+        missingPersonsGridForm.ShowDialog();
+    }
 }

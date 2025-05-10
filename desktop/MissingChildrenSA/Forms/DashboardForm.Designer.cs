@@ -323,6 +323,7 @@ partial class DashboardForm
         LblViewGrid.TabStop = true;
         LblViewGrid.Text = "View Grid";
         LblViewGrid.TextAlign = ContentAlignment.MiddleLeft;
+        LblViewGrid.LinkClicked += LblViewGrid_LinkClicked;
         // 
         // LblViewDetails
         // 
