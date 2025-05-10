@@ -14,6 +14,8 @@ public partial class EditMissingPersonForm : Form
     private Models.MissingPersons.MissingPersonModel _missingPerson;
     private string _selectedImagePath;
 
+    public event EventHandler PersonUpdatedEventHandler;
+
     public EditMissingPersonForm(
         EnumLoader enumLoader,
         ApiClient apiClient,
@@ -135,6 +137,8 @@ public partial class EditMissingPersonForm : Form
             };
 
             await _apiClient.UpdateMissingPersonAsync(request);
+
+            PersonUpdatedEventHandler?.Invoke(this, EventArgs.Empty);
 
             MessageBox.Show("Missing person updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
