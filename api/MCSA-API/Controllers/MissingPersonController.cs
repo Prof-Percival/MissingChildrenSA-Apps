@@ -61,8 +61,8 @@ public class MissingPersonController(
         });
     }
 
-    [HttpGet("{id}")]
-    public async Task<IActionResult> Get(int id)
+    [HttpGet("get-missing-person-by-id/{id}")]
+    public async Task<IActionResult> GetMissingPersonById(int id)
     {
         var result = await missingPersonService.GetMissingPersonByIdAsync(id);
 
