@@ -207,14 +207,28 @@ public partial class EditMissingPersonForm : Form
         string date,
         bool includeTime = false)
     {
-        if (DateTime.TryParse(date, out var parsedDateTime))
+        try
         {
-            control.Value = includeTime ? parsedDateTime : parsedDateTime.Date;
+            if (DateTime.TryParse(date, out var parsedDateTime))
+            {
+                control.Value = includeTime ? parsedDateTime : parsedDateTime.Date;
+            }
+        }
+        catch (Exception)
+        {
+            //don't do anything
         }
     }
 
     private static void SetSelectedItem(ComboBox control, string value)
     {
-        control.SelectedItem = control.Items[control.Items.IndexOf(value)];
+        try
+        {
+            control.SelectedItem = control.Items[control.Items.IndexOf(value)];
+        }
+        catch (Exception)
+        {
+            //don't do anything
+        }
     }
 }
