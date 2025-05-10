@@ -170,7 +170,51 @@ public partial class EditMissingPersonForm : Form
 
     private void PrepopulateForm()
     {
+        //Personal Details
         TxtName.Text = _missingPerson.FirstName;
         TxtSurname.Text = _missingPerson.LastName;
+        ParseAndSetDate(DtpDateOfBirth, _missingPerson.DateOfBirth);
+        SetSelectedItem(CmbGender, _missingPerson.Gender);
+        SetSelectedItem(CmbRace, _missingPerson.Race);
+        SetSelectedItem(CmbProvince, _missingPerson.Province);
+
+        //Physical Description
+        TxtHairColour.Text = _missingPerson.HairColour;
+        TxtHairLengthOrStyle.Text = _missingPerson.HairLengthOrStyle;
+        TxtEyeColour.Text = _missingPerson.EyeColour;
+        NupHeight.Value = _missingPerson.Height;
+        NupWeight.Value = (decimal)_missingPerson.Weight;
+        TxtMarksTattoos.Text = _missingPerson.MarksTattoos;
+
+        //Disappearance Details
+        TxtLastSeenWearing.Text = _missingPerson.LastSeenWearing;
+        TxtLocationLastSeen.Text = _missingPerson.LocationLastSeen;
+        ParseAndSetDate(DtpDateWentMissing, _missingPerson.DateWentMissing);
+
+        //Police Report
+        TxtPoliceStation.Text = _missingPerson.PoliceStation;
+        TxtCaseNumber.Text = _missingPerson.CaseNumber;
+        TxtInvestigatingOfficer.Text = _missingPerson.InvestigatingOfficer;
+        TxtInvestigatingOfficerContactNumber.Text = _missingPerson.InvestigatingOfficerContactNumber;
+
+        //Family Contact
+        TxtFamilyContactName.Text = _missingPerson.FamilyContactName;
+        TxtFamilyContactNumber.Text = _missingPerson.FamilyContactNumber;
+    }
+
+    private static void ParseAndSetDate(
+        DateTimePicker control,
+        string date,
+        bool includeTime = false)
+    {
+        if (DateTime.TryParse(date, out var parsedDateTime))
+        {
+            control.Value = includeTime ? parsedDateTime : parsedDateTime.Date;
+        }
+    }
+
+    private static void SetSelectedItem(ComboBox control, string value)
+    {
+        control.SelectedItem = control.Items[control.Items.IndexOf(value)];
     }
 }
