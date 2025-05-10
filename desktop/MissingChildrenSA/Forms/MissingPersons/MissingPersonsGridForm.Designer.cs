@@ -43,6 +43,8 @@ partial class MissingPersonsGridForm
         DgvColLastName = new DataGridViewTextBoxColumn();
         DgvColGender = new DataGridViewTextBoxColumn();
         DgvColProvince = new DataGridViewTextBoxColumn();
+        DgvColDateWentMissing = new DataGridViewTextBoxColumn();
+        DgvColStatus = new DataGridViewTextBoxColumn();
         DgvColCreated = new DataGridViewTextBoxColumn();
         DgvColUpdated = new DataGridViewTextBoxColumn();
         DgvColLastEditedByUserId = new DataGridViewTextBoxColumn();
@@ -127,7 +129,7 @@ partial class MissingPersonsGridForm
         DgvMissingPersons.AllowUserToAddRows = false;
         DgvMissingPersons.AllowUserToDeleteRows = false;
         DgvMissingPersons.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        DgvMissingPersons.Columns.AddRange(new DataGridViewColumn[] { DgvColId, DgvColFirstName, DgvColLastName, DgvColGender, DgvColProvince, DgvColCreated, DgvColUpdated, DgvColLastEditedByUserId, DgvColEditButton });
+        DgvMissingPersons.Columns.AddRange(new DataGridViewColumn[] { DgvColId, DgvColFirstName, DgvColLastName, DgvColGender, DgvColProvince, DgvColDateWentMissing, DgvColStatus, DgvColCreated, DgvColUpdated, DgvColLastEditedByUserId, DgvColEditButton });
         DgvMissingPersons.Dock = DockStyle.Fill;
         DgvMissingPersons.GridColor = SystemColors.ControlDark;
         DgvMissingPersons.Location = new Point(3, 48);
@@ -172,6 +174,19 @@ partial class MissingPersonsGridForm
         DgvColProvince.Name = "DgvColProvince";
         DgvColProvince.ReadOnly = true;
         DgvColProvince.Width = 120;
+        // 
+        // DgvColDateWentMissing
+        // 
+        DgvColDateWentMissing.HeaderText = "Date Went Missing";
+        DgvColDateWentMissing.Name = "DgvColDateWentMissing";
+        DgvColDateWentMissing.ReadOnly = true;
+        DgvColDateWentMissing.Width = 160;
+        // 
+        // DgvColStatus
+        // 
+        DgvColStatus.HeaderText = "Status";
+        DgvColStatus.Name = "DgvColStatus";
+        DgvColStatus.ReadOnly = true;
         // 
         // DgvColCreated
         // 
@@ -242,6 +257,8 @@ partial class MissingPersonsGridForm
     private DataGridViewTextBoxColumn DgvColLastName;
     private DataGridViewTextBoxColumn DgvColGender;
     private DataGridViewTextBoxColumn DgvColProvince;
+    private DataGridViewTextBoxColumn DgvColDateWentMissing;
+    private DataGridViewTextBoxColumn DgvColStatus;
     private DataGridViewTextBoxColumn DgvColCreated;
     private DataGridViewTextBoxColumn DgvColUpdated;
     private DataGridViewTextBoxColumn DgvColLastEditedByUserId;

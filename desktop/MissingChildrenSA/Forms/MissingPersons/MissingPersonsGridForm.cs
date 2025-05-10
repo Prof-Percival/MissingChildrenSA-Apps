@@ -57,6 +57,8 @@ public partial class MissingPersonsGridForm : Form
                 person.LastName,
                 person.Gender,
                 person.Province,
+                person.DateWentMissing,
+                person.Status,
                 person.Created,
                 person.Updated,
                 person.LastEditedByUserId
