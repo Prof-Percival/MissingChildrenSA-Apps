@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MissingChildrenSA.Forms.Users;
 using System.Data;
 
 namespace MissingChildrenSA.Forms.MissingPersons;
@@ -98,7 +97,7 @@ public partial class MissingPersonsGridForm : Form
     {
         using var reportMissingPersonForm = _serviceProvider.GetRequiredService<ReportMissingPersonForm>();
 
-        //reportMissingPersonForm.PersonReportedEventHandler += async (s, e) => await LoadMissingPersonsAsync(); // Refresh missing persons when added
+        reportMissingPersonForm.PersonReportedEventHandler += async (s, e) => await LoadMissingPersonsAsync(); // Refresh missing persons when added
 
         reportMissingPersonForm.ShowDialog();
     }
