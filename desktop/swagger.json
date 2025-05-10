@@ -407,7 +407,54 @@
         }
       }
     },
-    "/api/MissingPerson/{id}": {
+    "/api/MissingPerson/list-missing-persons": {
+      "get": {
+        "tags": [
+          "MissingPerson"
+        ],
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedMissingPersonsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedMissingPersonsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedMissingPersonsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MissingPerson/get-missing-person-by-id/{id}": {
       "get": {
         "tags": [
           "MissingPerson"
@@ -425,7 +472,24 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonViewModel"
+                }
+              }
+            }
           }
         }
       }
@@ -1325,6 +1389,129 @@
         "type": "integer",
         "format": "int32"
       },
+      "MissingPersonViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "race": {
+            "type": "string",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateWentMissing": {
+            "type": "string",
+            "nullable": true
+          },
+          "hairColour": {
+            "type": "string",
+            "nullable": true
+          },
+          "hairLengthOrStyle": {
+            "type": "string",
+            "nullable": true
+          },
+          "eyeColour": {
+            "type": "string",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "marksTattoos": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastSeenWearing": {
+            "type": "string",
+            "nullable": true
+          },
+          "locationLastSeen": {
+            "type": "string",
+            "nullable": true
+          },
+          "detailsOfDisappearance": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "policeStation": {
+            "type": "string",
+            "nullable": true
+          },
+          "caseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "investigatingOfficer": {
+            "type": "string",
+            "nullable": true
+          },
+          "investigatingOfficerContactNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "familyContactName": {
+            "type": "string",
+            "nullable": true
+          },
+          "familyContactNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "nullable": true
+          },
+          "updated": {
+            "type": "string",
+            "nullable": true
+          },
+          "moderationStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastEditedByUserId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ModerationQueueItemDetailsResponse": {
         "type": "object",
         "properties": {
@@ -1444,6 +1631,31 @@
           },
           "reason": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PagedMissingPersonsResponse": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "missingPersons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MissingPersonViewModel"
+            },
             "nullable": true
           }
         },
