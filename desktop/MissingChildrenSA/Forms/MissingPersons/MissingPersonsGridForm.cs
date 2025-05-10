@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MissingChildrenSA.Forms.Users;
 using System.Data;
 
 namespace MissingChildrenSA.Forms.MissingPersons;
@@ -80,6 +81,11 @@ public partial class MissingPersonsGridForm : Form
         if (DgvMissingPersons.Columns[e.ColumnIndex].Name == "DgvColEditButton")
         {
             //Show Edit Form
+            using var editMissingPersonForm = _serviceProvider.GetRequiredService<EditMissingPersonForm>();
+
+            editMissingPersonForm.PersonUpdatedEventHandler += async (s, e) => await LoadMissingPersonsAsync(); // Refresh missing persons when updated
+
+            editMissingPersonForm.ShowDialog();
         }
     }
 
