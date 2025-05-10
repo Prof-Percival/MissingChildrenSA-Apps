@@ -12,6 +12,8 @@ public partial class ReportMissingPersonForm : Form
 
     private string _selectedImagePath;
 
+    public event EventHandler PersonAddedEventHandler;
+
     public ReportMissingPersonForm(
         EnumLoader enumLoader,
         ApiClient apiClient,
@@ -122,6 +124,8 @@ public partial class ReportMissingPersonForm : Form
             };
 
             var response = await _apiClient.ReportMissingPersonAsync(request);
+
+            PersonAddedEventHandler?.Invoke(this, EventArgs.Empty);
 
             MessageBox.Show("Missing person reported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
