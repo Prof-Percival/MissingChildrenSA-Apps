@@ -41,6 +41,26 @@ public class MissingPersonController(
         return Ok();
     }
 
+    [HttpGet("list-missing-persons")]
+    [Produces(typeof(PagedMissingPersonsResponse))]
+    public async Task<IActionResult> GetUsers([FromQuery] PaginationRequest request)
+    {
+        if (request.PageNumber < 1 || request.PageSize < 1)
+        {
+            return BadRequest("Page number and page size must be greater than 0.");
+        }
+
+        var result = await missingPersonService.GetMissingPersonsAsync(request.PageNumber, request.PageSize);
+
+        return Ok(new PagedMissingPersonsResponse
+        {
+            TotalCount = result.TotalCount,
+            PageNumber = result.PageNumber,
+            PageSize = result.PageSize,
+            MissingPersons = result.MissingPersons.ConvertAll(missingPerson => new MissingPersonViewModel(missingPerson))
+        });
+    }
+
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(int id)
     {

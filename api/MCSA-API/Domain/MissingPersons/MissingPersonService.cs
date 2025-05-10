@@ -1,5 +1,6 @@
 ﻿using MCSA_API.Data;
 using MCSA_API.Domain.Moderation;
+using MCSA_API.Helpers;
 using MCSA_API.Models.MissingPersons;
 using System.Transactions;
 
@@ -91,6 +92,26 @@ public sealed class MissingPersonService(
         existing = await GetMissingPersonByIdAsync(existing.Id.Value);
 
         return null;
+    }
+
+    public async Task<PagedMissingPersonsResult> GetMissingPersonsAsync(int pageNumber, int pageSize)
+    {
+        var allMissingPersons = await missingPersonRepository.GetAllAsync();
+
+        var totalCount = allMissingPersons.Count();
+
+        var missingPersons = allMissingPersons
+            .Skip(PageHelper.CalculateSkip(pageSize, pageNumber))
+            .Take(pageSize)
+            .ToList();
+
+        return new PagedMissingPersonsResult
+        {
+            TotalCount = totalCount,
+            PageNumber = pageNumber,
+            PageSize = pageSize,
+            MissingPersons = missingPersons
+        };
     }
 
     public async Task<MissingPerson> GetMissingPersonByIdAsync(int id) => await missingPersonRepository.GetByIdAsync(id);
