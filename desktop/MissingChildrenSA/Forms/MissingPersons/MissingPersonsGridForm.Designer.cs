@@ -45,6 +45,7 @@ partial class MissingPersonsGridForm
         DgvColProvince = new DataGridViewTextBoxColumn();
         DgvColDateWentMissing = new DataGridViewTextBoxColumn();
         DgvColStatus = new DataGridViewTextBoxColumn();
+        DgvColModerationStatus = new DataGridViewTextBoxColumn();
         DgvColCreated = new DataGridViewTextBoxColumn();
         DgvColUpdated = new DataGridViewTextBoxColumn();
         DgvColLastEditedByUserId = new DataGridViewTextBoxColumn();
@@ -129,7 +130,7 @@ partial class MissingPersonsGridForm
         DgvMissingPersons.AllowUserToAddRows = false;
         DgvMissingPersons.AllowUserToDeleteRows = false;
         DgvMissingPersons.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        DgvMissingPersons.Columns.AddRange(new DataGridViewColumn[] { DgvColId, DgvColFirstName, DgvColLastName, DgvColGender, DgvColProvince, DgvColDateWentMissing, DgvColStatus, DgvColCreated, DgvColUpdated, DgvColLastEditedByUserId, DgvColEditButton });
+        DgvMissingPersons.Columns.AddRange(new DataGridViewColumn[] { DgvColId, DgvColFirstName, DgvColLastName, DgvColGender, DgvColProvince, DgvColDateWentMissing, DgvColStatus, DgvColModerationStatus, DgvColCreated, DgvColUpdated, DgvColLastEditedByUserId, DgvColEditButton });
         DgvMissingPersons.Dock = DockStyle.Fill;
         DgvMissingPersons.GridColor = SystemColors.ControlDark;
         DgvMissingPersons.Location = new Point(3, 48);
@@ -187,6 +188,13 @@ partial class MissingPersonsGridForm
         DgvColStatus.HeaderText = "Status";
         DgvColStatus.Name = "DgvColStatus";
         DgvColStatus.ReadOnly = true;
+        // 
+        // DgvColModerationStatus
+        // 
+        DgvColModerationStatus.HeaderText = "Moderation Status";
+        DgvColModerationStatus.Name = "DgvColModerationStatus";
+        DgvColModerationStatus.ReadOnly = true;
+        DgvColModerationStatus.Width = 150;
         // 
         // DgvColCreated
         // 
@@ -259,6 +267,7 @@ partial class MissingPersonsGridForm
     private DataGridViewTextBoxColumn DgvColProvince;
     private DataGridViewTextBoxColumn DgvColDateWentMissing;
     private DataGridViewTextBoxColumn DgvColStatus;
+    private DataGridViewTextBoxColumn DgvColModerationStatus;
     private DataGridViewTextBoxColumn DgvColCreated;
     private DataGridViewTextBoxColumn DgvColUpdated;
     private DataGridViewTextBoxColumn DgvColLastEditedByUserId;
