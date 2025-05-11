@@ -80,12 +80,6 @@ public partial class EditMissingPersonForm : Form
 
         if (!isValid) return;
 
-        if (string.IsNullOrWhiteSpace(_selectedImagePath) || !File.Exists(_selectedImagePath))
-        {
-            MessageBox.Show("Please upload a valid image file before submitting.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-        }
-
         try
         {
             // Upload image if it has changed
