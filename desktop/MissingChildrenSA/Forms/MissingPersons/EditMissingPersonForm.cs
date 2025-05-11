@@ -127,7 +127,8 @@ public partial class EditMissingPersonForm : Form
                 InvestigatingOfficerContactNumber = TxtInvestigatingOfficerContactNumber.Text,
                 FamilyContactName = TxtFamilyContactName.Text,
                 FamilyContactNumber = TxtFamilyContactNumber.Text,
-                ImageUrl = imageUrl ?? _missingPerson.ImageUrl
+                ImageUrl = imageUrl ?? _missingPerson.ImageUrl,
+                Status = (MissingPersonStatus)CmbStatus.SelectedIndex
             };
 
             await _apiClient.UpdateMissingPersonAsync(request);
