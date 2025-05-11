@@ -1,5 +1,6 @@
 ﻿using MCSA_API.Data;
 using MCSA_API.Domain.Moderation;
+using MCSA_API.Extensions;
 using MCSA_API.Helpers;
 using MCSA_API.Models.MissingPersons;
 using System.Transactions;
@@ -16,11 +17,11 @@ public sealed class MissingPersonService(
         {
             FirstName = request.FirstName,
             LastName = request.LastName,
-            DateOfBirth = request.DateOfBirth.Value.LocalDateTime.Date,
+            DateOfBirth = request.DateOfBirth.Value.ToSouthAfricanTime().Date,
             Gender = request.Gender.Value,
             Race = request.Race.Value,
             Province = request.Province.Value,
-            DateWentMissing = request.DateWentMissing.Value.LocalDateTime,
+            DateWentMissing = request.DateWentMissing.Value.ToSouthAfricanTime(),
             HairColour = request.HairColour,
             HairLengthOrStyle = request.HairLengthOrStyle,
             EyeColour = request.EyeColour,
@@ -67,11 +68,11 @@ public sealed class MissingPersonService(
 
         existing.FirstName = request.FirstName;
         existing.LastName = request.LastName;
-        existing.DateOfBirth = TimeZoneInfo.ConvertTime(request.DateOfBirth.Value, saTimeZone).DateTime.Date;
+        existing.DateOfBirth = request.DateOfBirth.Value.ToSouthAfricanTime().Date;
         existing.Gender = request.Gender.Value;
         existing.Race = request.Race.Value;
         existing.Province = request.Province.Value;
-        existing.DateWentMissing = TimeZoneInfo.ConvertTime(request.DateWentMissing.Value, saTimeZone).DateTime;
+        existing.DateWentMissing = request.DateWentMissing.Value.ToSouthAfricanTime();
         existing.HairColour = request.HairColour;
         existing.HairLengthOrStyle = request.HairLengthOrStyle;
         existing.EyeColour = request.EyeColour;
