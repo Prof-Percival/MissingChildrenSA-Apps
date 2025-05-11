@@ -14,6 +14,28 @@ public static class DateTimeExtensions
     private const int MorningEnds = 12;
     private const int AfternoonEnds = 6;
     private static readonly DateTime _date1970 = new DateTime(1970, 1, 1);
+    private static readonly TimeZoneInfo _southAfricaTimeZone =
+        TimeZoneInfo.FindSystemTimeZoneById("South Africa Standard Time");
+
+    /// <summary>
+    /// Converts a DateTimeOffset to South African local time as a DateTime.
+    /// </summary>
+    public static DateTime ToSouthAfricanTime(this DateTimeOffset dateTimeOffset)
+    {
+        return TimeZoneInfo.ConvertTime(dateTimeOffset, _southAfricaTimeZone).DateTime;
+    }
+
+    /// <summary>
+    /// Converts a DateTime to South African local time as a DateTime.
+    /// Assumes input is either UTC or has Kind specified.
+    /// </summary>
+    public static DateTime ToSouthAfricanTime(this DateTime dateTime)
+    {
+        if (dateTime.Kind == DateTimeKind.Unspecified)
+            throw new ArgumentException("DateTime.Kind must be specified (UTC or Local).");
+
+        return TimeZoneInfo.ConvertTime(dateTime, dateTime.Kind == DateTimeKind.Utc ? TimeZoneInfo.Utc : TimeZoneInfo.Local, _southAfricaTimeZone);
+    }
 
     ///<summary>
     ///	Return System UTC Offset
