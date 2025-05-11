@@ -1045,15 +1045,15 @@ namespace MissingChildrenSA
 
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ModerationQueuePagedResponse> QueueAsync(int? pageNumber, int? pageSize)
+        public virtual System.Threading.Tasks.Task<ModerationQueuePagedResponse> GetModerationQueueAsync(int? pageNumber, int? pageSize)
         {
-            return QueueAsync(pageNumber, pageSize, System.Threading.CancellationToken.None);
+            return GetModerationQueueAsync(pageNumber, pageSize, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ModerationQueuePagedResponse> QueueAsync(int? pageNumber, int? pageSize, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ModerationQueuePagedResponse> GetModerationQueueAsync(int? pageNumber, int? pageSize, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1066,8 +1066,8 @@ namespace MissingChildrenSA
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "api/MissingPersonModeration/queue"
-                    urlBuilder_.Append("api/MissingPersonModeration/queue");
+                    // Operation Path: "api/MissingPersonModeration/get-moderation-queue"
+                    urlBuilder_.Append("api/MissingPersonModeration/get-moderation-queue");
                     urlBuilder_.Append('?');
                     if (pageNumber != null)
                     {
@@ -1133,15 +1133,15 @@ namespace MissingChildrenSA
 
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ModerationQueueItemDetailsResponse> Queue2Async(int id)
+        public virtual System.Threading.Tasks.Task<ModerationQueueItemDetailsResponse> GetQueueDetailsAsync(int id)
         {
-            return Queue2Async(id, System.Threading.CancellationToken.None);
+            return GetQueueDetailsAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ModerationQueueItemDetailsResponse> Queue2Async(int id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ModerationQueueItemDetailsResponse> GetQueueDetailsAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1157,8 +1157,8 @@ namespace MissingChildrenSA
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "api/MissingPersonModeration/queue/{id}"
-                    urlBuilder_.Append("api/MissingPersonModeration/queue/");
+                    // Operation Path: "api/MissingPersonModeration/get-queue-details/{id}"
+                    urlBuilder_.Append("api/MissingPersonModeration/get-queue-details/");
                     urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -1215,15 +1215,15 @@ namespace MissingChildrenSA
 
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task StartAsync(int id)
+        public virtual System.Threading.Tasks.Task StartModerationAsync(int id)
         {
-            return StartAsync(id, System.Threading.CancellationToken.None);
+            return StartModerationAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task StartAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task StartModerationAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1239,10 +1239,10 @@ namespace MissingChildrenSA
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "api/MissingPersonModeration/queue/{id}/start"
+                    // Operation Path: "api/MissingPersonModeration/queue/{id}/start-moderation"
                     urlBuilder_.Append("api/MissingPersonModeration/queue/");
                     urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
-                    urlBuilder_.Append("/start");
+                    urlBuilder_.Append("/start-moderation");
 
                     PrepareRequest(client_, request_, urlBuilder_);
 
@@ -1293,15 +1293,15 @@ namespace MissingChildrenSA
 
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task UpdateStatusAsync(ModerationStatusUpdateRequest body)
+        public virtual System.Threading.Tasks.Task UpdateModerationStatusAsync(ModerationStatusUpdateRequest body)
         {
-            return UpdateStatusAsync(body, System.Threading.CancellationToken.None);
+            return UpdateModerationStatusAsync(body, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task UpdateStatusAsync(ModerationStatusUpdateRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task UpdateModerationStatusAsync(ModerationStatusUpdateRequest body, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1317,8 +1317,8 @@ namespace MissingChildrenSA
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "api/MissingPersonModeration/queue/update-status"
-                    urlBuilder_.Append("api/MissingPersonModeration/queue/update-status");
+                    // Operation Path: "api/MissingPersonModeration/queue/update-moderation-status"
+                    urlBuilder_.Append("api/MissingPersonModeration/queue/update-moderation-status");
 
                     PrepareRequest(client_, request_, urlBuilder_);
 
