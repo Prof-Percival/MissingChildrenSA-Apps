@@ -13,9 +13,9 @@ namespace MCSA_API.Controllers;
 public class MissingPersonModerationController(
     IModerationService service) : BaseApiController
 {
-    [HttpGet("queue")]
+    [HttpGet("get-moderation-queue")]
     [Produces(typeof(ModerationQueuePagedResponse))]
-    public async Task<IActionResult> GetQueue([FromQuery] PaginationRequest request)
+    public async Task<IActionResult> GetModerationQueue([FromQuery] PaginationRequest request)
     {
         if (request.PageNumber < 1 || request.PageSize < 1)
         {
@@ -27,7 +27,7 @@ public class MissingPersonModerationController(
         return Ok(result);
     }
 
-    [HttpGet("queue/{id}")]
+    [HttpGet("get-queue-details/{id}")]
     [Produces(typeof(ModerationQueueItemDetailsResponse))]
     public async Task<IActionResult> GetQueueDetails(int id)
     {
@@ -38,7 +38,7 @@ public class MissingPersonModerationController(
         return Ok(result);
     }
 
-    [HttpPost("queue/{id}/start")]
+    [HttpPost("queue/{id}/start-moderation")]
     public async Task<IActionResult> StartModeration(int id)
     {
         var result = await service.StartModerationAsync(id);
@@ -48,8 +48,8 @@ public class MissingPersonModerationController(
         return Ok();
     }
 
-    [HttpPut("queue/update-status")]
-    public async Task<IActionResult> UpdateStatus([FromBody] ModerationStatusUpdateRequest request)
+    [HttpPut("queue/update-moderation-status")]
+    public async Task<IActionResult> UpdateModerationStatus([FromBody] ModerationStatusUpdateRequest request)
     {
         var result = await service.UpdateModerationStatusAsync(request);
 
