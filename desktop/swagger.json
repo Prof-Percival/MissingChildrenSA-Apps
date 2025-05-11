@@ -494,7 +494,7 @@
         }
       }
     },
-    "/api/MissingPersonModeration/queue": {
+    "/api/MissingPersonModeration/get-moderation-queue": {
       "get": {
         "tags": [
           "MissingPersonModeration"
@@ -541,7 +541,7 @@
         }
       }
     },
-    "/api/MissingPersonModeration/queue/{id}": {
+    "/api/MissingPersonModeration/get-queue-details/{id}": {
       "get": {
         "tags": [
           "MissingPersonModeration"
@@ -581,7 +581,7 @@
         }
       }
     },
-    "/api/MissingPersonModeration/queue/{id}/start": {
+    "/api/MissingPersonModeration/queue/{id}/start-moderation": {
       "post": {
         "tags": [
           "MissingPersonModeration"
@@ -604,7 +604,7 @@
         }
       }
     },
-    "/api/MissingPersonModeration/queue/update-status": {
+    "/api/MissingPersonModeration/queue/update-moderation-status": {
       "put": {
         "tags": [
           "MissingPersonModeration"
