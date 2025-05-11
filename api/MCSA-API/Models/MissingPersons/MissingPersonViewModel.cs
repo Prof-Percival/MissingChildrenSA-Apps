@@ -40,7 +40,7 @@ public sealed class MissingPersonViewModel
         Id = missingPerson.Id.Value;
         FirstName = missingPerson.FirstName;
         LastName = missingPerson.LastName;
-        DateOfBirth = FormattingHelper.FormatDateTime(missingPerson.DateOfBirth);
+        DateOfBirth = FormattingHelper.FormatDate(missingPerson.DateOfBirth);
         Gender = missingPerson.Gender.GetBestDescription();
         Race = missingPerson.Race.GetBestDescription();
         Province = missingPerson.Province.GetBestDescription();
