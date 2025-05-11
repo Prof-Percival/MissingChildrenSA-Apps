@@ -75,7 +75,8 @@ public partial class EditMissingPersonForm : Form
            (TxtPoliceStation, "Police Station", c => !string.IsNullOrWhiteSpace(c.Text), "Police Station is required."),
            (TxtCaseNumber, "Case Number", c => !string.IsNullOrWhiteSpace(c.Text), "Case Number is required."),
            (TxtInvestigatingOfficer, "Investigating Officer", c => !string.IsNullOrWhiteSpace(c.Text), "Investigating Officer is required."),
-           (TxtInvestigatingOfficerContactNumber, "Investigating Officer Contact", c => !string.IsNullOrWhiteSpace(c.Text), "Contact Number is required.")
+           (TxtInvestigatingOfficerContactNumber, "Investigating Officer Contact", c => !string.IsNullOrWhiteSpace(c.Text), "Contact Number is required."),
+           (CmbStatus, "Status", c => CmbStatus.SelectedIndex > 0, "Please select a status.")
         );
 
         if (!isValid) return;
