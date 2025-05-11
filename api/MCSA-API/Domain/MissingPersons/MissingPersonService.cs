@@ -63,13 +63,15 @@ public sealed class MissingPersonService(
 
         if (existing == null) return "Missing person not found";
 
+        var saTimeZone = TimeZoneInfo.FindSystemTimeZoneById("South Africa Standard Time");
+
         existing.FirstName = request.FirstName;
         existing.LastName = request.LastName;
-        existing.DateOfBirth = request.DateOfBirth.Value.LocalDateTime.Date;
+        existing.DateOfBirth = TimeZoneInfo.ConvertTime(request.DateOfBirth.Value, saTimeZone).DateTime.Date;
         existing.Gender = request.Gender.Value;
         existing.Race = request.Race.Value;
         existing.Province = request.Province.Value;
-        existing.DateWentMissing = request.DateWentMissing.Value.LocalDateTime;
+        existing.DateWentMissing = TimeZoneInfo.ConvertTime(request.DateWentMissing.Value, saTimeZone).DateTime;
         existing.HairColour = request.HairColour;
         existing.HairLengthOrStyle = request.HairLengthOrStyle;
         existing.EyeColour = request.EyeColour;
