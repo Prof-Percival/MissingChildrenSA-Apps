@@ -64,8 +64,6 @@ public sealed class MissingPersonService(
 
         if (existing == null) return "Missing person not found";
 
-        var saTimeZone = TimeZoneInfo.FindSystemTimeZoneById("South Africa Standard Time");
-
         existing.FirstName = request.FirstName;
         existing.LastName = request.LastName;
         existing.DateOfBirth = request.DateOfBirth.Value.ToSouthAfricanTime().Date;
