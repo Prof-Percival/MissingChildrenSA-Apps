@@ -161,6 +161,11 @@ public partial class EditMissingPersonForm : Form
         CmbProvince.Items.Clear();
         CmbProvince.Items.Add("");
         CmbProvince.Items.AddRange(_enumLoader.Provinces.Select(ur => ur.Description).ToArray());
+
+        //Missing Person Status
+        CmbStatus.Items.Clear();
+        CmbStatus.Items.Add("");
+        CmbStatus.Items.AddRange(_enumLoader.MissingPersonStatuses.Select(ur => ur.Description).ToArray());
     }
 
     private async Task PrepopulateForm()
