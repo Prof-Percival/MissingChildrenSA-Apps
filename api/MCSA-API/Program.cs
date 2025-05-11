@@ -86,7 +86,7 @@ public class Program
         //Register Repositories
         builder.Services.AddScoped<IUserRepository, UserRepository>();
         builder.Services.AddScoped<IRepository<MissingPerson>, MissingPersonRepository>();
-        builder.Services.AddScoped<IRepository<MissingPersonModerationQueue>, MissingPersonModerationQueueRepository>();
+        builder.Services.AddScoped<IMissingPersonModerationQueueRepository, MissingPersonModerationQueueRepository>();
 
         builder.Services.AddControllers();
 

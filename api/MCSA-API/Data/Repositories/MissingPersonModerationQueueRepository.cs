@@ -7,11 +7,23 @@ namespace MCSA_API.Data.Repositories;
 
 public class MissingPersonModerationQueueRepository(
     MCSAContext context,
-    IDateProvider dateProvider) : IRepository<MissingPersonModerationQueue>
+    IDateProvider dateProvider) : IMissingPersonModerationQueueRepository
 {
     public async Task<MissingPersonModerationQueue> GetByIdAsync(int id)
     {
         var dalMissingPerson = await context.MissingPersonModerationQueue.FindAsync(id);
+
+        if (dalMissingPerson == null)
+        {
+            return null;
+        }
+
+        return new MissingPersonModerationQueue(dalMissingPerson);
+    }
+
+    public async Task<MissingPersonModerationQueue> GetByMissingPersonIdAsync(int missingPersonId)
+    {
+        var dalMissingPerson = await context.MissingPersonModerationQueue.SingleOrDefaultAsync(q => q.MissingPersonId == missingPersonId);
 
         if (dalMissingPerson == null)
         {
