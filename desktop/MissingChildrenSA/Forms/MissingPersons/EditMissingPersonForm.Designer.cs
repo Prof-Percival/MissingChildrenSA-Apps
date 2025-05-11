@@ -105,6 +105,11 @@ partial class EditMissingPersonForm
         TxtName = new TextBox();
         LblSurname = new Label();
         MainTooltip = new ToolTip(components);
+        GrpStatus = new GroupBox();
+        PanStatus = new Panel();
+        CmbStatus = new ComboBox();
+        LblRequired17 = new Label();
+        LblStatus = new Label();
         PanMain.SuspendLayout();
         GrpPhoto.SuspendLayout();
         PanPhoto.SuspendLayout();
@@ -122,12 +127,15 @@ partial class EditMissingPersonForm
         ((System.ComponentModel.ISupportInitialize)NupHeight).BeginInit();
         GrpPersonalDetails.SuspendLayout();
         PanPersonalDetails.SuspendLayout();
+        GrpStatus.SuspendLayout();
+        PanStatus.SuspendLayout();
         SuspendLayout();
         // 
         // PanMain
         // 
         PanMain.AutoScroll = true;
         PanMain.AutoSize = true;
+        PanMain.Controls.Add(GrpStatus);
         PanMain.Controls.Add(BtnUpdate);
         PanMain.Controls.Add(GrpPhoto);
         PanMain.Controls.Add(GrpFamilyContact);
@@ -993,6 +1001,62 @@ partial class EditMissingPersonForm
         LblSurname.Text = "Surname";
         LblSurname.TextAlign = ContentAlignment.MiddleLeft;
         // 
+        // GrpStatus
+        // 
+        GrpStatus.AutoSize = true;
+        GrpStatus.Controls.Add(PanStatus);
+        GrpStatus.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        GrpStatus.Location = new Point(15, 403);
+        GrpStatus.Name = "GrpStatus";
+        GrpStatus.Size = new Size(196, 86);
+        GrpStatus.TabIndex = 13;
+        GrpStatus.TabStop = false;
+        GrpStatus.Text = "Missing Status";
+        // 
+        // PanStatus
+        // 
+        PanStatus.Controls.Add(CmbStatus);
+        PanStatus.Controls.Add(LblRequired17);
+        PanStatus.Controls.Add(LblStatus);
+        PanStatus.Dock = DockStyle.Fill;
+        PanStatus.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        PanStatus.Location = new Point(3, 25);
+        PanStatus.Name = "PanStatus";
+        PanStatus.Size = new Size(190, 58);
+        PanStatus.TabIndex = 7;
+        // 
+        // CmbStatus
+        // 
+        CmbStatus.FormattingEnabled = true;
+        CmbStatus.Location = new Point(8, 25);
+        CmbStatus.Name = "CmbStatus";
+        CmbStatus.Size = new Size(176, 25);
+        CmbStatus.TabIndex = 15;
+        // 
+        // LblRequired17
+        // 
+        LblRequired17.AutoSize = true;
+        LblRequired17.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRequired17.ForeColor = Color.Red;
+        LblRequired17.Location = new Point(50, 3);
+        LblRequired17.Margin = new Padding(0);
+        LblRequired17.Name = "LblRequired17";
+        LblRequired17.Size = new Size(14, 18);
+        LblRequired17.TabIndex = 14;
+        LblRequired17.Text = "*";
+        // 
+        // LblStatus
+        // 
+        LblStatus.AutoSize = true;
+        LblStatus.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblStatus.Location = new Point(6, 2);
+        LblStatus.Margin = new Padding(0);
+        LblStatus.Name = "LblStatus";
+        LblStatus.Size = new Size(47, 20);
+        LblStatus.TabIndex = 13;
+        LblStatus.Text = "Status";
+        LblStatus.TextAlign = ContentAlignment.MiddleLeft;
+        // 
         // EditMissingPersonForm
         // 
         AutoScaleDimensions = new SizeF(8F, 17F);
@@ -1032,6 +1096,9 @@ partial class EditMissingPersonForm
         GrpPersonalDetails.ResumeLayout(false);
         PanPersonalDetails.ResumeLayout(false);
         PanPersonalDetails.PerformLayout();
+        GrpStatus.ResumeLayout(false);
+        PanStatus.ResumeLayout(false);
+        PanStatus.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1114,4 +1181,9 @@ partial class EditMissingPersonForm
     private PictureBox PicPreview;
     private Button BtnUploadImage;
     private Button BtnUpdate;
+    private GroupBox GrpStatus;
+    private Panel PanStatus;
+    private ComboBox CmbStatus;
+    private Label LblRequired17;
+    private Label LblStatus;
 }
