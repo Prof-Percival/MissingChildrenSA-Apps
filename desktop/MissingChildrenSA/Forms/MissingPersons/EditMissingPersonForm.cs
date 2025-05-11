@@ -201,9 +201,11 @@ public partial class EditMissingPersonForm : Form
         TxtFamilyContactName.Text = _missingPerson.FamilyContactName;
         TxtFamilyContactNumber.Text = _missingPerson.FamilyContactNumber;
 
+        //Missing Person Status
+        SetSelectedItem(CmbStatus, _missingPerson.Status);
+
         //Missing Person Photo
         await LoadImageFromUrl(_missingPerson.ImageUrl);
-
     }
 
     private static void ParseAndSetDate(
