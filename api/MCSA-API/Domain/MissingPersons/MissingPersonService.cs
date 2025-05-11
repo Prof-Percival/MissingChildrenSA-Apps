@@ -16,11 +16,11 @@ public sealed class MissingPersonService(
         {
             FirstName = request.FirstName,
             LastName = request.LastName,
-            DateOfBirth = request.DateOfBirth.Value,
+            DateOfBirth = request.DateOfBirth.Value.ToLocalTime(),
             Gender = request.Gender.Value,
             Race = request.Race.Value,
             Province = request.Province.Value,
-            DateWentMissing = request.DateWentMissing.Value,
+            DateWentMissing = request.DateWentMissing.Value.ToLocalTime(),
             HairColour = request.HairColour,
             HairLengthOrStyle = request.HairLengthOrStyle,
             EyeColour = request.EyeColour,
@@ -65,11 +65,11 @@ public sealed class MissingPersonService(
 
         existing.FirstName = request.FirstName;
         existing.LastName = request.LastName;
-        existing.DateOfBirth = request.DateOfBirth.Value;
+        existing.DateOfBirth = request.DateOfBirth.Value.ToLocalTime();
         existing.Gender = request.Gender.Value;
         existing.Race = request.Race.Value;
         existing.Province = request.Province.Value;
-        existing.DateWentMissing = request.DateWentMissing.Value;
+        existing.DateWentMissing = request.DateWentMissing.Value.ToLocalTime();
         existing.HairColour = request.HairColour;
         existing.HairLengthOrStyle = request.HairLengthOrStyle;
         existing.EyeColour = request.EyeColour;
