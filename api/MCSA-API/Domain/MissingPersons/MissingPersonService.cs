@@ -16,7 +16,7 @@ public sealed class MissingPersonService(
         {
             FirstName = request.FirstName,
             LastName = request.LastName,
-            DateOfBirth = request.DateOfBirth.Value.LocalDateTime,
+            DateOfBirth = request.DateOfBirth.Value.LocalDateTime.Date,
             Gender = request.Gender.Value,
             Race = request.Race.Value,
             Province = request.Province.Value,
@@ -65,7 +65,7 @@ public sealed class MissingPersonService(
 
         existing.FirstName = request.FirstName;
         existing.LastName = request.LastName;
-        existing.DateOfBirth = request.DateOfBirth.Value.LocalDateTime;
+        existing.DateOfBirth = request.DateOfBirth.Value.LocalDateTime.Date;
         existing.Gender = request.Gender.Value;
         existing.Race = request.Race.Value;
         existing.Province = request.Province.Value;
