@@ -29,7 +29,7 @@ public partial class EditMissingPersonForm : Form
         _enumLoader = enumLoader;
     }
 
-    private void EditMissingPersonForm_Load(object sender, EventArgs e)
+    private async void EditMissingPersonForm_Load(object sender, EventArgs e)
     {
         DtpDateOfBirth.MaxDate = DateTime.Now.Date;
         DtpDateWentMissing.MaxDate = DateTime.Now.Date;
@@ -38,7 +38,7 @@ public partial class EditMissingPersonForm : Form
 
         _missingPerson = _serviceProvider.GetRequiredService<MissingPersonsGridForm>()._selectedMissingPerson;
 
-        PrepopulateForm();
+        await PrepopulateForm();
     }
 
     private void BtnUploadImage_Click(object sender, EventArgs e)
@@ -169,7 +169,7 @@ public partial class EditMissingPersonForm : Form
         CmbProvince.Items.AddRange(_enumLoader.Provinces.Select(ur => ur.Description).ToArray());
     }
 
-    private void PrepopulateForm()
+    private async Task PrepopulateForm()
     {
         //Personal Details
         TxtName.Text = _missingPerson.FirstName;
@@ -201,6 +201,10 @@ public partial class EditMissingPersonForm : Form
         //Family Contact
         TxtFamilyContactName.Text = _missingPerson.FamilyContactName;
         TxtFamilyContactNumber.Text = _missingPerson.FamilyContactNumber;
+
+        //Missing Person Photo
+        await LoadImageFromUrl(_missingPerson.ImageUrl);
+
     }
 
     private static void ParseAndSetDate(
@@ -235,6 +239,24 @@ public partial class EditMissingPersonForm : Form
         catch (Exception)
         {
             //don't do anything
+        }
+    }
+
+    private async Task LoadImageFromUrl(string imageUrl)
+    {
+        try
+        {
+            using var client = new HttpClient();
+
+            var imageBytes = await client.GetByteArrayAsync(imageUrl);
+
+            using var ms = new MemoryStream(imageBytes);
+
+            PicPreview.Image = Image.FromStream(ms);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Failed to load image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
