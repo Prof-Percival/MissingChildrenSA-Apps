@@ -8,7 +8,7 @@ public class CreateMissingPersonRequest : Person
 {
 
     [Required, Display(Name = "Date of Birth")]
-    public DateTime? DateOfBirth { get; set; }
+    public DateTimeOffset? DateOfBirth { get; set; }
 
     [Required]
     public Gender? Gender { get; set; }
@@ -20,7 +20,7 @@ public class CreateMissingPersonRequest : Person
     public Province? Province { get; set; }
 
     [Required]
-    public DateTime? DateWentMissing { get; set; }
+    public DateTimeOffset? DateWentMissing { get; set; }
 
     [Required]
     public string HairColour { get; set; }
