@@ -2,6 +2,7 @@
 using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Helpers.Images;
 using MissingChildrenSA.Helpers.Validations;
+using System.Globalization;
 
 namespace MissingChildrenSA.Forms.MissingPersons;
 
@@ -189,7 +190,7 @@ public partial class EditMissingPersonForm : Form
         //Disappearance Details
         TxtLastSeenWearing.Text = _missingPerson.LastSeenWearing;
         TxtLocationLastSeen.Text = _missingPerson.LocationLastSeen;
-        ParseAndSetDate(DtpDateWentMissing, _missingPerson.DateWentMissing);
+        ParseAndSetDate(DtpDateWentMissing, _missingPerson.DateWentMissing, includeTime: true);
 
         //Police Report
         TxtPoliceStation.Text = _missingPerson.PoliceStation;
@@ -209,14 +210,19 @@ public partial class EditMissingPersonForm : Form
     {
         try
         {
-            if (DateTime.TryParse(date, out var parsedDateTime))
+            var formats = new string[] {
+                "dd/MM/yyyy HH:mm",      // date and short time
+                "dd/MM/yyyy"             // just date
+            };
+
+            if (DateTime.TryParseExact(date, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDateTime))
             {
                 control.Value = includeTime ? parsedDateTime : parsedDateTime.Date;
             }
         }
         catch (Exception)
         {
-            //don't do anything
+            // Silently fail
         }
     }
 
