@@ -101,11 +101,11 @@ public partial class ReportMissingPersonForm : Form
             {
                 FirstName = TxtName.Text,
                 LastName = TxtSurname.Text,
-                DateOfBirth = new DateTimeOffset(DtpDateOfBirth.Value, TimeZoneInfo.Local.GetUtcOffset(DtpDateOfBirth.Value)),
+                DateOfBirth = DtpDateOfBirth.Value,
                 Gender = (Gender)CmbGender.SelectedIndex,
                 Race = (Race)CmbRace.SelectedIndex,
                 Province = (Province)CmbProvince.SelectedIndex,
-                DateWentMissing = new DateTimeOffset(DtpDateWentMissing.Value, TimeZoneInfo.Local.GetUtcOffset(DtpDateWentMissing.Value)),
+                DateWentMissing = DtpDateWentMissing.Value,
                 HairColour = TxtHairColour.Text,
                 HairLengthOrStyle = TxtHairLengthOrStyle.Text,
                 EyeColour = TxtEyeColour.Text,
