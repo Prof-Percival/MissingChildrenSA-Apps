@@ -9,7 +9,7 @@ namespace MCSA_API.Domain.MissingPersons;
 
 public sealed class MissingPersonService(
     IRepository<MissingPerson> missingPersonRepository,
-    IRepository<MissingPersonModerationQueue> moderationQueueRepository) : IMissingPersonService
+    IMissingPersonModerationQueueRepository moderationQueueRepository) : IMissingPersonService
 {
     public async Task<(string, int)> CreateMissingPersonAsync(CreateMissingPersonRequest request)
     {
@@ -87,8 +87,19 @@ public sealed class MissingPersonService(
         existing.FamilyContactName = request.FamilyContactName;
         existing.FamilyContactNumber = request.FamilyContactNumber;
         existing.Status = request.Status.Value;
+        existing.ModerationStatus = ModerationStatus.Unmoderated;
+
+        var queueItem = await moderationQueueRepository.GetByMissingPersonIdAsync(existing.Id.Value);
+
+        queueItem.ModerationStatus = existing.ModerationStatus;
+
+        using var transaction = new TransactionScope();
 
         await missingPersonRepository.UpsertAsync(existing);
+
+        await moderationQueueRepository.UpsertAsync(queueItem);
+
+        transaction.Complete();
 
         existing = await GetMissingPersonByIdAsync(existing.Id.Value);
 
