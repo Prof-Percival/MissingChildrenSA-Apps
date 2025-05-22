@@ -50,6 +50,7 @@ partial class ModerationQueueStatsForm
         // 
         // TabPanQueueStats
         // 
+        TabPanQueueStats.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
         TabPanQueueStats.ColumnCount = 2;
         TabPanQueueStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
         TabPanQueueStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
@@ -71,9 +72,9 @@ partial class ModerationQueueStatsForm
         PanApproved.Controls.Add(LblApproved);
         PanApproved.Controls.Add(LblApprovedTitle);
         PanApproved.Dock = DockStyle.Fill;
-        PanApproved.Location = new Point(245, 233);
+        PanApproved.Location = new Point(245, 234);
         PanApproved.Name = "PanApproved";
-        PanApproved.Size = new Size(236, 225);
+        PanApproved.Size = new Size(235, 223);
         PanApproved.TabIndex = 3;
         // 
         // LblApproved
@@ -83,7 +84,7 @@ partial class ModerationQueueStatsForm
         LblApproved.Font = new Font("Arial", 63.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblApproved.Location = new Point(3, 57);
         LblApproved.Name = "LblApproved";
-        LblApproved.Size = new Size(230, 134);
+        LblApproved.Size = new Size(229, 134);
         LblApproved.TabIndex = 1;
         LblApproved.Text = "0";
         LblApproved.TextAlign = ContentAlignment.MiddleCenter;
@@ -94,7 +95,7 @@ partial class ModerationQueueStatsForm
         LblApprovedTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblApprovedTitle.Location = new Point(3, 15);
         LblApprovedTitle.Name = "LblApprovedTitle";
-        LblApprovedTitle.Size = new Size(230, 29);
+        LblApprovedTitle.Size = new Size(229, 29);
         LblApprovedTitle.TabIndex = 0;
         LblApprovedTitle.Text = "Approved";
         LblApprovedTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -104,9 +105,9 @@ partial class ModerationQueueStatsForm
         PanFailed.Controls.Add(LblFailed);
         PanFailed.Controls.Add(LblFailedTitle);
         PanFailed.Dock = DockStyle.Fill;
-        PanFailed.Location = new Point(3, 233);
+        PanFailed.Location = new Point(4, 234);
         PanFailed.Name = "PanFailed";
-        PanFailed.Size = new Size(236, 225);
+        PanFailed.Size = new Size(234, 223);
         PanFailed.TabIndex = 2;
         // 
         // LblFailed
@@ -116,7 +117,7 @@ partial class ModerationQueueStatsForm
         LblFailed.Font = new Font("Arial", 63.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblFailed.Location = new Point(3, 57);
         LblFailed.Name = "LblFailed";
-        LblFailed.Size = new Size(230, 134);
+        LblFailed.Size = new Size(228, 134);
         LblFailed.TabIndex = 1;
         LblFailed.Text = "0";
         LblFailed.TextAlign = ContentAlignment.MiddleCenter;
@@ -127,7 +128,7 @@ partial class ModerationQueueStatsForm
         LblFailedTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblFailedTitle.Location = new Point(3, 15);
         LblFailedTitle.Name = "LblFailedTitle";
-        LblFailedTitle.Size = new Size(230, 29);
+        LblFailedTitle.Size = new Size(228, 29);
         LblFailedTitle.TabIndex = 0;
         LblFailedTitle.Text = "Failed";
         LblFailedTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -137,9 +138,9 @@ partial class ModerationQueueStatsForm
         PanInModeration.Controls.Add(LblInModeration);
         PanInModeration.Controls.Add(LblInModerationTitle);
         PanInModeration.Dock = DockStyle.Fill;
-        PanInModeration.Location = new Point(245, 3);
+        PanInModeration.Location = new Point(245, 4);
         PanInModeration.Name = "PanInModeration";
-        PanInModeration.Size = new Size(236, 224);
+        PanInModeration.Size = new Size(235, 223);
         PanInModeration.TabIndex = 1;
         // 
         // LblInModeration
@@ -149,7 +150,7 @@ partial class ModerationQueueStatsForm
         LblInModeration.Font = new Font("Arial", 63.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblInModeration.Location = new Point(3, 57);
         LblInModeration.Name = "LblInModeration";
-        LblInModeration.Size = new Size(230, 134);
+        LblInModeration.Size = new Size(229, 134);
         LblInModeration.TabIndex = 1;
         LblInModeration.Text = "0";
         LblInModeration.TextAlign = ContentAlignment.MiddleCenter;
@@ -160,7 +161,7 @@ partial class ModerationQueueStatsForm
         LblInModerationTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblInModerationTitle.Location = new Point(3, 15);
         LblInModerationTitle.Name = "LblInModerationTitle";
-        LblInModerationTitle.Size = new Size(230, 29);
+        LblInModerationTitle.Size = new Size(229, 29);
         LblInModerationTitle.TabIndex = 0;
         LblInModerationTitle.Text = "In Moderation";
         LblInModerationTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -170,9 +171,9 @@ partial class ModerationQueueStatsForm
         PanUnmoderated.Controls.Add(LblUnmoderated);
         PanUnmoderated.Controls.Add(LblUnmoderatedTitle);
         PanUnmoderated.Dock = DockStyle.Fill;
-        PanUnmoderated.Location = new Point(3, 3);
+        PanUnmoderated.Location = new Point(4, 4);
         PanUnmoderated.Name = "PanUnmoderated";
-        PanUnmoderated.Size = new Size(236, 224);
+        PanUnmoderated.Size = new Size(234, 223);
         PanUnmoderated.TabIndex = 0;
         // 
         // LblUnmoderated
@@ -182,7 +183,7 @@ partial class ModerationQueueStatsForm
         LblUnmoderated.Font = new Font("Arial", 63.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblUnmoderated.Location = new Point(3, 57);
         LblUnmoderated.Name = "LblUnmoderated";
-        LblUnmoderated.Size = new Size(230, 134);
+        LblUnmoderated.Size = new Size(228, 134);
         LblUnmoderated.TabIndex = 1;
         LblUnmoderated.Text = "0";
         LblUnmoderated.TextAlign = ContentAlignment.MiddleCenter;
@@ -193,7 +194,7 @@ partial class ModerationQueueStatsForm
         LblUnmoderatedTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
         LblUnmoderatedTitle.Location = new Point(3, 15);
         LblUnmoderatedTitle.Name = "LblUnmoderatedTitle";
-        LblUnmoderatedTitle.Size = new Size(230, 29);
+        LblUnmoderatedTitle.Size = new Size(228, 29);
         LblUnmoderatedTitle.TabIndex = 0;
         LblUnmoderatedTitle.Text = "Unmoderated";
         LblUnmoderatedTitle.TextAlign = ContentAlignment.MiddleCenter;
