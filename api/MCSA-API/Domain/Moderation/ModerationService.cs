@@ -8,7 +8,7 @@ using System.Transactions;
 namespace MCSA_API.Domain.Moderation;
 
 public sealed class ModerationService(
-    IRepository<MissingPersonModerationQueue> moderationRepository,
+    IMissingPersonModerationQueueRepository moderationRepository,
     IRepository<MissingPerson> missingPersonRepository,
     ICurrentUserService currentUserService) : IModerationService
 {
