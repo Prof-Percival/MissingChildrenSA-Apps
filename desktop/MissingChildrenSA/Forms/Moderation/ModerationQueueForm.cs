@@ -80,7 +80,8 @@ public partial class ModerationQueueForm : Form
             //Show Moderate Form
             using var moderateMissingPersonForm = _serviceProvider.GetRequiredService<ModerateMissingPersonForm>();
 
-            moderateMissingPersonForm.ModerationStartedEventHandler += async (s, e) => await LoadModerationQueueItemsAsync(); // Refresh missing persons when updated
+            moderateMissingPersonForm.ModerationStartedEventHandler += async (s, e) => await LoadModerationQueueItemsAsync(); // Refresh moderation queue when moderation starts
+            moderateMissingPersonForm.ModerationFormClosedEventHandler += async (s, e) => await LoadModerationQueueItemsAsync(); // Refresh moderation queue when moderation form is closing
 
             moderateMissingPersonForm.ShowDialog();
         }
