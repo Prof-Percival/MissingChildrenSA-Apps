@@ -65,6 +65,7 @@ public sealed class ModerationService(
             return "Moderation already started";
         }
 
+        queueItem.ModerationStatus = ModerationStatus.InModeration;
         queueItem.ModeratedByUserId = userId;
 
         await moderationRepository.UpsertAsync(queueItem);
