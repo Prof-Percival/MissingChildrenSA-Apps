@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 using MissingChildrenSA.Forms;
 using MissingChildrenSA.Forms.Auth;
 using MissingChildrenSA.Forms.MissingPersons;
+using MissingChildrenSA.Forms.Moderation;
 using MissingChildrenSA.Forms.Users;
 using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Services.Auth;
@@ -61,6 +62,7 @@ internal static class Program
                 services.AddTransient<ReportMissingPersonForm>();
                 services.AddSingleton<MissingPersonsGridForm>();
                 services.AddTransient<EditMissingPersonForm>();
+                services.AddSingleton<ModerationQueueForm>();
             });
     }
 }
