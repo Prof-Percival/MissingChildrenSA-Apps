@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MissingChildrenSA.Forms.MissingPersons;
+using MissingChildrenSA.Forms.Moderation;
 using MissingChildrenSA.Forms.Users;
 using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Models.Users;
@@ -175,5 +176,12 @@ public partial class DashboardForm : Form
         var missingPersonsGridForm = _serviceProvider.GetRequiredService<MissingPersonsGridForm>();
 
         missingPersonsGridForm.ShowDialog();
+    }
+
+    private void LblModerationQueue_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        var moderationQueueForm = _serviceProvider.GetRequiredService<ModerationQueueForm>();
+
+        moderationQueueForm.ShowDialog();
     }
 }

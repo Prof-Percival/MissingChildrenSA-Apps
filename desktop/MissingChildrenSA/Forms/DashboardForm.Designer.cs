@@ -289,6 +289,7 @@ partial class DashboardForm
         LblModerationQueue.TabStop = true;
         LblModerationQueue.Text = "Queue";
         LblModerationQueue.TextAlign = ContentAlignment.MiddleLeft;
+        LblModerationQueue.LinkClicked += LblModerationQueue_LinkClicked;
         // 
         // LblModerationMenu
         // 
