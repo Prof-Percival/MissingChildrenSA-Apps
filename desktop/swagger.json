@@ -1554,11 +1554,11 @@
           },
           "created": {
             "type": "string",
-            "format": "date-time"
+            "nullable": true
           },
           "updated": {
             "type": "string",
-            "format": "date-time"
+            "nullable": true
           },
           "moderatedByUserId": {
             "type": "integer",
