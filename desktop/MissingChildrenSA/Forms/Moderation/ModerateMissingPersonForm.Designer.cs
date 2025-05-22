@@ -185,6 +185,7 @@ partial class ModerateMissingPersonForm
         BtnApprove.TabIndex = 14;
         BtnApprove.Text = "Approve";
         BtnApprove.UseVisualStyleBackColor = false;
+        BtnApprove.Click += BtnApprove_Click;
         // 
         // BtnFailModeration
         // 

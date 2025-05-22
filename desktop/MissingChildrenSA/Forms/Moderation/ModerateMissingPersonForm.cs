@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MissingChildrenSA.Helpers.Enums;
-using MissingChildrenSA.Helpers.Validations;
 
 namespace MissingChildrenSA.Forms.Moderation;
 
@@ -76,9 +75,42 @@ public partial class ModerateMissingPersonForm : Form
         }
     }
 
+    private async void BtnApprove_Click(object sender, EventArgs e)
+    {
+        var dialogResult = MessageBox.Show("Are You Sure You Want To Approve This Item?", "Moderation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        if (dialogResult == DialogResult.No) return;
+
+        try
+        {
+            await UpdateModerationStatusAsync("Approved");
+
+            ModerationStartedEventHandler?.Invoke(this, EventArgs.Empty);
+
+            BtnStartModeration.Visible = false;
+            GrpModeration.Visible = false;
+        }
+        catch (ApiException ex)
+        {
+            MessageBox.Show($"API Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
     private void ModerateMissingPersonForm_FormClosing(object sender, FormClosingEventArgs e)
     {
         ModerationFormClosedEventHandler?.Invoke(this, EventArgs.Empty);
+    }
+
+    private async Task UpdateModerationStatusAsync(string status, string reason = null)
+    {
+        var request = new ModerationStatusUpdateRequest
+        {
+            QueueItemId = _selectedModerationQueueItem.Id,
+            Status = (ModerationStatus)_enumLoader.ModerationStatuses.Single(x => x.Description == status).Id,
+            Reason = reason
+        };
+
+        await _apiClient.UpdateModerationStatusAsync(request);
     }
 
     private async Task PopulateFormAsync()
