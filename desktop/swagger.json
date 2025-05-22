@@ -635,6 +635,35 @@
         }
       }
     },
+    "/api/MissingPersonModeration/queue/get-moderation-queue-stats": {
+      "get": {
+        "tags": [
+          "MissingPersonModeration"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueueStatsResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueueStatsResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueueStatsResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/User/create-user": {
       "post": {
         "tags": [
@@ -1483,6 +1512,32 @@
               "$ref": "#/components/schemas/ModerationQueueItemResponse"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModerationQueueStatsResponseModel": {
+        "type": "object",
+        "properties": {
+          "unmoderated": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "inModeration": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "failed": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "approved": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
           }
         },
         "additionalProperties": false
