@@ -2247,98 +2247,6 @@ namespace MissingChildrenSA
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.3.0.0 (NJsonSchema v11.2.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class MissingPersonModel
-    {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("dateOfBirth", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset DateOfBirth { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("gender", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Gender Gender { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("race", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Race Race { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("province", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Province Province { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("dateWentMissing", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset DateWentMissing { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("hairColour", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string HairColour { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("hairLengthOrStyle", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string HairLengthOrStyle { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("eyeColour", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string EyeColour { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Height { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("weight", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Weight { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("marksTattoos", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MarksTattoos { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("lastSeenWearing", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastSeenWearing { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("locationLastSeen", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LocationLastSeen { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("detailsOfDisappearance", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DetailsOfDisappearance { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("imageUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ImageUrl { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("policeStation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PoliceStation { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("caseNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CaseNumber { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("investigatingOfficer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string InvestigatingOfficer { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("investigatingOfficerContactNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string InvestigatingOfficerContactNumber { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("familyContactName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FamilyContactName { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("familyContactNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FamilyContactNumber { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MissingPersonStatus Status { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Created { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("updated", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Updated { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("moderationStatus", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ModerationStatus ModerationStatus { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("lastEditedByUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? LastEditedByUserId { get; set; }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.3.0.0 (NJsonSchema v11.2.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public enum MissingPersonStatus
     {
 
@@ -2464,7 +2372,7 @@ namespace MissingChildrenSA
         public int? ModeratedByUserId { get; set; }
 
         [Newtonsoft.Json.JsonProperty("missingPerson", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MissingPersonModel MissingPerson { get; set; }
+        public MissingPersonViewModel MissingPerson { get; set; }
 
     }
 
