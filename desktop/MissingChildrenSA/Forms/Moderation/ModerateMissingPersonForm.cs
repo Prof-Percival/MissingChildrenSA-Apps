@@ -84,11 +84,6 @@ public partial class ModerateMissingPersonForm : Form
         try
         {
             await UpdateModerationStatusAsync("Approved");
-
-            ModerationStartedOrCompletedEventHandler?.Invoke(this, EventArgs.Empty);
-
-            BtnStartModeration.Visible = false;
-            GrpModeration.Visible = false;
         }
         catch (ApiException ex)
         {
@@ -111,6 +106,11 @@ public partial class ModerateMissingPersonForm : Form
         };
 
         await _apiClient.UpdateModerationStatusAsync(request);
+
+        ModerationStartedOrCompletedEventHandler?.Invoke(this, EventArgs.Empty);
+
+        BtnStartModeration.Visible = false;
+        GrpModeration.Visible = false;
     }
 
     private async Task PopulateFormAsync()
