@@ -1262,124 +1262,6 @@
         },
         "additionalProperties": false
       },
-      "MissingPersonModel": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "firstName": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastName": {
-            "type": "string",
-            "nullable": true
-          },
-          "dateOfBirth": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "gender": {
-            "$ref": "#/components/schemas/Gender"
-          },
-          "race": {
-            "$ref": "#/components/schemas/Race"
-          },
-          "province": {
-            "$ref": "#/components/schemas/Province"
-          },
-          "dateWentMissing": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "hairColour": {
-            "type": "string",
-            "nullable": true
-          },
-          "hairLengthOrStyle": {
-            "type": "string",
-            "nullable": true
-          },
-          "eyeColour": {
-            "type": "string",
-            "nullable": true
-          },
-          "height": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "weight": {
-            "type": "number",
-            "format": "double"
-          },
-          "marksTattoos": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastSeenWearing": {
-            "type": "string",
-            "nullable": true
-          },
-          "locationLastSeen": {
-            "type": "string",
-            "nullable": true
-          },
-          "detailsOfDisappearance": {
-            "type": "string",
-            "nullable": true
-          },
-          "imageUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "policeStation": {
-            "type": "string",
-            "nullable": true
-          },
-          "caseNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "investigatingOfficer": {
-            "type": "string",
-            "nullable": true
-          },
-          "investigatingOfficerContactNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "familyContactName": {
-            "type": "string",
-            "nullable": true
-          },
-          "familyContactNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/MissingPersonStatus"
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updated": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "moderationStatus": {
-            "$ref": "#/components/schemas/ModerationStatus"
-          },
-          "lastEditedByUserId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "MissingPersonStatus": {
         "enum": [
           1,
@@ -1540,7 +1422,7 @@
             "nullable": true
           },
           "missingPerson": {
-            "$ref": "#/components/schemas/MissingPersonModel"
+            "$ref": "#/components/schemas/MissingPersonViewModel"
           }
         },
         "additionalProperties": false
