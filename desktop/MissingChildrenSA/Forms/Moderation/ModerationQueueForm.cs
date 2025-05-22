@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Data;
 
 namespace MissingChildrenSA.Forms.Moderation;
 
@@ -76,7 +77,12 @@ public partial class ModerationQueueForm : Form
 
         if (DgvModerationQueue.Columns[e.ColumnIndex].Name == "DgvColViewButton")
         {
-            //Show View Form
+            //Show Moderate Form
+            using var moderateMissingPersonForm = _serviceProvider.GetRequiredService<ModerateMissingPersonForm>();
+
+            moderateMissingPersonForm.ModerationStartedEventHandler += async (s, e) => await LoadModerationQueueItemsAsync(); // Refresh missing persons when updated
+
+            moderateMissingPersonForm.ShowDialog();
         }
     }
 
