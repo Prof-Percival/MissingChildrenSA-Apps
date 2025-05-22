@@ -57,11 +57,9 @@ public partial class ModerateMissingPersonForm : Form
 
     private async void BtnStartModeration_Click(object sender, EventArgs e)
     {
-        bool isValid = FormValidator.ValidateMultiple(
-           (TxtName, "Name", c => !string.IsNullOrWhiteSpace(c.Text), "Name is required.")
-        );
+        var dialogResult = MessageBox.Show("Are you sure you want to start moderation on this item?", "Moderation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-        if (!isValid) return;
+        if (dialogResult == DialogResult.No) return;
 
         try
         {
