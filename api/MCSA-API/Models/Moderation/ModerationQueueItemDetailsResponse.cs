@@ -1,6 +1,6 @@
 ﻿using MCSA_API.Domain.MissingPersons;
 using MCSA_API.Domain.Moderation;
-using MCSA_API.Models.Shared;
+using MCSA_API.Models.MissingPersons;
 
 namespace MCSA_API.Models.Moderation;
 
@@ -12,7 +12,7 @@ public sealed class ModerationQueueItemDetailsResponse
     public DateTime Created { get; init; }
     public DateTime Updated { get; init; }
     public int? ModeratedByUserId { get; init; }
-    public MissingPersonModel MissingPerson { get; init; }
+    public MissingPersonViewModel MissingPerson { get; init; }
 
     public ModerationQueueItemDetailsResponse(
         MissingPersonModerationQueue queue,
@@ -24,6 +24,6 @@ public sealed class ModerationQueueItemDetailsResponse
         Created = queue.Created;
         Updated = queue.Updated;
         ModeratedByUserId = queue.ModeratedByUserId;
-        MissingPerson = new MissingPersonModel(missingPerson);
+        MissingPerson = new MissingPersonViewModel(missingPerson);
     }
 }
