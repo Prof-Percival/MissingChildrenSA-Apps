@@ -64,6 +64,7 @@ internal static class Program
                 services.AddTransient<EditMissingPersonForm>();
                 services.AddSingleton<ModerationQueueForm>();
                 services.AddTransient<ModerateMissingPersonForm>();
+                services.AddTransient<ModerationQueueStatsForm>();
             });
     }
 }
