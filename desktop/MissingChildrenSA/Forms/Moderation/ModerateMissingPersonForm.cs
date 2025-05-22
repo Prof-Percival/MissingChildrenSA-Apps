@@ -12,7 +12,7 @@ public partial class ModerateMissingPersonForm : Form
     private Models.Moderation.ModerationQueueItem _selectedModerationQueueItem;
     private Models.MissingPersons.MissingPersonModel _missingPerson;
 
-    public event EventHandler ModerationStartedEventHandler;
+    public event EventHandler ModerationStartedOrCompletedEventHandler;
     public event EventHandler ModerationFormClosedEventHandler;
 
     public ModerateMissingPersonForm(
@@ -64,7 +64,7 @@ public partial class ModerateMissingPersonForm : Form
         {
             await _apiClient.StartModerationAsync(_selectedModerationQueueItem.Id);
 
-            ModerationStartedEventHandler?.Invoke(this, EventArgs.Empty);
+            ModerationStartedOrCompletedEventHandler?.Invoke(this, EventArgs.Empty);
 
             BtnStartModeration.Visible = false;
             GrpModeration.Visible = true;
@@ -85,7 +85,7 @@ public partial class ModerateMissingPersonForm : Form
         {
             await UpdateModerationStatusAsync("Approved");
 
-            ModerationStartedEventHandler?.Invoke(this, EventArgs.Empty);
+            ModerationStartedOrCompletedEventHandler?.Invoke(this, EventArgs.Empty);
 
             BtnStartModeration.Visible = false;
             GrpModeration.Visible = false;
