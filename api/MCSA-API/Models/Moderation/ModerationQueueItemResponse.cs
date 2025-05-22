@@ -6,8 +6,8 @@ namespace MCSA_API.Models.Moderation;
 public class ModerationQueueItemResponse
 {
     public int Id { get; set; }
-    public DateTime Created { get; set; }
-    public DateTime Updated { get; set; }
+    public string Created { get; set; }
+    public string Updated { get; set; }
     public int? ModeratedByUserId { get; set; }
     public int MissingPersonId { get; set; }
     public string ModerationStatus { get; set; }
@@ -16,8 +16,8 @@ public class ModerationQueueItemResponse
     public ModerationQueueItemResponse(MissingPersonModerationQueue queue)
     {
         Id = queue.Id.Value;
-        Created = queue.Created;
-        Updated = queue.Updated;
+        Created = FormattingHelper.FormatDateTime(queue.Created);
+        Updated = FormattingHelper.FormatDateTime(queue.Updated);
         ModeratedByUserId = queue.ModeratedByUserId;
         MissingPersonId = queue.MissingPersonId;
         ModerationStatus = queue.ModerationStatus.GetBestDescription();
