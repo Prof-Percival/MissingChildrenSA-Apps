@@ -270,6 +270,7 @@ partial class DashboardForm
         LblQueueStats.TabStop = true;
         LblQueueStats.Text = "Queue Stats";
         LblQueueStats.TextAlign = ContentAlignment.MiddleLeft;
+        LblQueueStats.LinkClicked += LblQueueStats_LinkClicked;
         // 
         // LblModerationQueue
         // 
