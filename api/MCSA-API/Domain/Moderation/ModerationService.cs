@@ -1,5 +1,6 @@
 ﻿using MCSA_API.Data;
 using MCSA_API.Domain.MissingPersons;
+using MCSA_API.Domain.Moderation.Stats;
 using MCSA_API.Domain.Security;
 using MCSA_API.Helpers;
 using MCSA_API.Models.Moderation;
@@ -103,5 +104,18 @@ public sealed class ModerationService(
         transaction.Complete();
 
         return null;
+    }
+
+    public async Task<ModerationQueueStats> GetModerationQueueStats()
+    {
+        var items = await moderationRepository.GetAllAsync();
+
+        return new ModerationQueueStats
+        {
+            Unmoderated = items.Count(i => i.ModerationStatus == ModerationStatus.Unmoderated),
+            InModeration = items.Count(i => i.ModerationStatus == ModerationStatus.InModeration),
+            Failed = items.Count(i => i.ModerationStatus == ModerationStatus.Failed),
+            Approved = items.Count(i => i.ModerationStatus == ModerationStatus.Approved)
+        };
     }
 }

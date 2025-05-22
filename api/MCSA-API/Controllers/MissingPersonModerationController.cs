@@ -1,5 +1,6 @@
 ﻿using MCSA_API.Domain.Moderation;
 using MCSA_API.Models.Moderation;
+using MCSA_API.Models.Moderation.Stats;
 using MCSA_API.Models.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -56,5 +57,14 @@ public class MissingPersonModerationController(
         if (result != null) return BadRequest(result);
 
         return Ok();
+    }
+
+    [HttpGet("queue/get-moderation-queue-stats")]
+    [Produces(typeof(ModerationQueueStatsResponseModel))]
+    public async Task<IActionResult> GetModerationQueueStats()
+    {
+        var stats = await service.GetModerationQueueStats();
+
+        return Ok(new ModerationQueueStatsResponseModel(stats));
     }
 }
