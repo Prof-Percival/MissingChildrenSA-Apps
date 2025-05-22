@@ -1,6 +1,4 @@
-﻿using MissingChildrenSA.Forms.Users;
-
-namespace MissingChildrenSA.Forms.MissingPersons;
+﻿namespace MissingChildrenSA.Forms.MissingPersons;
 
 partial class MissingPersonsGridForm
 {
