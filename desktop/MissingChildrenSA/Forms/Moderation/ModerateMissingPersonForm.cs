@@ -37,15 +37,14 @@ public partial class ModerateMissingPersonForm : Form
             BtnStartModeration.Visible = false;
         }
 
-        if (_selectedModerationQueueItem.ModerationStatus != "Failed" &&
-            _selectedModerationQueueItem.ModerationStatus != "Approved")
+        if (_selectedModerationQueueItem.ModerationStatus == "In Moderation")
         {
-            //Moderation is not complete. Show this section
+            //Moderation is not complete (In Progress). Show this section
             GrpModeration.Visible = true;
         }
         else
         {
-            //Moderation has been completed. Hide this section
+            //Moderation has been completed or not yet started. Hide this section
             GrpModeration.Visible = false;
         }
 
