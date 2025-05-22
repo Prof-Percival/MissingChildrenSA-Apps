@@ -39,7 +39,7 @@ partial class DashboardForm
         LblViewUsers = new LinkLabel();
         LblCreateUser = new LinkLabel();
         LblManageUsersMenu = new Label();
-        linkLabel1 = new LinkLabel();
+        LblQueueStats = new LinkLabel();
         LblModerationQueue = new LinkLabel();
         LblModerationMenu = new Label();
         LblViewGrid = new LinkLabel();
@@ -114,7 +114,7 @@ partial class DashboardForm
         TabPanNavigation.Controls.Add(LblViewUsers, 0, 9);
         TabPanNavigation.Controls.Add(LblCreateUser, 0, 8);
         TabPanNavigation.Controls.Add(LblManageUsersMenu, 0, 7);
-        TabPanNavigation.Controls.Add(linkLabel1, 0, 6);
+        TabPanNavigation.Controls.Add(LblQueueStats, 0, 6);
         TabPanNavigation.Controls.Add(LblModerationQueue, 0, 5);
         TabPanNavigation.Controls.Add(LblModerationMenu, 0, 4);
         TabPanNavigation.Controls.Add(LblViewGrid, 0, 3);
@@ -252,24 +252,24 @@ partial class DashboardForm
         LblManageUsersMenu.Text = "Manage Users";
         LblManageUsersMenu.TextAlign = ContentAlignment.MiddleLeft;
         // 
-        // linkLabel1
+        // LblQueueStats
         // 
-        linkLabel1.AutoEllipsis = true;
-        linkLabel1.AutoSize = true;
-        linkLabel1.BackColor = Color.Gainsboro;
-        linkLabel1.Dock = DockStyle.Fill;
-        linkLabel1.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        linkLabel1.LinkBehavior = LinkBehavior.HoverUnderline;
-        linkLabel1.LinkColor = Color.Black;
-        linkLabel1.Location = new Point(0, 132);
-        linkLabel1.Margin = new Padding(0);
-        linkLabel1.Name = "linkLabel1";
-        linkLabel1.Padding = new Padding(12, 0, 0, 0);
-        linkLabel1.Size = new Size(156, 22);
-        linkLabel1.TabIndex = 7;
-        linkLabel1.TabStop = true;
-        linkLabel1.Text = "Queue Stats";
-        linkLabel1.TextAlign = ContentAlignment.MiddleLeft;
+        LblQueueStats.AutoEllipsis = true;
+        LblQueueStats.AutoSize = true;
+        LblQueueStats.BackColor = Color.Gainsboro;
+        LblQueueStats.Dock = DockStyle.Fill;
+        LblQueueStats.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblQueueStats.LinkBehavior = LinkBehavior.HoverUnderline;
+        LblQueueStats.LinkColor = Color.Black;
+        LblQueueStats.Location = new Point(0, 132);
+        LblQueueStats.Margin = new Padding(0);
+        LblQueueStats.Name = "LblQueueStats";
+        LblQueueStats.Padding = new Padding(12, 0, 0, 0);
+        LblQueueStats.Size = new Size(156, 22);
+        LblQueueStats.TabIndex = 7;
+        LblQueueStats.TabStop = true;
+        LblQueueStats.Text = "Queue Stats";
+        LblQueueStats.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // LblModerationQueue
         // 
@@ -680,7 +680,7 @@ partial class DashboardForm
     private Label LblModerationMenu;
     private LinkLabel LblViewGrid;
     private LinkLabel LblModerationQueue;
-    private LinkLabel linkLabel1;
+    private LinkLabel LblQueueStats;
     private LinkLabel LblViewUsers;
     private LinkLabel LblCreateUser;
     private Label LblManageUsersMenu;
