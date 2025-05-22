@@ -32,6 +32,9 @@ partial class ModerateMissingPersonForm
         PanMain = new Panel();
         GrpModeration = new GroupBox();
         PanModeration = new Panel();
+        TabPanActions = new TableLayoutPanel();
+        BtnApprove = new Button();
+        BtnFailModeration = new Button();
         BtnStartModeration = new Button();
         GrpPhoto = new GroupBox();
         PanPhoto = new Panel();
@@ -55,6 +58,7 @@ partial class ModerateMissingPersonForm
         LblCaseNumber = new Label();
         GrpDisappearanceDetails = new GroupBox();
         PanDisappearanceDetails = new Panel();
+        TxtDateWentMissing = new TextBox();
         LblDateWentMissing = new Label();
         TxtLocationLastSeen = new TextBox();
         LblLastSeenWearing = new Label();
@@ -62,6 +66,8 @@ partial class ModerateMissingPersonForm
         LblLocationLastSeen = new Label();
         GrpPhysicalDescription = new GroupBox();
         PanPhysicalDescription = new Panel();
+        TxtWeight = new TextBox();
+        TxtHeight = new TextBox();
         TxtMarksTattoos = new TextBox();
         TxtEyeColour = new TextBox();
         LblMarksTattoos = new Label();
@@ -74,6 +80,10 @@ partial class ModerateMissingPersonForm
         LblHairLengthOrStyle = new Label();
         GrpPersonalDetails = new GroupBox();
         PanPersonalDetails = new Panel();
+        TxtProvince = new TextBox();
+        TxtRace = new TextBox();
+        TxtGender = new TextBox();
+        TxtDateOfBirth = new TextBox();
         LblProvince = new Label();
         LblRace = new Label();
         LblDateOfBirth = new Label();
@@ -83,19 +93,10 @@ partial class ModerateMissingPersonForm
         TxtName = new TextBox();
         LblSurname = new Label();
         MainTooltip = new ToolTip(components);
-        TabPanActions = new TableLayoutPanel();
-        BtnFailModeration = new Button();
-        BtnApprove = new Button();
-        TxtDateOfBirth = new TextBox();
-        TxtGender = new TextBox();
-        TxtRace = new TextBox();
-        TxtProvince = new TextBox();
-        TxtHeight = new TextBox();
-        TxtWeight = new TextBox();
-        TxtDateWentMissing = new TextBox();
         PanMain.SuspendLayout();
         GrpModeration.SuspendLayout();
         PanModeration.SuspendLayout();
+        TabPanActions.SuspendLayout();
         GrpPhoto.SuspendLayout();
         PanPhoto.SuspendLayout();
         TabPanPhoto.SuspendLayout();
@@ -110,7 +111,6 @@ partial class ModerateMissingPersonForm
         PanPhysicalDescription.SuspendLayout();
         GrpPersonalDetails.SuspendLayout();
         PanPersonalDetails.SuspendLayout();
-        TabPanActions.SuspendLayout();
         SuspendLayout();
         // 
         // PanMain
@@ -152,6 +152,57 @@ partial class ModerateMissingPersonForm
         PanModeration.Name = "PanModeration";
         PanModeration.Size = new Size(332, 58);
         PanModeration.TabIndex = 7;
+        // 
+        // TabPanActions
+        // 
+        TabPanActions.ColumnCount = 2;
+        TabPanActions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        TabPanActions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        TabPanActions.Controls.Add(BtnApprove, 1, 0);
+        TabPanActions.Controls.Add(BtnFailModeration, 0, 0);
+        TabPanActions.Dock = DockStyle.Fill;
+        TabPanActions.Location = new Point(0, 0);
+        TabPanActions.Name = "TabPanActions";
+        TabPanActions.RowCount = 1;
+        TabPanActions.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        TabPanActions.Size = new Size(332, 58);
+        TabPanActions.TabIndex = 0;
+        // 
+        // BtnApprove
+        // 
+        BtnApprove.Anchor = AnchorStyles.None;
+        BtnApprove.AutoSize = true;
+        BtnApprove.BackColor = Color.Green;
+        BtnApprove.Cursor = Cursors.Hand;
+        BtnApprove.FlatAppearance.BorderSize = 0;
+        BtnApprove.FlatStyle = FlatStyle.Popup;
+        BtnApprove.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        BtnApprove.ForeColor = Color.White;
+        BtnApprove.Location = new Point(176, 13);
+        BtnApprove.Margin = new Padding(5, 3, 5, 3);
+        BtnApprove.Name = "BtnApprove";
+        BtnApprove.Size = new Size(145, 31);
+        BtnApprove.TabIndex = 14;
+        BtnApprove.Text = "Approve";
+        BtnApprove.UseVisualStyleBackColor = false;
+        // 
+        // BtnFailModeration
+        // 
+        BtnFailModeration.Anchor = AnchorStyles.None;
+        BtnFailModeration.AutoSize = true;
+        BtnFailModeration.BackColor = Color.FromArgb(237, 31, 39);
+        BtnFailModeration.Cursor = Cursors.Hand;
+        BtnFailModeration.FlatAppearance.BorderSize = 0;
+        BtnFailModeration.FlatStyle = FlatStyle.Popup;
+        BtnFailModeration.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        BtnFailModeration.ForeColor = Color.White;
+        BtnFailModeration.Location = new Point(10, 13);
+        BtnFailModeration.Margin = new Padding(5, 3, 5, 3);
+        BtnFailModeration.Name = "BtnFailModeration";
+        BtnFailModeration.Size = new Size(145, 31);
+        BtnFailModeration.TabIndex = 13;
+        BtnFailModeration.Text = "Fail Moderation";
+        BtnFailModeration.UseVisualStyleBackColor = false;
         // 
         // BtnStartModeration
         // 
@@ -431,6 +482,16 @@ partial class ModerateMissingPersonForm
         PanDisappearanceDetails.Size = new Size(234, 172);
         PanDisappearanceDetails.TabIndex = 7;
         // 
+        // TxtDateWentMissing
+        // 
+        TxtDateWentMissing.BackColor = Color.White;
+        TxtDateWentMissing.Enabled = false;
+        TxtDateWentMissing.Location = new Point(9, 139);
+        TxtDateWentMissing.Name = "TxtDateWentMissing";
+        TxtDateWentMissing.ReadOnly = true;
+        TxtDateWentMissing.Size = new Size(176, 25);
+        TxtDateWentMissing.TabIndex = 20;
+        // 
         // LblDateWentMissing
         // 
         LblDateWentMissing.AutoSize = true;
@@ -519,6 +580,26 @@ partial class ModerateMissingPersonForm
         PanPhysicalDescription.Name = "PanPhysicalDescription";
         PanPhysicalDescription.Size = new Size(386, 172);
         PanPhysicalDescription.TabIndex = 7;
+        // 
+        // TxtWeight
+        // 
+        TxtWeight.BackColor = Color.White;
+        TxtWeight.Enabled = false;
+        TxtWeight.Location = new Point(7, 139);
+        TxtWeight.Name = "TxtWeight";
+        TxtWeight.ReadOnly = true;
+        TxtWeight.Size = new Size(176, 25);
+        TxtWeight.TabIndex = 19;
+        // 
+        // TxtHeight
+        // 
+        TxtHeight.BackColor = Color.White;
+        TxtHeight.Enabled = false;
+        TxtHeight.Location = new Point(200, 82);
+        TxtHeight.Name = "TxtHeight";
+        TxtHeight.ReadOnly = true;
+        TxtHeight.Size = new Size(176, 25);
+        TxtHeight.TabIndex = 18;
         // 
         // TxtMarksTattoos
         // 
@@ -665,6 +746,46 @@ partial class ModerateMissingPersonForm
         PanPersonalDetails.Size = new Size(386, 172);
         PanPersonalDetails.TabIndex = 7;
         // 
+        // TxtProvince
+        // 
+        TxtProvince.BackColor = Color.White;
+        TxtProvince.Enabled = false;
+        TxtProvince.Location = new Point(200, 137);
+        TxtProvince.Name = "TxtProvince";
+        TxtProvince.ReadOnly = true;
+        TxtProvince.Size = new Size(176, 25);
+        TxtProvince.TabIndex = 22;
+        // 
+        // TxtRace
+        // 
+        TxtRace.BackColor = Color.White;
+        TxtRace.Enabled = false;
+        TxtRace.Location = new Point(7, 138);
+        TxtRace.Name = "TxtRace";
+        TxtRace.ReadOnly = true;
+        TxtRace.Size = new Size(176, 25);
+        TxtRace.TabIndex = 21;
+        // 
+        // TxtGender
+        // 
+        TxtGender.BackColor = Color.White;
+        TxtGender.Enabled = false;
+        TxtGender.Location = new Point(200, 82);
+        TxtGender.Name = "TxtGender";
+        TxtGender.ReadOnly = true;
+        TxtGender.Size = new Size(176, 25);
+        TxtGender.TabIndex = 20;
+        // 
+        // TxtDateOfBirth
+        // 
+        TxtDateOfBirth.BackColor = Color.White;
+        TxtDateOfBirth.Enabled = false;
+        TxtDateOfBirth.Location = new Point(7, 82);
+        TxtDateOfBirth.Name = "TxtDateOfBirth";
+        TxtDateOfBirth.ReadOnly = true;
+        TxtDateOfBirth.Size = new Size(176, 25);
+        TxtDateOfBirth.TabIndex = 19;
+        // 
         // LblProvince
         // 
         LblProvince.AutoSize = true;
@@ -757,127 +878,6 @@ partial class ModerateMissingPersonForm
         LblSurname.Text = "Surname";
         LblSurname.TextAlign = ContentAlignment.MiddleLeft;
         // 
-        // TabPanActions
-        // 
-        TabPanActions.ColumnCount = 2;
-        TabPanActions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-        TabPanActions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-        TabPanActions.Controls.Add(BtnApprove, 1, 0);
-        TabPanActions.Controls.Add(BtnFailModeration, 0, 0);
-        TabPanActions.Dock = DockStyle.Fill;
-        TabPanActions.Location = new Point(0, 0);
-        TabPanActions.Name = "TabPanActions";
-        TabPanActions.RowCount = 1;
-        TabPanActions.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        TabPanActions.Size = new Size(332, 58);
-        TabPanActions.TabIndex = 0;
-        // 
-        // BtnFailModeration
-        // 
-        BtnFailModeration.Anchor = AnchorStyles.None;
-        BtnFailModeration.AutoSize = true;
-        BtnFailModeration.BackColor = Color.FromArgb(237, 31, 39);
-        BtnFailModeration.Cursor = Cursors.Hand;
-        BtnFailModeration.FlatAppearance.BorderSize = 0;
-        BtnFailModeration.FlatStyle = FlatStyle.Popup;
-        BtnFailModeration.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        BtnFailModeration.ForeColor = Color.White;
-        BtnFailModeration.Location = new Point(10, 13);
-        BtnFailModeration.Margin = new Padding(5, 3, 5, 3);
-        BtnFailModeration.Name = "BtnFailModeration";
-        BtnFailModeration.Size = new Size(145, 31);
-        BtnFailModeration.TabIndex = 13;
-        BtnFailModeration.Text = "Fail Moderation";
-        BtnFailModeration.UseVisualStyleBackColor = false;
-        // 
-        // BtnApprove
-        // 
-        BtnApprove.Anchor = AnchorStyles.None;
-        BtnApprove.AutoSize = true;
-        BtnApprove.BackColor = Color.Green;
-        BtnApprove.Cursor = Cursors.Hand;
-        BtnApprove.FlatAppearance.BorderSize = 0;
-        BtnApprove.FlatStyle = FlatStyle.Popup;
-        BtnApprove.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        BtnApprove.ForeColor = Color.White;
-        BtnApprove.Location = new Point(176, 13);
-        BtnApprove.Margin = new Padding(5, 3, 5, 3);
-        BtnApprove.Name = "BtnApprove";
-        BtnApprove.Size = new Size(145, 31);
-        BtnApprove.TabIndex = 14;
-        BtnApprove.Text = "Approve";
-        BtnApprove.UseVisualStyleBackColor = false;
-        // 
-        // TxtDateOfBirth
-        // 
-        TxtDateOfBirth.BackColor = Color.White;
-        TxtDateOfBirth.Enabled = false;
-        TxtDateOfBirth.Location = new Point(7, 82);
-        TxtDateOfBirth.Name = "TxtDateOfBirth";
-        TxtDateOfBirth.ReadOnly = true;
-        TxtDateOfBirth.Size = new Size(176, 25);
-        TxtDateOfBirth.TabIndex = 19;
-        // 
-        // TxtGender
-        // 
-        TxtGender.BackColor = Color.White;
-        TxtGender.Enabled = false;
-        TxtGender.Location = new Point(200, 82);
-        TxtGender.Name = "TxtGender";
-        TxtGender.ReadOnly = true;
-        TxtGender.Size = new Size(176, 25);
-        TxtGender.TabIndex = 20;
-        // 
-        // TxtRace
-        // 
-        TxtRace.BackColor = Color.White;
-        TxtRace.Enabled = false;
-        TxtRace.Location = new Point(7, 138);
-        TxtRace.Name = "TxtRace";
-        TxtRace.ReadOnly = true;
-        TxtRace.Size = new Size(176, 25);
-        TxtRace.TabIndex = 21;
-        // 
-        // TxtProvince
-        // 
-        TxtProvince.BackColor = Color.White;
-        TxtProvince.Enabled = false;
-        TxtProvince.Location = new Point(200, 137);
-        TxtProvince.Name = "TxtProvince";
-        TxtProvince.ReadOnly = true;
-        TxtProvince.Size = new Size(176, 25);
-        TxtProvince.TabIndex = 22;
-        // 
-        // TxtHeight
-        // 
-        TxtHeight.BackColor = Color.White;
-        TxtHeight.Enabled = false;
-        TxtHeight.Location = new Point(200, 82);
-        TxtHeight.Name = "TxtHeight";
-        TxtHeight.ReadOnly = true;
-        TxtHeight.Size = new Size(176, 25);
-        TxtHeight.TabIndex = 18;
-        // 
-        // TxtWeight
-        // 
-        TxtWeight.BackColor = Color.White;
-        TxtWeight.Enabled = false;
-        TxtWeight.Location = new Point(7, 139);
-        TxtWeight.Name = "TxtWeight";
-        TxtWeight.ReadOnly = true;
-        TxtWeight.Size = new Size(176, 25);
-        TxtWeight.TabIndex = 19;
-        // 
-        // TxtDateWentMissing
-        // 
-        TxtDateWentMissing.BackColor = Color.White;
-        TxtDateWentMissing.Enabled = false;
-        TxtDateWentMissing.Location = new Point(9, 139);
-        TxtDateWentMissing.Name = "TxtDateWentMissing";
-        TxtDateWentMissing.ReadOnly = true;
-        TxtDateWentMissing.Size = new Size(176, 25);
-        TxtDateWentMissing.TabIndex = 20;
-        // 
         // ModerateMissingPersonForm
         // 
         AutoScaleDimensions = new SizeF(8F, 17F);
@@ -893,11 +893,14 @@ partial class ModerateMissingPersonForm
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Moderate Missing Person";
+        FormClosing += ModerateMissingPersonForm_FormClosing;
         Load += ModerateMissingPersonForm_Load;
         PanMain.ResumeLayout(false);
         PanMain.PerformLayout();
         GrpModeration.ResumeLayout(false);
         PanModeration.ResumeLayout(false);
+        TabPanActions.ResumeLayout(false);
+        TabPanActions.PerformLayout();
         GrpPhoto.ResumeLayout(false);
         PanPhoto.ResumeLayout(false);
         TabPanPhoto.ResumeLayout(false);
@@ -917,8 +920,6 @@ partial class ModerateMissingPersonForm
         GrpPersonalDetails.ResumeLayout(false);
         PanPersonalDetails.ResumeLayout(false);
         PanPersonalDetails.PerformLayout();
-        TabPanActions.ResumeLayout(false);
-        TabPanActions.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }

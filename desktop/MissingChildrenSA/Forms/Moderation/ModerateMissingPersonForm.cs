@@ -14,6 +14,7 @@ public partial class ModerateMissingPersonForm : Form
     private Models.MissingPersons.MissingPersonModel _missingPerson;
 
     public event EventHandler ModerationStartedEventHandler;
+    public event EventHandler ModerationFormClosedEventHandler;
 
     public ModerateMissingPersonForm(
         EnumLoader enumLoader,
@@ -75,6 +76,11 @@ public partial class ModerateMissingPersonForm : Form
         {
             MessageBox.Show($"API Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+    }
+
+    private void ModerateMissingPersonForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        ModerationFormClosedEventHandler?.Invoke(this, EventArgs.Empty);
     }
 
     private async Task PopulateFormAsync()
