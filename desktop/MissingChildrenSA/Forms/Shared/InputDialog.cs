@@ -15,8 +15,8 @@ public class InputDialog : IDisposable
     {
         Prompt = new Form()
         {
-            Width = 500,
-            Height = 150,
+            Width = 450,
+            Height = 250,
             FormBorderStyle = FormBorderStyle.FixedDialog,
             Text = caption,
             StartPosition = FormStartPosition.CenterScreen,
