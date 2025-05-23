@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MissingChildrenSA.Forms.Shared;
 using MissingChildrenSA.Helpers.Enums;
 
 namespace MissingChildrenSA.Forms.Moderation;
@@ -67,6 +68,29 @@ public partial class ModerateMissingPersonForm : Form
 
             BtnStartModeration.Visible = false;
             GrpModeration.Visible = true;
+        }
+        catch (ApiException ex)
+        {
+            MessageBox.Show($"API Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    private async void BtnFailModeration_Click(object sender, EventArgs e)
+    {
+        using var prompt = new InputDialog("Moderation Reason", "Moderation");
+
+        var reason = prompt.Result;
+
+        if (string.IsNullOrWhiteSpace(reason))
+        {
+            MessageBox.Show("Moderation Reason is required!", "Moderation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            return;
+        }
+
+        try
+        {
+            await UpdateModerationStatusAsync("Failed", reason);
         }
         catch (ApiException ex)
         {

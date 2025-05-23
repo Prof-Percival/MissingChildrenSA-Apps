@@ -204,6 +204,7 @@ partial class ModerateMissingPersonForm
         BtnFailModeration.TabIndex = 13;
         BtnFailModeration.Text = "Fail Moderation";
         BtnFailModeration.UseVisualStyleBackColor = false;
+        BtnFailModeration.Click += BtnFailModeration_Click;
         // 
         // BtnStartModeration
         // 
