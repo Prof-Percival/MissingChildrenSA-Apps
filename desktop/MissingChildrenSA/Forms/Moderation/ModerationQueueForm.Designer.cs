@@ -34,7 +34,6 @@ partial class ModerationQueueForm
         TabPanHeader = new TableLayoutPanel();
         PicRefresh = new PictureBox();
         DgvModerationQueue = new DataGridView();
-        MainTooltip = new ToolTip(components);
         DgvColId = new DataGridViewTextBoxColumn();
         DgvColCreated = new DataGridViewTextBoxColumn();
         DgvColUpdated = new DataGridViewTextBoxColumn();
@@ -43,6 +42,7 @@ partial class ModerationQueueForm
         DgvColModerationStatus = new DataGridViewTextBoxColumn();
         DgvColModerationStatusReason = new DataGridViewTextBoxColumn();
         DgvColViewButton = new DataGridViewButtonColumn();
+        MainTooltip = new ToolTip(components);
         PanMain.SuspendLayout();
         TabPanMainContainer.SuspendLayout();
         TabPanHeader.SuspendLayout();
@@ -56,7 +56,7 @@ partial class ModerationQueueForm
         PanMain.Dock = DockStyle.Fill;
         PanMain.Location = new Point(0, 0);
         PanMain.Name = "PanMain";
-        PanMain.Size = new Size(1060, 501);
+        PanMain.Size = new Size(1108, 501);
         PanMain.TabIndex = 0;
         // 
         // TabPanMainContainer
@@ -72,7 +72,7 @@ partial class ModerationQueueForm
         TabPanMainContainer.RowCount = 2;
         TabPanMainContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 9F));
         TabPanMainContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 91F));
-        TabPanMainContainer.Size = new Size(1060, 501);
+        TabPanMainContainer.Size = new Size(1108, 501);
         TabPanMainContainer.TabIndex = 0;
         // 
         // TabPanHeader
@@ -115,7 +115,7 @@ partial class ModerationQueueForm
         DgvModerationQueue.Name = "DgvModerationQueue";
         DgvModerationQueue.ReadOnly = true;
         DgvModerationQueue.RowHeadersVisible = false;
-        DgvModerationQueue.Size = new Size(1054, 450);
+        DgvModerationQueue.Size = new Size(1102, 450);
         DgvModerationQueue.TabIndex = 2;
         DgvModerationQueue.CellContentClick += DgvModerationQueue_CellContentClick;
         // 
@@ -180,7 +180,7 @@ partial class ModerationQueueForm
         AutoScaleDimensions = new SizeF(8F, 17F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(1060, 501);
+        ClientSize = new Size(1108, 501);
         Controls.Add(PanMain);
         Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         FormBorderStyle = FormBorderStyle.FixedDialog;
