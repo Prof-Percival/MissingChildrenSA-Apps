@@ -113,7 +113,7 @@ partial class MissingPersonsGridForm
         // PicReportNow
         // 
         PicReportNow.Cursor = Cursors.Hand;
-        PicReportNow.Image = Properties.Resources.add_user;
+        PicReportNow.Image = Properties.Resources.alarm;
         PicReportNow.Location = new Point(3, 3);
         PicReportNow.Name = "PicReportNow";
         PicReportNow.Size = new Size(40, 33);
