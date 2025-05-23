@@ -21,6 +21,8 @@ public class InputDialog : IDisposable
             Text = caption,
             StartPosition = FormStartPosition.CenterScreen,
             TopMost = true,
+            MinimizeBox = false,
+            MaximizeBox = false,
             Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0)
         };
 
