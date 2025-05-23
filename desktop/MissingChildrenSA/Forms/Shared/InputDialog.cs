@@ -48,7 +48,7 @@ public class InputDialog : IDisposable
             Text = "Ok",
             Left = 350,
             Width = 100,
-            Top = 70,
+            Top = 90,
             DialogResult = DialogResult.OK
         };
 
