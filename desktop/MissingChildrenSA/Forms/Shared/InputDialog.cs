@@ -23,6 +23,7 @@ public class InputDialog : IDisposable
             TopMost = true,
             MinimizeBox = false,
             MaximizeBox = false,
+            BackColor = Color.White,
             Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0)
         };
 
