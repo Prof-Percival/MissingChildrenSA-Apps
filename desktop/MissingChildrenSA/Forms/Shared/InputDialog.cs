@@ -50,7 +50,7 @@ public class InputDialog : IDisposable
             Left = 350,
             Width = 100,
             Height = 30,
-            Top = 90,
+            Top = 100,
             DialogResult = DialogResult.OK
         };
 
