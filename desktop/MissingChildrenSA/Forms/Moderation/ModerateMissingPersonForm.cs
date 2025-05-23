@@ -83,7 +83,8 @@ public partial class ModerateMissingPersonForm : Form
 
         if (string.IsNullOrWhiteSpace(reason))
         {
-            MessageBox.Show("Moderation Reason is required!", "Moderation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (prompt.DialogResult == DialogResult.OK)
+                MessageBox.Show("Moderation Reason is required!", "Moderation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             return;
         }
