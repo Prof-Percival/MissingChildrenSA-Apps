@@ -3,6 +3,7 @@
 public class InputDialog : IDisposable
 {
     private Form Prompt { get; set; }
+    public DialogResult DialogResult { get; private set; }
     public string Result { get; }
 
     public InputDialog(string text, string caption)
@@ -15,7 +16,7 @@ public class InputDialog : IDisposable
     {
         Prompt = new Form()
         {
-            Width = 450,
+            Width = 500,
             Height = 250,
             FormBorderStyle = FormBorderStyle.FixedDialog,
             Text = caption,
@@ -59,7 +60,9 @@ public class InputDialog : IDisposable
         Prompt.Controls.Add(textLabel);
         Prompt.AcceptButton = confirmationButton;
 
-        return Prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
+        DialogResult = Prompt.ShowDialog();
+
+        return DialogResult == DialogResult.OK ? textBox.Text : "";
     }
 
     public void Dispose()
