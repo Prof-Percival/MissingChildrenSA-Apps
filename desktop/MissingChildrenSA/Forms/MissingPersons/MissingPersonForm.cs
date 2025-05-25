@@ -1,4 +1,4 @@
-﻿namespace MissingChildrenSA.Forms.Moderation;
+﻿namespace MissingChildrenSA.Forms.MissingPersons;
 
 public partial class MissingPersonForm : Form
 {
