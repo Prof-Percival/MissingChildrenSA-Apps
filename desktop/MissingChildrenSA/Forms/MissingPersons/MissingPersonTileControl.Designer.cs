@@ -92,6 +92,7 @@ partial class MissingPersonTileControl
         Margin = new Padding(10, 10, 10, 10);
         Name = "MissingPersonTileControl";
         Size = new Size(198, 198);
+        Click += Tile_Click;
         ((System.ComponentModel.ISupportInitialize)PicPerson).EndInit();
         ResumeLayout(false);
     }
