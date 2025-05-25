@@ -13,7 +13,7 @@ public partial class MissingPersonTileControl : UserControl
         InitializeComponent();
     }
 
-    public async void SetData(Models.MissingPersons.MissingPersonModel person)
+    public async Task SetData(Models.MissingPersons.MissingPersonModel person)
     {
         MissingPerson = person;
 
