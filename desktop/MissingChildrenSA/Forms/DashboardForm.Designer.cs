@@ -345,6 +345,7 @@ partial class DashboardForm
         LblViewDetails.TabStop = true;
         LblViewDetails.Text = "View Details";
         LblViewDetails.TextAlign = ContentAlignment.MiddleLeft;
+        LblViewDetails.LinkClicked += LblViewDetails_LinkClicked;
         // 
         // LblReportPerson
         // 

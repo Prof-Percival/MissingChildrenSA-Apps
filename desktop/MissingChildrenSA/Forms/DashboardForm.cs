@@ -191,4 +191,11 @@ public partial class DashboardForm : Form
 
         moderationQueueStatsForm.ShowDialog();
     }
+
+    private void LblViewDetails_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        var missingPersonsResultsForm = _serviceProvider.GetRequiredService<MissingPersonsResultsForm>();
+
+        missingPersonsResultsForm.ShowDialog();
+    }
 }
