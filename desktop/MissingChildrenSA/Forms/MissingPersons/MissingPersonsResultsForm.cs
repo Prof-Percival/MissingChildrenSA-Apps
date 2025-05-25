@@ -81,4 +81,10 @@ public partial class MissingPersonsResultsForm : Form
             await LoadPage(_currentPage);
         }
     }
+
+    private void MissingPersonsResultsForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        _currentPage = 1;
+        _selectedMissingPerson = null;
+    }
 }

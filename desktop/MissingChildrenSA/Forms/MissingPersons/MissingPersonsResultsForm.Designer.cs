@@ -108,6 +108,7 @@ partial class MissingPersonsResultsForm
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Missing Persons";
+        FormClosing += MissingPersonsResultsForm_FormClosing;
         Load += MissingPersonsResultsForm_Load;
         TableLayoutPanelMain.ResumeLayout(false);
         PanelPagination.ResumeLayout(false);
