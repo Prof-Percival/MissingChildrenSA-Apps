@@ -148,6 +148,15 @@ public partial class DashboardForm : Form
             LblCreateUser.Visible = false;
             LblViewUsers.Visible = false;
         }
+
+        if (!_tokenProvider.IsSuperUser() &&
+            !_tokenProvider.IsOperationalSupport())
+        {
+            //Hide Moderation Menus
+            LblModerationMenu.Visible = false;
+            LblModerationQueue.Visible = false;
+            LblQueueStats.Visible = false;
+        }
     }
 
     private void LblCreateUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
