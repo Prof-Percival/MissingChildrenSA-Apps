@@ -1,4 +1,6 @@
-﻿namespace MissingChildrenSA.Forms.MissingPersons;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace MissingChildrenSA.Forms.MissingPersons;
 
 public partial class MissingPersonForm : Form
 {
@@ -16,7 +18,7 @@ public partial class MissingPersonForm : Form
 
     private async void MissingPersonForm_Load(object sender, EventArgs e)
     {
-        //_missingPerson = _serviceProvider.GetRequiredService<ViewUsersForm>()._selectedUser;
+        _missingPerson = _serviceProvider.GetRequiredService<MissingPersonsResultsForm>()._selectedMissingPerson;
 
         await PopulateFormAsync();
     }
