@@ -40,13 +40,13 @@ partial class MissingPersonsResultsForm
         FlowLayoutPanelTiles.Location = new Point(0, 0);
         FlowLayoutPanelTiles.Name = "FlowLayoutPanelTiles";
         FlowLayoutPanelTiles.Padding = new Padding(10);
-        FlowLayoutPanelTiles.Size = new Size(884, 561);
+        FlowLayoutPanelTiles.Size = new Size(934, 661);
         FlowLayoutPanelTiles.TabIndex = 0;
         // 
         // BtnNext
         // 
         BtnNext.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-        BtnNext.Location = new Point(140, 10);
+        BtnNext.Location = new Point(190, 110);
         BtnNext.Name = "BtnNext";
         BtnNext.Size = new Size(100, 30);
         BtnNext.TabIndex = 2;
@@ -56,7 +56,7 @@ partial class MissingPersonsResultsForm
         // BtnPrev
         // 
         BtnPrev.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        BtnPrev.Location = new Point(20, 10);
+        BtnPrev.Location = new Point(20, 110);
         BtnPrev.Name = "BtnPrev";
         BtnPrev.Size = new Size(100, 30);
         BtnPrev.TabIndex = 1;
@@ -66,7 +66,7 @@ partial class MissingPersonsResultsForm
         // MissingPersonsResultsForm
         // 
         BackColor = Color.White;
-        ClientSize = new Size(884, 561);
+        ClientSize = new Size(934, 661);
         Controls.Add(FlowLayoutPanelTiles);
         Controls.Add(BtnPrev);
         Controls.Add(BtnNext);
