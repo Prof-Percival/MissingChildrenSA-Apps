@@ -33,6 +33,8 @@ public sealed class TokenProvider : ITokenProvider
     }
 
     public bool IsSuperUser() => IsAuthenticated && Role == Constants.SuperUser;
+    public bool IsOperationalSupport() => IsAuthenticated && Role == Constants.OperationalSupport;
+    public bool IsReceptionist() => IsAuthenticated && Role == Constants.Receptionist;
 
     private string GetToken()
     {

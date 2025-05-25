@@ -9,4 +9,6 @@ public interface ITokenProvider
     bool SetPrincipal(Principal principal);
     void Logout();
     bool IsSuperUser();
+    bool IsOperationalSupport();
+    bool IsReceptionist();
 }
