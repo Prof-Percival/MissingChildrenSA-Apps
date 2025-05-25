@@ -74,6 +74,7 @@ partial class MissingPersonsResultsForm
         // 
         // BtnPrev
         // 
+        BtnPrev.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         BtnPrev.Font = new Font("Arial", 9.75F);
         BtnPrev.Location = new Point(20, 15);
         BtnPrev.Name = "BtnPrev";
@@ -84,9 +85,9 @@ partial class MissingPersonsResultsForm
         // 
         // BtnNext
         // 
-        BtnNext.Anchor = AnchorStyles.Right;
+        BtnNext.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         BtnNext.Font = new Font("Arial", 9.75F);
-        BtnNext.Location = new Point(819, 15);
+        BtnNext.Location = new Point(812, 15);
         BtnNext.Name = "BtnNext";
         BtnNext.Size = new Size(100, 30);
         BtnNext.TabIndex = 1;
