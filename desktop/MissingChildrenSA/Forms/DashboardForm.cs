@@ -6,6 +6,7 @@ using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Models.Users;
 using MissingChildrenSA.Services.Auth;
 using MissingChildrenSA.Services.Users;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace MissingChildrenSA.Forms;
 
@@ -44,6 +45,8 @@ public partial class DashboardForm : Form
         await _enumLoader.LoadEnumsAsync();
 
         PopulateUserProfile();
+
+        AddMissingPersonsPerProvinceChart();
     }
 
     private void DashboardForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -206,5 +209,33 @@ public partial class DashboardForm : Form
         var missingPersonsResultsForm = _serviceProvider.GetRequiredService<MissingPersonsResultsForm>();
 
         missingPersonsResultsForm.ShowDialog();
+    }
+
+    private void AddMissingPersonsPerProvinceChart()
+    {
+        var chart = new Chart
+        {
+            Dock = DockStyle.Fill
+        };
+
+        var chartArea = new ChartArea("MainArea");
+
+        chart.ChartAreas.Add(chartArea);
+
+        var series = new Series("Missing Persons by Province")
+        {
+            ChartType = SeriesChartType.Bar,
+            IsValueShownAsLabel = true
+        };
+
+        series.Points.AddXY("Gauteng", 50);
+        series.Points.AddXY("Western Cape", 35);
+        series.Points.AddXY("KwaZulu-Natal", 42);
+        series.Points.AddXY("Eastern Cape", 22);
+
+        chart.Series.Add(series);
+
+        PanMissingPersonsPerProvince.Controls.Clear();
+        PanMissingPersonsPerProvince.Controls.Add(chart);
     }
 }
