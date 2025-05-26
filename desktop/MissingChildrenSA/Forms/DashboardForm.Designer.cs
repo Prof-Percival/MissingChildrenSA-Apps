@@ -94,6 +94,7 @@ partial class DashboardForm
         LblUnmoderatedTitle = new Label();
         LblModerationQueueStatsTitle = new Label();
         MainTooltip = new ToolTip(components);
+        PanMissingPersonsPerProvince = new Panel();
         TabPanMain.SuspendLayout();
         PanNavigationMenu.SuspendLayout();
         TabPanNavigation.SuspendLayout();
@@ -678,6 +679,7 @@ partial class DashboardForm
         TabPanStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
         TabPanStats.Controls.Add(TabPanMissingPersonsStatsContainer, 1, 0);
         TabPanStats.Controls.Add(TabPanQueueStatsContainer, 0, 0);
+        TabPanStats.Controls.Add(PanMissingPersonsPerProvince, 0, 1);
         TabPanStats.Dock = DockStyle.Fill;
         TabPanStats.Location = new Point(0, 0);
         TabPanStats.Name = "TabPanStats";
@@ -1043,6 +1045,14 @@ partial class DashboardForm
         LblModerationQueueStatsTitle.Text = "Moderation Queue Stats";
         LblModerationQueueStatsTitle.TextAlign = ContentAlignment.MiddleCenter;
         // 
+        // PanMissingPersonsPerProvince
+        // 
+        PanMissingPersonsPerProvince.Dock = DockStyle.Fill;
+        PanMissingPersonsPerProvince.Location = new Point(4, 219);
+        PanMissingPersonsPerProvince.Name = "PanMissingPersonsPerProvince";
+        PanMissingPersonsPerProvince.Size = new Size(369, 209);
+        PanMissingPersonsPerProvince.TabIndex = 2;
+        // 
         // DashboardForm
         // 
         AutoScaleDimensions = new SizeF(8F, 17F);
@@ -1156,4 +1166,5 @@ partial class DashboardForm
     private Label LblNewlyReported;
     private Label LblNewlyReportedTitle;
     private Label TabPanMissingPersonsStatsTitle;
+    private Panel PanMissingPersonsPerProvince;
 }
