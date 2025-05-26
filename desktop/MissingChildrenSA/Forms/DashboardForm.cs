@@ -213,28 +213,77 @@ public partial class DashboardForm : Form
 
     private void AddMissingPersonsPerProvinceChart()
     {
-        var chart = new Chart
+        var provincesData = new Dictionary<string, int>
         {
-            Dock = DockStyle.Fill
+            { "Gauteng", 50 },
+            { "Western Cape", 35 },
+            { "KwaZulu-Natal", 42 },
+            { "Eastern Cape", 22 },
+            { "Limpopo", 18 },
+            { "Mpumalanga", 15 },
+            { "Free State", 12 },
+            { "North West", 9 },
+            { "Northern Cape", 5 }
         };
 
+        var chart = new Chart
+        {
+            Dock = DockStyle.Fill,
+            BackColor = Color.White
+        };
+
+        // Add chart area
         var chartArea = new ChartArea("MainArea");
+        chartArea.AxisX.Title = "Province";
+        chartArea.AxisY.Title = "Number of Missing Persons";
+
+        // Remove gridlines
+        chartArea.AxisX.MajorGrid.Enabled = false;
+        chartArea.AxisY.MajorGrid.Enabled = false;
 
         chart.ChartAreas.Add(chartArea);
 
-        var series = new Series("Missing Persons by Province")
+        // Add title
+        chart.Titles.Add("Missing Persons by Province");
+
+        // Add legend
+        var legend = new Legend
         {
-            ChartType = SeriesChartType.Bar,
-            IsValueShownAsLabel = true
+            Docking = Docking.Top,
+            Alignment = StringAlignment.Center,
+            Font = new Font("Segoe UI", 10, FontStyle.Bold)
         };
 
-        series.Points.AddXY("Gauteng", 50);
-        series.Points.AddXY("Western Cape", 35);
-        series.Points.AddXY("KwaZulu-Natal", 42);
-        series.Points.AddXY("Eastern Cape", 22);
+        chart.Legends.Add(legend);
+
+        // Series
+        var series = new Series("Missing Persons")
+        {
+            ChartType = SeriesChartType.Bar,
+            IsValueShownAsLabel = true,
+            LegendText = "Total per province"
+        };
 
         chart.Series.Add(series);
 
+        // Define a color palette or randomize
+        Color[] barColors =
+        [
+            Color.SteelBlue, Color.Teal, Color.IndianRed, Color.DarkOrange,
+            Color.DarkGreen, Color.MediumPurple, Color.CadetBlue,
+            Color.Goldenrod, Color.SlateGray
+        ];
+
+        var colorIndex = 0;
+
+        foreach (var province in provincesData)
+        {
+            int pointIndex = series.Points.AddXY(province.Key, province.Value);
+            series.Points[pointIndex].Color = barColors[colorIndex % barColors.Length];
+            colorIndex++;
+        }
+
+        // Clear and add chart to panel
         PanMissingPersonsPerProvince.Controls.Clear();
         PanMissingPersonsPerProvince.Controls.Add(chart);
     }
