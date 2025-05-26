@@ -63,6 +63,21 @@ partial class DashboardForm
         LblHome = new LinkLabel();
         PanMain = new Panel();
         TabPanStats = new TableLayoutPanel();
+        TabPanMissingPersonsStatsContainer = new TableLayoutPanel();
+        TabPanMissingPersonsStats = new TableLayoutPanel();
+        PanFemales = new Panel();
+        LblFemales = new Label();
+        LblFemalesTitle = new Label();
+        PanMales = new Panel();
+        LblMales = new Label();
+        LblMalesTitle = new Label();
+        PanTotalReported = new Panel();
+        LblTotalReported = new Label();
+        LblTotalReportedTitle = new Label();
+        PanNewlyReported = new Panel();
+        LblNewlyReported = new Label();
+        LblNewlyReportedTitle = new Label();
+        TabPanMissingPersonsStatsTitle = new Label();
         TabPanQueueStatsContainer = new TableLayoutPanel();
         TabPanQueueStats = new TableLayoutPanel();
         PanApproved = new Panel();
@@ -79,21 +94,6 @@ partial class DashboardForm
         LblUnmoderatedTitle = new Label();
         LblModerationQueueStatsTitle = new Label();
         MainTooltip = new ToolTip(components);
-        TabPanMissingPersonsStatsContainer = new TableLayoutPanel();
-        TabPanMissingPersonsStatsTitle = new Label();
-        PanNewlyReported = new Panel();
-        LblNewlyReportedTitle = new Label();
-        LblNewlyReported = new Label();
-        PanTotalReported = new Panel();
-        LblTotalReportedTitle = new Label();
-        LblTotalReported = new Label();
-        PanMales = new Panel();
-        LblMalesTitle = new Label();
-        LblMales = new Label();
-        PanFemales = new Panel();
-        LblFemalesTitle = new Label();
-        LblFemales = new Label();
-        TabPanMissingPersonsStats = new TableLayoutPanel();
         TabPanMain.SuspendLayout();
         PanNavigationMenu.SuspendLayout();
         TabPanNavigation.SuspendLayout();
@@ -108,18 +108,18 @@ partial class DashboardForm
         ((System.ComponentModel.ISupportInitialize)PicLogo).BeginInit();
         PanMain.SuspendLayout();
         TabPanStats.SuspendLayout();
+        TabPanMissingPersonsStatsContainer.SuspendLayout();
+        TabPanMissingPersonsStats.SuspendLayout();
+        PanFemales.SuspendLayout();
+        PanMales.SuspendLayout();
+        PanTotalReported.SuspendLayout();
+        PanNewlyReported.SuspendLayout();
         TabPanQueueStatsContainer.SuspendLayout();
         TabPanQueueStats.SuspendLayout();
         PanApproved.SuspendLayout();
         PanFailed.SuspendLayout();
         PanInModeration.SuspendLayout();
         PanUnmoderated.SuspendLayout();
-        TabPanMissingPersonsStatsContainer.SuspendLayout();
-        PanNewlyReported.SuspendLayout();
-        PanTotalReported.SuspendLayout();
-        PanMales.SuspendLayout();
-        PanFemales.SuspendLayout();
-        TabPanMissingPersonsStats.SuspendLayout();
         SuspendLayout();
         // 
         // TabPanMain
@@ -687,6 +687,184 @@ partial class DashboardForm
         TabPanStats.Size = new Size(754, 432);
         TabPanStats.TabIndex = 0;
         // 
+        // TabPanMissingPersonsStatsContainer
+        // 
+        TabPanMissingPersonsStatsContainer.ColumnCount = 1;
+        TabPanMissingPersonsStatsContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+        TabPanMissingPersonsStatsContainer.Controls.Add(TabPanMissingPersonsStats, 0, 1);
+        TabPanMissingPersonsStatsContainer.Controls.Add(TabPanMissingPersonsStatsTitle, 0, 0);
+        TabPanMissingPersonsStatsContainer.Dock = DockStyle.Fill;
+        TabPanMissingPersonsStatsContainer.Location = new Point(380, 4);
+        TabPanMissingPersonsStatsContainer.Name = "TabPanMissingPersonsStatsContainer";
+        TabPanMissingPersonsStatsContainer.RowCount = 2;
+        TabPanMissingPersonsStatsContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+        TabPanMissingPersonsStatsContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        TabPanMissingPersonsStatsContainer.Size = new Size(370, 208);
+        TabPanMissingPersonsStatsContainer.TabIndex = 1;
+        // 
+        // TabPanMissingPersonsStats
+        // 
+        TabPanMissingPersonsStats.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+        TabPanMissingPersonsStats.ColumnCount = 2;
+        TabPanMissingPersonsStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        TabPanMissingPersonsStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        TabPanMissingPersonsStats.Controls.Add(PanFemales, 1, 1);
+        TabPanMissingPersonsStats.Controls.Add(PanMales, 0, 1);
+        TabPanMissingPersonsStats.Controls.Add(PanTotalReported, 1, 0);
+        TabPanMissingPersonsStats.Controls.Add(PanNewlyReported, 0, 0);
+        TabPanMissingPersonsStats.Dock = DockStyle.Fill;
+        TabPanMissingPersonsStats.Location = new Point(3, 23);
+        TabPanMissingPersonsStats.Name = "TabPanMissingPersonsStats";
+        TabPanMissingPersonsStats.RowCount = 2;
+        TabPanMissingPersonsStats.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        TabPanMissingPersonsStats.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        TabPanMissingPersonsStats.Size = new Size(364, 182);
+        TabPanMissingPersonsStats.TabIndex = 1;
+        // 
+        // PanFemales
+        // 
+        PanFemales.Controls.Add(LblFemales);
+        PanFemales.Controls.Add(LblFemalesTitle);
+        PanFemales.Dock = DockStyle.Fill;
+        PanFemales.Location = new Point(185, 94);
+        PanFemales.Name = "PanFemales";
+        PanFemales.Size = new Size(175, 84);
+        PanFemales.TabIndex = 3;
+        // 
+        // LblFemales
+        // 
+        LblFemales.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        LblFemales.AutoEllipsis = true;
+        LblFemales.Font = new Font("Arial", 24F, FontStyle.Bold);
+        LblFemales.Location = new Point(3, 27);
+        LblFemales.Name = "LblFemales";
+        LblFemales.Size = new Size(168, 55);
+        LblFemales.TabIndex = 1;
+        LblFemales.Text = "0";
+        LblFemales.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // LblFemalesTitle
+        // 
+        LblFemalesTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        LblFemalesTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
+        LblFemalesTitle.Location = new Point(3, 4);
+        LblFemalesTitle.Name = "LblFemalesTitle";
+        LblFemalesTitle.Size = new Size(168, 29);
+        LblFemalesTitle.TabIndex = 0;
+        LblFemalesTitle.Text = "Females";
+        LblFemalesTitle.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // PanMales
+        // 
+        PanMales.Controls.Add(LblMales);
+        PanMales.Controls.Add(LblMalesTitle);
+        PanMales.Dock = DockStyle.Fill;
+        PanMales.Location = new Point(4, 94);
+        PanMales.Name = "PanMales";
+        PanMales.Size = new Size(174, 84);
+        PanMales.TabIndex = 2;
+        // 
+        // LblMales
+        // 
+        LblMales.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        LblMales.AutoEllipsis = true;
+        LblMales.Font = new Font("Arial", 24F, FontStyle.Bold);
+        LblMales.Location = new Point(3, 27);
+        LblMales.Name = "LblMales";
+        LblMales.Size = new Size(168, 55);
+        LblMales.TabIndex = 1;
+        LblMales.Text = "0";
+        LblMales.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // LblMalesTitle
+        // 
+        LblMalesTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        LblMalesTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
+        LblMalesTitle.Location = new Point(3, 4);
+        LblMalesTitle.Name = "LblMalesTitle";
+        LblMalesTitle.Size = new Size(168, 29);
+        LblMalesTitle.TabIndex = 0;
+        LblMalesTitle.Text = "Males";
+        LblMalesTitle.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // PanTotalReported
+        // 
+        PanTotalReported.Controls.Add(LblTotalReported);
+        PanTotalReported.Controls.Add(LblTotalReportedTitle);
+        PanTotalReported.Dock = DockStyle.Fill;
+        PanTotalReported.Location = new Point(185, 4);
+        PanTotalReported.Name = "PanTotalReported";
+        PanTotalReported.Size = new Size(175, 83);
+        PanTotalReported.TabIndex = 1;
+        // 
+        // LblTotalReported
+        // 
+        LblTotalReported.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        LblTotalReported.AutoEllipsis = true;
+        LblTotalReported.Font = new Font("Arial", 24F, FontStyle.Bold);
+        LblTotalReported.Location = new Point(3, 33);
+        LblTotalReported.Name = "LblTotalReported";
+        LblTotalReported.Size = new Size(168, 46);
+        LblTotalReported.TabIndex = 1;
+        LblTotalReported.Text = "0";
+        LblTotalReported.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // LblTotalReportedTitle
+        // 
+        LblTotalReportedTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        LblTotalReportedTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
+        LblTotalReportedTitle.Location = new Point(3, 4);
+        LblTotalReportedTitle.Name = "LblTotalReportedTitle";
+        LblTotalReportedTitle.Size = new Size(168, 29);
+        LblTotalReportedTitle.TabIndex = 0;
+        LblTotalReportedTitle.Text = "Total Reported";
+        LblTotalReportedTitle.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // PanNewlyReported
+        // 
+        PanNewlyReported.Controls.Add(LblNewlyReported);
+        PanNewlyReported.Controls.Add(LblNewlyReportedTitle);
+        PanNewlyReported.Dock = DockStyle.Fill;
+        PanNewlyReported.Location = new Point(4, 4);
+        PanNewlyReported.Name = "PanNewlyReported";
+        PanNewlyReported.Size = new Size(174, 83);
+        PanNewlyReported.TabIndex = 0;
+        // 
+        // LblNewlyReported
+        // 
+        LblNewlyReported.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        LblNewlyReported.AutoEllipsis = true;
+        LblNewlyReported.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblNewlyReported.Location = new Point(3, 33);
+        LblNewlyReported.Name = "LblNewlyReported";
+        LblNewlyReported.Size = new Size(168, 46);
+        LblNewlyReported.TabIndex = 1;
+        LblNewlyReported.Text = "0";
+        LblNewlyReported.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // LblNewlyReportedTitle
+        // 
+        LblNewlyReportedTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        LblNewlyReportedTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
+        LblNewlyReportedTitle.Location = new Point(3, 4);
+        LblNewlyReportedTitle.Name = "LblNewlyReportedTitle";
+        LblNewlyReportedTitle.Size = new Size(168, 29);
+        LblNewlyReportedTitle.TabIndex = 0;
+        LblNewlyReportedTitle.Text = "Newly Reported";
+        LblNewlyReportedTitle.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // TabPanMissingPersonsStatsTitle
+        // 
+        TabPanMissingPersonsStatsTitle.AutoSize = true;
+        TabPanMissingPersonsStatsTitle.Dock = DockStyle.Fill;
+        TabPanMissingPersonsStatsTitle.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        TabPanMissingPersonsStatsTitle.Location = new Point(3, 0);
+        TabPanMissingPersonsStatsTitle.Name = "TabPanMissingPersonsStatsTitle";
+        TabPanMissingPersonsStatsTitle.Size = new Size(364, 20);
+        TabPanMissingPersonsStatsTitle.TabIndex = 0;
+        TabPanMissingPersonsStatsTitle.Text = "Missing Persons Stats";
+        TabPanMissingPersonsStatsTitle.TextAlign = ContentAlignment.MiddleCenter;
+        // 
         // TabPanQueueStatsContainer
         // 
         TabPanQueueStatsContainer.ColumnCount = 1;
@@ -865,184 +1043,6 @@ partial class DashboardForm
         LblModerationQueueStatsTitle.Text = "Moderation Queue Stats";
         LblModerationQueueStatsTitle.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // TabPanMissingPersonsStatsContainer
-        // 
-        TabPanMissingPersonsStatsContainer.ColumnCount = 1;
-        TabPanMissingPersonsStatsContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-        TabPanMissingPersonsStatsContainer.Controls.Add(TabPanMissingPersonsStats, 0, 1);
-        TabPanMissingPersonsStatsContainer.Controls.Add(TabPanMissingPersonsStatsTitle, 0, 0);
-        TabPanMissingPersonsStatsContainer.Dock = DockStyle.Fill;
-        TabPanMissingPersonsStatsContainer.Location = new Point(380, 4);
-        TabPanMissingPersonsStatsContainer.Name = "TabPanMissingPersonsStatsContainer";
-        TabPanMissingPersonsStatsContainer.RowCount = 2;
-        TabPanMissingPersonsStatsContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-        TabPanMissingPersonsStatsContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-        TabPanMissingPersonsStatsContainer.Size = new Size(370, 208);
-        TabPanMissingPersonsStatsContainer.TabIndex = 1;
-        // 
-        // TabPanMissingPersonsStatsTitle
-        // 
-        TabPanMissingPersonsStatsTitle.AutoSize = true;
-        TabPanMissingPersonsStatsTitle.Dock = DockStyle.Fill;
-        TabPanMissingPersonsStatsTitle.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        TabPanMissingPersonsStatsTitle.Location = new Point(3, 0);
-        TabPanMissingPersonsStatsTitle.Name = "TabPanMissingPersonsStatsTitle";
-        TabPanMissingPersonsStatsTitle.Size = new Size(364, 20);
-        TabPanMissingPersonsStatsTitle.TabIndex = 0;
-        TabPanMissingPersonsStatsTitle.Text = "Missing Persons Stats";
-        TabPanMissingPersonsStatsTitle.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // PanNewlyReported
-        // 
-        PanNewlyReported.Controls.Add(LblNewlyReported);
-        PanNewlyReported.Controls.Add(LblNewlyReportedTitle);
-        PanNewlyReported.Dock = DockStyle.Fill;
-        PanNewlyReported.Location = new Point(4, 4);
-        PanNewlyReported.Name = "PanNewlyReported";
-        PanNewlyReported.Size = new Size(174, 83);
-        PanNewlyReported.TabIndex = 0;
-        // 
-        // LblNewlyReportedTitle
-        // 
-        LblNewlyReportedTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        LblNewlyReportedTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
-        LblNewlyReportedTitle.Location = new Point(3, 4);
-        LblNewlyReportedTitle.Name = "LblNewlyReportedTitle";
-        LblNewlyReportedTitle.Size = new Size(168, 29);
-        LblNewlyReportedTitle.TabIndex = 0;
-        LblNewlyReportedTitle.Text = "Newly Reported";
-        LblNewlyReportedTitle.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // LblNewlyReported
-        // 
-        LblNewlyReported.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        LblNewlyReported.AutoEllipsis = true;
-        LblNewlyReported.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblNewlyReported.Location = new Point(3, 24);
-        LblNewlyReported.Name = "LblNewlyReported";
-        LblNewlyReported.Size = new Size(168, 55);
-        LblNewlyReported.TabIndex = 1;
-        LblNewlyReported.Text = "0";
-        LblNewlyReported.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // PanTotalReported
-        // 
-        PanTotalReported.Controls.Add(LblTotalReported);
-        PanTotalReported.Controls.Add(LblTotalReportedTitle);
-        PanTotalReported.Dock = DockStyle.Fill;
-        PanTotalReported.Location = new Point(185, 4);
-        PanTotalReported.Name = "PanTotalReported";
-        PanTotalReported.Size = new Size(175, 83);
-        PanTotalReported.TabIndex = 1;
-        // 
-        // LblTotalReportedTitle
-        // 
-        LblTotalReportedTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        LblTotalReportedTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
-        LblTotalReportedTitle.Location = new Point(3, 4);
-        LblTotalReportedTitle.Name = "LblTotalReportedTitle";
-        LblTotalReportedTitle.Size = new Size(168, 29);
-        LblTotalReportedTitle.TabIndex = 0;
-        LblTotalReportedTitle.Text = "Total Reported";
-        LblTotalReportedTitle.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // LblTotalReported
-        // 
-        LblTotalReported.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        LblTotalReported.AutoEllipsis = true;
-        LblTotalReported.Font = new Font("Arial", 24F, FontStyle.Bold);
-        LblTotalReported.Location = new Point(3, 24);
-        LblTotalReported.Name = "LblTotalReported";
-        LblTotalReported.Size = new Size(168, 55);
-        LblTotalReported.TabIndex = 1;
-        LblTotalReported.Text = "0";
-        LblTotalReported.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // PanMales
-        // 
-        PanMales.Controls.Add(LblMales);
-        PanMales.Controls.Add(LblMalesTitle);
-        PanMales.Dock = DockStyle.Fill;
-        PanMales.Location = new Point(4, 94);
-        PanMales.Name = "PanMales";
-        PanMales.Size = new Size(174, 84);
-        PanMales.TabIndex = 2;
-        // 
-        // LblMalesTitle
-        // 
-        LblMalesTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        LblMalesTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
-        LblMalesTitle.Location = new Point(3, 4);
-        LblMalesTitle.Name = "LblMalesTitle";
-        LblMalesTitle.Size = new Size(168, 29);
-        LblMalesTitle.TabIndex = 0;
-        LblMalesTitle.Text = "Males";
-        LblMalesTitle.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // LblMales
-        // 
-        LblMales.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        LblMales.AutoEllipsis = true;
-        LblMales.Font = new Font("Arial", 24F, FontStyle.Bold);
-        LblMales.Location = new Point(3, 27);
-        LblMales.Name = "LblMales";
-        LblMales.Size = new Size(168, 55);
-        LblMales.TabIndex = 1;
-        LblMales.Text = "0";
-        LblMales.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // PanFemales
-        // 
-        PanFemales.Controls.Add(LblFemales);
-        PanFemales.Controls.Add(LblFemalesTitle);
-        PanFemales.Dock = DockStyle.Fill;
-        PanFemales.Location = new Point(185, 94);
-        PanFemales.Name = "PanFemales";
-        PanFemales.Size = new Size(175, 84);
-        PanFemales.TabIndex = 3;
-        // 
-        // LblFemalesTitle
-        // 
-        LblFemalesTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        LblFemalesTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
-        LblFemalesTitle.Location = new Point(3, 4);
-        LblFemalesTitle.Name = "LblFemalesTitle";
-        LblFemalesTitle.Size = new Size(168, 29);
-        LblFemalesTitle.TabIndex = 0;
-        LblFemalesTitle.Text = "Females";
-        LblFemalesTitle.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // LblFemales
-        // 
-        LblFemales.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        LblFemales.AutoEllipsis = true;
-        LblFemales.Font = new Font("Arial", 24F, FontStyle.Bold);
-        LblFemales.Location = new Point(3, 27);
-        LblFemales.Name = "LblFemales";
-        LblFemales.Size = new Size(168, 55);
-        LblFemales.TabIndex = 1;
-        LblFemales.Text = "0";
-        LblFemales.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // TabPanMissingPersonsStats
-        // 
-        TabPanMissingPersonsStats.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-        TabPanMissingPersonsStats.ColumnCount = 2;
-        TabPanMissingPersonsStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-        TabPanMissingPersonsStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-        TabPanMissingPersonsStats.Controls.Add(PanFemales, 1, 1);
-        TabPanMissingPersonsStats.Controls.Add(PanMales, 0, 1);
-        TabPanMissingPersonsStats.Controls.Add(PanTotalReported, 1, 0);
-        TabPanMissingPersonsStats.Controls.Add(PanNewlyReported, 0, 0);
-        TabPanMissingPersonsStats.Dock = DockStyle.Fill;
-        TabPanMissingPersonsStats.Location = new Point(3, 23);
-        TabPanMissingPersonsStats.Name = "TabPanMissingPersonsStats";
-        TabPanMissingPersonsStats.RowCount = 2;
-        TabPanMissingPersonsStats.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        TabPanMissingPersonsStats.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        TabPanMissingPersonsStats.Size = new Size(364, 182);
-        TabPanMissingPersonsStats.TabIndex = 1;
-        // 
         // DashboardForm
         // 
         AutoScaleDimensions = new SizeF(8F, 17F);
@@ -1073,6 +1073,13 @@ partial class DashboardForm
         ((System.ComponentModel.ISupportInitialize)PicLogo).EndInit();
         PanMain.ResumeLayout(false);
         TabPanStats.ResumeLayout(false);
+        TabPanMissingPersonsStatsContainer.ResumeLayout(false);
+        TabPanMissingPersonsStatsContainer.PerformLayout();
+        TabPanMissingPersonsStats.ResumeLayout(false);
+        PanFemales.ResumeLayout(false);
+        PanMales.ResumeLayout(false);
+        PanTotalReported.ResumeLayout(false);
+        PanNewlyReported.ResumeLayout(false);
         TabPanQueueStatsContainer.ResumeLayout(false);
         TabPanQueueStatsContainer.PerformLayout();
         TabPanQueueStats.ResumeLayout(false);
@@ -1080,13 +1087,6 @@ partial class DashboardForm
         PanFailed.ResumeLayout(false);
         PanInModeration.ResumeLayout(false);
         PanUnmoderated.ResumeLayout(false);
-        TabPanMissingPersonsStatsContainer.ResumeLayout(false);
-        TabPanMissingPersonsStatsContainer.PerformLayout();
-        PanNewlyReported.ResumeLayout(false);
-        PanTotalReported.ResumeLayout(false);
-        PanMales.ResumeLayout(false);
-        PanFemales.ResumeLayout(false);
-        TabPanMissingPersonsStats.ResumeLayout(false);
         ResumeLayout(false);
     }
 
