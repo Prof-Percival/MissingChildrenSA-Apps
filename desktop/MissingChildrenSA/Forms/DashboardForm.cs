@@ -250,8 +250,7 @@ public partial class DashboardForm : Form
         var series = new Series("Missing Persons")
         {
             ChartType = SeriesChartType.Bar,
-            IsValueShownAsLabel = true,
-            LegendText = "Total per province"
+            IsValueShownAsLabel = true
         };
 
         chart.Series.Add(series);
