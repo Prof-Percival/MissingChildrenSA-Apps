@@ -62,10 +62,8 @@ partial class DashboardForm
         PicLogo = new PictureBox();
         LblHome = new LinkLabel();
         PanMain = new Panel();
-        MainTooltip = new ToolTip(components);
         TabPanStats = new TableLayoutPanel();
         TabPanQueueStatsContainer = new TableLayoutPanel();
-        LblModerationQueueStatsTitle = new Label();
         TabPanQueueStats = new TableLayoutPanel();
         PanApproved = new Panel();
         LblApproved = new Label();
@@ -79,6 +77,8 @@ partial class DashboardForm
         PanUnmoderated = new Panel();
         LblUnmoderated = new Label();
         LblUnmoderatedTitle = new Label();
+        LblModerationQueueStatsTitle = new Label();
+        MainTooltip = new ToolTip(components);
         TabPanMain.SuspendLayout();
         PanNavigationMenu.SuspendLayout();
         TabPanNavigation.SuspendLayout();
@@ -651,6 +651,7 @@ partial class DashboardForm
         // 
         // TabPanStats
         // 
+        TabPanStats.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
         TabPanStats.ColumnCount = 2;
         TabPanStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
         TabPanStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
@@ -671,25 +672,13 @@ partial class DashboardForm
         TabPanQueueStatsContainer.Controls.Add(TabPanQueueStats, 0, 1);
         TabPanQueueStatsContainer.Controls.Add(LblModerationQueueStatsTitle, 0, 0);
         TabPanQueueStatsContainer.Dock = DockStyle.Fill;
-        TabPanQueueStatsContainer.Location = new Point(3, 3);
+        TabPanQueueStatsContainer.Location = new Point(4, 4);
         TabPanQueueStatsContainer.Name = "TabPanQueueStatsContainer";
         TabPanQueueStatsContainer.RowCount = 2;
         TabPanQueueStatsContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
         TabPanQueueStatsContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-        TabPanQueueStatsContainer.Size = new Size(371, 210);
+        TabPanQueueStatsContainer.Size = new Size(369, 208);
         TabPanQueueStatsContainer.TabIndex = 0;
-        // 
-        // LblModerationQueueStatsTitle
-        // 
-        LblModerationQueueStatsTitle.AutoSize = true;
-        LblModerationQueueStatsTitle.Dock = DockStyle.Fill;
-        LblModerationQueueStatsTitle.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblModerationQueueStatsTitle.Location = new Point(3, 0);
-        LblModerationQueueStatsTitle.Name = "LblModerationQueueStatsTitle";
-        LblModerationQueueStatsTitle.Size = new Size(365, 20);
-        LblModerationQueueStatsTitle.TabIndex = 0;
-        LblModerationQueueStatsTitle.Text = "Moderation Queue Stats";
-        LblModerationQueueStatsTitle.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // TabPanQueueStats
         // 
@@ -707,7 +696,7 @@ partial class DashboardForm
         TabPanQueueStats.RowCount = 2;
         TabPanQueueStats.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
         TabPanQueueStats.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        TabPanQueueStats.Size = new Size(365, 184);
+        TabPanQueueStats.Size = new Size(363, 182);
         TabPanQueueStats.TabIndex = 1;
         // 
         // PanApproved
@@ -715,19 +704,19 @@ partial class DashboardForm
         PanApproved.Controls.Add(LblApproved);
         PanApproved.Controls.Add(LblApprovedTitle);
         PanApproved.Dock = DockStyle.Fill;
-        PanApproved.Location = new Point(186, 95);
+        PanApproved.Location = new Point(185, 94);
         PanApproved.Name = "PanApproved";
-        PanApproved.Size = new Size(175, 85);
+        PanApproved.Size = new Size(174, 84);
         PanApproved.TabIndex = 3;
         // 
         // LblApproved
         // 
-        LblApproved.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        LblApproved.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         LblApproved.AutoEllipsis = true;
         LblApproved.Font = new Font("Arial", 24F, FontStyle.Bold);
-        LblApproved.Location = new Point(3, 28);
+        LblApproved.Location = new Point(3, 27);
         LblApproved.Name = "LblApproved";
-        LblApproved.Size = new Size(169, 55);
+        LblApproved.Size = new Size(168, 55);
         LblApproved.TabIndex = 1;
         LblApproved.Text = "0";
         LblApproved.TextAlign = ContentAlignment.MiddleCenter;
@@ -738,7 +727,7 @@ partial class DashboardForm
         LblApprovedTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
         LblApprovedTitle.Location = new Point(3, 4);
         LblApprovedTitle.Name = "LblApprovedTitle";
-        LblApprovedTitle.Size = new Size(169, 29);
+        LblApprovedTitle.Size = new Size(168, 29);
         LblApprovedTitle.TabIndex = 0;
         LblApprovedTitle.Text = "Approved";
         LblApprovedTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -748,19 +737,19 @@ partial class DashboardForm
         PanFailed.Controls.Add(LblFailed);
         PanFailed.Controls.Add(LblFailedTitle);
         PanFailed.Dock = DockStyle.Fill;
-        PanFailed.Location = new Point(4, 95);
+        PanFailed.Location = new Point(4, 94);
         PanFailed.Name = "PanFailed";
-        PanFailed.Size = new Size(175, 85);
+        PanFailed.Size = new Size(174, 84);
         PanFailed.TabIndex = 2;
         // 
         // LblFailed
         // 
-        LblFailed.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        LblFailed.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         LblFailed.AutoEllipsis = true;
         LblFailed.Font = new Font("Arial", 24F, FontStyle.Bold);
-        LblFailed.Location = new Point(3, 28);
+        LblFailed.Location = new Point(3, 27);
         LblFailed.Name = "LblFailed";
-        LblFailed.Size = new Size(169, 55);
+        LblFailed.Size = new Size(168, 55);
         LblFailed.TabIndex = 1;
         LblFailed.Text = "0";
         LblFailed.TextAlign = ContentAlignment.MiddleCenter;
@@ -771,7 +760,7 @@ partial class DashboardForm
         LblFailedTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
         LblFailedTitle.Location = new Point(3, 4);
         LblFailedTitle.Name = "LblFailedTitle";
-        LblFailedTitle.Size = new Size(169, 29);
+        LblFailedTitle.Size = new Size(168, 29);
         LblFailedTitle.TabIndex = 0;
         LblFailedTitle.Text = "Failed";
         LblFailedTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -781,19 +770,19 @@ partial class DashboardForm
         PanInModeration.Controls.Add(LblInModeration);
         PanInModeration.Controls.Add(LblInModerationTitle);
         PanInModeration.Dock = DockStyle.Fill;
-        PanInModeration.Location = new Point(186, 4);
+        PanInModeration.Location = new Point(185, 4);
         PanInModeration.Name = "PanInModeration";
-        PanInModeration.Size = new Size(175, 84);
+        PanInModeration.Size = new Size(174, 83);
         PanInModeration.TabIndex = 1;
         // 
         // LblInModeration
         // 
-        LblInModeration.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        LblInModeration.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         LblInModeration.AutoEllipsis = true;
         LblInModeration.Font = new Font("Arial", 24F, FontStyle.Bold);
-        LblInModeration.Location = new Point(3, 25);
+        LblInModeration.Location = new Point(3, 24);
         LblInModeration.Name = "LblInModeration";
-        LblInModeration.Size = new Size(169, 55);
+        LblInModeration.Size = new Size(168, 55);
         LblInModeration.TabIndex = 1;
         LblInModeration.Text = "0";
         LblInModeration.TextAlign = ContentAlignment.MiddleCenter;
@@ -804,7 +793,7 @@ partial class DashboardForm
         LblInModerationTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
         LblInModerationTitle.Location = new Point(3, 4);
         LblInModerationTitle.Name = "LblInModerationTitle";
-        LblInModerationTitle.Size = new Size(169, 29);
+        LblInModerationTitle.Size = new Size(168, 29);
         LblInModerationTitle.TabIndex = 0;
         LblInModerationTitle.Text = "In Moderation";
         LblInModerationTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -816,17 +805,17 @@ partial class DashboardForm
         PanUnmoderated.Dock = DockStyle.Fill;
         PanUnmoderated.Location = new Point(4, 4);
         PanUnmoderated.Name = "PanUnmoderated";
-        PanUnmoderated.Size = new Size(175, 84);
+        PanUnmoderated.Size = new Size(174, 83);
         PanUnmoderated.TabIndex = 0;
         // 
         // LblUnmoderated
         // 
-        LblUnmoderated.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        LblUnmoderated.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         LblUnmoderated.AutoEllipsis = true;
         LblUnmoderated.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblUnmoderated.Location = new Point(3, 25);
+        LblUnmoderated.Location = new Point(3, 24);
         LblUnmoderated.Name = "LblUnmoderated";
-        LblUnmoderated.Size = new Size(169, 55);
+        LblUnmoderated.Size = new Size(168, 55);
         LblUnmoderated.TabIndex = 1;
         LblUnmoderated.Text = "0";
         LblUnmoderated.TextAlign = ContentAlignment.MiddleCenter;
@@ -837,10 +826,22 @@ partial class DashboardForm
         LblUnmoderatedTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
         LblUnmoderatedTitle.Location = new Point(3, 4);
         LblUnmoderatedTitle.Name = "LblUnmoderatedTitle";
-        LblUnmoderatedTitle.Size = new Size(169, 29);
+        LblUnmoderatedTitle.Size = new Size(168, 29);
         LblUnmoderatedTitle.TabIndex = 0;
         LblUnmoderatedTitle.Text = "Unmoderated";
         LblUnmoderatedTitle.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // LblModerationQueueStatsTitle
+        // 
+        LblModerationQueueStatsTitle.AutoSize = true;
+        LblModerationQueueStatsTitle.Dock = DockStyle.Fill;
+        LblModerationQueueStatsTitle.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblModerationQueueStatsTitle.Location = new Point(3, 0);
+        LblModerationQueueStatsTitle.Name = "LblModerationQueueStatsTitle";
+        LblModerationQueueStatsTitle.Size = new Size(363, 20);
+        LblModerationQueueStatsTitle.TabIndex = 0;
+        LblModerationQueueStatsTitle.Text = "Moderation Queue Stats";
+        LblModerationQueueStatsTitle.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // DashboardForm
         // 
