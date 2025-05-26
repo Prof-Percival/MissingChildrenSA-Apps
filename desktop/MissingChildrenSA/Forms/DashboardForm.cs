@@ -246,16 +246,6 @@ public partial class DashboardForm : Form
         // Add title
         chart.Titles.Add("Missing Persons by Province");
 
-        // Add legend
-        var legend = new Legend
-        {
-            Docking = Docking.Top,
-            Alignment = StringAlignment.Center,
-            Font = new Font("Segoe UI", 10, FontStyle.Bold)
-        };
-
-        chart.Legends.Add(legend);
-
         // Series
         var series = new Series("Missing Persons")
         {
