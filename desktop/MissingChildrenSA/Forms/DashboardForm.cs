@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MissingChildrenSA.Events;
 using MissingChildrenSA.Forms.MissingPersons;
 using MissingChildrenSA.Forms.Moderation;
 using MissingChildrenSA.Forms.Users;
@@ -38,6 +39,9 @@ public partial class DashboardForm : Form
 
     private async void DashboardForm_Load(object sender, EventArgs e)
     {
+        EventAggregator.Instance.Subscribe<AppEvents.MissingPersonCreatedOrUpdatedEvent>(OnAnyStatRelatedEvent);
+        EventAggregator.Instance.Subscribe<AppEvents.ModerationStartedOrCompletedEvent>(OnAnyStatRelatedEvent);
+
         HideMenusBasedOnPermissions();
 
         MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
@@ -307,5 +311,15 @@ public partial class DashboardForm : Form
         // Clear and add chart to panel
         PanMissingPersonsPerProvince.Controls.Clear();
         PanMissingPersonsPerProvince.Controls.Add(chart);
+    }
+
+    private async void OnAnyStatRelatedEvent(IAppEvent evt)
+    {
+        if (evt is
+            AppEvents.MissingPersonCreatedOrUpdatedEvent or
+            AppEvents.ModerationStartedOrCompletedEvent)
+        {
+            await BuildStatisticsAsync();
+        }
     }
 }

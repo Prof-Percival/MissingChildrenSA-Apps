@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MissingChildrenSA.Events;
 using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Helpers.Images;
 using MissingChildrenSA.Helpers.Validations;
@@ -134,6 +135,8 @@ public partial class EditMissingPersonForm : Form
             await _apiClient.UpdateMissingPersonAsync(request);
 
             PersonUpdatedEventHandler?.Invoke(this, EventArgs.Empty);
+
+            EventAggregator.Instance.Publish(new AppEvents.MissingPersonCreatedOrUpdatedEvent());
 
             MessageBox.Show("Missing person updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

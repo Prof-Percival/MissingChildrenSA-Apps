@@ -1,4 +1,5 @@
-﻿using MissingChildrenSA.Helpers.Enums;
+﻿using MissingChildrenSA.Events;
+using MissingChildrenSA.Helpers.Enums;
 using MissingChildrenSA.Helpers.Images;
 using MissingChildrenSA.Helpers.Validations;
 
@@ -126,6 +127,8 @@ public partial class ReportMissingPersonForm : Form
             var response = await _apiClient.ReportMissingPersonAsync(request);
 
             PersonReportedEventHandler?.Invoke(this, EventArgs.Empty);
+
+            EventAggregator.Instance.Publish(new AppEvents.MissingPersonCreatedOrUpdatedEvent());
 
             MessageBox.Show("Missing person reported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
