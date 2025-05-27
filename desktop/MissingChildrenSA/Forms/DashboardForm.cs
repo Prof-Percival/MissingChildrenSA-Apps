@@ -250,7 +250,7 @@ public partial class DashboardForm : Form
     {
         var missingPersonsStats = statistics.MissingPersonsStats;
 
-        LblNewlyReported.Text = missingPersonsStats.RecentlyReported.ToString();
+        LblRecentlyReported.Text = missingPersonsStats.RecentlyReported.ToString();
         LblTotalReported.Text = missingPersonsStats.TotalReported.ToString();
         LblMales.Text = missingPersonsStats.Males.ToString();
         LblFemales.Text = missingPersonsStats.Females.ToString();

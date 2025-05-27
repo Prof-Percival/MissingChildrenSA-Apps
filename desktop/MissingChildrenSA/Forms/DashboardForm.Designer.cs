@@ -74,9 +74,9 @@ partial class DashboardForm
         PanTotalReported = new Panel();
         LblTotalReported = new Label();
         LblTotalReportedTitle = new Label();
-        PanNewlyReported = new Panel();
-        LblNewlyReported = new Label();
-        LblNewlyReportedTitle = new Label();
+        PanRecentlyReported = new Panel();
+        LblRecentlyReported = new Label();
+        LblRecentlyReportedTitle = new Label();
         TabPanMissingPersonsStatsTitle = new Label();
         TabPanQueueStatsContainer = new TableLayoutPanel();
         TabPanQueueStats = new TableLayoutPanel();
@@ -93,8 +93,8 @@ partial class DashboardForm
         LblUnmoderated = new Label();
         LblUnmoderatedTitle = new Label();
         LblModerationQueueStatsTitle = new Label();
-        MainTooltip = new ToolTip(components);
         PanMissingPersonsPerProvince = new Panel();
+        MainTooltip = new ToolTip(components);
         TabPanMain.SuspendLayout();
         PanNavigationMenu.SuspendLayout();
         TabPanNavigation.SuspendLayout();
@@ -114,7 +114,7 @@ partial class DashboardForm
         PanFemales.SuspendLayout();
         PanMales.SuspendLayout();
         PanTotalReported.SuspendLayout();
-        PanNewlyReported.SuspendLayout();
+        PanRecentlyReported.SuspendLayout();
         TabPanQueueStatsContainer.SuspendLayout();
         TabPanQueueStats.SuspendLayout();
         PanApproved.SuspendLayout();
@@ -713,7 +713,7 @@ partial class DashboardForm
         TabPanMissingPersonsStats.Controls.Add(PanFemales, 1, 1);
         TabPanMissingPersonsStats.Controls.Add(PanMales, 0, 1);
         TabPanMissingPersonsStats.Controls.Add(PanTotalReported, 1, 0);
-        TabPanMissingPersonsStats.Controls.Add(PanNewlyReported, 0, 0);
+        TabPanMissingPersonsStats.Controls.Add(PanRecentlyReported, 0, 0);
         TabPanMissingPersonsStats.Dock = DockStyle.Fill;
         TabPanMissingPersonsStats.Location = new Point(3, 23);
         TabPanMissingPersonsStats.Name = "TabPanMissingPersonsStats";
@@ -822,38 +822,38 @@ partial class DashboardForm
         LblTotalReportedTitle.Text = "Total Reported";
         LblTotalReportedTitle.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // PanNewlyReported
+        // PanRecentlyReported
         // 
-        PanNewlyReported.Controls.Add(LblNewlyReported);
-        PanNewlyReported.Controls.Add(LblNewlyReportedTitle);
-        PanNewlyReported.Dock = DockStyle.Fill;
-        PanNewlyReported.Location = new Point(4, 4);
-        PanNewlyReported.Name = "PanNewlyReported";
-        PanNewlyReported.Size = new Size(174, 83);
-        PanNewlyReported.TabIndex = 0;
+        PanRecentlyReported.Controls.Add(LblRecentlyReported);
+        PanRecentlyReported.Controls.Add(LblRecentlyReportedTitle);
+        PanRecentlyReported.Dock = DockStyle.Fill;
+        PanRecentlyReported.Location = new Point(4, 4);
+        PanRecentlyReported.Name = "PanRecentlyReported";
+        PanRecentlyReported.Size = new Size(174, 83);
+        PanRecentlyReported.TabIndex = 0;
         // 
-        // LblNewlyReported
+        // LblRecentlyReported
         // 
-        LblNewlyReported.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        LblNewlyReported.AutoEllipsis = true;
-        LblNewlyReported.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        LblNewlyReported.Location = new Point(3, 33);
-        LblNewlyReported.Name = "LblNewlyReported";
-        LblNewlyReported.Size = new Size(168, 46);
-        LblNewlyReported.TabIndex = 1;
-        LblNewlyReported.Text = "0";
-        LblNewlyReported.TextAlign = ContentAlignment.MiddleCenter;
+        LblRecentlyReported.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        LblRecentlyReported.AutoEllipsis = true;
+        LblRecentlyReported.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        LblRecentlyReported.Location = new Point(3, 33);
+        LblRecentlyReported.Name = "LblRecentlyReported";
+        LblRecentlyReported.Size = new Size(168, 46);
+        LblRecentlyReported.TabIndex = 1;
+        LblRecentlyReported.Text = "0";
+        LblRecentlyReported.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // LblNewlyReportedTitle
+        // LblRecentlyReportedTitle
         // 
-        LblNewlyReportedTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        LblNewlyReportedTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
-        LblNewlyReportedTitle.Location = new Point(3, 4);
-        LblNewlyReportedTitle.Name = "LblNewlyReportedTitle";
-        LblNewlyReportedTitle.Size = new Size(168, 29);
-        LblNewlyReportedTitle.TabIndex = 0;
-        LblNewlyReportedTitle.Text = "Newly Reported";
-        LblNewlyReportedTitle.TextAlign = ContentAlignment.MiddleCenter;
+        LblRecentlyReportedTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        LblRecentlyReportedTitle.Font = new Font("Arial", 12F, FontStyle.Bold);
+        LblRecentlyReportedTitle.Location = new Point(3, 4);
+        LblRecentlyReportedTitle.Name = "LblRecentlyReportedTitle";
+        LblRecentlyReportedTitle.Size = new Size(168, 29);
+        LblRecentlyReportedTitle.TabIndex = 0;
+        LblRecentlyReportedTitle.Text = "Recently Reported";
+        LblRecentlyReportedTitle.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // TabPanMissingPersonsStatsTitle
         // 
@@ -1089,7 +1089,7 @@ partial class DashboardForm
         PanFemales.ResumeLayout(false);
         PanMales.ResumeLayout(false);
         PanTotalReported.ResumeLayout(false);
-        PanNewlyReported.ResumeLayout(false);
+        PanRecentlyReported.ResumeLayout(false);
         TabPanQueueStatsContainer.ResumeLayout(false);
         TabPanQueueStatsContainer.PerformLayout();
         TabPanQueueStats.ResumeLayout(false);
@@ -1162,9 +1162,9 @@ partial class DashboardForm
     private Panel PanTotalReported;
     private Label LblTotalReported;
     private Label LblTotalReportedTitle;
-    private Panel PanNewlyReported;
-    private Label LblNewlyReported;
-    private Label LblNewlyReportedTitle;
+    private Panel PanRecentlyReported;
+    private Label LblRecentlyReported;
+    private Label LblRecentlyReportedTitle;
     private Label TabPanMissingPersonsStatsTitle;
     private Panel PanMissingPersonsPerProvince;
 }
