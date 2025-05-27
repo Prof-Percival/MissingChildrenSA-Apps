@@ -5,7 +5,8 @@ public sealed class EventAggregator
     private static readonly EventAggregator _instance = new EventAggregator();
     public static EventAggregator Instance => _instance;
 
-    private readonly Dictionary<Type, List<Action<IAppEvent>>> _handlers = [];
+    // Stores original and wrapped delegates for comparison
+    private readonly Dictionary<Type, List<(Delegate Original, Action<IAppEvent> Wrapped)>> _handlers = [];
 
     private EventAggregator() { }
 
@@ -19,10 +20,13 @@ public sealed class EventAggregator
             _handlers[type] = list;
         }
 
-        // Wrap the strongly-typed handler
+        // Prevent duplicate subscriptions
+        if (list.Any(x => x.Original.Equals(handler)))
+            return;
+
         void wrapper(IAppEvent e) => handler((TEvent)e);
 
-        list.Add(wrapper);
+        list.Add((handler, wrapper));
     }
 
     public void Unsubscribe<TEvent>(Action<TEvent> handler) where TEvent : IAppEvent
@@ -31,7 +35,7 @@ public sealed class EventAggregator
 
         if (_handlers.TryGetValue(type, out var list))
         {
-            list.RemoveAll(h => h.Equals((Action<IAppEvent>)(e => handler((TEvent)e))));
+            list.RemoveAll(x => x.Original.Equals(handler));
         }
     }
 
@@ -41,7 +45,7 @@ public sealed class EventAggregator
 
         if (_handlers.TryGetValue(type, out var list))
         {
-            foreach (var handler in list)
+            foreach (var (_, handler) in list)
             {
                 handler.Invoke(appEvent);
             }
