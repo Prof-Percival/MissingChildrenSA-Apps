@@ -664,6 +664,35 @@
         }
       }
     },
+    "/api/Statistics/get-main-statistics": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MainStatisticsModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MainStatisticsModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MainStatisticsModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/User/create-user": {
       "post": {
         "tags": [
@@ -1291,6 +1320,25 @@
         },
         "additionalProperties": false
       },
+      "MainStatisticsModel": {
+        "type": "object",
+        "properties": {
+          "moderationQueueStats": {
+            "$ref": "#/components/schemas/ModerationQueueStatsResponseModel"
+          },
+          "missingPersonsStats": {
+            "$ref": "#/components/schemas/MissingPersonsStatsModel"
+          },
+          "statsByProvince": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StatByProvinceModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "MissingPersonStatus": {
         "enum": [
           1,
@@ -1419,6 +1467,32 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MissingPersonsStatsModel": {
+        "type": "object",
+        "properties": {
+          "recentlyReported": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "totalReported": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "males": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "females": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -1649,6 +1723,22 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "StatByProvinceModel": {
+        "type": "object",
+        "properties": {
+          "province": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
       },
       "UpdateMissingPersonRequest": {
         "required": [
