@@ -6,6 +6,7 @@ using MCSA_API.Domain.Dates;
 using MCSA_API.Domain.MissingPersons;
 using MCSA_API.Domain.Moderation;
 using MCSA_API.Domain.Security;
+using MCSA_API.Domain.Statistics;
 using MCSA_API.Domain.Users;
 using MCSA_API.Helpers.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -82,6 +83,7 @@ public class Program
         builder.Services.AddScoped<IMissingPersonService, MissingPersonService>();
         builder.Services.AddScoped<IModerationService, ModerationService>();
         builder.Services.AddScoped<IUserService, UserService>();
+        builder.Services.AddScoped<IStatisticsService, StatisticsService>();
 
         //Register Repositories
         builder.Services.AddScoped<IUserRepository, UserRepository>();
