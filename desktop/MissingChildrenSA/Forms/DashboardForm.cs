@@ -46,7 +46,7 @@ public partial class DashboardForm : Form
 
         PopulateUserProfile();
 
-        AddMissingPersonsPerProvinceChart();
+        LoadMissingPersonsPerProvinceChart();
     }
 
     private void DashboardForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -211,7 +211,7 @@ public partial class DashboardForm : Form
         missingPersonsResultsForm.ShowDialog();
     }
 
-    private void AddMissingPersonsPerProvinceChart()
+    private void LoadMissingPersonsPerProvinceChart()
     {
         var provincesData = new Dictionary<string, int>
         {
