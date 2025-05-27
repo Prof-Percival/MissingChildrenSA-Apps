@@ -41,7 +41,7 @@ public sealed class MissingPersonService(
             ModerationStatus = ModerationStatus.Unmoderated
         };
 
-        using var transaction = new TransactionScope();
+        using var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 
         await missingPersonRepository.UpsertAsync(missingPerson);
 
@@ -93,7 +93,7 @@ public sealed class MissingPersonService(
 
         queueItem.ModerationStatus = existing.ModerationStatus;
 
-        using var transaction = new TransactionScope();
+        using var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 
         await missingPersonRepository.UpsertAsync(existing);
 
