@@ -16,6 +16,7 @@ public partial class DashboardForm : Form
     private readonly CurrentUserService _currentUserService;
     private readonly ITokenProvider _tokenProvider;
     private readonly IServiceProvider _serviceProvider;
+    private readonly ApiClient _apiClient;
 
     private CurrentUser _currentUser;
 
@@ -23,7 +24,8 @@ public partial class DashboardForm : Form
         EnumLoader enumLoader,
         CurrentUserService currentUserService,
         ITokenProvider tokenProvider,
-        IServiceProvider serviceProvider)
+        IServiceProvider serviceProvider,
+        ApiClient apiClient)
     {
         InitializeComponent();
 
@@ -31,6 +33,7 @@ public partial class DashboardForm : Form
         _currentUserService = currentUserService;
         _tokenProvider = tokenProvider;
         _serviceProvider = serviceProvider;
+        _apiClient = apiClient;
     }
 
     private async void DashboardForm_Load(object sender, EventArgs e)
@@ -46,7 +49,7 @@ public partial class DashboardForm : Form
 
         PopulateUserProfile();
 
-        LoadMissingPersonsPerProvinceChart();
+        await BuildStatisticsAsync();
     }
 
     private void DashboardForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -211,21 +214,46 @@ public partial class DashboardForm : Form
         missingPersonsResultsForm.ShowDialog();
     }
 
-    private void LoadMissingPersonsPerProvinceChart()
+    private async Task BuildStatisticsAsync()
     {
-        var provincesData = new Dictionary<string, int>
+        try
         {
-            { "Gauteng", 50 },
-            { "Western Cape", 35 },
-            { "KwaZulu-Natal", 42 },
-            { "Eastern Cape", 22 },
-            { "Limpopo", 18 },
-            { "Mpumalanga", 15 },
-            { "Free State", 12 },
-            { "North West", 9 },
-            { "Northern Cape", 5 }
-        };
+            var statistics = await _apiClient.GetMainStatisticsAsync();
 
+            PopulateModerationQueueStats(statistics);
+
+            PopulateMissingPersonsStats(statistics);
+
+            LoadMissingPersonsPerProvinceChart(statistics);
+        }
+        catch
+        {
+            //Silently pass
+        }
+    }
+
+    private void PopulateModerationQueueStats(MainStatisticsModel statistics)
+    {
+        var queueStats = statistics.ModerationQueueStats;
+
+        LblUnmoderated.Text = queueStats.Unmoderated.ToString();
+        LblInModeration.Text = queueStats.InModeration.ToString();
+        LblFailed.Text = queueStats.Failed.ToString();
+        LblApproved.Text = queueStats.Approved.ToString();
+    }
+
+    private void PopulateMissingPersonsStats(MainStatisticsModel statistics)
+    {
+        var missingPersonsStats = statistics.MissingPersonsStats;
+
+        LblNewlyReported.Text = missingPersonsStats.RecentlyReported.ToString();
+        LblTotalReported.Text = missingPersonsStats.TotalReported.ToString();
+        LblMales.Text = missingPersonsStats.Males.ToString();
+        LblFemales.Text = missingPersonsStats.Females.ToString();
+    }
+
+    private void LoadMissingPersonsPerProvinceChart(MainStatisticsModel statistics)
+    {
         var chart = new Chart
         {
             Dock = DockStyle.Fill,
@@ -269,9 +297,9 @@ public partial class DashboardForm : Form
 
         var colorIndex = 0;
 
-        foreach (var province in provincesData)
+        foreach (var stat in statistics.StatsByProvince)
         {
-            int pointIndex = series.Points.AddXY(province.Key, province.Value);
+            int pointIndex = series.Points.AddXY(stat.Province, stat.Count);
             series.Points[pointIndex].Color = barColors[colorIndex % barColors.Length];
             colorIndex++;
         }
