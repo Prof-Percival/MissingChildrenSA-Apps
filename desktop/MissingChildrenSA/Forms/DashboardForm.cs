@@ -244,7 +244,11 @@ public partial class DashboardForm : Form
         chart.ChartAreas.Add(chartArea);
 
         // Add title
-        chart.Titles.Add("Missing Persons by Province");
+        chart.Titles.Add(new Title(
+            "Missing Persons by Province",
+            Docking.Top,
+            new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0),
+            Color.Black));
 
         // Series
         var series = new Series("Missing Persons")
