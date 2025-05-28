@@ -206,7 +206,6 @@ partial class MissingPersonForm
         // TxtFamilyContactNumber
         // 
         TxtFamilyContactNumber.BackColor = Color.White;
-        TxtFamilyContactNumber.Enabled = false;
         TxtFamilyContactNumber.Location = new Point(200, 26);
         TxtFamilyContactNumber.Name = "TxtFamilyContactNumber";
         TxtFamilyContactNumber.ReadOnly = true;
@@ -216,7 +215,6 @@ partial class MissingPersonForm
         // TxtFamilyContactName
         // 
         TxtFamilyContactName.BackColor = Color.White;
-        TxtFamilyContactName.Enabled = false;
         TxtFamilyContactName.Location = new Point(7, 26);
         TxtFamilyContactName.Name = "TxtFamilyContactName";
         TxtFamilyContactName.ReadOnly = true;
@@ -267,7 +265,6 @@ partial class MissingPersonForm
         // TxtInvestigatingOfficerContactNumber
         // 
         TxtInvestigatingOfficerContactNumber.BackColor = Color.White;
-        TxtInvestigatingOfficerContactNumber.Enabled = false;
         TxtInvestigatingOfficerContactNumber.Location = new Point(200, 84);
         TxtInvestigatingOfficerContactNumber.Name = "TxtInvestigatingOfficerContactNumber";
         TxtInvestigatingOfficerContactNumber.ReadOnly = true;
@@ -277,7 +274,6 @@ partial class MissingPersonForm
         // TxtInvestigatingOfficer
         // 
         TxtInvestigatingOfficer.BackColor = Color.White;
-        TxtInvestigatingOfficer.Enabled = false;
         TxtInvestigatingOfficer.Location = new Point(7, 84);
         TxtInvestigatingOfficer.Name = "TxtInvestigatingOfficer";
         TxtInvestigatingOfficer.ReadOnly = true;
@@ -323,7 +319,6 @@ partial class MissingPersonForm
         // TxtCaseNumber
         // 
         TxtCaseNumber.BackColor = Color.White;
-        TxtCaseNumber.Enabled = false;
         TxtCaseNumber.Location = new Point(200, 26);
         TxtCaseNumber.Name = "TxtCaseNumber";
         TxtCaseNumber.ReadOnly = true;
@@ -333,7 +328,6 @@ partial class MissingPersonForm
         // TxtPoliceStation
         // 
         TxtPoliceStation.BackColor = Color.White;
-        TxtPoliceStation.Enabled = false;
         TxtPoliceStation.Location = new Point(7, 26);
         TxtPoliceStation.Name = "TxtPoliceStation";
         TxtPoliceStation.ReadOnly = true;
@@ -382,7 +376,6 @@ partial class MissingPersonForm
         // TxtDateWentMissing
         // 
         TxtDateWentMissing.BackColor = Color.White;
-        TxtDateWentMissing.Enabled = false;
         TxtDateWentMissing.Location = new Point(9, 139);
         TxtDateWentMissing.Name = "TxtDateWentMissing";
         TxtDateWentMissing.ReadOnly = true;
@@ -404,7 +397,6 @@ partial class MissingPersonForm
         // TxtLocationLastSeen
         // 
         TxtLocationLastSeen.BackColor = Color.White;
-        TxtLocationLastSeen.Enabled = false;
         TxtLocationLastSeen.Location = new Point(9, 81);
         TxtLocationLastSeen.Name = "TxtLocationLastSeen";
         TxtLocationLastSeen.ReadOnly = true;
@@ -426,7 +418,6 @@ partial class MissingPersonForm
         // TxtLastSeenWearing
         // 
         TxtLastSeenWearing.BackColor = Color.White;
-        TxtLastSeenWearing.Enabled = false;
         TxtLastSeenWearing.Location = new Point(7, 26);
         TxtLastSeenWearing.Name = "TxtLastSeenWearing";
         TxtLastSeenWearing.ReadOnly = true;
@@ -481,7 +472,6 @@ partial class MissingPersonForm
         // TxtWeight
         // 
         TxtWeight.BackColor = Color.White;
-        TxtWeight.Enabled = false;
         TxtWeight.Location = new Point(7, 139);
         TxtWeight.Name = "TxtWeight";
         TxtWeight.ReadOnly = true;
@@ -491,7 +481,6 @@ partial class MissingPersonForm
         // TxtHeight
         // 
         TxtHeight.BackColor = Color.White;
-        TxtHeight.Enabled = false;
         TxtHeight.Location = new Point(200, 82);
         TxtHeight.Name = "TxtHeight";
         TxtHeight.ReadOnly = true;
@@ -501,7 +490,6 @@ partial class MissingPersonForm
         // TxtMarksTattoos
         // 
         TxtMarksTattoos.BackColor = Color.White;
-        TxtMarksTattoos.Enabled = false;
         TxtMarksTattoos.Location = new Point(200, 139);
         TxtMarksTattoos.Name = "TxtMarksTattoos";
         TxtMarksTattoos.ReadOnly = true;
@@ -511,7 +499,6 @@ partial class MissingPersonForm
         // TxtEyeColour
         // 
         TxtEyeColour.BackColor = Color.White;
-        TxtEyeColour.Enabled = false;
         TxtEyeColour.Location = new Point(7, 82);
         TxtEyeColour.Name = "TxtEyeColour";
         TxtEyeColour.ReadOnly = true;
@@ -581,7 +568,6 @@ partial class MissingPersonForm
         // TxtHairLengthOrStyle
         // 
         TxtHairLengthOrStyle.BackColor = Color.White;
-        TxtHairLengthOrStyle.Enabled = false;
         TxtHairLengthOrStyle.Location = new Point(200, 26);
         TxtHairLengthOrStyle.Name = "TxtHairLengthOrStyle";
         TxtHairLengthOrStyle.ReadOnly = true;
@@ -591,7 +577,6 @@ partial class MissingPersonForm
         // TxtHairColour
         // 
         TxtHairColour.BackColor = Color.White;
-        TxtHairColour.Enabled = false;
         TxtHairColour.Location = new Point(7, 26);
         TxtHairColour.Name = "TxtHairColour";
         TxtHairColour.ReadOnly = true;
@@ -646,7 +631,6 @@ partial class MissingPersonForm
         // TxtProvince
         // 
         TxtProvince.BackColor = Color.White;
-        TxtProvince.Enabled = false;
         TxtProvince.Location = new Point(200, 137);
         TxtProvince.Name = "TxtProvince";
         TxtProvince.ReadOnly = true;
@@ -656,7 +640,6 @@ partial class MissingPersonForm
         // TxtRace
         // 
         TxtRace.BackColor = Color.White;
-        TxtRace.Enabled = false;
         TxtRace.Location = new Point(7, 138);
         TxtRace.Name = "TxtRace";
         TxtRace.ReadOnly = true;
@@ -666,7 +649,6 @@ partial class MissingPersonForm
         // TxtGender
         // 
         TxtGender.BackColor = Color.White;
-        TxtGender.Enabled = false;
         TxtGender.Location = new Point(200, 82);
         TxtGender.Name = "TxtGender";
         TxtGender.ReadOnly = true;
@@ -676,7 +658,6 @@ partial class MissingPersonForm
         // TxtDateOfBirth
         // 
         TxtDateOfBirth.BackColor = Color.White;
-        TxtDateOfBirth.Enabled = false;
         TxtDateOfBirth.Location = new Point(7, 82);
         TxtDateOfBirth.Name = "TxtDateOfBirth";
         TxtDateOfBirth.ReadOnly = true;
@@ -746,7 +727,6 @@ partial class MissingPersonForm
         // TxtSurname
         // 
         TxtSurname.BackColor = Color.White;
-        TxtSurname.Enabled = false;
         TxtSurname.Location = new Point(200, 26);
         TxtSurname.Name = "TxtSurname";
         TxtSurname.ReadOnly = true;
@@ -756,7 +736,6 @@ partial class MissingPersonForm
         // TxtName
         // 
         TxtName.BackColor = Color.White;
-        TxtName.Enabled = false;
         TxtName.Location = new Point(7, 26);
         TxtName.Name = "TxtName";
         TxtName.ReadOnly = true;
