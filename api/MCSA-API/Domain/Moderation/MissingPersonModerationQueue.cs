@@ -33,17 +33,38 @@ public sealed class MissingPersonModerationQueue
         ModerationStatusReason = null;
     }
 
-    internal void StartModeration(int moderatedByUserId)
+    internal bool TryStartModeration(int moderatedByUserId, out string errorMessage)
     {
+        if (ModeratedByUserId.HasValue)
+        {
+            errorMessage = "Moderation already started";
+
+            return false;
+        }
+
         ModerationStatus = ModerationStatus.InModeration;
         ModeratedByUserId = moderatedByUserId;
         ModerationStatusReason = null;
+
+        errorMessage = null;
+
+        return true;
     }
 
-    internal void FailModeration(string reason)
+    internal bool TryFailModeration(string reason, out string errorMessage)
     {
+        if (string.IsNullOrWhiteSpace(reason))
+        {
+            errorMessage = "Moderation Reason is required when failing item for moderation.";
+
+            return false;
+        }
+
         ModerationStatus = ModerationStatus.Failed;
         ModerationStatusReason = reason;
+
+        errorMessage = null;
+        return true;
     }
 
     internal void Approve()

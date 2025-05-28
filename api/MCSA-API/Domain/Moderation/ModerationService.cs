@@ -61,12 +61,7 @@ public sealed class ModerationService(
 
         if (queueItem == null) return "Queue item not found";
 
-        if (queueItem.ModeratedByUserId.HasValue)
-        {
-            return "Moderation already started";
-        }
-
-        queueItem.StartModeration(userId.Value);
+        if (!queueItem.TryStartModeration(userId.Value, out var errorMessage)) return errorMessage;
 
         await moderationRepository.UpsertAsync(queueItem);
 
@@ -79,18 +74,12 @@ public sealed class ModerationService(
 
         if (queueItem == null) return "Queue item not found";
 
-        if (request.Status == ModerationStatus.Failed &&
-            string.IsNullOrWhiteSpace(request.Reason))
-        {
-            return "Moderation Reason is required when failing item for moderation.";
-        }
-
         if (_notAllowedModerationTransitionStatuses.Contains(request.Status)) return $"Cannot update moderation status to {request.Status.GetBestDescription()}";
 
         switch (request.Status)
         {
             case ModerationStatus.Failed:
-                queueItem.FailModeration(request.Reason);
+                if (!queueItem.TryFailModeration(request.Reason, out var errorMessage)) return errorMessage;
                 break;
             case ModerationStatus.Approved:
                 queueItem.Approve();
