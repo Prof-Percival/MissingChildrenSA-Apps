@@ -47,9 +47,10 @@ public sealed class MissingPersonService(
 
         var queueItem = new MissingPersonModerationQueue
         {
-            MissingPersonId = missingPerson.Id.Value,
-            ModerationStatus = ModerationStatus.Unmoderated
+            MissingPersonId = missingPerson.Id.Value
         };
+
+        queueItem.SetUnmoderated();
 
         await moderationQueueRepository.UpsertAsync(queueItem);
 
@@ -91,8 +92,7 @@ public sealed class MissingPersonService(
 
         var queueItem = await moderationQueueRepository.GetByMissingPersonIdAsync(existing.Id.Value);
 
-        queueItem.ModerationStatus = existing.ModerationStatus;
-        queueItem.ModeratedByUserId = null;
+        queueItem.SetUnmoderated();
 
         using var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 

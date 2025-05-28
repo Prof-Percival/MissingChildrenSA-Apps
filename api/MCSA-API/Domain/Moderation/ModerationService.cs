@@ -66,8 +66,7 @@ public sealed class ModerationService(
             return "Moderation already started";
         }
 
-        queueItem.ModerationStatus = ModerationStatus.InModeration;
-        queueItem.ModeratedByUserId = userId;
+        queueItem.StartModeration(userId.Value);
 
         await moderationRepository.UpsertAsync(queueItem);
 
@@ -88,8 +87,15 @@ public sealed class ModerationService(
 
         if (_notAllowedModerationTransitionStatuses.Contains(request.Status)) return $"Cannot update moderation status to {request.Status.GetBestDescription()}";
 
-        queueItem.ModerationStatus = request.Status;
-        queueItem.ModerationStatusReason = request.Reason;
+        switch (request.Status)
+        {
+            case ModerationStatus.Failed:
+                queueItem.FailModeration(request.Reason);
+                break;
+            case ModerationStatus.Approved:
+                queueItem.Approve();
+                break;
+        }
 
         using var transaction = new TransactionScope();
 
