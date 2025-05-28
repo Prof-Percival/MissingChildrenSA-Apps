@@ -92,6 +92,7 @@ public sealed class MissingPersonService(
         var queueItem = await moderationQueueRepository.GetByMissingPersonIdAsync(existing.Id.Value);
 
         queueItem.ModerationStatus = existing.ModerationStatus;
+        queueItem.ModeratedByUserId = null;
 
         using var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 
