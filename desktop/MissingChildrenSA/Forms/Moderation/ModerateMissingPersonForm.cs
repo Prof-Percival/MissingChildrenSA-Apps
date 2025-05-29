@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MissingChildrenSA.Events;
 using MissingChildrenSA.Forms.Shared;
 using MissingChildrenSA.Helpers.Enums;
 
@@ -66,6 +67,8 @@ public partial class ModerateMissingPersonForm : Form
 
             ModerationStartedOrCompletedEventHandler?.Invoke(this, EventArgs.Empty);
 
+            EventAggregator.Instance.Publish(new AppEvents.ModerationStartedOrCompletedEvent());
+
             BtnStartModeration.Visible = false;
             GrpModeration.Visible = true;
         }
@@ -132,6 +135,8 @@ public partial class ModerateMissingPersonForm : Form
         await _apiClient.UpdateModerationStatusAsync(request);
 
         ModerationStartedOrCompletedEventHandler?.Invoke(this, EventArgs.Empty);
+
+        EventAggregator.Instance.Publish(new AppEvents.ModerationStartedOrCompletedEvent());
 
         BtnStartModeration.Visible = false;
         GrpModeration.Visible = false;
