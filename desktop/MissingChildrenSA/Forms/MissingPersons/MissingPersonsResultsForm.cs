@@ -28,7 +28,7 @@ public partial class MissingPersonsResultsForm : Form
 
     private async Task LoadPage(int pageNumber)
     {
-        var result = await _apiClient.ListMissingPersonsAsync(pageNumber, PageSize);
+        var result = await _apiClient.FetchApprovedMissingPersonsAsync(pageNumber, PageSize);
 
         var missingPersons = result.MissingPersons.Select(p => new Models.MissingPersons.MissingPersonModel(p));
 
