@@ -1,4 +1,5 @@
 ﻿using MCSA_API.Domain.MissingPersons;
+using MCSA_API.Domain.Moderation;
 using MCSA_API.Models.MissingPersons;
 using MCSA_API.Models.Shared;
 using Microsoft.AspNetCore.Authorization;
@@ -51,6 +52,27 @@ public class MissingPersonController(
         }
 
         var result = await missingPersonService.GetMissingPersonsAsync(request.PageNumber, request.PageSize);
+
+        return Ok(new PagedMissingPersonsResponse
+        {
+            TotalCount = result.TotalCount,
+            PageNumber = result.PageNumber,
+            PageSize = result.PageSize,
+            MissingPersons = result.MissingPersons.ConvertAll(missingPerson => new MissingPersonViewModel(missingPerson))
+        });
+    }
+
+    [HttpGet("fetch-approved-missing-persons")]
+    [Produces(typeof(PagedMissingPersonsResponse))]
+    [AllowAnonymous]
+    public async Task<IActionResult> FetchApprovedMissingPersons([FromQuery] PaginationRequest request)
+    {
+        if (request.PageNumber < 1 || request.PageSize < 1)
+        {
+            return BadRequest("Page number and page size must be greater than 0.");
+        }
+
+        var result = await missingPersonService.GetMissingPersonsAsync(request.PageNumber, request.PageSize, [ModerationStatus.Approved]);
 
         return Ok(new PagedMissingPersonsResponse
         {

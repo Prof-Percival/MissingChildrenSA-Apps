@@ -107,13 +107,14 @@ public sealed class MissingPersonService(
         return null;
     }
 
-    public async Task<PagedMissingPersonsResult> GetMissingPersonsAsync(int pageNumber, int pageSize)
+    public async Task<PagedMissingPersonsResult> GetMissingPersonsAsync(int pageNumber, int pageSize, HashSet<ModerationStatus> statuses = null)
     {
         var allMissingPersons = await missingPersonRepository.GetAllAsync();
 
-        var totalCount = allMissingPersons.Count();
+        var totalCount = allMissingPersons.Count(Filter(statuses));
 
         var missingPersons = allMissingPersons
+            .Where(Filter(statuses))
             .Skip(PageHelper.CalculateSkip(pageSize, pageNumber))
             .Take(pageSize)
             .ToList();
@@ -128,4 +129,9 @@ public sealed class MissingPersonService(
     }
 
     public async Task<MissingPerson> GetMissingPersonByIdAsync(int id) => await missingPersonRepository.GetByIdAsync(id);
+
+    private static Func<MissingPerson, bool> Filter(HashSet<ModerationStatus> statuses)
+    {
+        return (missingPerson) => statuses.IsNullOrEmpty() || statuses.Contains(missingPerson.ModerationStatus);
+    }
 }
