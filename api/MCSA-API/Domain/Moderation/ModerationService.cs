@@ -86,7 +86,7 @@ public sealed class ModerationService(
                 break;
         }
 
-        using var transaction = new TransactionScope();
+        using var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 
         await moderationRepository.UpsertAsync(queueItem);
 
