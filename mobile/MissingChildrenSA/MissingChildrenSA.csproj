@@ -42,6 +42,63 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<Title>Missing Children SA</Title>
+		<Authors>Missing Children SA</Authors>
+		<Copyright>© Copyright 2025 Missing Children SA</Copyright>
+		<PackageIcon>128x128-Missing-Children-SA.jpeg</PackageIcon>
+		<AssemblyVersion>1.0.0.8</AssemblyVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|AnyCPU'">
+	  <ApplicationTitle>Missing Children SA</ApplicationTitle>
+	  <ApplicationId>za.org.missingchildren</ApplicationId>
+	  <ApplicationDisplayVersion>1.0.8</ApplicationDisplayVersion>
+	  <Debugger>Xamarin</Debugger>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
+	  <ApplicationTitle>Missing Children SA</ApplicationTitle>
+	  <ApplicationId>za.org.missingchildren</ApplicationId>
+	  <ApplicationDisplayVersion>1.0.8</ApplicationDisplayVersion>
+	  <EnableSGenConc>True</EnableSGenConc>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-maccatalyst|AnyCPU'">
+	  <ApplicationTitle>Missing Children SA</ApplicationTitle>
+	  <ApplicationId>za.org.missingchildren</ApplicationId>
+	  <ApplicationDisplayVersion>1.0.8</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationTitle>Missing Children SA</ApplicationTitle>
+	  <ApplicationId>za.org.missingchildren</ApplicationId>
+	  <ApplicationDisplayVersion>1.0.8</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
+	  <ApplicationTitle>Missing Children SA</ApplicationTitle>
+	  <ApplicationId>za.org.missingchildren</ApplicationId>
+	  <ApplicationDisplayVersion>1.0.8</ApplicationDisplayVersion>
+	  <Debugger>Xamarin</Debugger>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-ios|AnyCPU'">
+	  <ApplicationTitle>Missing Children SA</ApplicationTitle>
+	  <ApplicationId>za.org.missingchildren</ApplicationId>
+	  <ApplicationDisplayVersion>1.0.8</ApplicationDisplayVersion>
+	  <EnableSGenConc>True</EnableSGenConc>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-maccatalyst|AnyCPU'">
+	  <ApplicationTitle>Missing Children SA</ApplicationTitle>
+	  <ApplicationId>za.org.missingchildren</ApplicationId>
+	  <ApplicationDisplayVersion>1.0.8</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationTitle>Missing Children SA</ApplicationTitle>
+	  <ApplicationId>za.org.missingchildren</ApplicationId>
+	  <ApplicationDisplayVersion>1.0.8</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
