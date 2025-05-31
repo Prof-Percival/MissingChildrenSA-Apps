@@ -1,0 +1,1984 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "MCSA API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Auth/authenticate": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Enum/genders": {
+      "get": {
+        "tags": [
+          "Enum"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Enum/missing-person-statuses": {
+      "get": {
+        "tags": [
+          "Enum"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Enum/moderation-statuses": {
+      "get": {
+        "tags": [
+          "Enum"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Enum/provinces": {
+      "get": {
+        "tags": [
+          "Enum"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Enum/races": {
+      "get": {
+        "tags": [
+          "Enum"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Enum/roles": {
+      "get": {
+        "tags": [
+          "Enum"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnumValueResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ImageUpload/upload-image": {
+      "post": {
+        "tags": [
+          "ImageUpload"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "File"
+                ],
+                "type": "object",
+                "properties": {
+                  "File": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageMetadataModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageMetadataModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageMetadataModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MissingPerson/report-missing-person": {
+      "post": {
+        "tags": [
+          "MissingPerson"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMissingPersonRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMissingPersonRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMissingPersonRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateMissingPersonResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateMissingPersonResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateMissingPersonResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MissingPerson/update-missing-person": {
+      "put": {
+        "tags": [
+          "MissingPerson"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMissingPersonRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMissingPersonRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMissingPersonRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/MissingPerson/list-missing-persons": {
+      "get": {
+        "tags": [
+          "MissingPerson"
+        ],
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedMissingPersonsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedMissingPersonsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedMissingPersonsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MissingPerson/fetch-approved-missing-persons": {
+      "get": {
+        "tags": [
+          "MissingPerson"
+        ],
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedMissingPersonsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedMissingPersonsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedMissingPersonsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MissingPerson/get-missing-person-by-id/{id}": {
+      "get": {
+        "tags": [
+          "MissingPerson"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MissingPersonModeration/get-moderation-queue": {
+      "get": {
+        "tags": [
+          "MissingPersonModeration"
+        ],
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueuePagedResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueuePagedResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueuePagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MissingPersonModeration/get-queue-details/{id}": {
+      "get": {
+        "tags": [
+          "MissingPersonModeration"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueueItemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueueItemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueueItemDetailsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MissingPersonModeration/queue/{id}/start-moderation": {
+      "post": {
+        "tags": [
+          "MissingPersonModeration"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/MissingPersonModeration/queue/update-moderation-status": {
+      "put": {
+        "tags": [
+          "MissingPersonModeration"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ModerationStatusUpdateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ModerationStatusUpdateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ModerationStatusUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/MissingPersonModeration/queue/get-moderation-queue-stats": {
+      "get": {
+        "tags": [
+          "MissingPersonModeration"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueueStatsResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueueStatsResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModerationQueueStatsResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Statistics/get-main-statistics": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MainStatisticsModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MainStatisticsModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MainStatisticsModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/create-user": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/update-user/{userId}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/list-users": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedUsersResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedUsersResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedUsersResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/get-user-by-username/{username}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/get-user-by-id/{userId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/me": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrentUserModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrentUserModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrentUserModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AuthenticateRequest": {
+        "required": [
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthenticateResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "tokenExpiry": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateMissingPersonRequest": {
+        "required": [
+          "caseNumber",
+          "dateOfBirth",
+          "dateWentMissing",
+          "eyeColour",
+          "firstName",
+          "gender",
+          "hairColour",
+          "hairLengthOrStyle",
+          "height",
+          "imageUrl",
+          "investigatingOfficer",
+          "investigatingOfficerContactNumber",
+          "lastName",
+          "policeStation",
+          "province",
+          "race",
+          "weight"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "lastName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "race": {
+            "$ref": "#/components/schemas/Race"
+          },
+          "province": {
+            "$ref": "#/components/schemas/Province"
+          },
+          "dateWentMissing": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "hairColour": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "hairLengthOrStyle": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "eyeColour": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "marksTattoos": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastSeenWearing": {
+            "type": "string",
+            "nullable": true
+          },
+          "locationLastSeen": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "policeStation": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "caseNumber": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "investigatingOfficer": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "investigatingOfficerContactNumber": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "familyContactName": {
+            "type": "string",
+            "nullable": true
+          },
+          "familyContactNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateMissingPersonResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "moderationStatus": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateUserRequest": {
+        "required": [
+          "firstName",
+          "lastName",
+          "password",
+          "username",
+          "userRole"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "lastName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "username": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userRole": {
+            "$ref": "#/components/schemas/UserRole"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateUserResponse": {
+        "required": [
+          "firstName",
+          "lastName"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "lastName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "userRole": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "created": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CurrentUserModel": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "userRole": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EnumValueResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Gender": {
+        "enum": [
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "GetUserResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userRole": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "nullable": true
+          },
+          "updated": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImageMetadataModel": {
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "fileUrl": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "contentType": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MainStatisticsModel": {
+        "type": "object",
+        "properties": {
+          "moderationQueueStats": {
+            "$ref": "#/components/schemas/ModerationQueueStatsResponseModel"
+          },
+          "missingPersonsStats": {
+            "$ref": "#/components/schemas/MissingPersonsStatsModel"
+          },
+          "statsByProvince": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StatByProvinceModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MissingPersonStatus": {
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "MissingPersonViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "race": {
+            "type": "string",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateWentMissing": {
+            "type": "string",
+            "nullable": true
+          },
+          "hairColour": {
+            "type": "string",
+            "nullable": true
+          },
+          "hairLengthOrStyle": {
+            "type": "string",
+            "nullable": true
+          },
+          "eyeColour": {
+            "type": "string",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "marksTattoos": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastSeenWearing": {
+            "type": "string",
+            "nullable": true
+          },
+          "locationLastSeen": {
+            "type": "string",
+            "nullable": true
+          },
+          "detailsOfDisappearance": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "policeStation": {
+            "type": "string",
+            "nullable": true
+          },
+          "caseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "investigatingOfficer": {
+            "type": "string",
+            "nullable": true
+          },
+          "investigatingOfficerContactNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "familyContactName": {
+            "type": "string",
+            "nullable": true
+          },
+          "familyContactNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "nullable": true
+          },
+          "updated": {
+            "type": "string",
+            "nullable": true
+          },
+          "moderationStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastEditedByUserId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MissingPersonsStatsModel": {
+        "type": "object",
+        "properties": {
+          "recentlyReported": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "totalReported": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "males": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "females": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModerationQueueItemDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "queueId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "moderationStatus": {
+            "$ref": "#/components/schemas/ModerationStatus"
+          },
+          "moderationStatusReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "moderatedByUserId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "missingPerson": {
+            "$ref": "#/components/schemas/MissingPersonViewModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModerationQueueItemResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "created": {
+            "type": "string",
+            "nullable": true
+          },
+          "updated": {
+            "type": "string",
+            "nullable": true
+          },
+          "moderatedByUserId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "missingPersonId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "moderationStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "moderationStatusReason": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModerationQueuePagedResponse": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModerationQueueItemResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModerationQueueStatsResponseModel": {
+        "type": "object",
+        "properties": {
+          "unmoderated": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "inModeration": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "failed": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "approved": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModerationStatus": {
+        "enum": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ModerationStatusUpdateRequest": {
+        "required": [
+          "queueItemId",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "queueItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ModerationStatus"
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PagedMissingPersonsResponse": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "missingPersons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MissingPersonViewModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PagedUsersResponse": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetUserResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Province": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Race": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "StatByProvinceModel": {
+        "type": "object",
+        "properties": {
+          "province": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateMissingPersonRequest": {
+        "required": [
+          "caseNumber",
+          "dateOfBirth",
+          "dateWentMissing",
+          "eyeColour",
+          "firstName",
+          "gender",
+          "hairColour",
+          "hairLengthOrStyle",
+          "height",
+          "id",
+          "imageUrl",
+          "investigatingOfficer",
+          "investigatingOfficerContactNumber",
+          "lastName",
+          "policeStation",
+          "province",
+          "race",
+          "status",
+          "weight"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "lastName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "race": {
+            "$ref": "#/components/schemas/Race"
+          },
+          "province": {
+            "$ref": "#/components/schemas/Province"
+          },
+          "dateWentMissing": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "hairColour": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "hairLengthOrStyle": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "eyeColour": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "marksTattoos": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastSeenWearing": {
+            "type": "string",
+            "nullable": true
+          },
+          "locationLastSeen": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "policeStation": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "caseNumber": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "investigatingOfficer": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "investigatingOfficerContactNumber": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "familyContactName": {
+            "type": "string",
+            "nullable": true
+          },
+          "familyContactNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "$ref": "#/components/schemas/MissingPersonStatus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateUserRequest": {
+        "required": [
+          "firstName",
+          "lastName",
+          "userRole"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "lastName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userRole": {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateUserResponse": {
+        "required": [
+          "firstName",
+          "lastName"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "lastName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "userRole": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "nullable": true
+          },
+          "updated": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRole": {
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      }
+    }
+  }
+}
