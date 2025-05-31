@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36127.28 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissingChildrenSA", "MissingChildrenSA\MissingChildrenSA.csproj", "{642A399D-A23E-496D-8135-9B95F21AA421}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{642A399D-A23E-496D-8135-9B95F21AA421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{642A399D-A23E-496D-8135-9B95F21AA421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{642A399D-A23E-496D-8135-9B95F21AA421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{642A399D-A23E-496D-8135-9B95F21AA421}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {81EAA290-20D9-40B8-AAF4-F48E7F4D07FE}
+	EndGlobalSection
+EndGlobal
