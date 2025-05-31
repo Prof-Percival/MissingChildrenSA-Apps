@@ -31,6 +31,16 @@ namespace MissingChildrenSA
     		builder.Logging.AddDebug();
     		builder.Services.AddLogging(configure => configure.AddDebug());
 #endif
+            // Register HttpClient + NSwag-generated client
+            builder.Services.AddHttpClient<ApiClient>();
+
+            builder.Services.AddTransient<ApiClient>(sp =>
+            {
+                var factory = sp.GetRequiredService<IHttpClientFactory>();
+                var httpClient = factory.CreateClient(nameof(ApiClient));
+                return new ApiClient(Constants.ApiBaseUrl, httpClient);
+            });
+
 
             builder.Services.AddSingleton<ProjectRepository>();
             builder.Services.AddSingleton<TaskRepository>();

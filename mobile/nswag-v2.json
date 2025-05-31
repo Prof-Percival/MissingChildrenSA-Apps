@@ -1,0 +1,18 @@
+{
+  "runtime": "Net90",
+  "defaultVariables": null,
+  "documentGenerator": {
+    "fromDocument": {
+      "url": null,
+      "output": null,
+      "json": "swagger.json"
+    }
+  },
+  "codeGenerators": {
+    "openApiToCSharpClient": {
+      "className": "ApiClient",
+      "namespace": "MissingChildrenSA",
+      "output": "MissingChildrenSA/ApiClient.cs"
+    }
+  }
+}
