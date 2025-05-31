@@ -79,7 +79,7 @@
         </pullToRefresh:SfPullToRefresh>
 
         <controls:AddButton 
-            IsEnabled="{Binding IsBusy}"
+            IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
             Command="{Binding AddTaskCommand}" />
     </Grid>
 </ContentPage>
