@@ -3,6 +3,7 @@ using MCSA_API.Domain.Dates;
 using MCSA_API.Domain.MissingPersons;
 using MCSA_API.Domain.Moderation;
 using MCSA_API.Domain.Moderation.Stats;
+using MCSA_API.Extensions;
 using MCSA_API.Helpers;
 
 namespace MCSA_API.Domain.Statistics;
@@ -28,14 +29,16 @@ public sealed class StatisticsService(
     {
         return new MissingPersonsStatistics
         {
-            MissingPersonsStats = await BuildMissingPersonsStatsAsync(),
-            StatsByProvince = await BuildStatsByProvinceAsync()
+            MissingPersonsStats = await BuildMissingPersonsStatsAsync([ModerationStatus.Approved]),
+            StatsByProvince = await BuildStatsByProvinceAsync([ModerationStatus.Approved])
         };
     }
 
-    private async Task<MissingPersonsStats> BuildMissingPersonsStatsAsync()
+    private async Task<MissingPersonsStats> BuildMissingPersonsStatsAsync(HashSet<ModerationStatus> statuses = null)
     {
-        var items = await missingPersonRepository.GetAllAsync();
+        var allMissingPersons = await missingPersonRepository.GetAllAsync();
+
+        var missingPersons = allMissingPersons.Where(Filter(statuses)).ToList();
 
         var now = dateProvider.GetDate();
 
@@ -43,28 +46,35 @@ public sealed class StatisticsService(
 
         return new MissingPersonsStats
         {
-            RecentlyReported = items.Count(i => i.Created >= recentlyReportedStartDate),
-            TotalReported = items.Count(),
-            Males = items.Count(i => i.Gender == Gender.Male),
-            Females = items.Count(i => i.Gender == Gender.Female)
+            RecentlyReported = missingPersons.Count(i => i.Created >= recentlyReportedStartDate),
+            TotalReported = missingPersons.Count(),
+            Males = missingPersons.Count(i => i.Gender == Gender.Male),
+            Females = missingPersons.Count(i => i.Gender == Gender.Female)
         };
     }
 
-    private async Task<List<StatByProvince>> BuildStatsByProvinceAsync()
+    private async Task<List<StatByProvince>> BuildStatsByProvinceAsync(HashSet<ModerationStatus> statuses = null)
     {
         var statsByProvince = new List<StatByProvince>();
 
-        var items = await missingPersonRepository.GetAllAsync();
+        var allMissingPersons = await missingPersonRepository.GetAllAsync();
+
+        var missingPersons = allMissingPersons.Where(Filter(statuses)).ToList();
 
         foreach (var province in EnumHelper.GetValues<Province>())
         {
             statsByProvince.Add(new StatByProvince
             {
                 Province = province.GetBestDescription(),
-                Count = items.Count(i => i.Province == province)
+                Count = missingPersons.Count(i => i.Province == province)
             });
         }
 
         return statsByProvince;
+    }
+
+    private static Func<MissingPerson, bool> Filter(HashSet<ModerationStatus> statuses)
+    {
+        return (missingPerson) => statuses.IsNullOrEmpty() || statuses.Contains(missingPerson.ModerationStatus);
     }
 }
