@@ -740,6 +740,35 @@
         }
       }
     },
+    "/api/Statistics/get-missing-persons-statistics": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonsStatisticsModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonsStatisticsModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonsStatisticsModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/User/create-user": {
       "post": {
         "tags": [
@@ -1513,6 +1542,22 @@
           "lastEditedByUserId": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MissingPersonsStatisticsModel": {
+        "type": "object",
+        "properties": {
+          "missingPersonsStats": {
+            "$ref": "#/components/schemas/MissingPersonsStatsModel"
+          },
+          "statsByProvince": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StatByProvinceModel"
+            },
             "nullable": true
           }
         },
