@@ -20,4 +20,14 @@ public class StatisticsController(
 
         return Ok(MainStatisticsModel.Create(statistics));
     }
+
+    [HttpGet("get-missing-persons-statistics")]
+    [AllowAnonymous]
+    [Produces(typeof(MissingPersonsStatisticsModel))]
+    public async Task<IActionResult> GetMissingPersonsStatistics()
+    {
+        var statistics = await service.GetMissingPersonsStatistics();
+
+        return Ok(MissingPersonsStatisticsModel.Create(statistics));
+    }
 }

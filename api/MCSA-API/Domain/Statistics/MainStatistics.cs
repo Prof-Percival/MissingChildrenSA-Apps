@@ -2,9 +2,7 @@
 
 namespace MCSA_API.Domain.Statistics;
 
-public sealed class MainStatistics
+public sealed class MainStatistics : MissingPersonsStatistics
 {
     public ModerationQueueStats ModerationQueueStats { get; init; }
-    public MissingPersonsStats MissingPersonsStats { get; init; }
-    public List<StatByProvince> StatsByProvince { get; init; }
 }

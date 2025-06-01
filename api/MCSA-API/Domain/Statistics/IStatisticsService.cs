@@ -3,4 +3,5 @@
 public interface IStatisticsService
 {
     Task<MainStatistics> GetMainStatisticsAsync();
+    Task<MissingPersonsStatistics> GetMissingPersonsStatistics();
 }

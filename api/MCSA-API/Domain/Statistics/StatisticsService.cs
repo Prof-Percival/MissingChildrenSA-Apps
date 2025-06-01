@@ -24,6 +24,15 @@ public sealed class StatisticsService(
         };
     }
 
+    public async Task<MissingPersonsStatistics> GetMissingPersonsStatistics()
+    {
+        return new MissingPersonsStatistics
+        {
+            MissingPersonsStats = await BuildMissingPersonsStatsAsync(),
+            StatsByProvince = await BuildStatsByProvinceAsync()
+        };
+    }
+
     private async Task<MissingPersonsStats> BuildMissingPersonsStatsAsync()
     {
         var items = await missingPersonRepository.GetAllAsync();
