@@ -101,7 +101,6 @@
                         <!-- Missing Persons by Province Chart -->
                         <Border Style="{StaticResource CardStyle}" Margin="0,0,0,20">
                             <VerticalStackLayout
-                                Style="{StaticResource CardStyle}"
                                 Margin="0,0,0,20"
                                 Padding="0"
                                 Spacing="10">
