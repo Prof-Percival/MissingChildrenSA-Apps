@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Toolkit.Charts;assembly=Syncfusion.Maui.Toolkit"
              xmlns:pageModels="clr-namespace:MissingChildrenSA.PageModels"             
              xmlns:models="clr-namespace:MissingChildrenSA.Models"
              xmlns:controls="clr-namespace:MissingChildrenSA.Pages.Controls"
@@ -36,6 +37,105 @@
                 <ScrollView>
                     <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}" Padding="{StaticResource LayoutPadding}">
                         <controls:CategoryChart />
+
+                        <!-- Missing Persons Stats Section -->
+                        <Label Text="Missing Persons Stats" Style="{StaticResource Title2}" Margin="0,10,0,5" />
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" Margin="0,0,0,20">
+                            <!-- First Grid Item - Recently Reported -->
+                            <Border Stroke="Gray" StrokeThickness="1" Padding="10" Margin="5" Grid.Row="0" Grid.Column="0">
+                                <StackLayout>
+                                    <Label
+                                        Style="{StaticResource Title4}"
+                                        Text="Recently Reported"
+                                        HorizontalOptions="Center" />
+                                    <Label 
+                                        Style="{StaticResource LargeTitle}"
+                                        Text="{Binding MissingPersonsStats.RecentlyReported}"
+                                        HorizontalOptions="Center" />
+                                </StackLayout>
+                            </Border>
+
+                            <!-- Second Grid Item - Total Reported -->
+                            <Border Stroke="Gray" StrokeThickness="1" Padding="10" Margin="5" Grid.Row="0" Grid.Column="1">
+                                <StackLayout>
+                                    <Label 
+                                        Style="{StaticResource Title4}"
+                                        Text="Total Reported"
+                                        HorizontalOptions="Center" />
+                                    <Label
+                                        Style="{StaticResource LargeTitle}"
+                                        Text="{Binding MissingPersonsStats.TotalReported}"
+                                        HorizontalOptions="Center" />
+                                </StackLayout>
+                            </Border>
+
+                            <!-- Third Grid Item - Males -->
+                            <Border Stroke="Gray" StrokeThickness="1" Padding="10" Margin="5" Grid.Row="1" Grid.Column="0">
+                                <StackLayout>
+                                    <Label
+                                        Style="{StaticResource Title4}"
+                                        Text="Males"
+                                        HorizontalOptions="Center" />
+                                    <Label 
+                                        Style="{StaticResource LargeTitle}"
+                                        Text="{Binding MissingPersonsStats.Males}"
+                                        HorizontalOptions="Center" />
+                                </StackLayout>
+                            </Border>
+
+                            <!-- Fourth Grid Item - Females -->
+                            <Border Stroke="Gray" StrokeThickness="1" Padding="10" Margin="5" Grid.Row="1" Grid.Column="1">
+                                <StackLayout>
+                                    <Label
+                                        Style="{StaticResource Title4}"
+                                        Text="Females"
+                                        HorizontalOptions="Center" />
+                                    <Label
+                                        Style="{StaticResource LargeTitle}"
+                                        Text="{Binding MissingPersonsStats.Females}"
+                                        HorizontalOptions="Center" />
+                                </StackLayout>
+                            </Border>
+                        </Grid>
+
+                        <!-- Missing Persons by Province Chart -->
+                        <Border Style="{StaticResource CardStyle}" Margin="0,0,0,20">
+                            <VerticalStackLayout
+                                Style="{StaticResource CardStyle}"
+                                Margin="0,0,0,20"
+                                Padding="0"
+                                Spacing="10">
+                                <Label
+                                    Text="Missing Persons by Province"
+                                    Style="{StaticResource Title2}"
+                                    Margin="0,10,0,5"
+                                    HorizontalOptions="Center" />
+                                <chart:SfCartesianChart IsTransposed="True">
+                                    <chart:SfCartesianChart.XAxes>
+                                        <chart:CategoryAxis>
+                                            <chart:CategoryAxis.Title>
+                                                <chart:ChartAxisTitle Text="Province" />
+                                            </chart:CategoryAxis.Title>
+                                        </chart:CategoryAxis>
+                                    </chart:SfCartesianChart.XAxes>
+
+                                    <chart:SfCartesianChart.YAxes>
+                                        <chart:NumericalAxis>
+                                            <chart:NumericalAxis.Title>
+                                                <chart:ChartAxisTitle Text="Number of Missing Persons" />
+                                            </chart:NumericalAxis.Title>
+                                        </chart:NumericalAxis>
+                                    </chart:SfCartesianChart.YAxes>
+
+                                    <chart:ColumnSeries
+                                        ItemsSource="{Binding ProvinceStats}"
+                                        PaletteBrushes="{Binding ProvincePalette}"
+                                        XBindingPath="Province"
+                                        YBindingPath="Count" />
+                                </chart:SfCartesianChart>
+                            </VerticalStackLayout>
+                        </Border>
+
                         <Label Text="Projects" Style="{StaticResource Title2}"/>
                         <ScrollView Orientation="Horizontal" Margin="-30,0">
                             <HorizontalStackLayout 

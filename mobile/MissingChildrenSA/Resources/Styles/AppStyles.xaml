@@ -195,6 +195,19 @@
         <Setter Property="FontAttributes"
                 Value="{OnPlatform Default=None, Android=Bold}" />
     </Style>
+    <Style x:Key="Title4"
+           TargetType="Label">
+        <Setter Property="FontSize"
+                Value="18" />
+        <Setter Property="LineHeight"
+                Value="1.25" />
+        <!-- 25 -->
+        <Setter Property="FontFamily"
+                Value="{OnPlatform WinUI=SegoeSemibold, iOS=.SFUI-SemiBold, MacCatalyst=.SFUI-SemiBold, Default=''}" />
+        <Setter Property="FontAttributes"
+                Value="{OnPlatform Default=None, Android=Bold}" />
+    </Style>
+
     <Style x:Key="Title3"
            TargetType="Label">
         <Setter Property="FontSize"

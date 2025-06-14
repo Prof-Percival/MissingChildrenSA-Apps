@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MissingChildrenSA.Models;
+using System.Collections.ObjectModel;
 
 namespace MissingChildrenSA.PageModels
 {
@@ -13,6 +14,7 @@ namespace MissingChildrenSA.PageModels
         private readonly CategoryRepository _categoryRepository;
         private readonly ModalErrorHandler _errorHandler;
         private readonly SeedDataService _seedDataService;
+        private readonly ApiClient _apiClient;
 
         [ObservableProperty]
         private List<CategoryChartData> _todoCategoryData = [];
@@ -38,14 +40,77 @@ namespace MissingChildrenSA.PageModels
         public bool HasCompletedTasks
             => Tasks?.Any(t => t.IsCompleted) ?? false;
 
+        [ObservableProperty]
+        private MissingPersonsStats missingPersonsStats;
+
+        [ObservableProperty]
+        private ObservableCollection<ProvinceCount> provinceStats = [];
+
+        [ObservableProperty]
+        private ObservableCollection<Brush> provincePalette;
+
         public MainPageModel(SeedDataService seedDataService, ProjectRepository projectRepository,
-            TaskRepository taskRepository, CategoryRepository categoryRepository, ModalErrorHandler errorHandler)
+            TaskRepository taskRepository, CategoryRepository categoryRepository, ModalErrorHandler errorHandler,
+            ApiClient apiClient)
         {
             _projectRepository = projectRepository;
             _taskRepository = taskRepository;
             _categoryRepository = categoryRepository;
             _errorHandler = errorHandler;
             _seedDataService = seedDataService;
+            _apiClient = apiClient;
+
+            ProvincePalette = [
+                Brush.SteelBlue,
+                Brush.Teal,
+                Brush.IndianRed,
+                Brush.DarkOrange,
+                Brush.DarkGreen,
+                Brush.MediumPurple,
+                Brush.CadetBlue,
+                Brush.Goldenrod,
+                Brush.SlateGray,
+            ];
+
+            /*
+                ProvincePalette = new ObservableCollection<Brush> {
+                Brush.FromArgb("#4682B4"), // SteelBlue
+                Brush.FromArgb("#008080"), // Teal
+                Brush.FromArgb("#CD5C5C"), // IndianRed
+                Brush.FromArgb("#FF8C00"), // DarkOrange
+                Brush.FromArgb("#006400"), // DarkGreen
+                Brush.FromArgb("#9370DB"), // MediumPurple
+                Brush.FromArgb("#5F9EA0"), // CadetBlue
+                Brush.FromArgb("#DAA520"), // Goldenrod
+                Brush.FromArgb("#708090"), // SlateGray
+                }; 
+            */
+        }
+        private async Task LoadMissingPersonsDataAsync()
+        {
+            try
+            {
+                var stats = await _apiClient.GetMissingPersonsStatisticsAsync();
+
+                MissingPersonsStats = new MissingPersonsStats
+                {
+                    RecentlyReported = stats.MissingPersonsStats.RecentlyReported,
+                    TotalReported = stats.MissingPersonsStats.TotalReported,
+                    Males = stats.MissingPersonsStats.Males,
+                    Females = stats.MissingPersonsStats.Females
+                };
+
+                ProvinceStats.Clear();
+
+                foreach (var p in stats.StatsByProvince)
+                {
+                    ProvinceStats.Add(new ProvinceCount { Province = p.Province, Count = p.Count });
+                }
+            }
+            catch (Exception e)
+            {
+                _errorHandler.HandleError(e);
+            }
         }
 
         private async Task LoadData()
@@ -74,6 +139,8 @@ namespace MissingChildrenSA.PageModels
                 TodoCategoryColors = chartColors;
 
                 Tasks = await _taskRepository.ListAsync();
+
+                await LoadMissingPersonsDataAsync();
             }
             finally
             {
@@ -138,14 +205,14 @@ namespace MissingChildrenSA.PageModels
         }
 
         [RelayCommand]
-        private Task TaskCompleted(ProjectTask task)
+        private Task<int> TaskCompleted(ProjectTask task)
         {
             OnPropertyChanged(nameof(HasCompletedTasks));
             return _taskRepository.SaveItemAsync(task);
         }
 
         [RelayCommand]
-        private Task AddTask()
+        private static Task AddTask()
             => Shell.Current.GoToAsync($"task");
 
         [RelayCommand]
