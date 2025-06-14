@@ -1,15 +1,13 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MissingChildrenSA.Data;
 using MissingChildrenSA.Models;
-using MissingChildrenSA.Services;
 
 namespace MissingChildrenSA.PageModels
 {
     public partial class TaskDetailPageModel : ObservableObject, IQueryAttributable
     {
         public const string ProjectQueryKey = "project";
-        private ProjectTask? _task;
+        private ProjectTask _task;
         private bool _canDelete;
         private readonly ProjectRepository _projectRepository;
         private readonly TaskRepository _taskRepository;
@@ -25,7 +23,7 @@ namespace MissingChildrenSA.PageModels
         private List<Project> _projects = [];
 
         [ObservableProperty]
-        private Project? _project;
+        private Project _project;
 
         [ObservableProperty]
         private int _selectedProjectIndex = -1;

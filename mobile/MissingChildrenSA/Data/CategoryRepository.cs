@@ -85,7 +85,7 @@ namespace MissingChildrenSA.Data
         /// </summary>
         /// <param name="id">The ID of the category.</param>
         /// <returns>A <see cref="Category"/> object if found; otherwise, null.</returns>
-        public async Task<Category?> GetAsync(int id)
+        public async Task<Category> GetAsync(int id)
         {
             await Init();
             await using var connection = new SqliteConnection(Constants.DatabasePath);

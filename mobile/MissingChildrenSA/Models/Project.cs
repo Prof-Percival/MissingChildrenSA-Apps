@@ -12,7 +12,7 @@ namespace MissingChildrenSA.Models
         [JsonIgnore]
         public int CategoryID { get; set; }
 
-        public Category? Category { get; set; }
+        public Category Category { get; set; }
 
         public List<ProjectTask> Tasks { get; set; } = [];
 

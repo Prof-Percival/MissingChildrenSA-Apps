@@ -28,7 +28,7 @@ namespace MissingChildrenSA.Data
 
             await using Stream templateStream = await FileSystem.OpenAppPackageFileAsync(_seedDataFilePath);
 
-            ProjectsJson? payload = null;
+            ProjectsJson payload = null;
             try
             {
                 payload = JsonSerializer.Deserialize(templateStream, JsonContext.Default.ProjectsJson);

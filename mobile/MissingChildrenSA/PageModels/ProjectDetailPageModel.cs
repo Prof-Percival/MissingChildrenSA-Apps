@@ -6,7 +6,7 @@ namespace MissingChildrenSA.PageModels
 {
     public partial class ProjectDetailPageModel : ObservableObject, IQueryAttributable, IProjectTaskPageModel
     {
-        private Project? _project;
+        private Project _project;
         private readonly ProjectRepository _projectRepository;
         private readonly TaskRepository _taskRepository;
         private readonly CategoryRepository _categoryRepository;
@@ -26,7 +26,7 @@ namespace MissingChildrenSA.PageModels
         private List<Category> _categories = [];
 
         [ObservableProperty]
-        private Category? _category;
+        private Category _category;
 
         [ObservableProperty]
         private int _categoryIndex = -1;
