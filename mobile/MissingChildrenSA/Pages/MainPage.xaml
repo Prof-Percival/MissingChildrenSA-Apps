@@ -36,8 +36,6 @@
             <pullToRefresh:SfPullToRefresh.PullableContent>
                 <ScrollView>
                     <VerticalStackLayout Spacing="{StaticResource LayoutSpacing}" Padding="{StaticResource LayoutPadding}">
-                        <controls:CategoryChart />
-
                         <!-- Missing Persons Stats Section -->
                         <Label Text="Missing Persons Stats" Style="{StaticResource Title2}" Margin="0,10,0,5" />
                         <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" Margin="0,0,0,20">

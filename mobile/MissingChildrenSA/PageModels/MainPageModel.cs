@@ -17,12 +17,6 @@ namespace MissingChildrenSA.PageModels
         private readonly ApiClient _apiClient;
 
         [ObservableProperty]
-        private List<CategoryChartData> _todoCategoryData = [];
-
-        [ObservableProperty]
-        private List<Brush> _todoCategoryColors = [];
-
-        [ObservableProperty]
         private List<ProjectTask> _tasks = [];
 
         [ObservableProperty]
@@ -120,23 +114,6 @@ namespace MissingChildrenSA.PageModels
                 IsBusy = true;
 
                 Projects = await _projectRepository.ListAsync();
-
-                var chartData = new List<CategoryChartData>();
-                var chartColors = new List<Brush>();
-
-                var categories = await _categoryRepository.ListAsync();
-                foreach (var category in categories)
-                {
-                    chartColors.Add(category.ColorBrush);
-
-                    var ps = Projects.Where(p => p.CategoryID == category.ID).ToList();
-                    int tasksCount = ps.SelectMany(p => p.Tasks).Count();
-
-                    chartData.Add(new(category.Title, tasksCount));
-                }
-
-                TodoCategoryData = chartData;
-                TodoCategoryColors = chartColors;
 
                 Tasks = await _taskRepository.ListAsync();
 
