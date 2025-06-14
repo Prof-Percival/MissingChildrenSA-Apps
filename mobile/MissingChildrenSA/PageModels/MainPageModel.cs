@@ -40,7 +40,18 @@ namespace MissingChildrenSA.PageModels
         private ObservableCollection<ProvinceCount> provinceStats = [];
 
         [ObservableProperty]
-        private ObservableCollection<Brush> provincePalette;
+        private ObservableCollection<Brush> provincePalette =
+        [
+            Brush.SteelBlue,
+            Brush.Teal,
+            Brush.IndianRed,
+            Brush.DarkOrange,
+            Brush.DarkGreen,
+            Brush.MediumPurple,
+            Brush.CadetBlue,
+            Brush.Goldenrod,
+            Brush.SlateGray,
+        ];
 
         public MainPageModel(SeedDataService seedDataService, ProjectRepository projectRepository,
             TaskRepository taskRepository, ModalErrorHandler errorHandler,
@@ -51,33 +62,8 @@ namespace MissingChildrenSA.PageModels
             _errorHandler = errorHandler;
             _seedDataService = seedDataService;
             _apiClient = apiClient;
-
-            ProvincePalette = [
-                Brush.SteelBlue,
-                Brush.Teal,
-                Brush.IndianRed,
-                Brush.DarkOrange,
-                Brush.DarkGreen,
-                Brush.MediumPurple,
-                Brush.CadetBlue,
-                Brush.Goldenrod,
-                Brush.SlateGray,
-            ];
-
-            /*
-                ProvincePalette = new ObservableCollection<Brush> {
-                Brush.FromArgb("#4682B4"), // SteelBlue
-                Brush.FromArgb("#008080"), // Teal
-                Brush.FromArgb("#CD5C5C"), // IndianRed
-                Brush.FromArgb("#FF8C00"), // DarkOrange
-                Brush.FromArgb("#006400"), // DarkGreen
-                Brush.FromArgb("#9370DB"), // MediumPurple
-                Brush.FromArgb("#5F9EA0"), // CadetBlue
-                Brush.FromArgb("#DAA520"), // Goldenrod
-                Brush.FromArgb("#708090"), // SlateGray
-                }; 
-            */
         }
+
         private async Task LoadMissingPersonsDataAsync()
         {
             try
