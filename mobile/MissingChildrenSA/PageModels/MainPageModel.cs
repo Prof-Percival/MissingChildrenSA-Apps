@@ -11,7 +11,6 @@ namespace MissingChildrenSA.PageModels
         private bool _dataLoaded;
         private readonly ProjectRepository _projectRepository;
         private readonly TaskRepository _taskRepository;
-        private readonly CategoryRepository _categoryRepository;
         private readonly ModalErrorHandler _errorHandler;
         private readonly SeedDataService _seedDataService;
         private readonly ApiClient _apiClient;
@@ -44,12 +43,11 @@ namespace MissingChildrenSA.PageModels
         private ObservableCollection<Brush> provincePalette;
 
         public MainPageModel(SeedDataService seedDataService, ProjectRepository projectRepository,
-            TaskRepository taskRepository, CategoryRepository categoryRepository, ModalErrorHandler errorHandler,
+            TaskRepository taskRepository, ModalErrorHandler errorHandler,
             ApiClient apiClient)
         {
             _projectRepository = projectRepository;
             _taskRepository = taskRepository;
-            _categoryRepository = categoryRepository;
             _errorHandler = errorHandler;
             _seedDataService = seedDataService;
             _apiClient = apiClient;
