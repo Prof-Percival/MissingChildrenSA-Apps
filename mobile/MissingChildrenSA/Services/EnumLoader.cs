@@ -10,7 +10,7 @@ public sealed class EnumLoader
 
     public EnumLoader(
         ApiClient apiClient,
-        IErrorHandler errorHandler)
+        ModalErrorHandler errorHandler)
     {
         LoadEnumsAsync(apiClient).FireAndForgetSafeAsync(errorHandler);
     }
