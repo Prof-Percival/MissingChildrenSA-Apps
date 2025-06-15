@@ -42,6 +42,7 @@ namespace MissingChildrenSA
             });
 
 
+            builder.Services.AddSingleton<EnumLoader>();
             builder.Services.AddSingleton<ProjectRepository>();
             builder.Services.AddSingleton<TaskRepository>();
             builder.Services.AddSingleton<CategoryRepository>();
