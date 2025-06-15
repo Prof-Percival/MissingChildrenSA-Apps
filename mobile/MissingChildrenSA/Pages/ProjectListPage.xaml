@@ -37,7 +37,7 @@
         </VerticalStackLayout>
       </ScrollView>
 
-        <controls:AddButton 
+        <controls:ReportMissingPersonButton
             Command="{Binding AddProjectCommand}" />
     </Grid>
 </ContentPage>

@@ -180,7 +180,7 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <controls:AddButton Command="{Binding AddTaskCommand}" />
+        <controls:ReportMissingPersonButton Command="{Binding AddTaskCommand}" />
     </Grid>
     
 </ContentPage>

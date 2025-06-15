@@ -1,8 +1,8 @@
 namespace MissingChildrenSA.Pages.Controls
 {
-    public partial class AddButton
+    public partial class ReportMissingPersonButton
     {
-        public AddButton()
+        public ReportMissingPersonButton()
         {
             InitializeComponent();
         }
