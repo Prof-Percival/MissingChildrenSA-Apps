@@ -8,9 +8,9 @@ public class DictionaryValueConverter : IValueConverter
     {
         var key = parameter?.ToString();
 
-        if (value is Dictionary<string, string> dict && key != null && dict.TryGetValue(key, out var error))
+        if (value is Dictionary<string, List<string>> dict && key != null && dict.TryGetValue(key, out var errors))
         {
-            return error;
+            return string.Join("\n", errors);
         }
 
         return null;
