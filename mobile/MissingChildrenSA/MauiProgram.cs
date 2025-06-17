@@ -55,6 +55,7 @@ namespace MissingChildrenSA
 
             builder.Services.AddTransientWithShellRoute<ProjectDetailPage, ProjectDetailPageModel>("project");
             builder.Services.AddTransientWithShellRoute<TaskDetailPage, TaskDetailPageModel>("task");
+            builder.Services.AddTransientWithShellRoute<MissingPersonPage, MissingPersonPageModel>("missingperson");
 
             return builder.Build();
         }
