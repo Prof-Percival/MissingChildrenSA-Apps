@@ -10,7 +10,7 @@ namespace MCSA_API.Controllers;
 
 [ApiVersion("1.0-mcsa")]
 [Route("api/[controller]")]
-[Authorize]
+//[Authorize]
 public class EnumController : BaseApiController
 {
     [HttpGet("genders")]
