@@ -8,20 +8,27 @@ public sealed class EnumLoader
     public List<EnumValue> Provinces { get; private set; } = [];
     public List<EnumValue> Races { get; private set; } = [];
 
-    public EnumLoader(
-        ApiClient apiClient,
-        ModalErrorHandler errorHandler)
+    private readonly ApiClient _apiClient;
+    private readonly ModalErrorHandler _errorHandler;
+
+    public EnumLoader(ApiClient apiClient, ModalErrorHandler errorHandler)
     {
-        LoadEnumsAsync(apiClient).FireAndForgetSafeAsync(errorHandler);
+        _apiClient = apiClient;
+        _errorHandler = errorHandler;
     }
 
-    private async Task LoadEnumsAsync(ApiClient apiClient)
+    public async Task InitializeAsync()
     {
-        await LoadSafeAsync(apiClient.GendersAsync, values => Genders = values);
-        await LoadSafeAsync(apiClient.MissingPersonStatusesAsync, values => MissingPersonStatuses = values);
-        await LoadSafeAsync(apiClient.ModerationStatusesAsync, values => ModerationStatuses = values);
-        await LoadSafeAsync(apiClient.ProvincesAsync, values => Provinces = values);
-        await LoadSafeAsync(apiClient.RacesAsync, values => Races = values);
+        await LoadEnumsAsync();
+    }
+
+    private async Task LoadEnumsAsync()
+    {
+        await LoadSafeAsync(_apiClient.GendersAsync, values => Genders = values);
+        await LoadSafeAsync(_apiClient.MissingPersonStatusesAsync, values => MissingPersonStatuses = values);
+        await LoadSafeAsync(_apiClient.ModerationStatusesAsync, values => ModerationStatuses = values);
+        await LoadSafeAsync(_apiClient.ProvincesAsync, values => Provinces = values);
+        await LoadSafeAsync(_apiClient.RacesAsync, values => Races = values);
     }
 
     private async Task LoadSafeAsync(Func<Task<ICollection<EnumValueResponse>>> apiCall, Action<List<EnumValue>> assign)
