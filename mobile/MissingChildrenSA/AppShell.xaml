@@ -4,9 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.SegmentedControl;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:pages="clr-namespace:MissingChildrenSA.Pages"
     Shell.FlyoutBehavior="Flyout"
     Title="Missing Children SA">
+
+    <Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#ED1F27" StatusBarStyle="DarkContent" />
+    </Shell.Behaviors>
 
     <ShellContent
         Title="Dashboard"
