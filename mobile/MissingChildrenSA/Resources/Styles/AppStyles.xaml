@@ -103,6 +103,12 @@
             Color="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}"
             Size="{StaticResource size240}" />
 
+    <FontImageSource x:Key="IconReportMissingPerson"
+            Glyph="{x:Static f:FluentUI.person_add_24_regular}"
+            FontFamily="{x:Static f:FluentUI.FontFamily}"
+            Color="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource LightOnDarkBackground}}"
+            Size="{StaticResource IconSize}" />
+
     <Style TargetType="Label">
         <Setter Property="TextColor"
                 Value="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
