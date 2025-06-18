@@ -259,7 +259,7 @@ namespace MissingChildrenSA.PageModels
                 EyeColour = MissingPerson.EyeColour,
                 Height = MissingPerson.Height.Value,
                 Weight = MissingPerson.Weight.Value,
-                MarksTattoos = MissingPerson.MarksTattoos,
+                MarksTattoos = MissingPerson.MarksTattoos ?? string.Empty,
                 LastSeenWearing = MissingPerson.LastSeenWearing,
                 LocationLastSeen = MissingPerson.LocationLastSeen,
                 ImageUrl = MissingPerson.ImageUrl,
