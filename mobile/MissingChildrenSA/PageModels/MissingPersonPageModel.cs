@@ -48,6 +48,8 @@ namespace MissingChildrenSA.PageModels
         [ObservableProperty]
         private List<string> _races = [];
 
+        [ObservableProperty]
+        private string _imageUrl;
 
         [ObservableProperty]
         private Dictionary<string, List<string>> _validationErrors = [];
@@ -194,7 +196,9 @@ namespace MissingChildrenSA.PageModels
                 }
 
                 // Set the image URL so the preview updates
-                MissingPerson.ImageUrl = imageMetadata.FileUrl;
+                ImageUrl = imageMetadata.FileUrl;
+
+                MissingPerson.ImageUrl = ImageUrl;
             }
             catch (Exception ex)
             {
@@ -225,7 +229,15 @@ namespace MissingChildrenSA.PageModels
                     }
                 }
 
-                _errorHandler.DisplayMessage("Please correct the errors");
+                if (ValidationErrors.Count == 1 &&
+                    ValidationErrors.TryGetValue(nameof(ImageUrl), out _))
+                {
+                    _errorHandler.DisplayMessage("Please upload an image.");
+                }
+                else
+                {
+                    _errorHandler.DisplayMessage("Please correct the errors");
+                }
 
                 OnPropertyChanged(nameof(ValidationErrors));
                 OnPropertyChanged(nameof(HasError));

@@ -184,7 +184,7 @@
                 <!-- IMAGE + SUBMIT -->
                 <Label Text="Upload Image" FontSize="18" FontAttributes="Bold" />
                 <Button Text="Select Image" Command="{Binding SelectImageCommand}" />
-                <Image Source="{Binding MissingPerson.ImageUrl}" Aspect="AspectFill" HeightRequest="200" />
+                <Image Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="200" />
                 <Button Text="Submit" Command="{Binding SaveCommand}" />
             </VerticalStackLayout>
         </ScrollView>
