@@ -57,17 +57,7 @@ namespace MissingChildrenSA
             builder.Services.AddTransientWithShellRoute<TaskDetailPage, TaskDetailPageModel>("task");
             builder.Services.AddTransientWithShellRoute<MissingPersonPage, MissingPersonPageModel>("missingperson");
 
-            var app = builder.Build();
-
-            // Manually trigger enum loading at startup
-            var enumLoader = app.Services.GetRequiredService<EnumLoader>();
-            
-            enumLoader.InitializeAsync()
-                      .ConfigureAwait(false)
-                      .GetAwaiter()
-                      .GetResult();  // Block on this to complete loading before app runs
-
-            return app;
+            return builder.Build();
         }
     }
 }

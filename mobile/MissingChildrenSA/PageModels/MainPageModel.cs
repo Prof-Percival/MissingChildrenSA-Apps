@@ -55,13 +55,15 @@ namespace MissingChildrenSA.PageModels
 
         public MainPageModel(SeedDataService seedDataService, ProjectRepository projectRepository,
             TaskRepository taskRepository, ModalErrorHandler errorHandler,
-            ApiClient apiClient)
+            ApiClient apiClient, EnumLoader enumLoader)
         {
             _projectRepository = projectRepository;
             _taskRepository = taskRepository;
             _errorHandler = errorHandler;
             _seedDataService = seedDataService;
             _apiClient = apiClient;
+
+            enumLoader.InitializeAsync().FireAndForgetSafeAsync();
         }
 
         private async Task LoadMissingPersonsDataAsync()
