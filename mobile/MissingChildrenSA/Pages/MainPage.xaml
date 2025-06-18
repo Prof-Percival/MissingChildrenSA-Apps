@@ -177,6 +177,6 @@
 
         <controls:ReportMissingPersonButton 
             IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
-            Command="{Binding AddTaskCommand}" />
+            Command="{Binding ReportMissingPersonCommand}" />
     </Grid>
 </ContentPage>
