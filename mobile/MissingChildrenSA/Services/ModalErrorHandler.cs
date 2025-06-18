@@ -29,5 +29,24 @@ namespace MissingChildrenSA.Services
                 _semaphore.Release();
             }
         }
+
+        public void DisplayMessage(string message, string title = "Error", string cancel = "OK")
+        {
+            DisplayAlert(title, message, cancel).FireAndForgetSafeAsync();
+        }
+
+        async Task DisplayAlert(string title, string message, string cancel)
+        {
+            try
+            {
+                await _semaphore.WaitAsync();
+                if (Shell.Current is Shell shell)
+                    await shell.DisplayAlert(title, message, cancel);
+            }
+            finally
+            {
+                _semaphore.Release();
+            }
+        }
     }
 }
