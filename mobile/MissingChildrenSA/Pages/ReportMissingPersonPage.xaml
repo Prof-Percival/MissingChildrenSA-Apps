@@ -185,7 +185,7 @@
                 <Label Text="Upload Image" FontSize="18" FontAttributes="Bold" />
                 <Button Text="Select Image" Command="{Binding SelectImageCommand}" />
                 <Image Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="200" />
-                <Button Text="Submit" Background="#ED1F27" Command="{Binding SaveCommand}" />
+                <Button Text="Submit" Background="{StaticResource McsaPrimary}" Command="{Binding SaveCommand}" />
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

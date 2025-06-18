@@ -10,7 +10,7 @@
     Title="Missing Children SA">
 
     <Shell.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="#ED1F27" StatusBarStyle="DarkContent" />
+        <toolkit:StatusBarBehavior StatusBarColor="{StaticResource McsaPrimary}" StatusBarStyle="DarkContent" />
     </Shell.Behaviors>
 
     <ShellContent
