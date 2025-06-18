@@ -7,34 +7,12 @@ namespace MissingChildrenSA.PageModels
 {
     public partial class MissingPersonPageModel : ObservableObject, IQueryAttributable
     {
-        public const string ProjectQueryKey = "project";
-        private ProjectTask _task;
-        private bool _canDelete;
-        private readonly ProjectRepository _projectRepository;
-        private readonly TaskRepository _taskRepository;
+        private readonly ApiClient _apiClient;
+        private readonly EnumLoader _enumLoader;
         private readonly ModalErrorHandler _errorHandler;
 
         [ObservableProperty]
-        private string _title = string.Empty;
-
-        [ObservableProperty]
-        private bool _isCompleted;
-
-        [ObservableProperty]
-        private List<Project> _projects = [];
-
-        [ObservableProperty]
-        private Project _project;
-
-        [ObservableProperty]
-        private int _selectedProjectIndex = -1;
-
-
-        [ObservableProperty]
         private bool _isExistingMissingPerson;
-
-        private readonly ApiClient _apiClient;
-        private readonly EnumLoader _enumLoader;
 
         [ObservableProperty]
         private MissingPerson _missingPerson;
@@ -58,14 +36,10 @@ namespace MissingChildrenSA.PageModels
         private Dictionary<string, bool> _hasError = [];
 
         public MissingPersonPageModel(
-            ProjectRepository projectRepository,
-            TaskRepository taskRepository,
             ModalErrorHandler errorHandler,
             ApiClient apiClient,
             EnumLoader enumLoader)
         {
-            _projectRepository = projectRepository;
-            _taskRepository = taskRepository;
             _errorHandler = errorHandler;
             _apiClient = apiClient;
             _enumLoader = enumLoader;
@@ -75,34 +49,7 @@ namespace MissingChildrenSA.PageModels
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            LoadTaskAsync(query).FireAndForgetSafeAsync(_errorHandler);
             LoadMissingPersonAsync(query).FireAndForgetSafeAsync(_errorHandler);
-        }
-
-        private async Task LoadTaskAsync(IDictionary<string, object> query)
-        {
-            if (query.TryGetValue(ProjectQueryKey, out var project))
-                Project = (Project)project;
-
-            int taskId = 0;
-
-            if (query.ContainsKey("id"))
-            {
-                taskId = Convert.ToInt32(query["id"]);
-                _task = await _taskRepository.GetAsync(taskId);
-
-                if (_task is null)
-                {
-                    _errorHandler.HandleError(new Exception($"Task Id {taskId} isn't valid."));
-                    return;
-                }
-
-                Project = await _projectRepository.GetAsync(_task.ProjectID);
-            }
-            else
-            {
-                _task = new ProjectTask();
-            }
         }
 
         private async Task LoadMissingPersonAsync(IDictionary<string, object> query)
@@ -152,16 +99,6 @@ namespace MissingChildrenSA.PageModels
                 FirstName = missingPerson.FirstName,
                 LastName = missingPerson.LastName,
             };
-        }
-
-        public bool CanDelete
-        {
-            get => _canDelete;
-            set
-            {
-                _canDelete = value;
-                DeleteCommand.NotifyCanExecuteChanged();
-            }
         }
 
         [RelayCommand]
@@ -285,27 +222,6 @@ namespace MissingChildrenSA.PageModels
             await Shell.Current.GoToAsync("..?refresh=true");
 
             await AppShell.DisplayToastAsync("Missing Person Reported Successsfully!");
-        }
-
-        [RelayCommand(CanExecute = nameof(CanDelete))]
-        private async Task Delete()
-        {
-            if (_task is null || Project is null)
-            {
-                _errorHandler.HandleError(
-                    new Exception("Task is null. The task could not be deleted."));
-
-                return;
-            }
-
-            if (Project.Tasks.Contains(_task))
-                Project.Tasks.Remove(_task);
-
-            if (_task.ID > 0)
-                await _taskRepository.DeleteItemAsync(_task);
-
-            await Shell.Current.GoToAsync("..?refresh=true");
-            await AppShell.DisplayToastAsync("Task deleted");
         }
     }
 }
