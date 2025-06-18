@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:pageModel="clr-namespace:MissingChildrenSA.PageModels"
+             xmlns:models="clr-namespace:MissingChildrenSA.Models"
+             xmlns:local="clr-namespace:MissingChildrenSA.Utilities"
+             x:DataType="pageModel:MissingPersonPageModel"
+             x:Class="MissingChildrenSA.Pages.MissingPersonPage"
+             Title="Report Missing Person">
+
+    <!-- Resources -->
+    <ContentPage.Resources>
+        <local:DictionaryValueConverter x:Key="ErrorConverter" />
+
+        <!-- Shared LabelStyle for Errors -->
+        <sf:LabelStyle x:Key="ErrorTextStyle" TextColor="Red" FontSize="14"/>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Spacing="12" Padding="16">
+
+                <!-- Section Header -->
+                <Label Text="Personal Details" FontSize="18" FontAttributes="Bold" />
+
+                <!-- PERSONAL DETAILS -->
+                <sf:SfTextInputLayout Hint="First Name"
+                                      HasError="{Binding HasError[FirstName]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=FirstName}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.FirstName}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Last Name"
+                                      HasError="{Binding HasError[LastName]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=LastName}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.LastName}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Date of Birth"
+                                      HasError="{Binding HasError[DateOfBirth]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=DateOfBirth}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <DatePicker Date="{Binding MissingPerson.DateOfBirth}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Gender"
+                                      HasError="{Binding HasError[Gender]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=Gender}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Picker ItemsSource="{Binding Genders}" SelectedItem="{Binding MissingPerson.Gender}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Race"
+                                      HasError="{Binding HasError[Race]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=Race}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Picker ItemsSource="{Binding Races}" SelectedItem="{Binding MissingPerson.Race}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Province"
+                                      HasError="{Binding HasError[Province]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=Province}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Picker ItemsSource="{Binding Provinces}" SelectedItem="{Binding MissingPerson.Province}" />
+                </sf:SfTextInputLayout>
+
+                <!-- MISSING DETAILS -->
+                <Label Text="Missing Details" FontSize="18" FontAttributes="Bold" />
+
+                <sf:SfTextInputLayout Hint="Date Went Missing"
+                                      HasError="{Binding HasError[DateWentMissing]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=DateWentMissing}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <DatePicker Date="{Binding MissingPerson.DateWentMissing}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Hair Colour"
+                                      HasError="{Binding HasError[HairColour]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=HairColour}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.HairColour}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Hair Length/Style"
+                                      HasError="{Binding HasError[HairLengthOrStyle]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=HairLengthOrStyle}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.HairLengthOrStyle}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Eye Colour"
+                                      HasError="{Binding HasError[EyeColour]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=EyeColour}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.EyeColour}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Height (cm)"
+                                      HasError="{Binding HasError[Height]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=Height}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.Height}" Keyboard="Numeric" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Weight (kg)"
+                                      HasError="{Binding HasError[Weight]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=Weight}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.Weight}" Keyboard="Numeric" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Marks/Tattoos"
+                                      HasError="{Binding HasError[MarksTattoos]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=MarksTattoos}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Editor Text="{Binding MissingPerson.MarksTattoos}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Last Seen Wearing"
+                                      HasError="{Binding HasError[LastSeenWearing]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=LastSeenWearing}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Editor Text="{Binding MissingPerson.LastSeenWearing}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Location Last Seen"
+                                      HasError="{Binding HasError[LocationLastSeen]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=LocationLastSeen}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Editor Text="{Binding MissingPerson.LocationLastSeen}" />
+                </sf:SfTextInputLayout>
+
+                <!-- FAMILY DETAILS -->
+                <Label Text="Family Details" FontSize="18" FontAttributes="Bold" />
+
+                <sf:SfTextInputLayout Hint="Family Contact Name"
+                                      HasError="{Binding HasError[FamilyContactName]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=FamilyContactName}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.FamilyContactName}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Family Contact Number"
+                                      HasError="{Binding HasError[FamilyContactNumber]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=FamilyContactNumber}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.FamilyContactNumber}" Keyboard="Telephone" />
+                </sf:SfTextInputLayout>
+
+                <!-- POLICE DETAILS -->
+                <Label Text="Police Details" FontSize="18" FontAttributes="Bold" />
+
+                <sf:SfTextInputLayout Hint="Police Station"
+                                      HasError="{Binding HasError[PoliceStation]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=PoliceStation}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.PoliceStation}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Case Number"
+                                      HasError="{Binding HasError[CaseNumber]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=CaseNumber}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.CaseNumber}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Investigating Officer"
+                                      HasError="{Binding HasError[InvestigatingOfficer]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=InvestigatingOfficer}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.InvestigatingOfficer}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Hint="Investigating Officer Contact"
+                                      HasError="{Binding HasError[InvestigatingOfficerContactNumber]}"
+                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=InvestigatingOfficerContactNumber}"
+                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
+                    <Entry Text="{Binding MissingPerson.InvestigatingOfficerContactNumber}" Keyboard="Telephone" />
+                </sf:SfTextInputLayout>
+
+                <!-- IMAGE + SUBMIT -->
+                <Label Text="Upload Image" FontSize="18" FontAttributes="Bold" />
+                <Button Text="Select Image" Command="{Binding SelectImageCommand}" />
+                <Image Source="{Binding MissingPerson.ImageUrl}" Aspect="AspectFill" HeightRequest="200" />
+                <Button Text="Submit" Command="{Binding SaveCommand}" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
