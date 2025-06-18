@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MissingChildrenSA.PageModels
 {
-    public partial class MissingPersonPageModel : ObservableObject, IQueryAttributable
+    public partial class ReportMissingPersonPageModel : ObservableObject, IQueryAttributable
     {
         private readonly ApiClient _apiClient;
         private readonly EnumLoader _enumLoader;
@@ -35,7 +35,7 @@ namespace MissingChildrenSA.PageModels
         [ObservableProperty]
         private Dictionary<string, bool> _hasError = [];
 
-        public MissingPersonPageModel(
+        public ReportMissingPersonPageModel(
             ModalErrorHandler errorHandler,
             ApiClient apiClient,
             EnumLoader enumLoader)

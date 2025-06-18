@@ -180,7 +180,7 @@ namespace MissingChildrenSA.PageModels
 
         [RelayCommand]
         private static Task ReportMissingPerson()
-            => Shell.Current.GoToAsync($"missingperson");
+            => Shell.Current.GoToAsync($"reportmissingperson");
 
         [RelayCommand]
         private Task NavigateToProject(Project project)

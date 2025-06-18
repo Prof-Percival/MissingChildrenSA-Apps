@@ -5,8 +5,8 @@
              xmlns:pageModel="clr-namespace:MissingChildrenSA.PageModels"
              xmlns:models="clr-namespace:MissingChildrenSA.Models"
              xmlns:local="clr-namespace:MissingChildrenSA.Utilities"
-             x:DataType="pageModel:MissingPersonPageModel"
-             x:Class="MissingChildrenSA.Pages.MissingPersonPage"
+             x:DataType="pageModel:ReportMissingPersonPageModel"
+             x:Class="MissingChildrenSA.Pages.ReportMissingPersonPage"
              Title="Report Missing Person">
 
     <!-- Resources -->
