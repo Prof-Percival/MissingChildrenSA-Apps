@@ -179,6 +179,10 @@ namespace MissingChildrenSA.PageModels
             => Shell.Current.GoToAsync($"task");
 
         [RelayCommand]
+        private static Task ReportMissingPerson()
+            => Shell.Current.GoToAsync($"missingperson");
+
+        [RelayCommand]
         private Task NavigateToProject(Project project)
             => Shell.Current.GoToAsync($"project?id={project.ID}");
 
