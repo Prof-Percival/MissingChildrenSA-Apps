@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:pageModels="clr-namespace:MissingChildrenSA.PageModels"
+            xmlns:models="clr-namespace:MissingChildrenSA.Models"
+            xmlns:controls="clr-namespace:MissingChildrenSA.Pages.Controls"
+             x:Class="MissingChildrenSA.Pages.MissingPersonDetailPage"
+            x:DataType="pageModels:MissingPersonDetailPageModel"
+            Title="{Binding MissingPerson.FullName}">
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="{StaticResource LayoutPadding}" Spacing="{StaticResource MediumSpacing}">
+                <Image Source="{Binding MissingPerson.ImageUrl}" HeightRequest="200" Aspect="AspectFill" />
+                <VerticalStackLayout Padding="10">
+                    <Label Text="{Binding MissingPerson.FullName}" FontSize="26" FontAttributes="Bold" />
+                    <Label Text="{Binding MissingPerson.DateOfBirth, StringFormat='Date of Birth: {0:dd-MM-yyyy}'}" />
+                    <Label Text="{Binding MissingPerson.DateWentMissing, StringFormat='Missing Since: {0:dd-MM-yyyy}'}" />
+                    <Label Text="{Binding MissingPerson.Gender}" />
+                    <Label Text="{Binding MissingPerson.Race}" />
+                    <Label Text="{Binding MissingPerson.PoliceStation}" />
+                    <Label Text="Additional Information:" FontAttributes="Bold" />
+                    <Label Text="{Binding MissingPerson.DetailsOfDisappearance}" />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <controls:ReportMissingPersonButton Command="{Binding ReportMissingPersonCommand}" />
+    </Grid>
+</ContentPage>
