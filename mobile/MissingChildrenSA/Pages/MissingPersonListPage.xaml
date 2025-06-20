@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:MissingChildrenSA.PageModels"
+             xmlns:models="clr-namespace:MissingChildrenSA.Models"
+             xmlns:controls="clr-namespace:MissingChildrenSA.Pages.Controls"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MissingChildrenSA.Pages.MissingPersonListPage"
+             x:DataType="pageModels:MissingPersonListPageModel"
+             Title="Missing Persons">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            EventName="Appearing"                
+            Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout 
+                BindableLayout.ItemsSource="{Binding MissingPersons}" 
+                Margin="{StaticResource LayoutPadding}" 
+                Spacing="{StaticResource LayoutSpacing}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="models:MissingPersonModel">
+                        <Border>
+                            <VerticalStackLayout Padding="10">
+                                <Label Text="{Binding FullName}" FontSize="24" />
+                                <Label Text="{Binding DateOfBirth, StringFormat='Date of Birth: {0:dd-MM-yyyy}'}" />
+                                <Label Text="{Binding DateWentMissing, StringFormat='Date Went Missing: {0}'}" />
+                            </VerticalStackLayout>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NavigateToMissingPersonCommand, Source={RelativeSource AncestorType={x:Type pageModels:MissingPersonListPageModel}}, x:DataType=pageModels:MissingPersonListPageModel}" CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+        </ScrollView>
+        <controls:ReportMissingPersonButton
+            Command="{Binding ReportMissingPersonCommand}" />
+    </Grid>
+</ContentPage>

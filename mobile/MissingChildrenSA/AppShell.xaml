@@ -25,10 +25,10 @@
         Route="reportmissingperson" />
 
     <ShellContent
-        Title="Projects"
-        Icon="{StaticResource IconProjects}"
-        ContentTemplate="{DataTemplate pages:ProjectListPage}"
-        Route="projects" />
+        Title="Missing Persons"
+        Icon="{StaticResource IconMissingPersons}"
+        ContentTemplate="{DataTemplate pages:MissingPersonListPage}"
+        Route="missingpersons" />
 
     <ShellContent
         Title="Manage Meta"
