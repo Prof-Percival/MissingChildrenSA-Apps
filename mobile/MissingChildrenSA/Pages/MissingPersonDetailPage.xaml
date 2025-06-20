@@ -1,29 +1,110 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:pageModels="clr-namespace:MissingChildrenSA.PageModels"
-            xmlns:models="clr-namespace:MissingChildrenSA.Models"
-            xmlns:controls="clr-namespace:MissingChildrenSA.Pages.Controls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:MissingChildrenSA.PageModels"
+             xmlns:models="clr-namespace:MissingChildrenSA.Models"
+             xmlns:controls="clr-namespace:MissingChildrenSA.Pages.Controls"
              x:Class="MissingChildrenSA.Pages.MissingPersonDetailPage"
-            x:DataType="pageModels:MissingPersonDetailPageModel"
-            Title="{Binding MissingPerson.FullName}">
-    <Grid>
-        <ScrollView>
-            <VerticalStackLayout Padding="{StaticResource LayoutPadding}" Spacing="{StaticResource MediumSpacing}">
-                <Image Source="{Binding MissingPerson.ImageUrl}" HeightRequest="200" Aspect="AspectFill" />
-                <VerticalStackLayout Padding="10">
-                    <Label Text="{Binding MissingPerson.FullName}" FontSize="26" FontAttributes="Bold" />
-                    <Label Text="{Binding MissingPerson.DateOfBirth, StringFormat='Date of Birth: {0:dd-MM-yyyy}'}" />
-                    <Label Text="{Binding MissingPerson.DateWentMissing, StringFormat='Missing Since: {0:dd-MM-yyyy}'}" />
-                    <Label Text="{Binding MissingPerson.Gender}" />
-                    <Label Text="{Binding MissingPerson.Race}" />
-                    <Label Text="{Binding MissingPerson.PoliceStation}" />
-                    <Label Text="Additional Information:" FontAttributes="Bold" />
-                    <Label Text="{Binding MissingPerson.DetailsOfDisappearance}" />
-                </VerticalStackLayout>
+             x:DataType="pageModels:MissingPersonDetailPageModel"
+             Title="{Binding MissingPerson.FullName}">
+    <ContentPage.Resources>
+        <Color x:Key="PrimaryTextColor">#000000</Color>
+        <Color x:Key="HighlightColor">#5AA2FF</Color>
+        <Color x:Key="Gray">#808080</Color>
+        <Color x:Key="PrimaryBackgroundColor">#F5F5F5</Color>
+        <Color x:Key="SectionBackgroundColor">#EAEAEA</Color>
+        <Style TargetType="Border">
+            <Setter Property="BackgroundColor" Value="#FFFFFF" />
+            <!--<Setter Property="Shadow" Value="Gray" />-->
+        </Style>
+    </ContentPage.Resources>
+    
+    <Grid RowDefinitions="Auto, *" Padding="10">
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="20">
+                <!-- Top Image Section -->
+                <Image Source="{Binding MissingPerson.ImageUrl}"
+                       HeightRequest="250"
+                       Aspect="AspectFill"
+                       HorizontalOptions="Center" />
+
+                <!-- Basic Information Section -->
+                <Border 
+                    Stroke="#E0E0E0"
+                    Padding="12"
+                    Shadow="5,5,10,Black"
+                    BackgroundColor="{StaticResource PrimaryBackgroundColor}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Basic Information"
+                               FontAttributes="Bold"
+                               FontSize="20"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Text="Full Name" FontAttributes="Bold" TextColor="Gray" />
+                        <Label Text="{Binding MissingPerson.FullName}" />
+                        <Label Text="Date of Birth" FontAttributes="Bold" TextColor="Gray" />
+                        <Label Text="{Binding MissingPerson.DateOfBirth, StringFormat='{0:dd-MM-yyyy}'}" />
+                        <Label Text="Date Went Missing" FontAttributes="Bold" TextColor="Gray" />
+                        <Label Text="{Binding MissingPerson.DateWentMissing, StringFormat='{0:dd-MM-yyyy}'}" />
+                        <Label Text="Gender" FontAttributes="Bold" TextColor="Gray" />
+                        <Label Text="{Binding MissingPerson.Gender}" />
+                        <Label Text="Race" FontAttributes="Bold" TextColor="Gray" />
+                        <Label Text="{Binding MissingPerson.Race}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Police Information Section -->
+                <Border 
+                    Stroke="#E0E0E0"
+                    Padding="12"
+                    Shadow="5,5,10,Black"
+                    BackgroundColor="{StaticResource SectionBackgroundColor}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Police Information"
+                               FontAttributes="Bold"
+                               FontSize="20"
+                               TextColor="{StaticResource HighlightColor}" />
+                        <Label Text="Police Station" FontAttributes="Bold" TextColor="Gray" />
+                        <Label Text="{Binding MissingPerson.PoliceStation}" />
+                        <Label Text="Case Number" FontAttributes="Bold" TextColor="Gray" />
+                        <Label Text="{Binding MissingPerson.CaseNumber}" />
+                        <Label Text="Investigating Officer" FontAttributes="Bold" TextColor="Gray" />
+                        <Label Text="{Binding MissingPerson.InvestigatingOfficer}" />
+                        <Label Text="Officer's Contact Number" FontAttributes="Bold" TextColor="Gray" />
+                        <Label Text="{Binding MissingPerson.InvestigatingOfficerContactNumber}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Additional Information Section -->
+                <Border
+                    Stroke="#E0E0E0"
+                    Padding="12"
+                    Shadow="5,5,10,Black"
+                    BackgroundColor="{StaticResource PrimaryBackgroundColor}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Additional Information"
+                               FontAttributes="Bold"
+                               FontSize="20"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <!-- Label for Additional Info; Visibility Based on String.IsNullOrEmpty -->
+                        <Label Text="{Binding MissingPerson.DetailsOfDisappearance}">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding MissingPerson.DetailsOfDisappearance}"
+                                             Value="">
+                                    <Setter Property="IsVisible" Value="False" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </VerticalStackLayout>
+                </Border>
             </VerticalStackLayout>
         </ScrollView>
 
-        <controls:ReportMissingPersonButton Command="{Binding ReportMissingPersonCommand}" />
+        <!-- Floating Report Button -->
+        <controls:ReportMissingPersonButton
+            Grid.Row="2"
+            Command="{Binding ReportMissingPersonCommand}"
+            HorizontalOptions="End"
+            VerticalOptions="End"/>
     </Grid>
 </ContentPage>
