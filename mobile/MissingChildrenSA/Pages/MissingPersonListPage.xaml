@@ -10,23 +10,32 @@
              Title="Missing Persons">
     <ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior
-            EventName="Appearing"                
+            EventName="Appearing"
             Command="{Binding AppearingCommand}" />
     </ContentPage.Behaviors>
-    <Grid>
-        <ScrollView>
-            <VerticalStackLayout 
-                BindableLayout.ItemsSource="{Binding MissingPersons}" 
-                Margin="{StaticResource LayoutPadding}" 
-                Spacing="{StaticResource LayoutSpacing}">
+    
+    <Grid RowDefinitions="*,Auto" Margin="{StaticResource LayoutPadding}">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding MissingPersons}"
+                                 Spacing="{StaticResource LayoutSpacing}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="models:MissingPersonModel">
-                        <Border>
-                            <VerticalStackLayout Padding="10">
-                                <Label Text="{Binding FullName}" FontSize="24" />
-                                <Label Text="{Binding DateOfBirth, StringFormat='Date of Birth: {0:dd-MM-yyyy}'}" />
-                                <Label Text="{Binding DateWentMissing, StringFormat='Date Went Missing: {0}'}" />
-                            </VerticalStackLayout>
+                        <Border Background="White">
+                            <Grid ColumnDefinitions="Auto, *" VerticalOptions="Center">
+                                <Image Source="{Binding ImageUrl}" HeightRequest="80" WidthRequest="80"
+                                       Aspect="AspectFill" Grid.Column="0"/>
+                                <VerticalStackLayout Margin="10,0,0,0" Grid.Column="1">
+                                    <Label Text="{Binding FullName}" FontSize="20" FontAttributes="Bold" />
+                                    <Label Text="{Binding Gender}" FontSize="16" TextColor="Gray" />
+                                    <Label Text="{Binding DateOfBirth, StringFormat='Date of Birth: {0:dd-MM-yyyy}'}"
+                                           FontSize="15" TextColor="DarkGray"/>
+                                    <Label Text="{Binding DateWentMissing, StringFormat='Missing Since: {0:dd-MM-yyyy}'}"
+                                           FontSize="15" TextColor="DarkGray" />
+                                </VerticalStackLayout>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:MissingPersonListPageModel}}, Path=NavigateToMissingPersonCommand}" CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding NavigateToMissingPersonCommand, Source={RelativeSource AncestorType={x:Type pageModels:MissingPersonListPageModel}}, x:DataType=pageModels:MissingPersonListPageModel}" CommandParameter="{Binding .}"/>
                             </Border.GestureRecognizers>
@@ -35,7 +44,14 @@
                 </BindableLayout.ItemTemplate>
             </VerticalStackLayout>
         </ScrollView>
-        <controls:ReportMissingPersonButton
+
+        <Grid Grid.Row="1" HorizontalOptions="Center" ColumnDefinitions="*,*">
+            <Button Text="Previous" FontSize="14" Margin="0,0,5,80" Grid.Column="0" IsVisible="{Binding IsPreviousButtonVisible}" Command="{Binding LoadPreviousPageCommand}" />
+            <Button Text="Next" FontSize="14" Margin="5,0,0,80" Grid.Column="1" IsVisible="{Binding IsNextButtonVisible}" Command="{Binding LoadNextPageCommand}" />
+        </Grid>
+
+        <controls:ReportMissingPersonButton 
+            Grid.Row="2" HorizontalOptions="End"
             Command="{Binding ReportMissingPersonCommand}" />
     </Grid>
 </ContentPage>
