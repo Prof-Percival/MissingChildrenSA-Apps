@@ -33,7 +33,7 @@
                                            FontSize="15" TextColor="DarkGray" />
                                 </VerticalStackLayout>
                                 <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:MissingPersonListPageModel}}, Path=NavigateToMissingPersonCommand}" CommandParameter="{Binding .}" />
+                                    <TapGestureRecognizer Command="{Binding NavigateToMissingPersonCommand, Source={RelativeSource AncestorType={x:Type pageModels:MissingPersonListPageModel}}, x:DataType=pageModels:MissingPersonListPageModel}" CommandParameter="{Binding .}"/>
                                 </Grid.GestureRecognizers>
                             </Grid>
                             <Border.GestureRecognizers>
