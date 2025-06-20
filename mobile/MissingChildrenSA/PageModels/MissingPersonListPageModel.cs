@@ -50,8 +50,12 @@ public partial class MissingPersonListPageModel : ObservableObject
     }
 
     [RelayCommand]
-    static Task NavigateToMissingPerson(MissingPersonModel missingPerson)
-            => Shell.Current.GoToAsync($"missingperson?id={missingPerson.Id}");
+    static async Task NavigateToMissingPerson(MissingPersonModel missingPerson)
+    {
+        string serializedModel = System.Text.Json.JsonSerializer.Serialize(missingPerson);
+        
+        await Shell.Current.GoToAsync($"missingperson?model={Uri.EscapeDataString(serializedModel)}");
+    }
 
     [RelayCommand]
     static async Task ReportMissingPerson()

@@ -25,35 +25,18 @@ public partial class MissingPersonDetailPageModel : ObservableObject, IQueryAttr
 
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
-        if (query.ContainsKey("id"))
+        if (query.TryGetValue("model", out var modelObject) && modelObject != null)
         {
-            int id = Convert.ToInt32(query["id"]);
+            var modelString = modelObject.ToString();
 
-            LoadDetails(id).FireAndForgetSafeAsync(_errorHandler);
+            // Decode the URI-encoded string
+            string decodedModel = Uri.UnescapeDataString(modelString);
+
+            MissingPerson = System.Text.Json.JsonSerializer.Deserialize<MissingPersonModel>(decodedModel);
         }
     }
 
     [RelayCommand]
     private static Task ReportMissingPerson()
         => Shell.Current.GoToAsync($"reportmissingperson");
-
-    private async Task LoadDetails(int id)
-    {
-        try
-        {
-            IsBusy = true;
-
-            var missingPerson = await _apiClient.GetMissingPersonByIdAsync(id);
-            
-            MissingPerson = new MissingPersonModel(missingPerson);
-        }
-        catch (Exception ex)
-        {
-            _errorHandler.HandleError(ex);
-        }
-        finally
-        {
-            IsBusy = false;
-        }
-    }
 }
