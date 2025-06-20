@@ -20,7 +20,7 @@
                                  Spacing="{StaticResource LayoutSpacing}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="models:MissingPersonModel">
-                        <Border Background="White">
+                        <Border Margin="0, 0, 0, 8" Background="White">
                             <Grid ColumnDefinitions="Auto, *" VerticalOptions="Center">
                                 <Image Source="{Binding ImageUrl}" HeightRequest="80" WidthRequest="80"
                                        Aspect="AspectFill" Grid.Column="0"/>
