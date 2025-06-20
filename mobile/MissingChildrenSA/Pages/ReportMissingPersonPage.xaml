@@ -73,13 +73,15 @@
                 <!-- MISSING DETAILS -->
                 <Label Text="Missing Details" FontSize="18" FontAttributes="Bold" />
 
-                <sf:SfTextInputLayout Hint="Date Went Missing"
-                                      HasError="{Binding HasError[DateWentMissing]}"
-                                      ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=DateWentMissing}"
-                                      ErrorLabelStyle="{StaticResource ErrorTextStyle}">
-                    <DatePicker Date="{Binding MissingPerson.DateWentMissing}"
-                                MinimumDate="2000-01-01"
-                                MaximumDate="{x:Static sys:DateTime.Today}"/>
+                <sf:SfTextInputLayout Hint="Date Went Missing" IsHintAlwaysFloated="True">
+                    <HorizontalStackLayout Spacing="12">
+                        <DatePicker Date="{Binding MissingPerson.MissingDate}"
+                                    MinimumDate="2000-01-01"
+                                    MaximumDate="{x:Static sys:DateTime.Today}"
+                                    FontSize="Medium"/>
+                        <TimePicker Time="{Binding MissingPerson.MissingTime}"
+                                    FontSize="Medium"/>
+                    </HorizontalStackLayout>
                 </sf:SfTextInputLayout>
 
                 <sf:SfTextInputLayout Hint="Hair Colour"

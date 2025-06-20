@@ -190,7 +190,7 @@ namespace MissingChildrenSA.PageModels
                 Gender = (Gender)_enumLoader.Genders.Single(g => g.Description == MissingPerson.Gender).Id,
                 Race = (Race)_enumLoader.Races.Single(r => r.Description == MissingPerson.Race).Id,
                 Province = (Province)_enumLoader.Provinces.Single(p => p.Description == MissingPerson.Province).Id,
-                DateWentMissing = MissingPerson.DateWentMissing.Value,
+                DateWentMissing = MissingPerson.DateWentMissing,
                 HairColour = MissingPerson.HairColour,
                 HairLengthOrStyle = MissingPerson.HairLengthOrStyle,
                 EyeColour = MissingPerson.EyeColour,

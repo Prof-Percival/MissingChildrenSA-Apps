@@ -30,9 +30,17 @@ public class MissingPerson
     [Display(Name = "Province")]
     public string Province { get; set; }
 
-    [Required(ErrorMessage = "Date missing is required")]
-    [Display(Name = "Date Went Missing")]
-    public DateTime? DateWentMissing { get; set; }
+    public DateTime MissingDate { get; set; } = DateTime.Today;
+    public TimeSpan MissingTime { get; set; } = DateTime.Now.TimeOfDay;
+
+    public DateTime DateWentMissing => new(
+        MissingDate.Year,
+        MissingDate.Month,
+        MissingDate.Day,
+        MissingTime.Hours,
+        MissingTime.Minutes,
+        0
+    );
 
     [Required(ErrorMessage = "Hair colour is required")]
     [Display(Name = "Hair Colour")]
