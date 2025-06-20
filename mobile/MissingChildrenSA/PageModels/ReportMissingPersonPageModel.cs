@@ -15,7 +15,7 @@ namespace MissingChildrenSA.PageModels
         private bool _isExistingMissingPerson;
 
         [ObservableProperty]
-        private MissingPerson _missingPerson;
+        private MissingPerson _missingPerson = new();
 
         [ObservableProperty]
         private List<string> _genders = [];
