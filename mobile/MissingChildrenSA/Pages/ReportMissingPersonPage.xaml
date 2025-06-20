@@ -5,6 +5,7 @@
              xmlns:pageModel="clr-namespace:MissingChildrenSA.PageModels"
              xmlns:models="clr-namespace:MissingChildrenSA.Models"
              xmlns:local="clr-namespace:MissingChildrenSA.Utilities"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:DataType="pageModel:ReportMissingPersonPageModel"
              x:Class="MissingChildrenSA.Pages.ReportMissingPersonPage"
              Title="Report Missing Person">
@@ -43,7 +44,9 @@
                                       HasError="{Binding HasError[DateOfBirth]}"
                                       ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=DateOfBirth}"
                                       ErrorLabelStyle="{StaticResource ErrorTextStyle}">
-                    <DatePicker Date="{Binding MissingPerson.DateOfBirth}" />
+                    <DatePicker Date="{Binding MissingPerson.DateOfBirth}"
+                                MinimumDate="1900-01-01"
+                                MaximumDate="{x:Static sys:DateTime.Today}"/>
                 </sf:SfTextInputLayout>
 
                 <sf:SfTextInputLayout Hint="Gender"
@@ -74,7 +77,9 @@
                                       HasError="{Binding HasError[DateWentMissing]}"
                                       ErrorText="{Binding ValidationErrors, Converter={StaticResource ErrorConverter}, ConverterParameter=DateWentMissing}"
                                       ErrorLabelStyle="{StaticResource ErrorTextStyle}">
-                    <DatePicker Date="{Binding MissingPerson.DateWentMissing}" />
+                    <DatePicker Date="{Binding MissingPerson.DateWentMissing}"
+                                MinimumDate="2000-01-01"
+                                MaximumDate="{x:Static sys:DateTime.Today}"/>
                 </sf:SfTextInputLayout>
 
                 <sf:SfTextInputLayout Hint="Hair Colour"
