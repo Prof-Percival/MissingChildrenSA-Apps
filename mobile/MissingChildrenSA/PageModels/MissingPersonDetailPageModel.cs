@@ -6,22 +6,8 @@ namespace MissingChildrenSA.PageModels;
 
 public partial class MissingPersonDetailPageModel : ObservableObject, IQueryAttributable
 {
-    private readonly ApiClient _apiClient;
-    private readonly ModalErrorHandler _errorHandler;
-
     [ObservableProperty]
     private MissingPersonModel _missingPerson;
-
-    [ObservableProperty]
-    bool _isBusy;
-
-    public MissingPersonDetailPageModel(
-        ApiClient apiClient,
-        ModalErrorHandler errorHandler)
-    {
-        _apiClient = apiClient;
-        _errorHandler = errorHandler;
-    }
 
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
