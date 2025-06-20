@@ -18,6 +18,11 @@
         Icon="{StaticResource IconDashboard}"
         ContentTemplate="{DataTemplate pages:MainPage}"
         Route="main" />
+    <ShellContent
+        Title="Report"
+        Icon="{StaticResource IconReportMissingPersonMenu}"
+        ContentTemplate="{DataTemplate pages:ReportMissingPersonPage}"
+        Route="reportmissingperson" />
 
     <ShellContent
         Title="Projects"
