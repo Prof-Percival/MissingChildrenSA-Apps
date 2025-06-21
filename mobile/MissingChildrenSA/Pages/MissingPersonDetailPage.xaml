@@ -15,7 +15,6 @@
         <Color x:Key="SectionBackgroundColor">#EAEAEA</Color>
         <Style TargetType="Border">
             <Setter Property="BackgroundColor" Value="#FFFFFF" />
-            <!--<Setter Property="Shadow" Value="Gray" />-->
         </Style>
     </ContentPage.Resources>
     
@@ -32,8 +31,11 @@
                 <Border 
                     Stroke="#E0E0E0"
                     Padding="12"
-                    Shadow="5,5,10,Black"
                     BackgroundColor="{StaticResource PrimaryBackgroundColor}">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="5,5" Radius="10"/>
+                    </Border.Shadow>
+
                     <VerticalStackLayout Spacing="10">
                         <Label Text="Basic Information"
                                FontAttributes="Bold"
@@ -56,8 +58,10 @@
                 <Border 
                     Stroke="#E0E0E0"
                     Padding="12"
-                    Shadow="5,5,10,Black"
                     BackgroundColor="{StaticResource SectionBackgroundColor}">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="5,5" Radius="10"/>
+                    </Border.Shadow>
                     <VerticalStackLayout Spacing="10">
                         <Label Text="Police Information"
                                FontAttributes="Bold"
@@ -78,8 +82,11 @@
                 <Border
                     Stroke="#E0E0E0"
                     Padding="12"
-                    Shadow="5,5,10,Black"
                     BackgroundColor="{StaticResource PrimaryBackgroundColor}">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="5,5" Radius="10"/>
+                    </Border.Shadow>
+
                     <VerticalStackLayout Spacing="10">
                         <Label Text="Additional Information"
                                FontAttributes="Bold"
