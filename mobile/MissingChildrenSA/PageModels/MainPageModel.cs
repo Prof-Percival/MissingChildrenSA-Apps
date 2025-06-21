@@ -5,21 +5,12 @@ using System.Collections.ObjectModel;
 
 namespace MissingChildrenSA.PageModels
 {
-    public partial class MainPageModel : ObservableObject, IProjectTaskPageModel
+    public partial class MainPageModel : ObservableObject
     {
         private bool _isNavigatedTo;
         private bool _dataLoaded;
-        private readonly ProjectRepository _projectRepository;
-        private readonly TaskRepository _taskRepository;
         private readonly ModalErrorHandler _errorHandler;
-        private readonly SeedDataService _seedDataService;
         private readonly ApiClient _apiClient;
-
-        [ObservableProperty]
-        private List<ProjectTask> _tasks = [];
-
-        [ObservableProperty]
-        private List<Project> _projects = [];
 
         [ObservableProperty]
         bool _isBusy;
@@ -29,9 +20,6 @@ namespace MissingChildrenSA.PageModels
 
         [ObservableProperty]
         private string _today = DateTime.Now.ToString("dddd, dd MMM yyyy");
-
-        public bool HasCompletedTasks
-            => Tasks?.Any(t => t.IsCompleted) ?? false;
 
         [ObservableProperty]
         private MissingPersonsStats missingPersonsStats;
@@ -53,14 +41,12 @@ namespace MissingChildrenSA.PageModels
             Brush.SlateGray,
         ];
 
-        public MainPageModel(SeedDataService seedDataService, ProjectRepository projectRepository,
-            TaskRepository taskRepository, ModalErrorHandler errorHandler,
-            ApiClient apiClient, EnumLoader enumLoader)
+        public MainPageModel(
+            ModalErrorHandler errorHandler,
+            ApiClient apiClient,
+            EnumLoader enumLoader)
         {
-            _projectRepository = projectRepository;
-            _taskRepository = taskRepository;
             _errorHandler = errorHandler;
-            _seedDataService = seedDataService;
             _apiClient = apiClient;
 
             enumLoader.InitializeAsync().FireAndForgetSafeAsync();
@@ -99,30 +85,12 @@ namespace MissingChildrenSA.PageModels
             {
                 IsBusy = true;
 
-                Projects = await _projectRepository.ListAsync();
-
-                Tasks = await _taskRepository.ListAsync();
-
                 await LoadMissingPersonsDataAsync();
             }
             finally
             {
                 IsBusy = false;
-                OnPropertyChanged(nameof(HasCompletedTasks));
             }
-        }
-
-        private async Task InitData(SeedDataService seedDataService)
-        {
-            bool isSeeded = Preferences.Default.ContainsKey("is_seeded");
-
-            if (!isSeeded)
-            {
-                await seedDataService.LoadSeedDataAsync();
-            }
-
-            Preferences.Default.Set("is_seeded", true);
-            await Refresh();
         }
 
         [RelayCommand]
@@ -156,7 +124,6 @@ namespace MissingChildrenSA.PageModels
         {
             if (!_dataLoaded)
             {
-                await InitData(_seedDataService);
                 _dataLoaded = true;
                 await Refresh();
             }
@@ -168,41 +135,7 @@ namespace MissingChildrenSA.PageModels
         }
 
         [RelayCommand]
-        private Task<int> TaskCompleted(ProjectTask task)
-        {
-            OnPropertyChanged(nameof(HasCompletedTasks));
-            return _taskRepository.SaveItemAsync(task);
-        }
-
-        [RelayCommand]
-        private static Task AddTask()
-            => Shell.Current.GoToAsync($"task");
-
-        [RelayCommand]
         private static Task ReportMissingPerson()
             => Shell.Current.GoToAsync($"reportmissingperson");
-
-        [RelayCommand]
-        private Task NavigateToProject(Project project)
-            => Shell.Current.GoToAsync($"project?id={project.ID}");
-
-        [RelayCommand]
-        private Task NavigateToTask(ProjectTask task)
-            => Shell.Current.GoToAsync($"task?id={task.ID}");
-
-        [RelayCommand]
-        private async Task CleanTasks()
-        {
-            var completedTasks = Tasks.Where(t => t.IsCompleted).ToList();
-            foreach (var task in completedTasks)
-            {
-                await _taskRepository.DeleteItemAsync(task);
-                Tasks.Remove(task);
-            }
-
-            OnPropertyChanged(nameof(HasCompletedTasks));
-            Tasks = new(Tasks);
-            await AppShell.DisplayToastAsync("All cleaned up!");
-        }
     }
 }
