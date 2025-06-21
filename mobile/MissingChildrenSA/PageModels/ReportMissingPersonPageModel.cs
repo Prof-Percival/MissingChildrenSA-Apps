@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MissingChildrenSA.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MissingChildrenSA.PageModels
 {
@@ -97,6 +98,7 @@ namespace MissingChildrenSA.PageModels
         }
 
         [RelayCommand]
+        [RequiresUnreferencedCode("Calls System.ComponentModel.DataAnnotations.ValidationContext.ValidationContext(Object)")]
         private async Task Save()
         {
             ValidationErrors.Clear();

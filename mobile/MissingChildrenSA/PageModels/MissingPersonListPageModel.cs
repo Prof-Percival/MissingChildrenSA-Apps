@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Extensions.Logging;
 using MissingChildrenSA.Models;
 
 namespace MissingChildrenSA.PageModels;
@@ -7,6 +8,8 @@ namespace MissingChildrenSA.PageModels;
 public partial class MissingPersonListPageModel : ObservableObject
 {
     private readonly ApiClient _apiClient;
+    private readonly ILogger<MissingPersonListPageModel> _logger;
+    private readonly ModalErrorHandler _errorHandler;
 
     private static int _currentPage = 1;
     private const int PageSize = 10;
@@ -21,9 +24,14 @@ public partial class MissingPersonListPageModel : ObservableObject
     [ObservableProperty]
     bool _isNextButtonVisible = _totalCount > _currentPage * PageSize;
 
-    public MissingPersonListPageModel(ApiClient apiClient)
+    public MissingPersonListPageModel(
+        ApiClient apiClient,
+        ILogger<MissingPersonListPageModel> logger,
+        ModalErrorHandler errorHandler)
     {
         _apiClient = apiClient;
+        _logger = logger;
+        _errorHandler = errorHandler;
     }
 
     [RelayCommand]
@@ -50,11 +58,20 @@ public partial class MissingPersonListPageModel : ObservableObject
     }
 
     [RelayCommand]
-    static async Task NavigateToMissingPerson(MissingPersonModel missingPerson)
+    async Task NavigateToMissingPerson(MissingPersonModel missingPerson)
     {
-        string serializedModel = System.Text.Json.JsonSerializer.Serialize(missingPerson);
-        
-        await Shell.Current.GoToAsync($"missingperson?model={Uri.EscapeDataString(serializedModel)}");
+        try
+        {
+            string serializedModel = System.Text.Json.JsonSerializer.Serialize(missingPerson, JsonContext.Default.MissingPersonModel);
+
+            await Shell.Current.GoToAsync($"missingperson?model={Uri.EscapeDataString(serializedModel)}");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error serializing missing person data");
+
+            _errorHandler.HandleError(ex);
+        }
     }
 
     [RelayCommand]
