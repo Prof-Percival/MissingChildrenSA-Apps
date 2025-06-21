@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MissingChildrenSA.PageModels
 {
-    public partial class ReportMissingPersonPageModel : ObservableObject, IQueryAttributable
+    public partial class ReportMissingPersonPageModel : ObservableObject
     {
         private readonly ApiClient _apiClient;
         private readonly EnumLoader _enumLoader;
@@ -47,58 +47,11 @@ namespace MissingChildrenSA.PageModels
             PopulateDropdownValues();
         }
 
-        public void ApplyQueryAttributes(IDictionary<string, object> query)
-        {
-            LoadMissingPersonAsync(query).FireAndForgetSafeAsync(_errorHandler);
-        }
-
-        private async Task LoadMissingPersonAsync(IDictionary<string, object> query)
-        {
-            if (query.ContainsKey("id"))
-            {
-                var missingPersonId = Convert.ToInt32(query["id"]);
-
-                var missingPersonViewModel = await _apiClient.GetMissingPersonByIdAsync(missingPersonId);
-
-                if (missingPersonViewModel is null)
-                {
-                    _errorHandler.HandleError(new Exception($"Missing Person Id {missingPersonId} isn't valid."));
-                    
-                    return;
-                }
-
-                MissingPerson = Map(missingPersonViewModel);
-            }
-            else
-            {
-                MissingPerson = new MissingPerson();
-            }
-
-            if (MissingPerson.Id == 0)
-            {
-                IsExistingMissingPerson = false;
-            }
-            else
-            {
-                IsExistingMissingPerson = true;
-            }
-        }
-
         private void PopulateDropdownValues()
         {
             Genders = [.. _enumLoader.Genders.Select(g => g.Description)];
             Provinces = _enumLoader.Provinces.ConvertAll(p => p.Description);
             Races = _enumLoader.Races.ConvertAll(r => r.Description);
-        }
-
-        private static MissingPerson Map(MissingPersonViewModel missingPerson)
-        {
-            return new MissingPerson
-            {
-                Id = missingPerson.Id,
-                FirstName = missingPerson.FirstName,
-                LastName = missingPerson.LastName,
-            };
         }
 
         [RelayCommand]
