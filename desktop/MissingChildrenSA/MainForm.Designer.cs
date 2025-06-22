@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             BtnLogin = new Button();
+            LblDateTime = new Label();
+            LblSlogan = new Label();
+            LblVersion = new Label();
+            TabPanFooter = new TableLayoutPanel();
+            TabPanFooter.SuspendLayout();
             SuspendLayout();
             // 
             // BtnLogin
@@ -48,6 +53,58 @@
             BtnLogin.UseVisualStyleBackColor = false;
             BtnLogin.Click += BtnLogin_Click;
             // 
+            // LblDateTime
+            // 
+            LblDateTime.AutoSize = true;
+            LblDateTime.BackColor = Color.Transparent;
+            LblDateTime.Font = new Font("Arial", 10F, FontStyle.Bold);
+            LblDateTime.ForeColor = Color.White;
+            LblDateTime.Location = new Point(10, 10);
+            LblDateTime.Name = "LblDateTime";
+            LblDateTime.Size = new Size(109, 16);
+            LblDateTime.TabIndex = 1;
+            LblDateTime.Text = "Loading time...";
+            // 
+            // LblSlogan
+            // 
+            LblSlogan.BackColor = Color.Transparent;
+            LblSlogan.Font = new Font("Arial", 14.25F, FontStyle.Bold);
+            LblSlogan.ForeColor = Color.White;
+            LblSlogan.Location = new Point(0, 50);
+            LblSlogan.Name = "LblSlogan";
+            LblSlogan.Size = new Size(861, 30);
+            LblSlogan.TabIndex = 3;
+            LblSlogan.Text = "Bringing Families Together - One Child at a Time";
+            LblSlogan.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // LblVersion
+            // 
+            LblVersion.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            LblVersion.AutoSize = true;
+            LblVersion.BackColor = Color.Transparent;
+            LblVersion.Font = new Font("Arial", 9F, FontStyle.Italic);
+            LblVersion.ForeColor = Color.WhiteSmoke;
+            LblVersion.Location = new Point(764, 5);
+            LblVersion.Name = "LblVersion";
+            LblVersion.Size = new Size(85, 15);
+            LblVersion.TabIndex = 2;
+            LblVersion.Text = "Version v1.0.0";
+            // 
+            // TabPanFooter
+            // 
+            TabPanFooter.BackColor = Color.Transparent;
+            TabPanFooter.ColumnCount = 2;
+            TabPanFooter.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 99F));
+            TabPanFooter.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1F));
+            TabPanFooter.Controls.Add(LblVersion, 0, 0);
+            TabPanFooter.Dock = DockStyle.Bottom;
+            TabPanFooter.Location = new Point(0, 448);
+            TabPanFooter.Name = "TabPanFooter";
+            TabPanFooter.RowCount = 1;
+            TabPanFooter.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            TabPanFooter.Size = new Size(861, 20);
+            TabPanFooter.TabIndex = 4;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
@@ -56,7 +113,10 @@
             BackgroundImage = Properties.Resources._1220x650_Lost_Boy_MCSA;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(861, 468);
+            Controls.Add(TabPanFooter);
             Controls.Add(BtnLogin);
+            Controls.Add(LblDateTime);
+            Controls.Add(LblSlogan);
             Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -64,11 +124,19 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Missing Children SA";
+            Load += MainForm_Load;
+            TabPanFooter.ResumeLayout(false);
+            TabPanFooter.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button BtnLogin;
+        private Label LblDateTime;
+        private Label LblSlogan;
+        private Label LblVersion;
+        private TableLayoutPanel TabPanFooter;
     }
 }
