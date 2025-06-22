@@ -76,6 +76,7 @@
             LblSlogan.TabIndex = 3;
             LblSlogan.Text = "Bringing Families Together - One Child at a Time";
             LblSlogan.TextAlign = ContentAlignment.TopCenter;
+            LblSlogan.Visible = false;
             // 
             // LblVersion
             // 
