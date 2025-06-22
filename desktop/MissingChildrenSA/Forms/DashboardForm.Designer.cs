@@ -1085,6 +1085,7 @@ partial class DashboardForm
         Text = "Missing Children SA";
         FormClosed += DashboardForm_FormClosed;
         Load += DashboardForm_Load;
+        Activated += DashboardForm_Activated;
         TabPanMain.ResumeLayout(false);
         PanNavigationMenu.ResumeLayout(false);
         TabPanNavigation.ResumeLayout(false);

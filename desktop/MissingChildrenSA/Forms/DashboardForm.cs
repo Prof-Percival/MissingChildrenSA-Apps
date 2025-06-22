@@ -62,6 +62,11 @@ public partial class DashboardForm : Form
         Application.Exit();
     }
 
+    private async void DashboardForm_Activated(object sender, EventArgs e)
+    {
+        await BuildStatisticsAsync();
+    }
+
     private void PopulateUserProfile()
     {
         LblUserName.Text = _currentUser.FullName;
