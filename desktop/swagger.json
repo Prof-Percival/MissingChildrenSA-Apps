@@ -740,6 +740,35 @@
         }
       }
     },
+    "/api/Statistics/get-missing-persons-statistics": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonsStatisticsModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonsStatisticsModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MissingPersonsStatisticsModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/User/create-user": {
       "post": {
         "tags": [
@@ -1048,6 +1077,8 @@
           "dateOfBirth",
           "dateWentMissing",
           "eyeColour",
+          "familyContactName",
+          "familyContactNumber",
           "firstName",
           "gender",
           "hairColour",
@@ -1057,6 +1088,9 @@
           "investigatingOfficer",
           "investigatingOfficerContactNumber",
           "lastName",
+          "lastSeenWearing",
+          "locationLastSeen",
+          "marksTattoos",
           "policeStation",
           "province",
           "race",
@@ -1110,16 +1144,16 @@
             "format": "double"
           },
           "marksTattoos": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "lastSeenWearing": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "locationLastSeen": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "imageUrl": {
             "minLength": 1,
@@ -1142,12 +1176,12 @@
             "type": "string"
           },
           "familyContactName": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "familyContactNumber": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -1518,6 +1552,22 @@
         },
         "additionalProperties": false
       },
+      "MissingPersonsStatisticsModel": {
+        "type": "object",
+        "properties": {
+          "missingPersonsStats": {
+            "$ref": "#/components/schemas/MissingPersonsStatsModel"
+          },
+          "statsByProvince": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StatByProvinceModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "MissingPersonsStatsModel": {
         "type": "object",
         "properties": {
@@ -1793,6 +1843,8 @@
           "dateOfBirth",
           "dateWentMissing",
           "eyeColour",
+          "familyContactName",
+          "familyContactNumber",
           "firstName",
           "gender",
           "hairColour",
@@ -1803,6 +1855,9 @@
           "investigatingOfficer",
           "investigatingOfficerContactNumber",
           "lastName",
+          "lastSeenWearing",
+          "locationLastSeen",
+          "marksTattoos",
           "policeStation",
           "province",
           "race",
@@ -1857,16 +1912,16 @@
             "format": "double"
           },
           "marksTattoos": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "lastSeenWearing": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "locationLastSeen": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "imageUrl": {
             "minLength": 1,
@@ -1889,12 +1944,12 @@
             "type": "string"
           },
           "familyContactName": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "familyContactNumber": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "id": {
             "type": "integer",
