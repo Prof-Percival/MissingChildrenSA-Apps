@@ -21,6 +21,9 @@ public partial class DashboardForm : Form
 
     private CurrentUser _currentUser;
 
+    private DateTime _lastStatsRefreshTime = DateTime.Now;
+    private const int RefreshCooldownSeconds = 30;
+
     public DashboardForm(
         EnumLoader enumLoader,
         CurrentUserService currentUserService,
@@ -64,7 +67,15 @@ public partial class DashboardForm : Form
 
     private async void DashboardForm_Activated(object sender, EventArgs e)
     {
+        if ((DateTime.Now - _lastStatsRefreshTime).TotalSeconds < RefreshCooldownSeconds)
+        {
+            // Skip refresh if last refresh was recent
+            return;
+        }
+
         await BuildStatisticsAsync();
+
+        _lastStatsRefreshTime = DateTime.Now;
     }
 
     private void PopulateUserProfile()
