@@ -95,6 +95,7 @@ partial class DashboardForm
         LblModerationQueueStatsTitle = new Label();
         PanMissingPersonsPerProvince = new Panel();
         MainTooltip = new ToolTip(components);
+        PicRefresh = new PictureBox();
         TabPanMain.SuspendLayout();
         PanNavigationMenu.SuspendLayout();
         TabPanNavigation.SuspendLayout();
@@ -121,6 +122,7 @@ partial class DashboardForm
         PanFailed.SuspendLayout();
         PanInModeration.SuspendLayout();
         PanUnmoderated.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)PicRefresh).BeginInit();
         SuspendLayout();
         // 
         // TabPanMain
@@ -677,6 +679,7 @@ partial class DashboardForm
         TabPanStats.ColumnCount = 2;
         TabPanStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
         TabPanStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        TabPanStats.Controls.Add(PicRefresh, 1, 1);
         TabPanStats.Controls.Add(TabPanMissingPersonsStatsContainer, 1, 0);
         TabPanStats.Controls.Add(TabPanQueueStatsContainer, 0, 0);
         TabPanStats.Controls.Add(PanMissingPersonsPerProvince, 0, 1);
@@ -1053,6 +1056,21 @@ partial class DashboardForm
         PanMissingPersonsPerProvince.Size = new Size(369, 209);
         PanMissingPersonsPerProvince.TabIndex = 2;
         // 
+        // PicRefresh
+        // 
+        PicRefresh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+        PicRefresh.Cursor = Cursors.Hand;
+        PicRefresh.Image = Properties.Resources.refresh;
+        PicRefresh.Location = new Point(710, 395);
+        PicRefresh.Margin = new Padding(10, 3, 3, 3);
+        PicRefresh.Name = "PicRefresh";
+        PicRefresh.Size = new Size(40, 33);
+        PicRefresh.SizeMode = PictureBoxSizeMode.Zoom;
+        PicRefresh.TabIndex = 3;
+        PicRefresh.TabStop = false;
+        MainTooltip.SetToolTip(PicRefresh, "Refresh");
+        PicRefresh.Click += PicRefresh_Click;
+        // 
         // DashboardForm
         // 
         AutoScaleDimensions = new SizeF(8F, 17F);
@@ -1097,6 +1115,7 @@ partial class DashboardForm
         PanFailed.ResumeLayout(false);
         PanInModeration.ResumeLayout(false);
         PanUnmoderated.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)PicRefresh).EndInit();
         ResumeLayout(false);
     }
 
@@ -1167,4 +1186,5 @@ partial class DashboardForm
     private Label LblRecentlyReportedTitle;
     private Label TabPanMissingPersonsStatsTitle;
     private Panel PanMissingPersonsPerProvince;
+    private PictureBox PicRefresh;
 }

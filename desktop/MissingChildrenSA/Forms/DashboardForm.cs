@@ -218,6 +218,11 @@ public partial class DashboardForm : Form
         missingPersonsResultsForm.ShowDialog();
     }
 
+    private async void PicRefresh_Click(object sender, EventArgs e)
+    {
+        await BuildStatisticsAsync();
+    }
+
     private async Task BuildStatisticsAsync()
     {
         try
