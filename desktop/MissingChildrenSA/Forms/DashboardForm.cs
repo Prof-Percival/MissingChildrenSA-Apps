@@ -182,6 +182,9 @@ public partial class DashboardForm : Form
             LblModerationMenu.Visible = false;
             LblModerationQueue.Visible = false;
             LblQueueStats.Visible = false;
+
+            //Hide Grid (Missing Persons) Menu
+            LblViewGrid.Visible = false;
         }
     }
 
