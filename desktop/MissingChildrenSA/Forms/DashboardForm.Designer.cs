@@ -63,6 +63,7 @@ partial class DashboardForm
         LblHome = new LinkLabel();
         PanMain = new Panel();
         TabPanStats = new TableLayoutPanel();
+        PicRefresh = new PictureBox();
         TabPanMissingPersonsStatsContainer = new TableLayoutPanel();
         TabPanMissingPersonsStats = new TableLayoutPanel();
         PanFemales = new Panel();
@@ -95,7 +96,6 @@ partial class DashboardForm
         LblModerationQueueStatsTitle = new Label();
         PanMissingPersonsPerProvince = new Panel();
         MainTooltip = new ToolTip(components);
-        PicRefresh = new PictureBox();
         TabPanMain.SuspendLayout();
         PanNavigationMenu.SuspendLayout();
         TabPanNavigation.SuspendLayout();
@@ -110,6 +110,7 @@ partial class DashboardForm
         ((System.ComponentModel.ISupportInitialize)PicLogo).BeginInit();
         PanMain.SuspendLayout();
         TabPanStats.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)PicRefresh).BeginInit();
         TabPanMissingPersonsStatsContainer.SuspendLayout();
         TabPanMissingPersonsStats.SuspendLayout();
         PanFemales.SuspendLayout();
@@ -122,7 +123,6 @@ partial class DashboardForm
         PanFailed.SuspendLayout();
         PanInModeration.SuspendLayout();
         PanUnmoderated.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)PicRefresh).BeginInit();
         SuspendLayout();
         // 
         // TabPanMain
@@ -692,6 +692,21 @@ partial class DashboardForm
         TabPanStats.Size = new Size(754, 432);
         TabPanStats.TabIndex = 0;
         // 
+        // PicRefresh
+        // 
+        PicRefresh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+        PicRefresh.Cursor = Cursors.Hand;
+        PicRefresh.Image = Properties.Resources.refresh;
+        PicRefresh.Location = new Point(710, 395);
+        PicRefresh.Margin = new Padding(10, 3, 3, 3);
+        PicRefresh.Name = "PicRefresh";
+        PicRefresh.Size = new Size(40, 33);
+        PicRefresh.SizeMode = PictureBoxSizeMode.Zoom;
+        PicRefresh.TabIndex = 3;
+        PicRefresh.TabStop = false;
+        MainTooltip.SetToolTip(PicRefresh, "Refresh");
+        PicRefresh.Click += PicRefresh_Click;
+        // 
         // TabPanMissingPersonsStatsContainer
         // 
         TabPanMissingPersonsStatsContainer.ColumnCount = 1;
@@ -1056,21 +1071,6 @@ partial class DashboardForm
         PanMissingPersonsPerProvince.Size = new Size(369, 209);
         PanMissingPersonsPerProvince.TabIndex = 2;
         // 
-        // PicRefresh
-        // 
-        PicRefresh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-        PicRefresh.Cursor = Cursors.Hand;
-        PicRefresh.Image = Properties.Resources.refresh;
-        PicRefresh.Location = new Point(710, 395);
-        PicRefresh.Margin = new Padding(10, 3, 3, 3);
-        PicRefresh.Name = "PicRefresh";
-        PicRefresh.Size = new Size(40, 33);
-        PicRefresh.SizeMode = PictureBoxSizeMode.Zoom;
-        PicRefresh.TabIndex = 3;
-        PicRefresh.TabStop = false;
-        MainTooltip.SetToolTip(PicRefresh, "Refresh");
-        PicRefresh.Click += PicRefresh_Click;
-        // 
         // DashboardForm
         // 
         AutoScaleDimensions = new SizeF(8F, 17F);
@@ -1101,6 +1101,7 @@ partial class DashboardForm
         ((System.ComponentModel.ISupportInitialize)PicLogo).EndInit();
         PanMain.ResumeLayout(false);
         TabPanStats.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)PicRefresh).EndInit();
         TabPanMissingPersonsStatsContainer.ResumeLayout(false);
         TabPanMissingPersonsStatsContainer.PerformLayout();
         TabPanMissingPersonsStats.ResumeLayout(false);
@@ -1115,7 +1116,6 @@ partial class DashboardForm
         PanFailed.ResumeLayout(false);
         PanInModeration.ResumeLayout(false);
         PanUnmoderated.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize)PicRefresh).EndInit();
         ResumeLayout(false);
     }
 
