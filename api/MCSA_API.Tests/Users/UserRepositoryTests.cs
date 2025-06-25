@@ -45,5 +45,93 @@ public class UserRepositoryTests
         var fetched = await _userRepository.GetByIdAsync(user.Id.Value);
 
         Assert.AreEqual("upsertuser@test.com", fetched.Username);
+        Assert.AreEqual(UserRole.SuperUser, fetched.Role);
+    }
+
+    [TestMethod]
+    public async Task GetByUsernameAsync_ReturnsCorrectUser()
+    {
+        var user = new User
+        {
+            Username = "userbyname@test.com",
+            FirstName = "Name",
+            LastName = "Lookup",
+            PasswordHash = "pass",
+            Role = UserRole.Receptionist
+        };
+
+        await _userRepository.UpsertAsync(user);
+
+        var fetched = await _userRepository.GetByUsernameAsync("userbyname@test.com");
+
+        Assert.IsNotNull(fetched);
+        Assert.AreEqual(user.Username, fetched.Username);
+    }
+
+    [TestMethod]
+    public async Task UpsertAsync_UpdatesExistingUser()
+    {
+        var user = new User
+        {
+            Username = "updateuser@test.com",
+            FirstName = "Initial",
+            LastName = "User",
+            PasswordHash = "oldhash",
+            Role = UserRole.Receptionist
+        };
+
+        await _userRepository.UpsertAsync(user);
+        var originalUpdated = user.Updated;
+
+        // Modify
+        user.FirstName = "Updated";
+        user.PasswordHash = "newhash";
+        user.Role = UserRole.OperationalSupport;
+
+        await _userRepository.UpsertAsync(user);
+
+        var fetched = await _userRepository.GetByIdAsync(user.Id.Value);
+
+        Assert.AreEqual("Updated", fetched.FirstName);
+        Assert.AreEqual(UserRole.OperationalSupport, fetched.Role);
+        Assert.IsTrue(fetched.Updated > originalUpdated);
+    }
+
+    [TestMethod]
+    public async Task GetAllAsync_ReturnsAllUsers()
+    {
+        var user1 = new User { Username = "a@test.com", FirstName = "A", LastName = "Test", PasswordHash = "hash", Role = UserRole.SuperUser };
+        var user2 = new User { Username = "b@test.com", FirstName = "B", LastName = "Test", PasswordHash = "hash", Role = UserRole.Receptionist };
+
+        await _userRepository.UpsertAsync(user1);
+        await _userRepository.UpsertAsync(user2);
+
+        var users = (await _userRepository.GetAllAsync()).ToList();
+
+        Assert.AreEqual(2, users.Count);
+        Assert.IsTrue(users.Any(u => u.Username == "a@test.com"));
+        Assert.IsTrue(users.Any(u => u.Username == "b@test.com"));
+    }
+
+    [TestMethod]
+    public async Task DeleteAsync_RemovesUser()
+    {
+        var user = new User
+        {
+            Username = "deleteuser@test.com",
+            FirstName = "Delete",
+            LastName = "Me",
+            PasswordHash = "hash",
+            Role = UserRole.SuperUser
+        };
+
+        await _userRepository.UpsertAsync(user);
+
+        Assert.IsNotNull(await _userRepository.GetByIdAsync(user.Id.Value));
+
+        await _userRepository.DeleteAsync(user.Id.Value);
+
+        var deleted = await _userRepository.GetByIdAsync(user.Id.Value);
+        Assert.IsNull(deleted);
     }
 }
