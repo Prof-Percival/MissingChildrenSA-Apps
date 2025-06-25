@@ -93,3 +93,6 @@ appsettings*.json
 # Publish Profile
 /MCSA-API/Properties/PublishProfiles
 /MCSA-API/Properties/ServiceDependencies
+
+# Ignore test secrets
+MCSA_API.Tests/secrets.dev.json
