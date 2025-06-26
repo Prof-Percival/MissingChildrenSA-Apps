@@ -26,15 +26,8 @@ jobs:
           dotnet-version: |
             8.0.x
             9.0.x
-
       - name: Restore
-        run: |
-          if [[ "${{ matrix.solution }}" == *"mobile/"* ]]; then
-            dotnet restore ${{ matrix.solution }} --runtime android-arm64 --runtime ios-arm64 --runtime maccatalyst-arm64 --runtime win-x64
-          else
-            dotnet restore ${{ matrix.solution }}
-          fi
-        shell: bash
+        run: dotnet restore ${{ matrix.solution }}
 
       - name: Build
         run: dotnet build ${{ matrix.solution }} --no-restore --configuration Release
