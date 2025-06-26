@@ -1,0 +1,27 @@
+name: Run API Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      MCSA_TEST_USER: ${{ secrets.MCSA_TEST_USER }}
+      MCSA_TEST_PASSWORD: ${{ secrets.MCSA_TEST_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore Tests
+        run: dotnet restore api/MCSA-API.Tests/MCSA-API.Tests.csproj
+
+      - name: Run tests
+        run: dotnet test api/MCSA-API.Tests/MCSA-API.Tests.csproj --no-restore --configuration Release --verbosity normal
