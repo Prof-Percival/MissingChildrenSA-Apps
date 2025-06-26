@@ -25,5 +25,5 @@ jobs:
       - name: Restore Tests
         run: dotnet restore api/MCSA_API.Tests/MCSA_API.Tests.csproj
 
-      - name: Run tests
+      - name: Run Tests
         run: dotnet test api/MCSA_API.Tests/MCSA_API.Tests.csproj --no-restore --configuration Release --verbosity normal
